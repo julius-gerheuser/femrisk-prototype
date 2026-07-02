@@ -189,7 +189,7 @@
   /* gauge */
   .gaugewrap{display:flex;flex-direction:column;align-items:center;margin:8px 0}
   .gauge{position:relative;width:208px;height:208px}
-  .gauge svg{transform:rotate(-90deg)}
+  .gauge > svg{transform:rotate(-90deg)}   /* ring only — not the mascot inside .num */
   .gauge .track{stroke:#e9e7f6}
   .gauge .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
   .gauge .num b{font-size:50px;line-height:1;letter-spacing:-.04em;font-weight:800;color:var(--ink)}
@@ -723,7 +723,7 @@ function buildNav(active){
 
 /* ---------------- questionnaire ---------------- */
 const QS=[
-  {key:'age',title:'Über dich',hint:'Wie alt bist du?',type:'range',min:30,max:80,val:54,unit:'Jahre'},
+  {key:'age',title:'Über dich',hint:'Wie alt bist du?',type:'range',min:18,max:100,val:54,unit:'Jahre'},
   {key:'meno',title:'Hormonstatus',hint:'Wo stehst du gerade?',why:'Mit der Menopause sinkt der schützende Östrogen-Effekt – das verändert dein Herz-Kreislauf-Risiko messbar.',type:'single',opts:['Regelmäßiger Zyklus','Wechseljahre (Zyklus verändert sich)','Postmenopausal (letzte Periode >12 Monate her)','Hormonersatztherapie (HRT)']},
   {key:'preg',title:'Schwangerschaften',hint:'Gab es Komplikationen? (Mehrfachauswahl)',why:'Eine Schwangerschaft mit Präeklampsie verdoppelt das langfristige kardiovaskuläre Risiko.',type:'multi',none:3,opts:['Präeklampsie / Bluthochdruck','Schwangerschaftsdiabetes','Frühgeburt (<37 Wochen)','Keine / trifft nicht zu']},
   {key:'smoke',title:'Lebensstil',hint:'Rauchst du?',type:'single',opts:['Nie geraucht','Früher, jetzt nicht mehr','Ja, aktuell']},

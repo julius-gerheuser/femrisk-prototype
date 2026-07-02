@@ -318,6 +318,30 @@
   .fb button:active{border-color:var(--peri);color:var(--peri)}
 
   .demobadge{position:fixed;top:10px;left:50%;transform:translateX(-50%);background:rgba(42,46,74,.86);color:#fff;font-size:11px;font-weight:600;padding:6px 14px;border-radius:99px;z-index:50;backdrop-filter:blur(6px)}
+
+  /* ---- B2B2C: employer surfaces ---- */
+  .txtinput{width:100%;border:1.6px solid var(--line);border-radius:14px;padding:15px 16px;font-size:17px;font-weight:700;font-family:inherit;color:var(--ink);letter-spacing:.08em;text-transform:uppercase;text-align:center;background:#fff}
+  .txtinput:focus{outline:none;border-color:var(--peri);box-shadow:0 0 0 3px #e7e6fa}
+  .statrow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:16px 0}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px 10px;text-align:center;box-shadow:var(--shadow-sm)}
+  .stat b{display:block;font-size:20px;letter-spacing:-.02em;color:var(--indigo)}
+  .stat span{font-size:10.5px;color:var(--muted);font-weight:600;line-height:1.3;display:block;margin-top:3px}
+  .roi-out{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+  .roi-box{background:var(--lav-bg);border-radius:14px;padding:12px;text-align:center}
+  .roi-box b{display:block;font-size:22px;letter-spacing:-.02em;color:var(--indigo);font-variant-numeric:tabular-nums}
+  .roi-box span{font-size:10.5px;color:var(--muted);font-weight:600}
+  .roi-box.hl{background:var(--good-bg)}
+  .roi-box.hl b{color:var(--lime-d)}
+  .bars{display:flex;gap:7px;align-items:flex-end;height:74px;margin:12px 0 4px}
+  .bars i{flex:1;background:linear-gradient(180deg,var(--peri),var(--indigo-2));border-radius:7px 7px 3px 3px;min-height:8px}
+  .barlabels{display:flex;gap:7px}
+  .barlabels span{flex:1;text-align:center;font-size:9.5px;color:var(--muted);font-weight:600}
+  .step{display:flex;gap:13px;align-items:flex-start;margin:14px 0}
+  .step .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--indigo);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px}
+  .step h4{margin:0 0 2px;font-size:14.5px}
+  .step p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.45}
+  .see{display:flex;gap:9px;align-items:flex-start;margin:8px 0;font-size:13.5px}
+  .see .ic{flex:0 0 auto}
 </style>
 </head>
 <body>
@@ -345,8 +369,9 @@
         <div class="feature"><div class="ic">🗺️</div><div><h4>Ein begleiteter Plan</h4><p>Nicht nur eine Zahl. Konkrete kleine Schritte, an die Hand genommen – in deinem Tempo.</p></div></div>
         <div class="feature"><div class="ic">👯‍♀️</div><div><h4>Gemeinsam statt allein</h4><p>Vernetze dich mit Frauen, die ähnliche Ziele haben. Motivation, die bleibt.</p></div></div>
         <div class="feature"><div class="ic">🩺</div><div><h4>Vorbereitet zur Ärztin</h4><p>Passende Ärzt:innen in deiner Nähe und ein Gesprächsleitfaden für den Termin.</p></div></div>
-        <button class="btn block" onclick="go('s-q')">Loslegen – 2 Minuten</button>
+        <button class="btn block" onclick="go('s-code')">Loslegen – 2 Minuten</button>
         <button class="btn ghost block" onclick="seedDemo()">Demo überspringen → App ansehen</button>
+        <button class="btn block" style="background:none;color:var(--peri);font-size:14px;padding:12px;box-shadow:none" onclick="go('s-employer')">🏢 Für Unternehmen: FemRisk als Benefit →</button>
         <p class="disc">Diese App ist keine medizinische Diagnose. Sie ergänzt das Gespräch mit deiner Ärztin oder deinem Arzt.</p>
       </div>
     </div>
@@ -479,7 +504,7 @@
           <div class="mtile" onclick="logIt('Schritte')"><span class="mt-ic">👟</span><span class="mt-face warn" id="mt-steps-face">•‿•</span><b id="mt-steps">6.240</b><span class="mt-add">+</span></div>
           <div class="mtile" onclick="logIt('Schlaf')"><span class="mt-ic">🌙</span><span class="mt-face good">☺</span><b>7h 12m</b><span class="mt-add">+</span></div>
         </div>
-        <button class="btn sm" style="width:100%;margin-top:14px;background:var(--lav-bg);color:var(--indigo)" onclick="go('s-pricing')">⌚ Gerät verbinden (Premium)</button>
+        <button class="btn sm" style="width:100%;margin-top:14px;background:var(--lav-bg);color:var(--indigo)" onclick="go('s-pricing')">⌚ Gerät verbinden – in deinem Benefit enthalten</button>
       </div>
 
       <!-- library tile -->
@@ -550,6 +575,13 @@
         <h3>Dein Bewegungs-Buddy</h3>
         <p style="color:#d2d5f1;font-size:13.5px;margin:4px 0 12px">Zu zweit sagt man seltener ab. Finde jemanden mit ähnlichem Ziel in deiner Nähe.</p>
         <button class="btn sm" style="background:#fff;color:var(--indigo);width:100%" onclick="toast('Buddy-Anfrage gesendet 💪')">Buddy finden</button>
+      </div>
+      <div class="card" style="border:1.6px solid var(--lav)">
+        <div class="tag">🏆 Firmen-Challenge · Musterfirma</div>
+        <h3 style="margin:8px 0">Schritte-Challenge Q3</h3>
+        <p class="small">Dein Team „Herzblut“ liegt auf Platz 2 – 148.230 Schritte diese Woche. Anonym: nur dein Team-Alias zählt.</p>
+        <div class="progress" style="margin:10px 0 6px"><i style="width:62%"></i></div>
+        <button class="btn sm sage" style="width:100%" onclick="toast('Du bist im Team Herzblut! 🏆')">Challenge beitreten</button>
       </div>
       <h3 style="margin:18px 0 4px;font-size:16px">Heute aktiv in München</h3>
       <div id="comm-feed"></div>
@@ -633,10 +665,10 @@
       </div>
 
       <div class="price pro">
-        <span class="ribbon">Premium testen</span>
-        <h3 style="margin:0 0 4px">Hol mehr aus deinem Plan</h3>
-        <p class="small">Begleitete Pläne, Community-Buddys, Geräte-Sync, Partnervorteile und der Arzt-Bericht.</p>
-        <button class="btn block" onclick="go('s-pricing')">Pläne ansehen</button>
+        <span class="ribbon">🎁 Benefit aktiv</span>
+        <h3 style="margin:0 0 4px">Premium – von deinem Arbeitgeber</h3>
+        <p class="small">Alle Funktionen freigeschaltet, bezahlt von <span id="prof-company">Musterfirma GmbH</span>. Anonym – dein Unternehmen sieht nie deine Daten.</p>
+        <button class="btn block" onclick="go('s-pricing')">Benefit-Details ansehen</button>
       </div>
 
       <div class="card">
@@ -649,32 +681,148 @@
     <div class="nav" id="nav-prof"></div>
   </section>
 
-  <!-- ============ PRICING ============ -->
-  <section class="screen" id="s-pricing">
-    <div class="topbar"><button class="back" onclick="nav('profile')">‹</button><div><h2>Deine Pläne</h2></div></div>
+  <!-- ============ FIRMENCODE (employee entry) ============ -->
+  <section class="screen" id="s-code">
+    <div class="topbar"><button class="back" onclick="go('s-landing')">‹</button><div><h2>Firmencode</h2><div class="sub">Dein Arbeitgeber schenkt dir Premium</div></div></div>
     <div class="scroll">
-      <div class="price">
-        <h4>Basis</h4><div class="amt">Kostenlos</div>
-        <ul><li>Risikoprofil & Heart-Balance-Score</li><li>Komplette Wissensbibliothek</li><li>Manuelles Tracking</li></ul>
+      <div class="card indigo center">
+        <div style="font-size:36px">🎁</div>
+        <h3 style="font-size:19px;margin-top:6px">FemRisk als Mitarbeiterinnen-Benefit</h3>
+        <p style="color:#d2d5f1;font-size:13.5px;margin-top:6px">Mit dem Code deines Unternehmens sind alle Premium-Funktionen für dich kostenlos.</p>
       </div>
+      <div class="field"><label>Dein Firmencode</label>
+        <input class="txtinput" id="code-input" value="MUSTER24" autocomplete="off">
+      </div>
+      <button class="btn block" onclick="applyCode()">Code einlösen →</button>
+      <button class="btn ghost block" onclick="go('s-q')">Ohne Code fortfahren</button>
+      <div class="callout"><span style="font-size:18px">🔒</span><span>Dein Unternehmen erfährt <b>nie</b>, wer die App nutzt oder was du eingibst – es sieht nur anonyme Gruppenwerte ab 20 Teilnehmerinnen.</span></div>
+    </div>
+  </section>
+
+  <!-- ============ EMPLOYER LANDING (CEO pitch) ============ -->
+  <section class="screen" id="s-employer">
+    <div class="topbar"><button class="back" onclick="go('s-landing')">‹</button><div class="brand"><div class="mark">♥</div><div><span class="fem">Fem</span><b>Risk</b></div></div><span class="pill berry" style="margin-left:auto">Für Unternehmen</span></div>
+    <div class="scroll">
+      <h1>Die häufigste Todesursache bei Frauen ist auch ein Business-Problem.</h1>
+      <p class="lead">Herz-Kreislauf-Risiken und unbehandelte Wechseljahres-Beschwerden kosten Krankheitstage – und drängen erfahrene Frauen aus dem Job. FemRisk macht Prävention zum Benefit, den Ihr Unternehmen stellt.</p>
+      <div class="statrow">
+        <div class="stat"><b>Nr. 1</b><span>Todesursache bei Frauen: Herz-Kreislauf</span></div>
+        <div class="stat"><b>1 von 10</b><span>Frauen reduziert wegen Wechseljahres-Beschwerden die Arbeitszeit</span></div>
+        <div class="stat"><b>45–60</b><span>die erfahrensten Mitarbeiterinnen – und die Risikogruppe</span></div>
+      </div>
+
+      <div class="card">
+        <div class="tag">📈 Ihr Business Case</div>
+        <h3 style="margin:8px 0 2px">Was bringt FemRisk Ihrem Unternehmen?</h3>
+        <p class="small">Wie viele Mitarbeiterinnen hat Ihr Unternehmen?</p>
+        <div class="center" style="margin-top:8px"><span class="rangeval" id="roi-n">120</span> <span class="small">Mitarbeiterinnen</span></div>
+        <input type="range" min="20" max="1000" step="10" value="120" oninput="roiCalc(+this.value)">
+        <div class="roi-out">
+          <div class="roi-box"><b id="roi-part">72</b><span>aktive Teilnehmerinnen</span></div>
+          <div class="roi-box"><b id="roi-days">58</b><span>vermiedene Krankheitstage / Jahr</span></div>
+          <div class="roi-box hl"><b id="roi-save">23.200 €</b><span>geschätzte Ersparnis / Jahr</span></div>
+          <div class="roi-box"><b id="roi-cost">5.760 €</b><span>Programmkosten / Jahr</span></div>
+        </div>
+        <p class="small center" style="margin-top:12px">≈ <b id="roi-x">4,0×</b> Return im ersten Jahr</p>
+        <p class="small" style="margin-top:10px">Annahmen (Demo): 60 % Aktivierung · 0,8 vermiedene Krankheitstage pro Teilnehmerin/Jahr · 400 € Kosten pro Krankheitstag · 4 €/Mitarbeiterin/Monat. Im Pilot messen wir Ihre echten Werte.</p>
+      </div>
+
+      <div class="card">
+        <h3>So funktioniert's</h3>
+        <div class="step"><div class="n">1</div><div><h4>Firmencode verteilen</h4><p>Sie erhalten einen Code für Ihre Belegschaft – Einladung per E-Mail oder Intranet, keine IT-Integration nötig.</p></div></div>
+        <div class="step"><div class="n">2</div><div><h4>Mitarbeiterinnen nutzen FemRisk anonym</h4><p>Risikoprofil, begleiteter Plan, Wissen, Community, Arzt-Bericht – alle Premium-Funktionen, komplett privat.</p></div></div>
+        <div class="step"><div class="n">3</div><div><h4>Sie sehen Wirkung, nie Personen</h4><p>Anonymes Dashboard mit Gruppenwerten: Aktivierung, Trend, geschätzt vermiedene Krankheitstage.</p></div></div>
+        <button class="btn block" onclick="go('s-dashboard')">Demo-Dashboard ansehen →</button>
+      </div>
+
+      <div class="card" style="border:1.6px solid var(--lav);box-shadow:none">
+        <div class="tag">🔒 Datenschutz zuerst</div>
+        <h3 style="margin:8px 0">Betriebsrats-tauglich by Design</h3>
+        <p class="small">Individuelle Gesundheitsdaten verlassen nie das Konto der Nutzerin. Ihr Unternehmen sieht ausschließlich aggregierte Werte ab 20 Teilnehmerinnen (k-Anonymität). EU-Hosting, keine Werbe-Tracker, kein Datenverkauf.</p>
+      </div>
+
+      <div class="quote">„Meine erfahrensten Leute sind Frauen zwischen 45 und 60. Wenn ich ihre Gesundheit ernst nehme, bleiben sie – so einfach ist die Rechnung.“<br><b style="font-size:12px">— Geschäftsführerin, 140 MA (Pilotinterview)</b></div>
+
       <div class="price pro">
-        <span class="ribbon">Beliebt</span>
-        <h4>Premium</h4><div class="amt">7,99&nbsp;€<span style="font-size:14px;color:var(--muted);font-weight:600"> / Monat</span></div>
+        <span class="ribbon">3-Monats-Pilot</span>
+        <h4>FemRisk für Unternehmen</h4>
+        <div class="amt">4 €<span style="font-size:14px;color:var(--muted);font-weight:600"> / Mitarbeiterin / Monat</span></div>
         <ul>
-          <li><b>Begleiteter Plan</b>, der mit dir mitwächst</li>
-          <li><b>Community & Bewegungs-Buddy</b></li>
-          <li><b>Geräte-Sync</b> (Uhr, Tracker)</li>
-          <li><b>Partnervorteile</b> (HelloFresh, Headspace …)</li>
-          <li><b>Arzt-Finder & Arzt-Bericht</b> (PDF)</li>
+          <li>Alle Premium-Funktionen für Ihre Mitarbeiterinnen</li>
+          <li>Anonymes Wirkungs-Dashboard</li>
+          <li>Firmen-Challenges (z. B. Schritte-Challenge)</li>
+          <li>Onboarding-Material für HR & Betriebsrat</li>
         </ul>
-        <button class="btn block" onclick="toast('Im echten Produkt: Zahlungsschritt')">7 Tage gratis testen</button>
+        <button class="btn block" onclick="toast('Demo: Pilot-Anfrage gesendet – wir melden uns!')">Pilot anfragen</button>
+      </div>
+      <button class="btn ghost block" onclick="seedDemo()">Die Mitarbeiterinnen-App ansehen →</button>
+      <p class="disc">Demo-Zahlen zur Veranschaulichung. Die App stellt keine medizinische Diagnose.</p>
+    </div>
+  </section>
+
+  <!-- ============ EMPLOYER DASHBOARD (demo) ============ -->
+  <section class="screen" id="s-dashboard">
+    <div class="topbar"><button class="back" onclick="go('s-employer')">‹</button><div><h2>Musterfirma GmbH</h2><div class="sub">Anonymes Wirkungs-Dashboard · letzte 8 Wochen</div></div></div>
+    <div class="scroll">
+      <div class="metrics" style="margin-top:4px">
+        <div class="mtile"><span class="mt-ic">👥</span><span class="mt-face good">☺</span><b>68 %</b><span class="small">Aktivierung (82 von 120)</span></div>
+        <div class="mtile"><span class="mt-ic">💗</span><span class="mt-face good">☺</span><b>71 <span style="font-size:13px;color:var(--lime-d)">+6</span></b><span class="small">Ø Heart-Balance (8 Wo.)</span></div>
+        <div class="mtile"><span class="mt-ic">🗺️</span><span class="mt-face good">☺</span><b>54</b><span class="small">aktive Pläne</span></div>
+        <div class="mtile"><span class="mt-ic">🏥</span><span class="mt-face good">☺</span><b>≈ 66</b><span class="small">vermiedene Krankheitstage (Prognose/Jahr)</span></div>
+      </div>
+
+      <div class="card">
+        <h3>Wöchentlich aktive Nutzerinnen</h3>
+        <div class="bars"><i style="height:38%"></i><i style="height:52%"></i><i style="height:60%"></i><i style="height:66%"></i><i style="height:70%"></i><i style="height:72%"></i><i style="height:76%"></i><i style="height:74%"></i></div>
+        <div class="barlabels"><span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span><span>W7</span><span>W8</span></div>
+      </div>
+
+      <div class="card">
+        <div class="tag">🏆 Firmen-Challenge</div>
+        <h3 style="margin:8px 0">Schritte-Challenge Q3</h3>
+        <p class="small">3 anonyme Teams · 1,24 Mio. Schritte diese Woche · Team „Herzblut“ führt</p>
+        <div class="progress" style="margin-top:10px"><i style="width:62%"></i></div>
+        <p class="small">62 % des Wochenziels erreicht</p>
+      </div>
+
+      <div class="card" style="border:1.6px solid var(--lav);box-shadow:none">
+        <div class="tag">🔒 Was Sie hier nie sehen</div>
+        <p class="small" style="margin:8px 0 0">Namen, individuelle Scores oder Antworten. Alle Werte sind Gruppenwerte ab 20 Teilnehmerinnen. Bei weniger Teilnehmerinnen zeigt das Dashboard: „Zu wenige Daten“.</p>
+        <button class="btn sm ghost" style="margin-top:10px" onclick="toast('Demo: Betriebsrats-Report (PDF) erstellt ✓')">Report für den Betriebsrat</button>
+      </div>
+      <p class="disc">Demo-Daten zur Veranschaulichung des Pilots.</p>
+    </div>
+  </section>
+
+  <!-- ============ BENEFIT (employer-paid premium) ============ -->
+  <section class="screen" id="s-pricing">
+    <div class="topbar"><button class="back" onclick="nav('profile')">‹</button><div><h2>Dein Benefit</h2><div class="sub">Premium – bezahlt von deinem Arbeitgeber</div></div></div>
+    <div class="scroll">
+      <div class="card indigo center">
+        <div style="font-size:34px">🎁</div>
+        <h3 style="font-size:20px;margin-top:6px">FemRisk Premium</h3>
+        <p style="color:#d2d5f1;font-size:13.5px;margin:4px 0 12px">geschenkt von <b id="ben-company" style="color:#fff">Musterfirma GmbH</b></p>
+        <span class="pill" style="background:#fff;color:var(--lime-d)">✓ Aktiv – für dich kostenlos</span>
+      </div>
+      <div class="card">
+        <h3>Für dich freigeschaltet</h3>
+        <div class="see"><span class="ic">✅</span><span><b>Begleiteter Plan</b>, der mit dir mitwächst</span></div>
+        <div class="see"><span class="ic">✅</span><span><b>Community & Bewegungs-Buddy</b> + Firmen-Challenge</span></div>
+        <div class="see"><span class="ic">✅</span><span><b>Geräte-Sync</b> (Uhr, Tracker)</span></div>
+        <div class="see"><span class="ic">✅</span><span><b>Partnervorteile</b> (HelloFresh, Headspace …)</span></div>
+        <div class="see"><span class="ic">✅</span><span><b>Arzt-Finder & Arzt-Bericht</b> (PDF)</span></div>
+      </div>
+      <div class="card" style="border:1.6px solid var(--lav);box-shadow:none">
+        <h3>🔒 Was dein Unternehmen sieht – und was nie</h3>
+        <div class="see"><span class="ic">👁️</span><span>Sieht: <b>anonyme Gruppenwerte</b> (ab 20 Teilnehmerinnen) und die Teilnahmequote</span></div>
+        <div class="see"><span class="ic">🚫</span><span>Sieht nie: deinen Namen, deine Antworten, deinen Score, deine Berichte</span></div>
       </div>
       <div class="card flat center">
-        <p class="small" style="margin:0 0 10px"><b>Kurze Frage an dich</b> (hilft uns sehr): Würdest du für Premium zahlen?</p>
+        <p class="small" style="margin:0 0 10px"><b>Kurze Frage an dich</b> (hilft uns sehr): Wie findest du FemRisk als Arbeitgeber-Benefit?</p>
         <div class="fb">
-          <button onclick="toast('Danke! 7,99 € notiert')">Ja, 7,99 €</button>
-          <button onclick="toast('Danke! Günstiger notiert')">Nur günstiger</button>
-          <button onclick="toast('Danke fürs Feedback')">Nein</button>
+          <button onclick="toast('Danke! 💜')">Top Benefit</button>
+          <button onclick="toast('Danke fürs Feedback')">Ganz ok</button>
+          <button onclick="toast('Danke – was fehlt dir?')">Brauche ich nicht</button>
         </div>
       </div>
     </div>
@@ -991,6 +1139,28 @@ function renderReport(){
   qs.push('Sind regelmäßige Blutdruckkontrollen zu Hause für mich sinnvoll?');
   qs.push('Welche Untersuchungen sind in meinem Alter und mit meinem Profil empfohlen?');
   document.getElementById('rep-questions').innerHTML=qs.slice(0,4).map(q=>`<li>${q}</li>`).join('');
+}
+
+/* ---------------- B2B2C: firmencode + ROI ---------------- */
+function applyCode(){
+  const code=(document.getElementById('code-input').value||'').trim();
+  if(!code){toast('Bitte gib deinen Firmencode ein');return;}
+  S.company='Musterfirma GmbH';
+  toast('🎉 Premium freigeschaltet – Musterfirma GmbH');
+  go('s-q');
+}
+function roiCalc(n){
+  const part=Math.round(n*0.6);              // 60 % Aktivierung
+  const days=Math.round(part*0.8);           // 0,8 vermiedene Krankheitstage / Teilnehmerin / Jahr
+  const save=days*400;                       // 400 € pro Krankheitstag
+  const cost=n*4*12;                         // 4 € / MA / Monat
+  const de=x=>x.toLocaleString('de-DE');
+  document.getElementById('roi-n').textContent=de(n);
+  document.getElementById('roi-part').textContent=de(part);
+  document.getElementById('roi-days').textContent=de(days);
+  document.getElementById('roi-save').textContent=de(save)+' €';
+  document.getElementById('roi-cost').textContent=de(cost)+' €';
+  document.getElementById('roi-x').textContent=(save/cost).toLocaleString('de-DE',{minimumFractionDigits:1,maximumFractionDigits:1})+'×';
 }
 
 /* ---------------- quick log ---------------- */

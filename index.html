@@ -97,6 +97,8 @@
   .opt .dot{width:22px;height:22px;border-radius:50%;border:2.4px solid #d8d6ea;flex:0 0 auto}
   .opt.sel .dot{border-color:var(--peri);background:var(--peri);box-shadow:inset 0 0 0 3.5px #fff}
   .opt.multi .dot{border-radius:7px}
+  .textinput{width:100%;border:1.6px solid var(--line);border-radius:16px;padding:16px;font-size:16px;font-family:inherit;color:var(--ink);background:#fff;margin-bottom:6px}
+  .textinput:focus{outline:none;border-color:var(--peri);box-shadow:0 0 0 3px #e7e6fa}
   .why{font-size:13px;color:var(--peri);font-weight:700;margin:2px 0 18px;cursor:pointer}
   .whybox{display:none;background:var(--lav-bg);border-radius:14px;padding:13px 15px;font-size:13px;color:var(--indigo);margin:-8px 0 18px;line-height:1.5}
   .whybox.open{display:block}
@@ -260,7 +262,7 @@
   <section class="screen" id="s-check">
     <div class="topbar"><button class="back" onclick="qBack()" aria-label="Zurück">‹</button><div><h2 id="q-step">Über dich</h2><div class="sub" id="q-count">Frage 1 von 4</div></div></div>
     <div class="scroll">
-      <div class="qtabs"><span class="on"></span><span></span><span></span><span></span></div>
+      <div class="qtabs" id="qtabs"></div>
       <div id="q-body"></div>
       <button class="btn block" id="q-next" onclick="qNext()">Weiter</button>
     </div>
@@ -532,6 +534,7 @@ function toast(t){const e=document.getElementById('toast');e.textContent=t;e.cla
 
 /* ---- questionnaire (4 questions) ---- */
 const QS=[
+  {key:'name',title:'Hallo!',hint:'Wie dürfen wir dich nennen?',type:'text',placeholder:'Dein Vorname'},
   {key:'age',title:'Über dich',hint:'Wie alt bist du?',type:'range',min:18,max:100,val:52,unit:'Jahre'},
   {key:'meno',title:'Hormonstatus',hint:'Wo stehst du gerade?',why:'Mit der Menopause sinkt der schützende Östrogen-Effekt – das verändert dein Herz-Kreislauf-Risiko messbar.',type:'single',opts:['Regelmäßiger Zyklus','Wechseljahre (Zyklus verändert sich)','Postmenopausal (>12 Monate keine Periode)','Hormonersatztherapie (HRT)']},
   {key:'preg',title:'Schwangerschaften',hint:'Gab es Komplikationen?',why:'Eine Schwangerschaft mit Präeklampsie verdoppelt das langfristige kardiovaskuläre Risiko.',type:'multi',none:3,opts:['Präeklampsie / Bluthochdruck','Schwangerschaftsdiabetes','Frühgeburt (<37 Wochen)','Keine / trifft nicht zu']},
@@ -542,7 +545,9 @@ function renderQ(){
   const q=QS[qi];
   document.getElementById('q-step').textContent=q.title;
   document.getElementById('q-count').textContent=`Frage ${qi+1} von ${QS.length}`;
-  document.querySelectorAll('#s-check .qtabs span').forEach((s,i)=>s.classList.toggle('on',i<=qi));
+  const tabs=document.getElementById('qtabs');
+  if(tabs.childElementCount!==QS.length)tabs.innerHTML=QS.map(()=>'<span></span>').join('');
+  tabs.querySelectorAll('span').forEach((s,i)=>s.classList.toggle('on',i<=qi));
   document.getElementById('q-next').textContent=qi===QS.length-1?'Profil erstellen →':'Weiter';
   const b=document.getElementById('q-body');
   let h=`<div class="qtitle">${q.hint}</div>`;
@@ -550,6 +555,8 @@ function renderQ(){
   if(q.type==='range'){
     const cur=S.answers[q.key]??q.val; S.answers[q.key]=cur;
     h+=`<div class="center"><div class="rangeval"><span id="rv">${cur}</span> ${q.unit}</div><input type="range" min="${q.min}" max="${q.max}" value="${cur}" aria-label="${q.hint}" oninput="document.getElementById('rv').textContent=this.value;S.answers['${q.key}']=+this.value"></div>`;
+  } else if(q.type==='text'){
+    h+=`<input type="text" class="textinput" placeholder="${q.placeholder}" value="${S.name||''}" oninput="S.name=this.value.trim()||null" aria-label="${q.hint}" autocomplete="given-name">`;
   } else {
     q.opts.forEach((o,i)=>{const sel=q.type==='multi'?(S.answers[q.key]||[]).includes(i):S.answers[q.key]===i;
       h+=`<button class="opt ${q.type==='multi'?'multi':''} ${sel?'sel':''}" onclick="pick('${q.key}','${q.type}',${i},this)"><span class="dot"></span><span>${o}</span></button>`;});
@@ -564,8 +571,13 @@ function pick(key,type,i,el){
   } else {S.answers[key]=i;el.parentNode.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));el.classList.add('sel');}
 }
 function qNext(){
-  const q=QS[qi],a=S.answers[q.key];
-  if(q.type!=='range'&&(a===undefined||(Array.isArray(a)&&a.length===0))){toast('Bitte wähle eine Antwort');return;}
+  const q=QS[qi];
+  if(q.type==='text'){
+    if(!S.name){toast('Bitte gib deinen Namen ein');return;}
+  } else {
+    const a=S.answers[q.key];
+    if(q.type!=='range'&&(a===undefined||(Array.isArray(a)&&a.length===0))){toast('Bitte wähle eine Antwort');return;}
+  }
   if(qi<QS.length-1){qi++;renderQ();}else runAnalyze();
 }
 function qBack(){if(qi>0){qi--;renderQ();}else go('s-welcome');}

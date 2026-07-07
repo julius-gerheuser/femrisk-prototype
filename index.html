@@ -32,6 +32,7 @@
   .screen.active{display:flex;animation:fade .28s ease}
   @keyframes fade{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
   .scroll{flex:1;overflow-y:auto;padding:0 20px 30px}
+  #s-home .scroll,#s-wissen .scroll,#s-profil .scroll{padding-bottom:104px}
 
   .topbar{display:flex;align-items:center;gap:12px;padding:22px 20px 12px;position:sticky;top:0;z-index:5;
     background:linear-gradient(var(--page),var(--page) 72%,rgba(246,245,253,0))}
@@ -160,11 +161,75 @@
   .toast{position:absolute;left:50%;bottom:30px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:12px 20px;border-radius:99px;font-size:13.5px;font-weight:700;opacity:0;pointer-events:none;transition:.25s;z-index:20;white-space:nowrap;box-shadow:0 10px 30px rgba(30,30,70,.3);max-width:88%;text-align:center}
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
   .demobadge{position:fixed;top:10px;left:50%;transform:translateX(-50%);background:rgba(42,46,74,.86);color:#fff;font-size:11px;font-weight:600;padding:6px 14px;border-radius:99px;z-index:50}
+
+  /* bottom nav (3 tabs) */
+  .nav{display:none;position:absolute;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);
+    padding:8px 10px calc(8px + env(safe-area-inset-bottom));justify-content:space-around;z-index:10}
+  .nav.show{display:flex}
+  .nav button{background:none;border:none;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:3px;
+    color:var(--muted);font-size:11px;font-weight:700;cursor:pointer;padding:4px 16px}
+  .nav button .ni{font-size:19px;width:40px;height:30px;display:grid;place-items:center;border-radius:12px;transition:.15s}
+  .nav button.on{color:var(--indigo)}
+  .nav button.on .ni{background:var(--lav-bg)}
+
+  /* home — mini score card */
+  .home-score{display:flex;align-items:center;gap:16px;background:linear-gradient(155deg,var(--indigo-2),var(--indigo));color:#fff;
+    border-radius:var(--r);padding:18px;margin:14px 0;cursor:pointer;box-shadow:var(--shadow)}
+  .hs-ring{position:relative;width:80px;height:80px;flex:0 0 auto}
+  .hs-ring svg{display:block}
+  .hs-ring .hs-track{stroke:rgba(255,255,255,.22)}
+  .hs-ring b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:23px;font-weight:800;color:#fff}
+  .hs-info h3{margin:2px 0;font-size:18px}
+  .hs-link{font-size:12.5px;color:#c7caf4;font-weight:700}
+
+  /* recommendations (compact) + wissen (illustrated) cards */
+  .rec-card{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px;margin-bottom:10px;cursor:pointer;box-shadow:var(--shadow-sm)}
+  .rec-ic{flex:0 0 auto;width:56px;height:56px;border-radius:13px;overflow:hidden;display:grid;place-items:center;background:var(--lav-bg)}
+  .rec-card h4{margin:2px 0 1px;font-size:14px;line-height:1.3}
+  .art-card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:14px;cursor:pointer;box-shadow:var(--shadow-sm)}
+  .art-ill{height:88px;width:100%;display:block}
+  .art-body{padding:13px 15px}
+  .art-body h4{margin:6px 0 3px;font-size:15px;line-height:1.32}
+
+  /* wissen — category chips */
+  .chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:8px;scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:0 0 auto;border:1.6px solid var(--line);background:#fff;color:var(--ink);font-weight:700;font-size:13px;
+    padding:8px 15px;border-radius:99px;cursor:pointer;font-family:inherit;white-space:nowrap}
+  .chip.on{background:var(--indigo);border-color:var(--indigo);color:#fff}
+
+  /* profil */
+  .avatar{width:64px;height:64px;border-radius:50%;background:var(--lav-bg);display:grid;place-items:center;font-size:30px;margin:0 auto}
+  .switchrow{display:flex;gap:12px;align-items:flex-start;justify-content:space-between}
+  .switchrow b{font-size:14px;display:block;margin-bottom:2px}
+  .switch{flex:0 0 auto;width:46px;height:27px;border-radius:99px;background:#e2e0ef;border:none;position:relative;cursor:pointer;padding:0;transition:.2s}
+  .switch i{position:absolute;top:3px;left:3px;width:21px;height:21px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.2);transition:.2s;font-style:normal}
+  .switch.on{background:var(--lime-d)}
+  .switch.on i{left:22px}
+  .settingsrow{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;font-family:inherit;
+    padding:13px 0;border-bottom:1px solid var(--line);cursor:pointer;font-size:14.5px;font-weight:700;color:var(--ink);text-align:left}
+  .settingsrow:last-child{border-bottom:none}
+
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+  /* employer — desktop (Schritt 3) */
+  @media (min-width:900px){
+    body.employer-mode .phone{max-width:960px;border-radius:20px;box-shadow:0 20px 60px rgba(35,30,75,.18);min-height:auto}
+    body.employer-mode #s-employer h1{font-size:40px}
+    body.employer-mode #s-employer .lead{font-size:17px;max-width:640px}
+    body.employer-mode #s-employer .scroll{padding:0 40px 50px}
+    body.employer-mode #s-employer .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+    body.employer-mode #s-employer .grid2 > .card,
+    body.employer-mode #s-employer .grid2 > .price,
+    body.employer-mode #s-employer .grid2 > div > .card:first-child{margin-top:0}
+  }
 </style>
 </head>
 <body>
 <div class="demobadge">FemRisk · Prototyp · keine echten Daten</div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <path id="ic-heart" d="M60 105C25 78 9 56 9 35.5 9 21 20 10 33.5 10 44 10 52 17 60 28 68 17 76 10 86.5 10 100 10 111 21 111 35.5 111 56 95 78 60 105Z"/>
+</defs></svg>
 <div class="phone">
 
   <!-- ============ 1 · WILLKOMMEN ============ -->
@@ -218,7 +283,7 @@
 
   <!-- ============ 3 · ERGEBNIS ============ -->
   <section class="screen" id="s-result">
-    <div class="topbar"><div class="brand"><div class="mark">♥</div><div><span class="fem">Fem</span><b>Risk</b></div></div></div>
+    <div class="topbar"><button class="back" onclick="resultBack()" aria-label="Zurück">‹</button><div class="brand"><div class="mark">♥</div><div><span class="fem">Fem</span><b>Risk</b></div></div></div>
     <div class="scroll">
       <div class="card">
         <div class="tag center">Dein Heart-Balance-Score</div>
@@ -259,10 +324,28 @@
     </div>
   </section>
 
-  <!-- ============ 4 · PLAN (= die App) ============ -->
-  <section class="screen" id="s-plan">
-    <div class="topbar"><button class="back" onclick="go('s-result')" aria-label="Zurück">‹</button><div><h2>Dein Plan</h2><div class="sub" id="plan-focus">Mehr Bewegung · Woche 1 von 8</div></div></div>
+  <!-- ============ 4 · HOME (Score + Plan + Tracking + Empfehlungen) ============ -->
+  <section class="screen" id="s-home">
+    <div class="topbar">
+      <div class="brand"><div class="mark">♥</div><div><span class="fem">Fem</span><b>Risk</b></div></div>
+      <span class="pill berry" id="greet" style="margin-left:auto">Hallo 👋</span>
+    </div>
     <div class="scroll">
+      <div class="home-score" onclick="resultFromHome()">
+        <div class="hs-ring">
+          <svg width="80" height="80" viewBox="0 0 80 80">
+            <circle class="hs-track" cx="40" cy="40" r="34" fill="none" stroke-width="8"/>
+            <circle id="hs-arc" cx="40" cy="40" r="34" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-dasharray="214" stroke-dashoffset="214" transform="rotate(-90 40 40)"/>
+          </svg>
+          <b id="hs-score">0</b>
+        </div>
+        <div class="hs-info">
+          <span class="tag" style="color:#c7caf4">Heart-Balance</span>
+          <h3 id="hs-band" style="color:#fff">–</h3>
+          <span class="hs-link">Profil ansehen ›</span>
+        </div>
+      </div>
+
       <div class="benefit"><span class="g">🎁</span><div><b>FemRisk Premium – von deiner Arbeitgeberin</b><p>Musterfirma GmbH · anonym – dein Score bleibt privat</p></div></div>
 
       <div class="callout"><span style="font-size:18px">💡</span><span><b>So funktioniert's:</b> Wir starten klein. Schaffst du die Aufgaben einer Woche, steigern wir sanft – kein Sprung ins kalte Wasser.</span></div>
@@ -276,12 +359,86 @@
         <h3>Dein Fortschritt</h3>
         <p class="small" style="margin:-2px 0 12px">Trag ein, was du schaffst – so siehst du, dass es wirkt.</p>
         <div class="track-tile"><span class="ti">👟</span><div><b id="steps">6.240</b><br><span class="small">Schritte heute</span></div><button class="add" onclick="addSteps()" aria-label="Schritte hinzufügen">+</button></div>
+        <button class="btn ghost sm block" onclick="toast('Demo: Geräte-Sync folgt im Pilot')">⌚ Gerät verbinden</button>
+      </div>
+
+      <h3 style="margin:18px 0 10px">Für dich empfohlen</h3>
+      <div id="home-rec"></div>
+      <button class="btn link" onclick="go('s-wissen')">Alle Themen ansehen →</button>
+
+      <p class="disc">Prototyp – Daten werden nicht gespeichert.</p>
+    </div>
+  </section>
+
+  <!-- ============ 5 · WISSEN ============ -->
+  <section class="screen" id="s-wissen">
+    <div class="topbar"><h2 style="margin:0">Wissen</h2></div>
+    <div class="scroll">
+      <div class="chips" id="chips"></div>
+
+      <h3 style="margin:14px 0 10px">Für dich empfohlen</h3>
+      <div id="wissen-rec"></div>
+
+      <h3 style="margin:18px 0 10px">Alle Themen</h3>
+      <div id="wissen-all"></div>
+    </div>
+  </section>
+
+  <!-- ============ article reader ============ -->
+  <section class="screen" id="s-article">
+    <div class="topbar"><button class="back" onclick="go('s-wissen')" aria-label="Zurück">‹</button><span class="pill berry" id="art-cat" style="margin-left:auto">Kategorie</span></div>
+    <div class="scroll">
+      <span class="pill berry" id="art-read">4 Min Lesezeit</span>
+      <h1 style="margin-top:10px" id="art-title"></h1>
+      <p id="art-body"></p>
+      <div class="card" style="background:var(--good-bg);box-shadow:none;border:1px solid #d8ecc9">
+        <h3 style="color:var(--good-tx)">Was du tun kannst</h3>
+        <div id="art-tips"></div>
+      </div>
+      <p class="small" id="art-src" style="margin:14px 0 4px"></p>
+      <div class="fb" style="margin-top:16px"><button onclick="toast('Danke für dein Feedback 👍')">👍 Hilfreich</button><button onclick="toast('Danke, wir verbessern das 👎')">👎 Nicht hilfreich</button></div>
+      <p class="disc">Prototyp – Inhalte dienen der Aufklärung, keine medizinische Diagnose.</p>
+    </div>
+  </section>
+
+  <!-- ============ 6 · PROFIL ============ -->
+  <section class="screen" id="s-profil">
+    <div class="topbar"><h2 style="margin:0">Profil</h2></div>
+    <div class="scroll">
+      <div class="card center" style="padding:22px 18px">
+        <div class="avatar">👩</div>
+        <h3 id="prof-name" style="margin:10px 0 2px">Dein Profil</h3>
+        <span class="small" id="prof-sub">Heart-Balance –</span>
+      </div>
+
+      <div class="benefit"><span class="g">🎁</span><div><b>Premium – von deiner Arbeitgeberin (Musterfirma GmbH)</b><p>Dein Unternehmen sieht nie deine Daten – nur anonyme Gruppenwerte ab 20 Teilnehmerinnen.</p></div></div>
+
+      <div class="card">
+        <h3>Zur Ärztin gehen?</h3>
+        <p class="small" style="margin:-2px 0 10px">Für dein Profil kann ein Termin bei Kardiologie oder Gynäkologie sinnvoll sein.</p>
+        <button class="btn ghost sm" onclick="toggleGuide()">Gesprächsleitfaden ansehen</button>
+        <div id="guide" style="display:none;margin-top:12px"></div>
+      </div>
+
+      <div class="card">
+        <h3>Forschung unterstützen</h3>
+        <div class="switchrow" style="margin-top:6px">
+          <div><b>Anonymisierte Daten für die Forschung freigeben</b><p class="small">Deine Antworten fließen anonymisiert in die Frauen.Herz.KI-Forschung der TU München ein. Kein Rückschluss auf dich möglich. Jederzeit hier widerrufbar.</p></div>
+          <button class="switch" id="consent-switch" onclick="toggleConsent()" aria-pressed="false"><i></i></button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Einstellungen</h3>
+        <button class="settingsrow" onclick="toast('Demo: Export erstellt ✓')"><span>Meine Daten exportieren</span><span>›</span></button>
+        <div class="settingsrow" style="cursor:default"><span>Benachrichtigungen</span><button class="switch" id="notif-switch" onclick="toggleNotif()" aria-pressed="true"><i></i></button></div>
+        <button class="settingsrow" onclick="resetDemo()"><span style="color:var(--red-d)">Demo neu starten</span><span>›</span></button>
       </div>
       <p class="disc">Prototyp – Daten werden nicht gespeichert.</p>
     </div>
   </section>
 
-  <!-- ============ 5 · FÜR UNTERNEHMEN ============ -->
+  <!-- ============ 7 · FÜR UNTERNEHMEN ============ -->
   <section class="screen" id="s-employer">
     <div class="topbar"><button class="back" onclick="go('s-welcome')" aria-label="Zurück">‹</button><div class="brand"><div class="mark">♥</div><div><span class="fem">Fem</span><b>Risk</b></div></div><span class="pill berry" style="margin-left:auto">Für Unternehmen</span></div>
     <div class="scroll">
@@ -293,61 +450,84 @@
         <div class="stat"><b>45–60</b><span>erfahrenste MA – und Risikogruppe</span></div>
       </div>
 
-      <div class="card">
-        <div class="tag">📈 Ihr Business Case</div>
-        <h3 style="margin:8px 0 2px">Was bringt FemRisk Ihrem Unternehmen?</h3>
-        <p class="small">Wie viele Mitarbeiterinnen hat Ihr Unternehmen?</p>
-        <div class="center" style="margin-top:8px"><span class="rangeval" id="roi-n">120</span> <span class="small">Mitarbeiterinnen</span></div>
-        <input type="range" min="20" max="1000" step="10" value="120" oninput="roiCalc(+this.value)" aria-label="Anzahl Mitarbeiterinnen">
-        <div class="roi-out">
-          <div class="roi-box"><b id="roi-days">58</b><span>vermiedene Krankheitstage / Jahr</span></div>
-          <div class="roi-box"><b id="roi-cost">5.760 €</b><span>Programmkosten / Jahr</span></div>
-          <div class="roi-box hl" style="grid-column:1 / -1"><b id="roi-save">23.200 €</b><span>geschätzte Netto-Ersparnis / Jahr · ≈ <span id="roi-x">4,0×</span> Return</span></div>
+      <div class="grid2">
+        <div class="card">
+          <div class="tag">📈 Ihr Business Case</div>
+          <h3 style="margin:8px 0 2px">Was bringt FemRisk Ihrem Unternehmen?</h3>
+          <p class="small">Wie viele Mitarbeiterinnen hat Ihr Unternehmen?</p>
+          <div class="center" style="margin-top:8px"><span class="rangeval" id="roi-n">120</span> <span class="small">Mitarbeiterinnen</span></div>
+          <input type="range" min="20" max="1000" step="10" value="120" oninput="roiCalc(+this.value)" aria-label="Anzahl Mitarbeiterinnen">
+          <div class="roi-out">
+            <div class="roi-box"><b id="roi-days">58</b><span>vermiedene Krankheitstage / Jahr</span></div>
+            <div class="roi-box"><b id="roi-cost">5.760 €</b><span>Programmkosten / Jahr</span></div>
+            <div class="roi-box hl" style="grid-column:1 / -1"><b id="roi-save">23.200 €</b><span>geschätzte Netto-Ersparnis / Jahr · ≈ <span id="roi-x">4,0×</span> Return</span></div>
+          </div>
+          <p class="small" style="margin-top:10px">Annahmen (Demo): 60 % Aktivierung · 0,8 vermiedene Krankheitstage/Teilnehmerin/Jahr · 400 €/Tag · 4 €/MA/Monat. Im Pilot messen wir Ihre echten Werte.</p>
         </div>
-        <p class="small" style="margin-top:10px">Annahmen (Demo): 60 % Aktivierung · 0,8 vermiedene Krankheitstage/Teilnehmerin/Jahr · 400 €/Tag · 4 €/MA/Monat. Im Pilot messen wir Ihre echten Werte.</p>
-      </div>
-
-      <div class="card">
-        <h3>So funktioniert's</h3>
-        <div class="step"><div class="n">1</div><div><h4>Firmencode verteilen</h4><p>Ein Code für Ihre Belegschaft – keine IT-Integration nötig.</p></div></div>
-        <div class="step"><div class="n">2</div><div><h4>Mitarbeiterinnen nutzen FemRisk anonym</h4><p>Risikoprofil und begleiteter Plan – komplett privat.</p></div></div>
-        <div class="step"><div class="n">3</div><div><h4>Sie sehen Wirkung, nie Personen</h4><p>Anonymes Dashboard mit Gruppenwerten.</p></div></div>
-      </div>
-
-      <div class="card">
-        <div class="tag">📊 Ihr anonymes Dashboard</div>
-        <h3 style="margin:8px 0 2px">Wirkung – ohne je Personen zu sehen</h3>
-        <div class="dash">
-          <div class="dcell"><b>68 %</b><span>Aktivierung (82 v. 120)</span></div>
-          <div class="dcell"><b>71 <span style="font-size:12px;color:var(--lime-d)">+6</span></b><span>Ø Heart-Balance (8 Wo.)</span></div>
-          <div class="dcell"><b>54</b><span>aktive Pläne</span></div>
-          <div class="dcell"><b>≈ 66</b><span>vermiedene Krankheitstage/J.</span></div>
+        <div>
+          <div class="card">
+            <h3>So funktioniert's</h3>
+            <div class="step"><div class="n">1</div><div><h4>Firmencode verteilen</h4><p>Ein Code für Ihre Belegschaft – keine IT-Integration nötig.</p></div></div>
+            <div class="step"><div class="n">2</div><div><h4>Mitarbeiterinnen nutzen FemRisk anonym</h4><p>Risikoprofil und begleiteter Plan – komplett privat.</p></div></div>
+            <div class="step"><div class="n">3</div><div><h4>Sie sehen Wirkung, nie Personen</h4><p>Anonymes Dashboard mit Gruppenwerten.</p></div></div>
+          </div>
+          <div class="card">
+            <div class="tag">📊 Ihr anonymes Dashboard</div>
+            <h3 style="margin:8px 0 2px">Wirkung – ohne je Personen zu sehen</h3>
+            <div class="dash">
+              <div class="dcell"><b>68 %</b><span>Aktivierung (82 v. 120)</span></div>
+              <div class="dcell"><b>71 <span style="font-size:12px;color:var(--lime-d)">+6</span></b><span>Ø Heart-Balance (8 Wo.)</span></div>
+              <div class="dcell"><b>54</b><span>aktive Pläne</span></div>
+              <div class="dcell"><b>≈ 66</b><span>vermiedene Krankheitstage/J.</span></div>
+            </div>
+            <div class="callout" style="margin-top:14px"><span style="font-size:18px">🔒</span><span>Nur Gruppenwerte ab 20 Teilnehmerinnen. Niemals Namen, individuelle Scores oder Antworten. Betriebsrats-tauglich, EU-Hosting, kein Datenverkauf.</span></div>
+          </div>
         </div>
-        <div class="callout" style="margin-top:14px"><span style="font-size:18px">🔒</span><span>Nur Gruppenwerte ab 20 Teilnehmerinnen. Niemals Namen, individuelle Scores oder Antworten. Betriebsrats-tauglich, EU-Hosting, kein Datenverkauf.</span></div>
       </div>
 
-      <div class="price">
-        <span class="ribbon">3-Monats-Pilot</span>
-        <h4>FemRisk für Unternehmen</h4>
-        <div class="amt">4 €<span style="font-size:14px;color:var(--muted);font-weight:600"> / Mitarbeiterin / Monat</span></div>
-        <ul><li>Alle Funktionen für Ihre Mitarbeiterinnen</li><li>Anonymes Wirkungs-Dashboard</li><li>Onboarding-Material für HR & Betriebsrat</li></ul>
-        <button class="btn block" onclick="toast('Demo: Pilot-Anfrage gesendet – wir melden uns!')">Pilot anfragen</button>
+      <div class="grid2">
+        <div class="price">
+          <span class="ribbon">3-Monats-Pilot</span>
+          <h4>FemRisk für Unternehmen</h4>
+          <div class="amt">4 €<span style="font-size:14px;color:var(--muted);font-weight:600"> / Mitarbeiterin / Monat</span></div>
+          <ul><li>Alle Funktionen für Ihre Mitarbeiterinnen</li><li>Anonymes Wirkungs-Dashboard</li><li>Onboarding-Material für HR & Betriebsrat</li></ul>
+          <button class="btn block" onclick="toast('Demo: Pilot-Anfrage gesendet – wir melden uns!')">Pilot anfragen</button>
+        </div>
+        <div class="card flat center">
+          <p class="small" style="margin:0 0 10px"><b>Kurze Frage</b> (hilft uns sehr): Würden Sie das als Arbeitgeberin anbieten?</p>
+          <div class="fb"><button onclick="toast('Danke! 4 €/MA notiert')">Ja, zu 4 €</button><button onclick="toast('Danke – Preis notiert')">Nur günstiger</button><button onclick="toast('Danke fürs Feedback')">Nein</button></div>
+        </div>
       </div>
-      <div class="card flat center">
-        <p class="small" style="margin:0 0 10px"><b>Kurze Frage</b> (hilft uns sehr): Würden Sie das als Arbeitgeberin anbieten?</p>
-        <div class="fb"><button onclick="toast('Danke! 4 €/MA notiert')">Ja, zu 4 €</button><button onclick="toast('Danke – Preis notiert')">Nur günstiger</button><button onclick="toast('Danke fürs Feedback')">Nein</button></div>
-      </div>
+
       <button class="btn ghost block" onclick="seedDemo()">Die Mitarbeiterinnen-App ansehen →</button>
       <p class="disc">Demo-Zahlen zur Veranschaulichung. Die App stellt keine medizinische Diagnose.</p>
     </div>
   </section>
 
+  <nav class="nav" id="bottomnav">
+    <button onclick="go('s-home')" data-tab="s-home"><span class="ni">🏠</span><span>Home</span></button>
+    <button onclick="go('s-wissen')" data-tab="s-wissen"><span class="ni">📚</span><span>Wissen</span></button>
+    <button onclick="go('s-profil')" data-tab="s-profil"><span class="ni">👤</span><span>Profil</span></button>
+  </nav>
+
   <div class="toast" id="toast"></div>
 </div>
 
 <script>
-const S={answers:{},score:0,band:'',factors:[],focus:null,planTitle:'Mehr Bewegung',tasks:[],week:1,steps:6240};
-function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));const el=document.getElementById(id);el.classList.add('active');const sc=el.querySelector('.scroll');if(sc)sc.scrollTop=0;}
+const S={answers:{},score:0,band:'',factors:[],focus:null,planTitle:'Mehr Bewegung',tasks:[],week:1,steps:6240,consent:false,notif:true,name:null,catFilter:'all'};
+function go(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  const el=document.getElementById(id);el.classList.add('active');
+  const sc=el.querySelector('.scroll');if(sc)sc.scrollTop=0;
+  const tabs=['s-home','s-wissen','s-profil'];
+  const nav=document.getElementById('bottomnav');
+  nav.classList.toggle('show',tabs.includes(id));
+  nav.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.tab===id));
+  document.body.classList.toggle('employer-mode',id==='s-employer');
+  if(id==='s-home')renderHome();
+  if(id==='s-wissen')renderWissen();
+  if(id==='s-profil')renderProfil();
+}
 function toast(t){const e=document.getElementById('toast');e.textContent=t;e.classList.add('show');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('show'),1900);}
 
 /* ---- questionnaire (4 questions) ---- */
@@ -431,6 +611,112 @@ function renderResult(){
 const FOCI=['Mehr Bewegung in den Alltag','Besser schlafen','Blutdruck im Blick behalten','Stress senken'];
 const TITLES=['Mehr Bewegung','Besser schlafen','Blutdruck im Blick','Stress senken'];
 function pickFocus(i,el){S.focus=i;el.parentNode.querySelectorAll('.opt').forEach(o=>{o.classList.remove('sel');o.style.borderColor='rgba(255,255,255,.3)';o.querySelector('.dot').style.background='';});el.classList.add('sel');el.style.borderColor='rgba(255,255,255,.9)';el.querySelector('.dot').style.background='#fff';}
+function resultFromHome(){renderResult();go('s-result');}
+function resultBack(){if(S.tasks&&S.tasks.length)go('s-home');else go('s-welcome');}
+
+/* ---- articles (Wissen) ---- */
+const CAT_LABEL={schlaf:'Schlaf',blutdruck:'Blutdruck',bewegung:'Bewegung',stress:'Stress',ernaehrung:'Ernährung'};
+const CATS=[{k:'all',l:'Alle'},{k:'blutdruck',l:'Blutdruck'},{k:'bewegung',l:'Bewegung'},{k:'ernaehrung',l:'Ernährung'},{k:'stress',l:'Stress'},{k:'schlaf',l:'Schlaf'}];
+const ARTICLES=[
+  {cat:'schlaf',title:'Warum Schlaf in den Wechseljahren dein Herz beeinflusst',read:'4 Min',body:'Hitzewallungen und unruhiger Schlaf sind in den Wechseljahren häufig – und sie sind mehr als lästig. Schlechter Schlaf hält den Blutdruck nachts oben und belastet das Herz-Kreislauf-System über Jahre.',tips:['Feste Schlafenszeit, auch am Wochenende','Schlafzimmer kühl (16–18 °C) und dunkel','Koffein nach 14 Uhr meiden']},
+  {cat:'blutdruck',title:'Präeklampsie in der Vergangenheit – was sie heute bedeutet',read:'5 Min',body:'Eine Schwangerschaft mit Präeklampsie verdoppelt das langfristige Risiko für Herz-Kreislauf-Erkrankungen. Die gute Nachricht: Du weißt es – und kannst gezielt gegensteuern.',tips:['Blutdruck regelmäßig messen','Beim Arzttermin die Vorgeschichte aktiv ansprechen','Cholesterinwerte kennen']},
+  {cat:'bewegung',title:'Bewegung als Herzschutz – wie viel reicht?',read:'3 Min',body:'Schon 150 Minuten moderate Bewegung pro Woche senken das Herzinfarktrisiko deutlich. Es muss kein Sport sein – zügiges Gehen zählt.',tips:['Tägliche 10-Min-Spaziergänge','Treppe statt Aufzug','Ein fester Bewegungstermin mit einer Freundin']},
+  {cat:'stress',title:'Was ist ein gutes Gespräch mit der Kardiologin?',read:'4 Min',body:'Viele Frauen werden in der Kardiologie unterschätzt. Ein vorbereitetes Gespräch ändert das – mit den richtigen Fragen lenkst du den Termin.',tips:['Konkrete Fragen vorab notieren','Nach Heim-Blutdruckmessung fragen','Deine Vorgeschichte aktiv ansprechen']},
+  {cat:'blutdruck',title:'Hormone, Blutdruck und dein Herz',read:'4 Min',body:'Östrogen schützt die Blutgefäße. Mit der Menopause fällt dieser Schutz weg – der Blutdruck steigt oft unbemerkt. Verstehen, was passiert, ist der erste Schritt.',tips:['Blutdruck als neue Routine etablieren','Salzkonsum im Blick behalten','Bei HRT die Vor- und Nachteile besprechen']},
+];
+const ART_ILL=[
+`<svg viewBox="0 0 300 160" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="300" height="160" fill="var(--lav-bg)"/><circle cx="95" cy="58" r="4" fill="var(--peri)" opacity=".6"/><circle cx="210" cy="52" r="3" fill="var(--peri)" opacity=".5"/><circle cx="200" cy="102" r="4.5" fill="var(--peri)" opacity=".45"/><circle cx="100" cy="100" r="2.6" fill="var(--peri)" opacity=".5"/><path d="M172 50a30 30 0 1 0 22 52 24 24 0 0 1-22-52Z" fill="var(--indigo-2)"/></svg>`,
+`<svg viewBox="0 0 300 160" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="300" height="160" fill="#f8e9e6"/><rect x="106" y="82" width="88" height="40" rx="12" fill="#f0c9c0"/><rect x="106" y="82" width="88" height="12" rx="6" fill="var(--red)"/><rect x="188" y="92" width="20" height="15" rx="4" fill="var(--red-d)"/><use href="#ic-heart" transform="translate(118 42) scale(.58)" fill="var(--red)"/></svg>`,
+`<svg viewBox="0 0 300 160" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="300" height="160" fill="#eef6e4"/><circle cx="150" cy="58" r="11" fill="var(--lime-d)"/><path d="M150 70v26l-20 28M150 96l24 16M150 84l-22-7M150 84l20-9" stroke="var(--lime-d)" stroke-width="8" stroke-linecap="round" fill="none"/></svg>`,
+`<svg viewBox="0 0 300 160" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="300" height="160" fill="var(--lav-bg)"/><rect x="86" y="52" width="86" height="46" rx="15" fill="#fff"/><path d="M104 98l-4 14 18-14" fill="#fff"/><rect x="150" y="76" width="66" height="38" rx="13" fill="var(--peri)"/><path d="M188 114l4 12-16-12" fill="var(--peri)"/><use href="#ic-heart" transform="translate(118 62) scale(.3)" fill="var(--red)"/></svg>`,
+`<svg viewBox="0 0 300 160" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="300" height="160" fill="#f8e9e6"/><use href="#ic-heart" transform="translate(114 46) scale(.62)" fill="var(--red)"/><path d="M80 108h20l8-18 12 34 10-24 7 8h63" stroke="var(--red-d)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+];
+function recommended(){
+  const a=S.answers,meno=a.meno??0,preg=a.preg||[];
+  const pregRisk=preg.some(x=>[0,1,2].includes(x));
+  const primary=pregRisk?1:(meno===2?0:2);
+  const order=[2,0,4,1,3].filter(i=>i!==primary);
+  return [primary,order[0]];
+}
+function recCardsHTML(idxs){
+  return idxs.map(i=>{const a=ARTICLES[i];return `<div class="rec-card" onclick="openArticle(${i})"><div class="rec-ic">${ART_ILL[i]}</div><div><h4>${a.title}</h4><span class="small">${a.read} Lesezeit</span></div></div>`;}).join('');
+}
+function artCardHTML(i){const a=ARTICLES[i];return `<div class="art-card" onclick="openArticle(${i})"><div class="art-ill">${ART_ILL[i]}</div><div class="art-body"><span class="pill berry">${CAT_LABEL[a.cat]}</span><h4>${a.title}</h4><span class="small">${a.read} Lesezeit</span></div></div>`;}
+function renderWissen(){
+  document.getElementById('chips').innerHTML=CATS.map(c=>`<button class="chip ${S.catFilter===c.k?'on':''}" onclick="setCat('${c.k}')">${c.l}</button>`).join('');
+  document.getElementById('wissen-rec').innerHTML=recCardsHTML(recommended());
+  const list=ARTICLES.map((a,i)=>i).filter(i=>S.catFilter==='all'||ARTICLES[i].cat===S.catFilter);
+  document.getElementById('wissen-all').innerHTML=list.length?list.map(i=>artCardHTML(i)).join(''):'<p class="small center" style="padding:20px 0">Bald verfügbar – neue Artikel folgen.</p>';
+}
+function setCat(k){S.catFilter=k;renderWissen();}
+function openArticle(i){
+  const a=ARTICLES[i];
+  document.getElementById('art-cat').textContent=CAT_LABEL[a.cat];
+  document.getElementById('art-read').textContent=a.read+' Lesezeit';
+  document.getElementById('art-title').textContent=a.title;
+  document.getElementById('art-body').textContent=a.body;
+  document.getElementById('art-tips').innerHTML=a.tips.map(t=>`<div style="display:flex;gap:9px;align-items:flex-start;margin:8px 0;font-size:13.5px;color:var(--good-tx);font-weight:600"><span>✓</span><span>${t}</span></div>`).join('');
+  document.getElementById('art-src').textContent='Quellen: ESC Guidelines on CVD in women (2021), AHA Scientific Statement Cardio-Obstetrics.';
+  go('s-article');
+}
+
+/* ---- home ---- */
+function ringColor(v){return v>=60?'var(--lime)':v>=40?'var(--amber)':'#ff8f73';}
+function renderHome(){
+  document.getElementById('greet').textContent=S.name?`Hallo ${S.name} 👋`:'Hallo 👋';
+  const v=S.score||0;
+  document.getElementById('hs-score').textContent=v;
+  document.getElementById('hs-band').textContent=S.band||'Noch kein Check';
+  document.getElementById('hs-arc').setAttribute('stroke-dashoffset',214-214*v/100);
+  document.getElementById('hs-arc').setAttribute('stroke',ringColor(v));
+  document.getElementById('steps').textContent=S.steps.toLocaleString('de-DE');
+  renderPlan();
+  document.getElementById('home-rec').innerHTML=recCardsHTML(recommended());
+}
+
+/* ---- profil ---- */
+function renderProfil(){
+  const age=S.answers.age??52;
+  document.getElementById('prof-name').textContent=S.name?`${S.name}, ${age}`:`Dein Profil, ${age}`;
+  document.getElementById('prof-sub').textContent=`Heart-Balance ${S.score||'–'}`;
+  document.getElementById('consent-switch').classList.toggle('on',!!S.consent);
+  document.getElementById('consent-switch').setAttribute('aria-pressed',!!S.consent);
+  document.getElementById('notif-switch').classList.toggle('on',!!S.notif);
+  document.getElementById('notif-switch').setAttribute('aria-pressed',!!S.notif);
+  document.getElementById('guide').style.display='none';
+}
+function toggleGuide(){
+  const g=document.getElementById('guide');
+  const show=g.style.display==='none';
+  if(show){
+    const pregRisk=(S.answers.preg||[]).some(x=>[0,1,2].includes(x));
+    const qs=[];
+    if(pregRisk)qs.push('Sollte mein LDL-Cholesterin angesichts meiner Schwangerschafts-Vorgeschichte unter 100 mg/dl liegen?');
+    qs.push('Sind regelmäßige Blutdruckkontrollen zu Hause für mich sinnvoll?');
+    qs.push('Welche Untersuchungen sind in meinem Alter und mit meinem Profil empfohlen?');
+    g.innerHTML=qs.map(q=>`<div class="callout" style="margin:8px 0">${q}</div>`).join('');
+  }
+  g.style.display=show?'block':'none';
+}
+function toggleConsent(){
+  S.consent=!S.consent;
+  document.getElementById('consent-switch').classList.toggle('on',S.consent);
+  document.getElementById('consent-switch').setAttribute('aria-pressed',S.consent);
+  toast(S.consent?'Danke! Du unterstützt die Frauenherz-Forschung 💜':'Freigabe widerrufen ✓');
+}
+function toggleNotif(){
+  S.notif=!S.notif;
+  document.getElementById('notif-switch').classList.toggle('on',S.notif);
+  document.getElementById('notif-switch').setAttribute('aria-pressed',S.notif);
+}
+function resetDemo(){
+  qi=0;
+  S.answers={};S.score=0;S.band='';S.factors=[];S.focus=null;S.planTitle='Mehr Bewegung';S.tasks=[];S.week=1;S.steps=6240;
+  S.consent=false;S.notif=true;S.name=null;S.catFilter='all';
+  renderQ();
+  go('s-welcome');
+  toast('Demo zurückgesetzt ✓');
+}
 
 /* ---- plan ---- */
 const TASKS={
@@ -448,13 +734,12 @@ const TASKS_NEXT={
 function buildPlan(){
   if(S.focus===null){toast('Bitte wähle einen Fokus');return;}
   S.planTitle=TITLES[S.focus];S.week=1;S.tasks=TASKS[S.focus].map(t=>({t,done:false}));
-  renderPlan();go('s-plan');
+  go('s-home');
 }
 function renderPlan(){
-  document.getElementById('plan-focus').textContent=`${S.planTitle} · Woche ${S.week} von 8`;
   const done=S.tasks.filter(t=>t.done).length;
   document.getElementById('plan-tasks').innerHTML=S.tasks.map((t,i)=>`<div class="task ${t.done?'done':''}" onclick="toggleTask(${i})"><div class="check">✓</div><div><h4>${t.t}</h4><p>${t.done?'Erledigt ✓':'Tippen, wenn geschafft'}</p></div></div>`).join('')
-    +(done===S.tasks.length&&S.week<8?`<button class="btn sage block" onclick="nextWeek()">Woche ${S.week} abschließen →</button>`:'');
+    +(done===S.tasks.length&&S.tasks.length&&S.week<8?`<button class="btn sage block" onclick="nextWeek()">Woche ${S.week} abschließen →</button>`:'');
   document.getElementById('plan-prog').textContent=`${done}/${S.tasks.length}`;
 }
 function toggleTask(i){S.tasks[i].done=!S.tasks[i].done;renderPlan();
@@ -475,8 +760,9 @@ function roiCalc(n){
 /* ---- demo shortcut (jump straight into the employee app) ---- */
 function seedDemo(){
   S.answers={age:54,meno:2,preg:[0],activity:1};compute();
+  S.name='Anna';
   S.focus=0;S.planTitle='Mehr Bewegung';S.tasks=TASKS[0].map(t=>({t,done:false}));S.tasks[0].done=true;
-  renderResult();renderPlan();go('s-plan');
+  go('s-home');
 }
 renderQ();roiCalc(120);
 </script>

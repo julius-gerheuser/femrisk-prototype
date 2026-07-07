@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FemRisk — Herzgesundheit für Ihre Mitarbeiterinnen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --indigo:#2b3168; --indigo-d:#21264f; --indigo-2:#343c7e;
+    --ink:#2a2e4a; --peri:#6b71c9; --lav:#9aa1df; --lav-bg:#ecebfa;
+    --page:#f6f5fd; --muted:#7c80a0; --line:#ecebf4;
+    --lime:#84c63f; --lime-d:#5a9b32; --red:#e0473f;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{
+    background:#dfe0f0;
+    font-family:"Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  body{
+    display:flex;
+    justify-content:center;
+    padding:28px 16px;
+  }
+  .sheet{
+    width:210mm;
+    min-height:297mm;
+    background:#fff;
+    box-shadow:0 12px 40px rgba(43,49,104,0.22);
+    padding:14mm 15mm;
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+  }
+
+  /* ---------- Header ---------- */
+  .header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding-bottom:9px;
+    border-bottom:2px solid var(--lav-bg);
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:9px;
+  }
+  .brand-mark{
+    width:34px; height:34px;
+    border-radius:9px;
+    background:linear-gradient(155deg, var(--indigo), var(--indigo-2));
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-size:17px; flex-shrink:0;
+  }
+  .brand-word{
+    font-size:20px; font-weight:800; letter-spacing:-0.01em;
+  }
+  .brand-word .fem{ color:var(--peri); }
+  .brand-word .risk{ color:var(--indigo); }
+  .header-tagline{
+    font-size:14px; font-weight:600; color:var(--indigo-d);
+    text-align:right; line-height:1.3; max-width:60%;
+  }
+
+  /* ---------- Generic section heading ---------- */
+  h2{
+    font-size:13.5px;
+    font-weight:800;
+    color:var(--indigo-d);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    margin-bottom:6px;
+    display:flex; align-items:baseline; gap:6px;
+  }
+  h2 .num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:17px; height:17px; border-radius:50%;
+    background:var(--indigo); color:#fff;
+    font-size:10px; font-weight:800;
+    flex-shrink:0;
+  }
+
+  /* ---------- Problem tiles ---------- */
+  .problem-row{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:10px;
+  }
+  .tile{
+    background:var(--lav-bg);
+    border-radius:12px;
+    padding:10px 12px;
+    text-align:center;
+  }
+  .tile .big{
+    font-size:19px; font-weight:800; color:var(--indigo);
+    display:block; line-height:1.15;
+  }
+  .tile .small{
+    font-size:10.5px; color:var(--ink); font-weight:500;
+    line-height:1.25; margin-top:2px; display:block;
+  }
+  .footnote{
+    font-size:8.5px; color:var(--muted); font-style:italic;
+    margin-top:3px;
+  }
+
+  /* ---------- Solution steps ---------- */
+  .steps-row{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:10px;
+  }
+  .step{
+    border:1.5px solid var(--line);
+    border-radius:12px;
+    padding:9px 11px;
+    display:flex; flex-direction:column; gap:4px;
+  }
+  .step .step-num{
+    width:20px; height:20px; border-radius:50%;
+    background:var(--lime); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-size:11px; font-weight:800;
+  }
+  .step .step-text{
+    font-size:10.5px; line-height:1.35; color:var(--ink);
+  }
+  .step .step-text b{ color:var(--indigo-d); }
+
+  /* ---------- Business case ---------- */
+  .biz{
+    background:linear-gradient(155deg, var(--indigo), var(--indigo-2));
+    color:#fff;
+    border-radius:12px;
+    padding:11px 14px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+  }
+  .biz-price{
+    flex-shrink:0;
+    text-align:center;
+    padding-right:14px;
+    border-right:1.5px solid rgba(255,255,255,0.25);
+  }
+  .biz-price .amount{ font-size:22px; font-weight:800; line-height:1; }
+  .biz-price .unit{ font-size:9px; opacity:0.85; margin-top:2px; }
+  .biz-text{
+    font-size:11px; line-height:1.4;
+  }
+  .biz-text b{ font-weight:800; }
+  .biz-text .roi{ color:#d9f0c2; font-weight:800; }
+
+  /* ---------- Science + privacy ---------- */
+  .sci-row{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:12px;
+  }
+  .sci-box{
+    background:var(--page);
+    border-radius:12px;
+    padding:9px 12px;
+    font-size:10.5px;
+    line-height:1.4;
+    color:var(--ink);
+  }
+  .sci-box b{ color:var(--indigo-d); }
+
+  /* ---------- Ask box ---------- */
+  .ask{
+    border:2px solid var(--lime-d);
+    background:#f4faec;
+    border-radius:14px;
+    padding:12px 16px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .ask-title{
+    font-size:14px; font-weight:800; color:var(--indigo-d);
+  }
+  .ask-quote{
+    font-size:12px; font-weight:600; color:var(--ink);
+    font-style:italic;
+  }
+  .ask-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 18px;
+    font-size:10.5px;
+    color:var(--ink);
+    align-items:center;
+  }
+  .ask-meta .lbl{ color:var(--muted); font-weight:600; }
+  .ask-meta .link{ color:var(--indigo); font-weight:700; }
+  .contact-placeholder{
+    color:#fff;
+    background:var(--red);
+    font-weight:800;
+    padding:2px 8px;
+    border-radius:6px;
+    letter-spacing:0.01em;
+  }
+
+  /* ---------- Footer ---------- */
+  .footer{
+    margin-top:auto;
+    padding-top:8px;
+    border-top:1.5px solid var(--line);
+    font-size:9px;
+    color:var(--muted);
+    text-align:center;
+    line-height:1.4;
+  }
+
+  /* ---------- Print ---------- */
+  @media print{
+    @page{
+      size:A4;
+      margin:14mm;
+    }
+    html,body{
+      background:#fff;
+      padding:0;
+      margin:0;
+    }
+    .sheet{
+      width:auto;
+      min-height:0;
+      box-shadow:none;
+      padding:0;
+      margin:0;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- Kopfzeile -->
+  <div class="header">
+    <div class="brand">
+      <div class="brand-mark">♥</div>
+      <div class="brand-word"><span class="fem">Fem</span><span class="risk">Risk</span></div>
+    </div>
+    <div class="header-tagline">Herzgesundheit für Ihre Mitarbeiterinnen. Als Benefit.</div>
+  </div>
+
+  <!-- 1. Das Problem -->
+  <div>
+    <h2><span class="num">1</span>Das Problem</h2>
+    <div class="problem-row">
+      <div class="tile">
+        <span class="big">Nr. 1</span>
+        <span class="small">Todesursache bei Frauen: Herz-Kreislauf-Erkrankungen</span>
+      </div>
+      <div class="tile">
+        <span class="big">1 von 10</span>
+        <span class="small">Frauen reduziert wegen Wechseljahres-Beschwerden die Arbeitszeit</span>
+      </div>
+      <div class="tile">
+        <span class="big">45–60</span>
+        <span class="small">Ihre erfahrensten Mitarbeiterinnen — und zugleich die Risikogruppe</span>
+      </div>
+    </div>
+    <div class="footnote">Demo-Kennzahlen, Quellen auf Anfrage.</div>
+  </div>
+
+  <!-- 2. Die Lösung -->
+  <div>
+    <h2><span class="num">2</span>Die Lösung</h2>
+    <div class="steps-row">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">Sie verteilen einen <b>Firmencode</b> — keine IT-Integration nötig.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">Ihre Mitarbeiterinnen machen <b>anonym</b> einen 2-Minuten-Herz-Check (Basis: Frauen.Herz.KI-Forschung der TU München) und erhalten einen begleiteten <b>8-Wochen-Plan</b>.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">Sie sehen <b>Wirkung, nie Personen</b>: anonymes Dashboard, Gruppenwerte ab 20 Teilnehmerinnen, betriebsratstauglich.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Business Case -->
+  <div>
+    <h2><span class="num">3</span>Ihr Business Case</h2>
+    <div class="biz">
+      <div class="biz-price">
+        <div class="amount">4 €</div>
+        <div class="unit">pro Mitarbeiterin<br>pro Monat</div>
+      </div>
+      <div class="biz-text">
+        Beispielrechnung für <b>120 Mitarbeiterinnen</b>: ≈ <b>58 vermiedene Krankheitstage/Jahr</b>, ≈ <span class="roi">4× Return</span>.<br>
+        <span style="opacity:0.85; font-size:9.5px;">Annahmen: 60 % Aktivierung, 0,8 vermiedene Tage/Teilnehmerin/Jahr, 400 €/Tag — im Pilot messen wir Ihre echten Werte.</span>
+      </div>
+    </div>
+    <div class="footnote">Demo-Kennzahlen, Quellen auf Anfrage.</div>
+  </div>
+
+  <!-- 4. Wissenschaftliche Basis & Datenschutz -->
+  <div>
+    <h2><span class="num">4</span>Wissenschaftliche Basis</h2>
+    <div class="sci-row">
+      <div class="sci-box">
+        <b>Frauen.Herz.KI</b>, TUM Telemedizin-Zentrum (Dr. Franziska Hahn) — die App-Logik basiert auf dieser Forschung zu geschlechtsspezifischen Herz-Kreislauf-Risiken bei Frauen.
+      </div>
+      <div class="sci-box">
+        <b>Datenschutz:</b> EU-Hosting, keine Werbe-Tracker, kein Datenverkauf. Individuelle Daten verlassen nie das Konto der Nutzerin.
+      </div>
+    </div>
+  </div>
+
+  <!-- Unser Ask -->
+  <div class="ask">
+    <div class="ask-title">Unser Ask</div>
+    <div class="ask-quote">„Wir suchen 3 Pilot-Unternehmen (3 Monate, unverbindlich). 15 Minuten Gespräch genügen."</div>
+    <div class="ask-meta">
+      <span><span class="lbl">Prototyp live ausprobieren:</span> <span class="link">julius-gerheuser.github.io/femrisk-prototype</span></span>
+      <span><span class="lbl">Kontakt:</span> <span class="contact-placeholder">[Kontaktperson eintragen] · [E-Mail eintragen]</span></span>
+    </div>
+  </div>
+
+  <!-- Fußzeile -->
+  <div class="footer">
+    Studierendenprojekt, TUM Healthcare Innovation Program 2026 · FemRisk ist keine medizinische Diagnose.
+  </div>
+
+</div>
+</body>
+</html>

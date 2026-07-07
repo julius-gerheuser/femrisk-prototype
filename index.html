@@ -9,123 +9,64 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    /* --- CardioMate-inspired palette --- */
-    --indigo:#2b3168;      /* deep indigo hero / score surfaces */
-    --indigo-d:#21264f;
-    --indigo-2:#343c7e;
-    --ink:#2a2e4a;         /* headings + primary buttons + dark text */
-    --peri:#6b71c9;        /* periwinkle accent */
-    --lav:#9aa1df;         /* lavender line-icons */
-    --lav-bg:#ecebfa;      /* light lavender callout bg */
-    --page:#f6f5fd;        /* app background */
-    --card:#ffffff;
-    --muted:#7c80a0;       /* muted text */
-    --line:#ecebf4;
-
-    --lime:#84c63f;        /* "good" / healthy */
-    --lime-d:#5a9b32;
-    --amber:#e0a23c;
-    --orange:#e2793c;
-
-    --red:#e0473f;         /* heart mascot */
-    --red-d:#b23a33;
-    --blush:#f3a89f;
-
-    /* --- status helpers --- */
-    --good-bg:#e6f3df; --good-tx:#4f8f2e;
-    --warn-bg:#fbeed4; --warn-tx:#b5832a;
-
-    /* --- legacy aliases (still referenced by inline styles in JS) --- */
-    --berry:var(--indigo); --berry-d:var(--indigo-d); --berry-l:#c4c8ee;
-    --sage:var(--lime-d); --sage-l:#e6f3df; --green:var(--lime); --yellow:var(--amber);
-    --cream:var(--page);
-
-    --shadow:0 10px 30px rgba(40,42,90,.08);
-    --shadow-sm:0 4px 16px rgba(40,42,90,.06);
-    --r:22px;
-    --maxw:430px;
+    --indigo:#2b3168; --indigo-d:#21264f; --indigo-2:#343c7e;
+    --ink:#2a2e4a; --peri:#6b71c9; --lav:#9aa1df; --lav-bg:#ecebfa;
+    --page:#f6f5fd; --card:#fff; --muted:#7c80a0; --line:#ecebf4;
+    --lime:#84c63f; --lime-d:#5a9b32; --amber:#e0a23c; --orange:#e2793c;
+    --red:#e0473f; --red-d:#b23a33; --blush:#f3a89f;
+    --good-bg:#e6f3df; --good-tx:#4f8f2e; --warn-bg:#fbeed4; --warn-tx:#b5832a;
+    --green:#3a9d6e; --yellow:var(--amber);
+    --shadow:0 10px 30px rgba(40,42,90,.08); --shadow-sm:0 4px 16px rgba(40,42,90,.06);
+    --r:22px; --maxw:430px;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;padding:0}
   body{
     font-family:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    background:linear-gradient(160deg,#e9e8f7,#eef0f8);
-    color:var(--ink);
-    min-height:100vh;
-    display:flex;align-items:flex-start;justify-content:center;
-    padding:24px 12px;
+    background:linear-gradient(160deg,#e9e8f7,#eef0f8);color:var(--ink);
+    min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:24px 12px;
   }
-  /* phone frame */
-  .phone{
-    width:100%;max-width:var(--maxw);
-    background:var(--page);
-    border-radius:36px;
-    box-shadow:0 30px 70px rgba(35,30,75,.24);
-    overflow:hidden;position:relative;
-    min-height:860px;
-    display:flex;flex-direction:column;
-  }
-  /* screens */
+  .phone{width:100%;max-width:var(--maxw);background:var(--page);border-radius:36px;
+    box-shadow:0 30px 70px rgba(35,30,75,.24);overflow:hidden;position:relative;min-height:840px;display:flex;flex-direction:column}
   .screen{display:none;flex-direction:column;flex:1;min-height:0}
   .screen.active{display:flex;animation:fade .28s ease}
   @keyframes fade{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
-  .scroll{flex:1;overflow-y:auto;padding:0 20px 28px}
-  .scroll.withnav{padding-bottom:104px}
+  .scroll{flex:1;overflow-y:auto;padding:0 20px 30px}
 
-  /* top bar */
-  .topbar{
-    display:flex;align-items:center;gap:12px;
-    padding:22px 20px 12px;position:sticky;top:0;z-index:5;
-    background:linear-gradient(var(--page),var(--page) 72%,rgba(246,245,253,0));
-  }
-  .topbar .back{
-    border:none;background:#fff;width:38px;height:38px;border-radius:50%;
-    box-shadow:var(--shadow-sm);font-size:19px;color:var(--ink);cursor:pointer;flex:0 0 auto;
-    display:grid;place-items:center;
-  }
+  .topbar{display:flex;align-items:center;gap:12px;padding:22px 20px 12px;position:sticky;top:0;z-index:5;
+    background:linear-gradient(var(--page),var(--page) 72%,rgba(246,245,253,0))}
+  .topbar .back{border:none;background:#fff;width:38px;height:38px;border-radius:50%;box-shadow:var(--shadow-sm);
+    font-size:19px;color:var(--ink);cursor:pointer;flex:0 0 auto;display:grid;place-items:center}
   .topbar h2{font-size:22px;margin:0;font-weight:800;letter-spacing:-.02em}
   .topbar .sub{font-size:13px;color:var(--muted);font-weight:500}
 
-  /* logo / brand */
   .brand{display:flex;align-items:center;gap:9px;font-weight:800;letter-spacing:-.02em;font-size:18px}
-  .brand .mark{
-    width:32px;height:32px;border-radius:10px;
-    background:linear-gradient(135deg,var(--indigo-2),var(--indigo));
-    display:grid;place-items:center;color:#fff;font-size:16px;
-  }
-  .brand b{color:var(--ink)}
-  .brand .fem{color:var(--peri)}
+  .brand .mark{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,var(--indigo-2),var(--indigo));
+    display:grid;place-items:center;color:#fff;font-size:16px}
+  .brand b{color:var(--ink)} .brand .fem{color:var(--peri)}
 
-  h1{font-size:28px;line-height:1.16;letter-spacing:-.025em;margin:6px 0 10px;font-weight:800}
+  h1{font-size:28px;line-height:1.16;letter-spacing:-.025em;margin:6px 0 10px;font-weight:800;text-wrap:balance}
   h3{font-weight:800;letter-spacing:-.01em}
   p{line-height:1.55}
   .lead{color:var(--muted);font-size:15.5px;font-weight:500}
   .small{font-size:12.5px;color:var(--muted);font-weight:500}
   .center{text-align:center}
 
-  /* ---- mascot ---- */
   .mascot{display:block}
   .m-body{fill:var(--red);stroke:var(--red-d);stroke-width:5;stroke-linejoin:round}
   .m-blush{fill:var(--blush);opacity:.7}
   .m-eye,.m-smile{fill:none;stroke:#33203a;stroke-width:5.5;stroke-linecap:round}
-  .m-shine{fill:#fff;opacity:.85}
 
-  /* buttons */
-  .btn{
-    display:flex;align-items:center;justify-content:center;gap:8px;
-    width:100%;border:none;border-radius:16px;padding:16px 18px;
-    font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;
-    background:var(--ink);color:#fff;transition:.15s;letter-spacing:-.01em;
-  }
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:none;border-radius:16px;
+    padding:16px 18px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;background:var(--ink);color:#fff;transition:.15s;letter-spacing:-.01em}
   .btn:active{transform:scale(.985)}
+  .btn:focus-visible{outline:3px solid var(--peri);outline-offset:2px}
   .btn.sage{background:linear-gradient(135deg,#5fae3c,#4f9a31)}
   .btn.ghost{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.6px var(--line)}
-  .btn.dark{background:var(--indigo-d)}
+  .btn.link{background:none;color:var(--peri);font-size:14px;padding:12px;box-shadow:none}
   .btn.block{margin-top:10px}
-  .btn.sm{padding:11px 15px;font-size:14px;width:auto;border-radius:13px}
-  .btnrow{display:flex;gap:10px}
+  .btn.sm{padding:11px 15px;font-size:14px;border-radius:13px}
 
-  /* cards */
   .card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:18px;margin:14px 0;border:1px solid #f1f0f8}
   .card.flat{box-shadow:none;border:1px solid var(--line)}
   .card h3{margin:0 0 6px;font-size:17px}
@@ -133,63 +74,37 @@
   .pill.berry{background:var(--lav-bg);color:var(--peri)}
   .pill.sage{background:var(--good-bg);color:var(--good-tx)}
   .pill.amber{background:var(--warn-bg);color:var(--warn-tx)}
-  .pill.grey{background:#eeedf6;color:var(--muted)}
   .tag{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--peri)}
 
-  /* hero (landing) */
-  .hero{
-    background:linear-gradient(160deg,var(--indigo-2),var(--indigo));
-    color:#fff;border-radius:0 0 34px 34px;padding:30px 24px 34px;text-align:center;
-  }
-  .hero .brand b{color:#fff}.hero .brand .fem{color:#c7caf4}
-  .hero .brand .mark{background:rgba(255,255,255,.2)}
-  .hero h1{color:#fff;font-size:27px;margin-top:14px}
-  .hero p{color:#d6d8f3;font-size:15px}
-  .bubble{
-    display:inline-block;background:#fff;color:var(--ink);font-weight:700;
-    padding:14px 18px;border-radius:18px;font-size:14.5px;line-height:1.45;position:relative;box-shadow:var(--shadow);
-  }
-  .bubble:after{content:"";position:absolute;top:-9px;left:50%;transform:translateX(-50%);
-    border-left:9px solid transparent;border-right:9px solid transparent;border-bottom:9px solid #fff}
+  .hero{background:linear-gradient(160deg,var(--indigo-2),var(--indigo));color:#fff;border-radius:0 0 34px 34px;padding:30px 24px 34px;text-align:center}
+  .hero .brand{justify-content:center} .hero .brand b{color:#fff} .hero .brand .fem{color:#c7caf4} .hero .brand .mark{background:rgba(255,255,255,.2)}
+  .hero h1{color:#fff;font-size:27px;margin-top:14px} .hero p{color:#d6d8f3;font-size:15px}
 
   .feature{display:flex;gap:14px;align-items:flex-start;margin:18px 0}
   .feature .ic{flex:0 0 auto;width:46px;height:46px;border-radius:14px;background:var(--lav-bg);display:grid;place-items:center;font-size:21px}
-  .feature h4{margin:0 0 3px;font-size:15.5px;font-weight:700}
-  .feature p{margin:0;font-size:13px;color:var(--muted);line-height:1.45}
+  .feature h4{margin:0 0 3px;font-size:15.5px;font-weight:700} .feature p{margin:0;font-size:13px;color:var(--muted);line-height:1.45}
 
-  /* progress */
   .progress{height:8px;background:#eceaf5;border-radius:99px;overflow:hidden;margin:4px 0 18px}
   .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--peri),var(--indigo-2));border-radius:99px;transition:width .3s}
+  .qtabs{display:flex;gap:6px;margin-bottom:12px}
+  .qtabs span{flex:1;height:5px;border-radius:99px;background:#e2e0ef} .qtabs span.on{background:var(--peri)}
 
-  /* questionnaire */
-  .qsection .qtitle{font-size:23px;letter-spacing:-.02em;margin:8px 0 4px;font-weight:800}
-  .qhint{font-size:13px;color:var(--muted);margin-bottom:18px}
-  .opt{
-    display:flex;align-items:center;gap:13px;width:100%;text-align:left;
-    background:#fff;border:1.6px solid var(--line);border-radius:16px;
-    padding:16px 16px;margin-bottom:11px;cursor:pointer;font-size:15px;font-family:inherit;color:var(--ink);transition:.12s;font-weight:600;
-  }
-  .opt:hover{border-color:var(--lav)}
-  .opt.sel{border-color:var(--peri);background:#f4f4fd;box-shadow:0 0 0 3px #e7e6fa}
+  .qtitle{font-size:23px;letter-spacing:-.02em;margin:8px 0 4px;font-weight:800;text-wrap:balance}
+  .opt{display:flex;align-items:center;gap:13px;width:100%;text-align:left;background:#fff;border:1.6px solid var(--line);
+    border-radius:16px;padding:16px;margin-bottom:11px;cursor:pointer;font-size:15px;font-family:inherit;color:var(--ink);transition:.12s;font-weight:600}
+  .opt:hover{border-color:var(--lav)} .opt.sel{border-color:var(--peri);background:#f4f4fd;box-shadow:0 0 0 3px #e7e6fa}
   .opt .dot{width:22px;height:22px;border-radius:50%;border:2.4px solid #d8d6ea;flex:0 0 auto}
   .opt.sel .dot{border-color:var(--peri);background:var(--peri);box-shadow:inset 0 0 0 3.5px #fff}
   .opt.multi .dot{border-radius:7px}
   .why{font-size:13px;color:var(--peri);font-weight:700;margin:2px 0 18px;cursor:pointer}
   .whybox{display:none;background:var(--lav-bg);border-radius:14px;padding:13px 15px;font-size:13px;color:var(--indigo);margin:-8px 0 18px;line-height:1.5}
   .whybox.open{display:block}
-  .field label{font-size:13px;font-weight:700;display:block;margin:14px 0 7px}
   input[type=range]{width:100%;accent-color:var(--peri);margin-top:14px}
   .rangeval{font-weight:800;color:var(--indigo);font-size:34px;letter-spacing:-.02em}
 
-  /* question section tabs (decorative, like CardioMate) */
-  .qtabs{display:flex;gap:6px;margin-bottom:6px}
-  .qtabs span{flex:1;height:5px;border-radius:99px;background:#e2e0ef}
-  .qtabs span.on{background:var(--peri)}
-
-  /* gauge */
   .gaugewrap{display:flex;flex-direction:column;align-items:center;margin:8px 0}
   .gauge{position:relative;width:208px;height:208px}
-  .gauge > svg{transform:rotate(-90deg)}   /* ring only — not the mascot inside .num */
+  .gauge > svg{transform:rotate(-90deg)}
   .gauge .track{stroke:#e9e7f6}
   .gauge .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
   .gauge .num b{font-size:50px;line-height:1;letter-spacing:-.04em;font-weight:800;color:var(--ink)}
@@ -198,200 +113,95 @@
   .factor{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
   .factor:last-child{border-bottom:none}
   .factor .fic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:17px;flex:0 0 auto}
-  .factor .up{background:#fbe6de;color:var(--orange)}
-  .factor .dn{background:var(--good-bg);color:var(--lime-d)}
-  .factor .nt{background:var(--lav-bg);color:var(--peri)}
-  .factor h4{margin:0;font-size:14.5px;font-weight:700}
-  .factor .meta{font-size:11.5px;color:var(--muted);font-weight:500}
+  .factor .up{background:#fbe6de;color:var(--orange)} .factor .dn{background:var(--good-bg);color:var(--lime-d)} .factor .nt{background:var(--lav-bg);color:var(--peri)}
+  .factor h4{margin:0;font-size:14.5px;font-weight:700} .factor .meta{font-size:11.5px;color:var(--muted);font-weight:500}
 
-  /* indigo "score / now" surface */
   .indigo{background:linear-gradient(155deg,var(--indigo-2),var(--indigo));color:#fff}
-  .indigo .tag{color:#c7caf4}
-  .indigo h3{color:#fff}
+  .indigo .tag{color:#c7caf4} .indigo h3{color:#fff}
 
-  /* home hero score card */
-  .heroscore{
-    background:linear-gradient(150deg,var(--indigo-2),var(--indigo));
-    border-radius:24px;padding:20px;margin:14px 0;color:#fff;position:relative;overflow:hidden;cursor:pointer;
-    display:flex;align-items:center;gap:18px;box-shadow:0 14px 30px rgba(40,42,100,.22);
-  }
-  .heroscore .gauge .num b{color:#fff;font-size:30px}
-  .heroscore .gauge .track{stroke:rgba(255,255,255,.16)}
-  .heroscore .hs-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#bcc0ee}
-  .heroscore h3{margin:3px 0;font-size:20px;color:#fff}
-  .heroscore .hs-sub{font-size:13px;color:#c6c9ef;font-weight:500}
-  .heroscore > div:not(.gauge):not(.cheer){flex:1;min-width:0;padding-right:60px}
-  .heroscore h3{font-size:18px}
-  .cheer{position:absolute;right:10px;bottom:8px;display:flex;flex-direction:column;align-items:center;gap:2px}
-  .cheer .gbubble{background:#fff;color:var(--ink);font-weight:800;font-size:10.5px;padding:4px 8px;border-radius:10px;white-space:nowrap}
-  .cheer .mascot{width:38px;height:36px}
-
-  /* metric tiles */
-  .metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
-  .mtile{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;position:relative;cursor:pointer;box-shadow:var(--shadow-sm)}
-  .mtile .mt-ic{font-size:18px;color:var(--lav)}
-  .mtile b{display:block;font-size:21px;letter-spacing:-.02em;margin-top:10px;color:var(--ink)}
-  .mt-face{position:absolute;top:12px;right:12px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:15px;color:#fff}
-  .mt-face.good{background:var(--lime-d)}
-  .mt-face.warn{background:var(--orange)}
-  .mt-add{position:absolute;bottom:13px;right:14px;color:var(--lav);font-size:20px;font-weight:700;line-height:1}
-
-  /* bottom nav */
-  .nav{
-    position:absolute;left:0;right:0;bottom:0;height:82px;
-    background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);
-    display:flex;justify-content:space-around;align-items:center;padding-bottom:10px;z-index:8;
-  }
-  .nav button{border:none;background:none;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:4px;color:#a7abc4;font-size:10.5px;font-weight:700;flex:1;transition:.15s}
-  .nav button .ni{font-size:21px;width:44px;height:30px;display:grid;place-items:center;border-radius:12px;transition:.15s}
-  .nav button.on{color:var(--indigo)}
-  .nav button.on .ni{background:var(--lav-bg)}
+  .benefit{display:flex;gap:12px;align-items:center;background:linear-gradient(135deg,var(--indigo-2),var(--indigo));color:#fff;border-radius:18px;padding:14px 16px;margin:14px 0}
+  .benefit .g{font-size:26px;flex:0 0 auto} .benefit b{font-size:14px} .benefit p{margin:2px 0 0;font-size:12px;color:#d2d5f1}
 
   .task{display:flex;gap:13px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line);cursor:pointer}
   .task:last-child{border-bottom:none}
   .check{width:28px;height:28px;border-radius:9px;border:2.4px solid #d8d6ea;flex:0 0 auto;display:grid;place-items:center;color:#fff;font-size:15px;transition:.15s}
-  .task.done .check{background:var(--lime-d);border-color:var(--lime-d)}
-  .task.done h4{text-decoration:line-through;color:var(--muted)}
-  .task h4{margin:0 0 2px;font-size:14.5px;font-weight:700}
-  .task p{margin:0;font-size:12.5px;color:var(--muted);font-weight:500}
+  .task.done .check{background:var(--lime-d);border-color:var(--lime-d)} .task.done h4{text-decoration:line-through;color:var(--muted)}
+  .task h4{margin:0 0 2px;font-size:14.5px;font-weight:700} .task p{margin:0;font-size:12.5px;color:var(--muted);font-weight:500}
 
-  /* category chips */
-  .chips{display:flex;gap:10px;overflow-x:auto;padding:2px 0 6px;margin-bottom:6px;-webkit-overflow-scrolling:touch}
-  .chips::-webkit-scrollbar{display:none}
-  .chip{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:6px;width:62px}
-  .chip .ci{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:22px}
-  .chip span{font-size:11px;font-weight:700;color:var(--muted);text-align:center;line-height:1.15}
-  .chip.on .ci{background:var(--ink);color:#fff}
-  .chip.on span{color:var(--ink)}
-  .ci.c0{background:#fce4e9}.ci.c1{background:#e4f3e6}.ci.c2{background:#fbf1da}.ci.c3{background:#ece9fb}.ci.c4{background:#e6eafb}
+  .track-tile{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:var(--shadow-sm)}
+  .track-tile .ti{font-size:22px} .track-tile b{font-size:20px;letter-spacing:-.02em} .track-tile .add{margin-left:auto;background:var(--lav-bg);color:var(--indigo);border:none;font-family:inherit;font-weight:800;font-size:18px;width:38px;height:38px;border-radius:12px;cursor:pointer}
 
-  /* library article cards (illustration style) */
-  .libcard{display:flex;gap:14px;align-items:center;padding:14px;border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);border:1px solid var(--line);margin-bottom:12px;cursor:pointer}
-  .libcard .em{width:56px;height:56px;border-radius:15px;display:grid;place-items:center;font-size:26px;background:linear-gradient(140deg,#efeafd,#e6eafb);flex:0 0 auto}
-  .libcard h4{margin:0 0 4px;font-size:15px;line-height:1.28;font-weight:700}
-  .libcard .small{margin:0}
+  .callout{background:var(--lav-bg);border-radius:16px;padding:14px 16px;display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--indigo);font-weight:600;margin:14px 0;line-height:1.45}
 
-  .buddy{display:flex;gap:13px;align-items:center;padding:15px;border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);border:1px solid var(--line);margin-bottom:12px}
-  .avatar{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;flex:0 0 auto;font-size:16px}
-  .buddy h4{margin:0 0 2px;font-size:14.5px;font-weight:700}
-  .buddy p{margin:0;font-size:12.5px;color:var(--muted);font-weight:500;line-height:1.4}
-
-  .partner{border-radius:20px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:14px;background:#fff;border:1px solid var(--line)}
-  .partner .top{padding:18px 16px 14px;color:#fff}
-  .partner .body{padding:15px 16px}
-  .partner h4{margin:0;font-size:17px;font-weight:800}
-
-  .doc{display:flex;gap:13px;padding:16px;border-radius:18px;background:#fff;box-shadow:var(--shadow-sm);border:1px solid var(--line);margin-bottom:12px}
-  .doc h4{margin:0 0 4px;font-size:14.5px;font-weight:700;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
-  .doc p{margin:0;font-size:12.5px;color:var(--muted);font-weight:500;line-height:1.45}
-
-  .quote{background:var(--lav-bg);border-left:3px solid var(--peri);border-radius:0 14px 14px 0;padding:13px 15px;font-size:13.5px;margin:10px 0;color:var(--indigo)}
-
-  .disc{font-size:10.5px;color:#a7abc4;text-align:center;padding:12px 24px 0;line-height:1.5;font-weight:500}
-
-  .toast{position:absolute;left:50%;bottom:100px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:12px 20px;border-radius:99px;font-size:13.5px;font-weight:700;opacity:0;pointer-events:none;transition:.25s;z-index:20;white-space:nowrap;box-shadow:0 10px 30px rgba(30,30,70,.3)}
-  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-  /* info callout */
-  .callout{background:var(--lav-bg);border-radius:16px;padding:14px 16px;display:flex;gap:10px;align-items:center;font-size:13.5px;color:var(--indigo);font-weight:600;margin:14px 0}
-
-  /* report */
-  .report{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;font-size:12.5px;line-height:1.55;box-shadow:var(--shadow-sm)}
-  .report .rh{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid var(--indigo);padding-bottom:11px;margin-bottom:13px}
-  .report table{width:100%;border-collapse:collapse;font-size:11.5px;margin:8px 0}
-  .report td{padding:6px 4px;border-bottom:1px solid var(--line)}
-
-  .price{border:1.6px solid var(--line);border-radius:20px;padding:20px;margin-bottom:14px;position:relative;background:#fff}
-  .price.pro{border-color:var(--peri);background:#f7f6ff}
-  .price h4{margin:0;font-size:17px;font-weight:800}
-  .price .amt{font-size:32px;font-weight:800;letter-spacing:-.03em;margin:6px 0 2px;color:var(--ink)}
-  .price ul{margin:12px 0 0;padding-left:18px;font-size:13.5px;color:#54566f}
-  .price li{margin:7px 0}
-  .ribbon{position:absolute;top:-11px;right:16px;background:var(--peri);color:#fff;font-size:11px;font-weight:800;padding:5px 11px;border-radius:99px}
-
-  .seg{display:flex;background:#eceaf5;border-radius:14px;padding:4px;margin:14px 0}
-  .seg button{flex:1;border:none;background:none;padding:10px;border-radius:11px;font-family:inherit;font-weight:700;font-size:13px;color:var(--muted);cursor:pointer}
-  .seg button.on{background:#fff;color:var(--indigo);box-shadow:var(--shadow-sm)}
-
-  .fb{display:flex;gap:8px;align-items:center;justify-content:center;margin-top:10px}
-  .fb button{border:1.4px solid var(--line);background:#fff;border-radius:99px;padding:9px 15px;cursor:pointer;font-family:inherit;font-size:14px;font-weight:700;color:var(--muted)}
-  .fb button:active{border-color:var(--peri);color:var(--peri)}
-
-  .demobadge{position:fixed;top:10px;left:50%;transform:translateX(-50%);background:rgba(42,46,74,.86);color:#fff;font-size:11px;font-weight:600;padding:6px 14px;border-radius:99px;z-index:50;backdrop-filter:blur(6px)}
-
-  /* ---- B2B2C: employer surfaces ---- */
-  .txtinput{width:100%;border:1.6px solid var(--line);border-radius:14px;padding:15px 16px;font-size:17px;font-weight:700;font-family:inherit;color:var(--ink);letter-spacing:.08em;text-transform:uppercase;text-align:center;background:#fff}
-  .txtinput:focus{outline:none;border-color:var(--peri);box-shadow:0 0 0 3px #e7e6fa}
+  /* employer */
   .statrow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:16px 0}
   .stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px 10px;text-align:center;box-shadow:var(--shadow-sm)}
-  .stat b{display:block;font-size:20px;letter-spacing:-.02em;color:var(--indigo)}
-  .stat span{font-size:10.5px;color:var(--muted);font-weight:600;line-height:1.3;display:block;margin-top:3px}
+  .stat b{display:block;font-size:19px;letter-spacing:-.02em;color:var(--indigo)} .stat span{font-size:10.5px;color:var(--muted);font-weight:600;line-height:1.3;display:block;margin-top:3px}
   .roi-out{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
   .roi-box{background:var(--lav-bg);border-radius:14px;padding:12px;text-align:center}
-  .roi-box b{display:block;font-size:22px;letter-spacing:-.02em;color:var(--indigo);font-variant-numeric:tabular-nums}
-  .roi-box span{font-size:10.5px;color:var(--muted);font-weight:600}
-  .roi-box.hl{background:var(--good-bg)}
-  .roi-box.hl b{color:var(--lime-d)}
-  .bars{display:flex;gap:7px;align-items:flex-end;height:74px;margin:12px 0 4px}
-  .bars i{flex:1;background:linear-gradient(180deg,var(--peri),var(--indigo-2));border-radius:7px 7px 3px 3px;min-height:8px}
-  .barlabels{display:flex;gap:7px}
-  .barlabels span{flex:1;text-align:center;font-size:9.5px;color:var(--muted);font-weight:600}
+  .roi-box b{display:block;font-size:22px;letter-spacing:-.02em;color:var(--indigo);font-variant-numeric:tabular-nums} .roi-box span{font-size:10.5px;color:var(--muted);font-weight:600}
+  .roi-box.hl{background:var(--good-bg)} .roi-box.hl b{color:var(--lime-d)}
+  .dash{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+  .dcell{background:var(--page);border:1px solid var(--line);border-radius:14px;padding:12px}
+  .dcell b{font-size:19px;color:var(--indigo);letter-spacing:-.02em} .dcell span{display:block;font-size:10.5px;color:var(--muted);font-weight:600;margin-top:2px}
   .step{display:flex;gap:13px;align-items:flex-start;margin:14px 0}
   .step .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--indigo);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px}
-  .step h4{margin:0 0 2px;font-size:14.5px}
-  .step p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.45}
-  .see{display:flex;gap:9px;align-items:flex-start;margin:8px 0;font-size:13.5px}
-  .see .ic{flex:0 0 auto}
+  .step h4{margin:0 0 2px;font-size:14.5px} .step p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.45}
+  .price{border:1.6px solid var(--peri);border-radius:20px;padding:20px;margin:14px 0;position:relative;background:#f7f6ff}
+  .price h4{margin:0;font-size:17px;font-weight:800} .price .amt{font-size:30px;font-weight:800;letter-spacing:-.03em;margin:6px 0 2px;color:var(--ink)}
+  .price ul{margin:12px 0 0;padding-left:18px;font-size:13.5px;color:#54566f} .price li{margin:7px 0}
+  .ribbon{position:absolute;top:-11px;right:16px;background:var(--peri);color:#fff;font-size:11px;font-weight:800;padding:5px 11px;border-radius:99px}
+
+  .fb{display:flex;gap:8px;align-items:center;justify-content:center;margin-top:10px;flex-wrap:wrap}
+  .fb button{border:1.4px solid var(--line);background:#fff;border-radius:99px;padding:9px 15px;cursor:pointer;font-family:inherit;font-size:13.5px;font-weight:700;color:var(--muted)}
+  .fb button:active{border-color:var(--peri);color:var(--peri)}
+
+  .disc{font-size:10.5px;color:#a7abc4;text-align:center;padding:12px 20px 0;line-height:1.5;font-weight:500}
+  .toast{position:absolute;left:50%;bottom:30px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:12px 20px;border-radius:99px;font-size:13.5px;font-weight:700;opacity:0;pointer-events:none;transition:.25s;z-index:20;white-space:nowrap;box-shadow:0 10px 30px rgba(30,30,70,.3);max-width:88%;text-align:center}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .demobadge{position:fixed;top:10px;left:50%;transform:translateX(-50%);background:rgba(42,46,74,.86);color:#fff;font-size:11px;font-weight:600;padding:6px 14px;border-radius:99px;z-index:50}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div class="demobadge">FemRisk · klickbarer Prototyp · keine echten Daten</div>
-<div class="phone" id="phone">
+<div class="demobadge">FemRisk · Prototyp · keine echten Daten</div>
+<div class="phone">
 
-  <!-- ============ 1. LANDING ============ -->
-  <section class="screen active" id="s-landing">
+  <!-- ============ 1 · WILLKOMMEN ============ -->
+  <section class="screen active" id="s-welcome">
     <div class="scroll" style="padding-top:0">
       <div class="hero">
-        <div class="brand" style="justify-content:center;margin-bottom:6px">
-          <div class="mark">♥</div><div><span class="fem">Fem</span><b>Risk</b></div>
-        </div>
-        <svg class="mascot" width="116" height="108" viewBox="0 0 120 112" style="margin:14px auto 0" aria-hidden="true">
+        <div class="brand"><div class="mark">♥</div><div><span class="fem">Fem</span><b>Risk</b></div></div>
+        <svg class="mascot" width="112" height="104" viewBox="0 0 120 112" style="margin:16px auto 0" aria-hidden="true">
           <path class="m-body" d="M60 105C25 78 9 56 9 35.5 9 21 20 10 33.5 10 44 10 52 17 60 28 68 17 76 10 86.5 10 100 10 111 21 111 35.5 111 56 95 78 60 105Z"/>
           <ellipse class="m-blush" cx="37" cy="64" rx="8.5" ry="5.5"/><ellipse class="m-blush" cx="83" cy="64" rx="8.5" ry="5.5"/>
           <path class="m-eye" d="M33 50c3.5-6 12.5-6 16 0"/><path class="m-eye" d="M71 50c3.5-6 12.5-6 16 0"/>
           <path class="m-smile" d="M47 66c5.5 7.5 20.5 7.5 26 0"/>
         </svg>
-        <h1>Herzgesundheit, die deine weibliche Biologie versteht.</h1>
-        <p>Auf Basis der Frauen.Herz.KI-Forschung der TU&nbsp;München. Verstehe dein persönliches Risiko – und was du konkret tun kannst.</p>
+        <h1>Kenne dein Herzrisiko. Tu etwas dagegen.</h1>
+        <p>Ein kurzer Check auf Basis der Frauen.Herz.KI-Forschung der TU&nbsp;München – und ein Plan, der zu dir passt.</p>
       </div>
-      <div style="padding-top:20px">
-        <div class="feature"><div class="ic">🧬</div><div><h4>Dein persönliches Risikoprofil</h4><p>Ein Fragebogen, der weibliche Faktoren berücksichtigt – Wechseljahre, Schwangerschaften, Hormone.</p></div></div>
-        <div class="feature"><div class="ic">🗺️</div><div><h4>Ein begleiteter Plan</h4><p>Nicht nur eine Zahl. Konkrete kleine Schritte, an die Hand genommen – in deinem Tempo.</p></div></div>
-        <div class="feature"><div class="ic">👯‍♀️</div><div><h4>Gemeinsam statt allein</h4><p>Vernetze dich mit Frauen, die ähnliche Ziele haben. Motivation, die bleibt.</p></div></div>
-        <div class="feature"><div class="ic">🩺</div><div><h4>Vorbereitet zur Ärztin</h4><p>Passende Ärzt:innen in deiner Nähe und ein Gesprächsleitfaden für den Termin.</p></div></div>
-        <button class="btn block" onclick="go('s-code')">Loslegen – 2 Minuten</button>
-        <button class="btn ghost block" onclick="seedDemo()">Demo überspringen → App ansehen</button>
-        <button class="btn block" style="background:none;color:var(--peri);font-size:14px;padding:12px;box-shadow:none" onclick="go('s-employer')">🏢 Für Unternehmen: FemRisk als Benefit →</button>
+      <div style="padding-top:18px">
+        <div class="feature"><div class="ic">🫀</div><div><h4>Dein persönliches Risikoprofil</h4><p>Ein Check, der weibliche Faktoren berücksichtigt – Wechseljahre, Schwangerschaften.</p></div></div>
+        <div class="feature"><div class="ic">🗺️</div><div><h4>Ein begleiteter Plan</h4><p>Nicht nur eine Zahl. Kleine Schritte, an die Hand genommen – in deinem Tempo.</p></div></div>
+        <button class="btn block" onclick="go('s-check')">Check starten – 2 Minuten</button>
+        <button class="btn link block" onclick="go('s-employer')">🏢 Für Unternehmen: FemRisk als Benefit →</button>
         <p class="disc">Diese App ist keine medizinische Diagnose. Sie ergänzt das Gespräch mit deiner Ärztin oder deinem Arzt.</p>
       </div>
     </div>
   </section>
 
-  <!-- ============ 2. QUESTIONNAIRE ============ -->
-  <section class="screen" id="s-q">
-    <div class="topbar">
-      <button class="back" onclick="qBack()">‹</button>
-      <div><h2 id="q-step">Über dich</h2><div class="sub" id="q-count">Schritt 1 von 6</div></div>
-    </div>
+  <!-- ============ 2 · CHECK ============ -->
+  <section class="screen" id="s-check">
+    <div class="topbar"><button class="back" onclick="qBack()" aria-label="Zurück">‹</button><div><h2 id="q-step">Über dich</h2><div class="sub" id="q-count">Frage 1 von 4</div></div></div>
     <div class="scroll">
-      <div class="qtabs"><span class="on"></span><span></span><span></span><span></span><span></span><span></span></div>
-      <div class="progress"><i id="q-bar" style="width:16%"></i></div>
-      <div id="q-body" class="qsection"></div>
+      <div class="qtabs"><span class="on"></span><span></span><span></span><span></span></div>
+      <div id="q-body"></div>
       <button class="btn block" id="q-next" onclick="qNext()">Weiter</button>
     </div>
   </section>
 
-  <!-- ============ 3. ANALYZING ============ -->
+  <!-- ============ loader ============ -->
   <section class="screen" id="s-analyze">
     <div class="scroll center" style="display:flex;flex-direction:column;justify-content:center;align-items:center">
       <svg class="mascot" width="120" height="112" viewBox="0 0 120 112" style="animation:pulse 1.2s infinite" aria-hidden="true">
@@ -401,314 +211,86 @@
         <path class="m-smile" d="M47 66c5.5 7.5 20.5 7.5 26 0"/>
       </svg>
       <h1 style="margin-top:22px">Wir erstellen dein Profil…</h1>
-      <p class="lead">Wir gleichen deine Antworten mit den Kohorten der Frauen.Herz.KI-Studie ab.</p>
-      <div class="progress" style="width:200px;margin-top:18px"><i id="an-bar" style="width:0"></i></div>
+      <div class="progress" style="width:200px;margin-top:8px"><i id="an-bar" style="width:0"></i></div>
     </div>
     <style>@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}</style>
   </section>
 
-  <!-- ============ 4. REVEAL ============ -->
-  <section class="screen" id="s-reveal">
+  <!-- ============ 3 · ERGEBNIS ============ -->
+  <section class="screen" id="s-result">
     <div class="topbar"><div class="brand"><div class="mark">♥</div><div><span class="fem">Fem</span><b>Risk</b></div></div></div>
     <div class="scroll">
-      <span class="pill berry" id="rv-cohort">Kohorte D</span>
-      <h1 style="margin-top:12px" id="rv-cohort-title">Frühe Postmenopause mit Schwangerschafts-Risikofaktor</h1>
-      <p class="lead" id="rv-cohort-desc"></p>
-
       <div class="card">
-        <div class="tag center" style="text-align:center">Dein Heart-Balance-Score</div>
+        <div class="tag center">Dein Heart-Balance-Score</div>
         <div class="gaugewrap">
           <div class="gauge">
             <svg width="208" height="208" viewBox="0 0 200 200">
               <circle class="track" cx="100" cy="100" r="86" fill="none" stroke-width="18"/>
-              <circle id="rv-arc" cx="100" cy="100" r="86" fill="none" stroke="var(--lime)" stroke-width="18" stroke-linecap="round" stroke-dasharray="540" stroke-dashoffset="540"/>
+              <circle id="arc" cx="100" cy="100" r="86" fill="none" stroke="var(--lime)" stroke-width="18" stroke-linecap="round" stroke-dasharray="540" stroke-dashoffset="540"/>
             </svg>
             <div class="num">
               <svg class="mascot" width="42" height="40" viewBox="0 0 120 112" style="margin-bottom:2px" aria-hidden="true">
                 <path class="m-body" d="M60 105C25 78 9 56 9 35.5 9 21 20 10 33.5 10 44 10 52 17 60 28 68 17 76 10 86.5 10 100 10 111 21 111 35.5 111 56 95 78 60 105Z"/>
                 <ellipse class="m-blush" cx="37" cy="64" rx="8.5" ry="5.5"/><ellipse class="m-blush" cx="83" cy="64" rx="8.5" ry="5.5"/>
                 <path class="m-eye" d="M33 50c3.5-6 12.5-6 16 0"/><path class="m-eye" d="M71 50c3.5-6 12.5-6 16 0"/>
-                <path class="m-smile" id="rv-smile" d="M47 66c5.5 7.5 20.5 7.5 26 0"/>
+                <path class="m-smile" id="smile" d="M47 66c5.5 7.5 20.5 7.5 26 0"/>
               </svg>
-              <b id="rv-score">0</b><span>von 100</span>
+              <b id="score">0</b><span>von 100</span>
             </div>
           </div>
-          <span class="pill sage" id="rv-band">Solider Ausgangspunkt</span>
+          <span class="pill sage" id="band">Solider Ausgangspunkt</span>
         </div>
-        <p class="small center" style="margin-top:10px">Der Heart-Balance-Score ist ein Lifestyle-Index aus deinen Angaben – keine medizinische Diagnose.</p>
+        <p class="small center" id="profile-line" style="margin-top:10px"></p>
       </div>
 
       <div class="card">
         <h3>Was deinen Score beeinflusst</h3>
-        <div id="rv-factors"></div>
+        <div id="factors"></div>
       </div>
 
-      <!-- the "was passiert jetzt" moment -->
       <div class="card indigo">
         <div class="tag">Und jetzt?</div>
-        <h3 style="font-size:19px">Wähle 1–2 Bereiche für die nächsten Wochen</h3>
-        <p style="color:#d2d5f1;font-size:13.5px;margin-top:4px">Daraus bauen wir deinen persönlichen, begleiteten Plan – kleine Schritte zuerst.</p>
-        <div id="rv-focus" style="margin-top:8px"></div>
+        <h3 style="font-size:19px">Wähle deinen Fokus</h3>
+        <p style="color:#d2d5f1;font-size:13.5px;margin-top:4px">Daraus bauen wir deinen begleiteten Plan – kleine Schritte zuerst.</p>
+        <div id="focus" style="margin-top:8px"></div>
       </div>
-
       <button class="btn sage block" onclick="buildPlan()">Meinen Plan erstellen →</button>
-      <p class="disc">Findings beziehen sich auf veröffentlichte Forschung für Frauen mit ähnlichem Profil – keine individuelle Vorhersage.</p>
+      <p class="disc">Der Score ist ein Lifestyle-Index aus deinen Angaben – keine medizinische Diagnose. Findings beziehen sich auf veröffentlichte Forschung für Frauen mit ähnlichem Profil.</p>
     </div>
   </section>
 
-  <!-- ============ HOME ============ -->
-  <section class="screen" id="s-home">
-    <div class="topbar">
-      <div class="brand"><div class="mark">♥</div><div><span class="fem">Fem</span><b>Risk</b></div></div>
-      <button style="margin-left:auto;border:none;cursor:pointer;font-family:inherit" class="pill grey" id="home-greet" onclick="nav('profile')">Hallo 👋</button>
-    </div>
-    <div class="scroll withnav">
-      <!-- score summary (indigo hero) -->
-      <div class="heroscore" onclick="go('s-reveal')">
-        <div class="gauge" style="width:88px;height:88px;flex:0 0 auto">
-          <svg width="88" height="88" viewBox="0 0 200 200"><circle class="track" cx="100" cy="100" r="86" fill="none" stroke-width="20"/><circle id="home-arc" cx="100" cy="100" r="86" fill="none" stroke="var(--lime)" stroke-width="20" stroke-linecap="round" stroke-dasharray="540" stroke-dashoffset="540"/></svg>
-          <div class="num"><b id="home-score">72</b></div>
-        </div>
-        <div>
-          <div class="hs-label">Heart-Balance</div>
-          <h3 id="home-band">Solider Ausgangspunkt</h3>
-          <div class="hs-sub">Kohorte <span id="home-cohort">D</span> · Profil ansehen ›</div>
-        </div>
-        <div class="cheer"><span class="gbubble" id="cheer-txt">Stark!</span>
-          <svg class="mascot" width="46" height="44" viewBox="0 0 120 112" aria-hidden="true">
-            <path class="m-body" d="M60 105C25 78 9 56 9 35.5 9 21 20 10 33.5 10 44 10 52 17 60 28 68 17 76 10 86.5 10 100 10 111 21 111 35.5 111 56 95 78 60 105Z"/>
-            <ellipse class="m-blush" cx="37" cy="64" rx="8.5" ry="5.5"/><ellipse class="m-blush" cx="83" cy="64" rx="8.5" ry="5.5"/>
-            <path class="m-eye" d="M33 50c3.5-6 12.5-6 16 0"/><path class="m-eye" d="M71 50c3.5-6 12.5-6 16 0"/>
-            <path class="m-smile" d="M47 66c5.5 7.5 20.5 7.5 26 0"/>
-          </svg>
-        </div>
-      </div>
-
-      <!-- plan preview -->
-      <div class="card" style="cursor:pointer" onclick="nav('plan')">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <div class="tag">🗺️ Dein Plan · Woche <span id="home-week">1</span> von 8</div>
-          <span class="small" id="home-plantitle">Mehr Bewegung</span>
-        </div>
-        <div class="progress" style="margin:12px 0 8px"><i id="home-planbar" style="width:33%"></i></div>
-        <p class="small" id="home-plansub">1 von 3 Aufgaben heute erledigt – weiter so!</p>
-      </div>
-
-      <!-- quick log as metric tiles -->
-      <div class="card">
-        <h3>Heute eintragen</h3>
-        <p class="small" style="margin-top:-2px">Verfolge deinen Fortschritt – manuell oder per Gerät.</p>
-        <div class="metrics">
-          <div class="mtile" onclick="logIt('Blutdruck')"><span class="mt-ic">🩸</span><span class="mt-face good">☺</span><b>118/76</b><span class="mt-add">+</span></div>
-          <div class="mtile" onclick="logIt('Puls')"><span class="mt-ic">💗</span><span class="mt-face good">☺</span><b>67 bpm</b><span class="mt-add">+</span></div>
-          <div class="mtile" onclick="logIt('Schritte')"><span class="mt-ic">👟</span><span class="mt-face warn" id="mt-steps-face">•‿•</span><b id="mt-steps">6.240</b><span class="mt-add">+</span></div>
-          <div class="mtile" onclick="logIt('Schlaf')"><span class="mt-ic">🌙</span><span class="mt-face good">☺</span><b>7h 12m</b><span class="mt-add">+</span></div>
-        </div>
-        <button class="btn sm" style="width:100%;margin-top:14px;background:var(--lav-bg);color:var(--indigo)" onclick="go('s-pricing')">⌚ Gerät verbinden – in deinem Benefit enthalten</button>
-      </div>
-
-      <!-- library tile -->
-      <div class="card" style="cursor:pointer" onclick="openArticle(0)">
-        <div class="tag">📚 Für dich aus der Bibliothek</div>
-        <h3 style="margin:8px 0">Warum Schlaf in den Wechseljahren dein Herz beeinflusst</h3>
-        <p class="small">4 Min Lesezeit · passend zu deinem Profil ›</p>
-      </div>
-    </div>
-    <div class="nav" id="nav"></div>
-  </section>
-
-  <!-- ============ PLAN ============ -->
+  <!-- ============ 4 · PLAN (= die App) ============ -->
   <section class="screen" id="s-plan">
-    <div class="topbar"><div><h2>Dein Plan</h2><div class="sub" id="plan-focus">Mehr Bewegung · Woche 1 von 8</div></div></div>
-    <div class="scroll withnav">
-      <div class="callout">
-        <span style="font-size:18px">💡</span>
-        <span><b>So funktioniert's:</b> Wir starten klein. Schaffst du die Aufgaben einer Woche, steigern wir sanft – kein Sprung ins kalte Wasser.</span>
-      </div>
+    <div class="topbar"><button class="back" onclick="go('s-result')" aria-label="Zurück">‹</button><div><h2>Dein Plan</h2><div class="sub" id="plan-focus">Mehr Bewegung · Woche 1 von 8</div></div></div>
+    <div class="scroll">
+      <div class="benefit"><span class="g">🎁</span><div><b>FemRisk Premium – von deiner Arbeitgeberin</b><p>Musterfirma GmbH · anonym – dein Score bleibt privat</p></div></div>
+
+      <div class="callout"><span style="font-size:18px">💡</span><span><b>So funktioniert's:</b> Wir starten klein. Schaffst du die Aufgaben einer Woche, steigern wir sanft – kein Sprung ins kalte Wasser.</span></div>
+
       <div class="card">
         <div style="display:flex;justify-content:space-between;align-items:center"><h3>Diese Woche</h3><span class="pill sage" id="plan-prog">0/3</span></div>
         <div id="plan-tasks"></div>
       </div>
-      <!-- partner tie-in -->
-      <div class="card" style="border:1.6px dashed var(--lav);box-shadow:none">
-        <div class="tag">🤝 Passt zu deinem Ziel</div>
-        <h3 style="margin:8px 0">HelloFresh – 3 herzgesunde Boxen geschenkt</h3>
-        <p class="small">Weil „gesünder essen“ Teil deines Plans ist. Exklusiv für FemRisk-Nutzerinnen.</p>
-        <button class="btn sm sage" style="margin-top:12px;width:100%" onclick="nav('partners')">Angebote ansehen →</button>
-      </div>
-      <div class="card flat">
-        <h3>Kommende Wochen</h3>
-        <p class="small" style="margin:4px 0 0">Woche 3–4: tägliche 20-Min-Spaziergänge · Woche 5–6: 2× Krafttraining · Woche 7–8: 10.000 Schritte als Routine. Wird automatisch angepasst.</p>
-      </div>
-    </div>
-    <div class="nav" id="nav-plan"></div>
-  </section>
-
-  <!-- ============ LIBRARY ============ -->
-  <section class="screen" id="s-lib">
-    <div class="topbar"><div><h2>Wissen</h2><div class="sub">Verständlich erklärt – was es für dich bedeutet</div></div></div>
-    <div class="scroll withnav">
-      <div class="chips">
-        <div class="chip on"><div class="ci" style="background:var(--ink);color:#fff">▦</div><span>Alle</span></div>
-        <div class="chip"><div class="ci c0">💗</div><span>Blutdruck</span></div>
-        <div class="chip"><div class="ci c1">🏃‍♀️</div><span>Bewegung</span></div>
-        <div class="chip"><div class="ci c2">🥗</div><span>Ernährung</span></div>
-        <div class="chip"><div class="ci c3">🧘‍♀️</div><span>Stress</span></div>
-        <div class="chip"><div class="ci c4">🌙</div><span>Schlaf</span></div>
-      </div>
-      <div id="lib-list"></div>
-    </div>
-    <div class="nav" id="nav-lib"></div>
-  </section>
-
-  <!-- article reader -->
-  <section class="screen" id="s-article">
-    <div class="topbar"><button class="back" onclick="nav('lib')">‹</button><div><h2 style="font-size:17px">Bibliothek</h2></div></div>
-    <div class="scroll" id="article-body"></div>
-  </section>
-
-  <!-- ============ COMMUNITY ============ -->
-  <section class="screen" id="s-comm">
-    <div class="topbar"><div><h2>Community</h2><div class="sub">Gemeinsam dranbleiben – in deiner Nähe</div></div></div>
-    <div class="scroll withnav">
-      <div class="card indigo">
-        <h3>Dein Bewegungs-Buddy</h3>
-        <p style="color:#d2d5f1;font-size:13.5px;margin:4px 0 12px">Zu zweit sagt man seltener ab. Finde jemanden mit ähnlichem Ziel in deiner Nähe.</p>
-        <button class="btn sm" style="background:#fff;color:var(--indigo);width:100%" onclick="toast('Buddy-Anfrage gesendet 💪')">Buddy finden</button>
-      </div>
-      <div class="card" style="border:1.6px solid var(--lav)">
-        <div class="tag">🏆 Firmen-Challenge · Musterfirma</div>
-        <h3 style="margin:8px 0">Schritte-Challenge Q3</h3>
-        <p class="small">Dein Team „Herzblut“ liegt auf Platz 2 – 148.230 Schritte diese Woche. Anonym: nur dein Team-Alias zählt.</p>
-        <div class="progress" style="margin:10px 0 6px"><i style="width:62%"></i></div>
-        <button class="btn sm sage" style="width:100%" onclick="toast('Du bist im Team Herzblut! 🏆')">Challenge beitreten</button>
-      </div>
-      <h3 style="margin:18px 0 4px;font-size:16px">Heute aktiv in München</h3>
-      <div id="comm-feed"></div>
-      <div class="card flat center">
-        <p class="small" style="margin:0">🌿 78 Frauen in deiner Region verfolgen gerade einen Plan.</p>
-      </div>
-    </div>
-    <div class="nav" id="nav-comm"></div>
-  </section>
-
-  <!-- ============ PARTNERS ============ -->
-  <section class="screen" id="s-partners">
-    <div class="topbar"><button class="back" onclick="nav('home')">‹</button><div><h2>Deine Vorteile</h2><div class="sub">Passend zu deinem Plan ausgewählt</div></div></div>
-    <div class="scroll">
-      <div class="partner">
-        <div class="top" style="background:linear-gradient(135deg,#7cb342,#558b2f)"><div style="font-size:26px">🥗</div><h4>HelloFresh</h4></div>
-        <div class="body"><p style="margin:0 0 4px;font-weight:700">3 herzgesunde Boxen geschenkt</p><p class="small" style="margin:0">Mediterrane Rezepte, abgestimmt auf dein Ziel „gesünder essen“.</p><button class="btn sm sage" style="width:100%;margin-top:12px" onclick="toast('Code FEMRISK kopiert ✓')">Vorteil sichern</button></div>
-      </div>
-      <div class="partner">
-        <div class="top" style="background:linear-gradient(135deg,#e8743b,#d65a2a)"><div style="font-size:26px">🧘‍♀️</div><h4>Headspace</h4></div>
-        <div class="body"><p style="margin:0 0 4px;font-weight:700">3 Monate gratis</p><p class="small" style="margin:0">Stress senken – einer deiner Score-Faktoren. Geführte Atem- & Schlafübungen.</p><button class="btn sm sage" style="width:100%;margin-top:12px" onclick="toast('Code FEMRISK kopiert ✓')">Vorteil sichern</button></div>
-      </div>
-      <div class="partner">
-        <div class="top" style="background:linear-gradient(135deg,#5c6bc0,#3949ab)"><div style="font-size:26px">🏊‍♀️</div><h4>Fitnessstudio-Netzwerk</h4></div>
-        <div class="body"><p style="margin:0 0 4px;font-weight:700">Probemonat ohne Beitrag</p><p class="small" style="margin:0">Über 1.200 Partnerstudios deutschlandweit.</p><button class="btn sm sage" style="width:100%;margin-top:12px" onclick="toast('Code FEMRISK kopiert ✓')">Vorteil sichern</button></div>
-      </div>
-      <p class="disc">Kooperationsangebote. FemRisk verkauft keine persönlichen Daten – Vorteile gelten anonym über einen Code.</p>
-    </div>
-  </section>
-
-  <!-- ============ DOCTOR FINDER ============ -->
-  <section class="screen" id="s-doctor">
-    <div class="topbar"><div><h2>Zur Ärztin</h2><div class="sub">Passende Praxen & dein Gesprächsleitfaden</div></div></div>
-    <div class="scroll withnav">
-      <div class="callout">
-        <span style="font-size:18px">🩺</span>
-        <span>Für dein Profil (Kohorte <b id="doc-cohort">D</b>) kann ein Termin bei <b>Kardiologie oder Gynäkologie</b> sinnvoll sein. Hier findest du Praxen in deiner Nähe – gefiltert nach Fachgebiet.</span>
-      </div>
-      <div id="doc-list"></div>
-      <p class="disc" style="text-align:left;padding:8px 2px 0">Neutrale Auflistung nach Fachgebiet und Entfernung. FemRisk erhält <b>kein Entgelt</b> für Platzierung oder Empfehlung. Dein Profil wird nicht automatisch übermittelt – du nimmst deinen Bericht selbst mit zum Termin.</p>
-      <div class="card" style="border:1.6px solid var(--lav);box-shadow:none">
-        <div class="tag">📝 Gesprächsleitfaden</div>
-        <h3 style="margin:8px 0">Wie fange ich das Gespräch an?</h3>
-        <p class="small">Konkrete Fragen für deinen Termin – damit aus 8 Minuten ein gutes Gespräch wird.</p>
-        <button class="btn sm" style="width:100%;margin-top:12px" onclick="go('s-report')">Leitfaden & Arzt-Bericht öffnen →</button>
-      </div>
-    </div>
-    <div class="nav" id="nav-doc"></div>
-  </section>
-
-  <!-- ============ REPORT / PDF ============ -->
-  <section class="screen" id="s-report">
-    <div class="topbar"><button class="back" onclick="nav('doc')">‹</button><div><h2>Arzt-Bericht</h2><div class="sub">Eine Seite, in 60 Sekunden erfassbar</div></div></div>
-    <div class="scroll">
-      <div class="report">
-        <div class="rh">
-          <div><b style="font-size:14px;color:var(--indigo)">FemRisk · Herzgesundheits-Profil</b><br><span style="color:var(--muted)">Erstellt <span id="rep-date">–</span></span></div>
-          <div style="text-align:right;color:var(--muted)">TU München<br>Frauen.Herz.KI</div>
-        </div>
-        <p style="margin:0 0 4px"><b>Kohorten-Zuordnung:</b> <span id="rep-cohort">D – Frühe Postmenopause mit Schwangerschafts-Risikofaktor</span></p>
-        <p style="margin:0 0 10px"><b>Heart-Balance-Score:</b> <span id="rep-score">72</span>/100 (<span id="rep-band">Solider Ausgangspunkt</span>)</p>
-        <b>Wichtigste Faktoren:</b>
-        <table id="rep-factors"></table>
-        <b>Diskussionsanregungen für das Gespräch:</b>
-        <ul style="margin:6px 0;padding-left:18px" id="rep-questions"></ul>
-        <p style="font-size:10px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:10px">Dieser Bericht ist eine Datenzusammenstellung auf Basis der Eingaben der Nutzerin. Er stellt keine medizinische Diagnose dar. Alle klinischen Interpretationen liegen allein bei der behandelnden Ärztin / dem behandelnden Arzt.</p>
-      </div>
-      <button class="btn block" onclick="toast('PDF gespeichert ✓')">⬇︎ Als PDF speichern</button>
-      <button class="btn ghost block" onclick="toast('Per E-Mail gesendet ✓')">✉︎ An mich senden</button>
-      <div class="fb"><span class="small">War das hilfreich?</span><button onclick="toast('Danke für dein Feedback!')">👍</button><button onclick="toast('Danke – was fehlt dir?')">👎</button></div>
-    </div>
-  </section>
-
-  <!-- ============ PROFILE / PREMIUM ============ -->
-  <section class="screen" id="s-profile">
-    <div class="topbar"><div><h2>Profil</h2><div class="sub">Dein Konto & gespeicherte Profile</div></div></div>
-    <div class="scroll withnav">
-      <div class="card" style="display:flex;align-items:center;gap:14px">
-        <div class="avatar" id="prof-avatar" style="background:linear-gradient(135deg,var(--indigo-2),var(--indigo));width:56px;height:56px;font-size:21px">A</div>
-        <div><h3 style="margin:0" id="prof-name">Anna, 54</h3><p class="small" style="margin:2px 0 0" id="prof-sub">Kohorte D · seit 3 Tagen dabei</p></div>
-      </div>
-
-      <div class="price pro">
-        <span class="ribbon">🎁 Benefit aktiv</span>
-        <h3 style="margin:0 0 4px">Premium – von deinem Arbeitgeber</h3>
-        <p class="small">Alle Funktionen freigeschaltet, bezahlt von <span id="prof-company">Musterfirma GmbH</span>. Anonym – dein Unternehmen sieht nie deine Daten.</p>
-        <button class="btn block" onclick="go('s-pricing')">Benefit-Details ansehen</button>
-      </div>
 
       <div class="card">
-        <h3>Datenschutz</h3>
-        <p class="small">EU-Hosting · Verschlüsselt · Keine Werbung, kein Datenverkauf. Du steuerst jede Freigabe.</p>
-        <button class="btn sm ghost" style="margin-top:10px" onclick="toast('Alle Daten exportiert ✓')">Meine Daten exportieren</button>
+        <h3>Dein Fortschritt</h3>
+        <p class="small" style="margin:-2px 0 12px">Trag ein, was du schaffst – so siehst du, dass es wirkt.</p>
+        <div class="track-tile"><span class="ti">👟</span><div><b id="steps">6.240</b><br><span class="small">Schritte heute</span></div><button class="add" onclick="addSteps()" aria-label="Schritte hinzufügen">+</button></div>
       </div>
-      <button class="btn sm" style="background:#eceaf5;color:var(--muted);margin-top:6px" onclick="resetDemo()">Demo neu starten</button>
-    </div>
-    <div class="nav" id="nav-prof"></div>
-  </section>
-
-  <!-- ============ FIRMENCODE (employee entry) ============ -->
-  <section class="screen" id="s-code">
-    <div class="topbar"><button class="back" onclick="go('s-landing')">‹</button><div><h2>Firmencode</h2><div class="sub">Dein Arbeitgeber schenkt dir Premium</div></div></div>
-    <div class="scroll">
-      <div class="card indigo center">
-        <div style="font-size:36px">🎁</div>
-        <h3 style="font-size:19px;margin-top:6px">FemRisk als Mitarbeiterinnen-Benefit</h3>
-        <p style="color:#d2d5f1;font-size:13.5px;margin-top:6px">Mit dem Code deines Unternehmens sind alle Premium-Funktionen für dich kostenlos.</p>
-      </div>
-      <div class="field"><label>Dein Firmencode</label>
-        <input class="txtinput" id="code-input" value="MUSTER24" autocomplete="off">
-      </div>
-      <button class="btn block" onclick="applyCode()">Code einlösen →</button>
-      <button class="btn ghost block" onclick="go('s-q')">Ohne Code fortfahren</button>
-      <div class="callout"><span style="font-size:18px">🔒</span><span>Dein Unternehmen erfährt <b>nie</b>, wer die App nutzt oder was du eingibst – es sieht nur anonyme Gruppenwerte ab 20 Teilnehmerinnen.</span></div>
+      <p class="disc">Prototyp – Daten werden nicht gespeichert.</p>
     </div>
   </section>
 
-  <!-- ============ EMPLOYER LANDING (CEO pitch) ============ -->
+  <!-- ============ 5 · FÜR UNTERNEHMEN ============ -->
   <section class="screen" id="s-employer">
-    <div class="topbar"><button class="back" onclick="go('s-landing')">‹</button><div class="brand"><div class="mark">♥</div><div><span class="fem">Fem</span><b>Risk</b></div></div><span class="pill berry" style="margin-left:auto">Für Unternehmen</span></div>
+    <div class="topbar"><button class="back" onclick="go('s-welcome')" aria-label="Zurück">‹</button><div class="brand"><div class="mark">♥</div><div><span class="fem">Fem</span><b>Risk</b></div></div><span class="pill berry" style="margin-left:auto">Für Unternehmen</span></div>
     <div class="scroll">
       <h1>Die häufigste Todesursache bei Frauen ist auch ein Business-Problem.</h1>
       <p class="lead">Herz-Kreislauf-Risiken und unbehandelte Wechseljahres-Beschwerden kosten Krankheitstage – und drängen erfahrene Frauen aus dem Job. FemRisk macht Prävention zum Benefit, den Ihr Unternehmen stellt.</p>
       <div class="statrow">
         <div class="stat"><b>Nr. 1</b><span>Todesursache bei Frauen: Herz-Kreislauf</span></div>
-        <div class="stat"><b>1 von 10</b><span>Frauen reduziert wegen Wechseljahres-Beschwerden die Arbeitszeit</span></div>
-        <div class="stat"><b>45–60</b><span>die erfahrensten Mitarbeiterinnen – und die Risikogruppe</span></div>
+        <div class="stat"><b>1 v. 10</b><span>reduziert Arbeitszeit wg. Wechseljahren</span></div>
+        <div class="stat"><b>45–60</b><span>erfahrenste MA – und Risikogruppe</span></div>
       </div>
 
       <div class="card">
@@ -716,115 +298,47 @@
         <h3 style="margin:8px 0 2px">Was bringt FemRisk Ihrem Unternehmen?</h3>
         <p class="small">Wie viele Mitarbeiterinnen hat Ihr Unternehmen?</p>
         <div class="center" style="margin-top:8px"><span class="rangeval" id="roi-n">120</span> <span class="small">Mitarbeiterinnen</span></div>
-        <input type="range" min="20" max="1000" step="10" value="120" oninput="roiCalc(+this.value)">
+        <input type="range" min="20" max="1000" step="10" value="120" oninput="roiCalc(+this.value)" aria-label="Anzahl Mitarbeiterinnen">
         <div class="roi-out">
-          <div class="roi-box"><b id="roi-part">72</b><span>aktive Teilnehmerinnen</span></div>
           <div class="roi-box"><b id="roi-days">58</b><span>vermiedene Krankheitstage / Jahr</span></div>
-          <div class="roi-box hl"><b id="roi-save">23.200 €</b><span>geschätzte Ersparnis / Jahr</span></div>
           <div class="roi-box"><b id="roi-cost">5.760 €</b><span>Programmkosten / Jahr</span></div>
+          <div class="roi-box hl" style="grid-column:1 / -1"><b id="roi-save">23.200 €</b><span>geschätzte Netto-Ersparnis / Jahr · ≈ <span id="roi-x">4,0×</span> Return</span></div>
         </div>
-        <p class="small center" style="margin-top:12px">≈ <b id="roi-x">4,0×</b> Return im ersten Jahr</p>
-        <p class="small" style="margin-top:10px">Annahmen (Demo): 60 % Aktivierung · 0,8 vermiedene Krankheitstage pro Teilnehmerin/Jahr · 400 € Kosten pro Krankheitstag · 4 €/Mitarbeiterin/Monat. Im Pilot messen wir Ihre echten Werte.</p>
+        <p class="small" style="margin-top:10px">Annahmen (Demo): 60 % Aktivierung · 0,8 vermiedene Krankheitstage/Teilnehmerin/Jahr · 400 €/Tag · 4 €/MA/Monat. Im Pilot messen wir Ihre echten Werte.</p>
       </div>
 
       <div class="card">
         <h3>So funktioniert's</h3>
-        <div class="step"><div class="n">1</div><div><h4>Firmencode verteilen</h4><p>Sie erhalten einen Code für Ihre Belegschaft – Einladung per E-Mail oder Intranet, keine IT-Integration nötig.</p></div></div>
-        <div class="step"><div class="n">2</div><div><h4>Mitarbeiterinnen nutzen FemRisk anonym</h4><p>Risikoprofil, begleiteter Plan, Wissen, Community, Arzt-Bericht – alle Premium-Funktionen, komplett privat.</p></div></div>
-        <div class="step"><div class="n">3</div><div><h4>Sie sehen Wirkung, nie Personen</h4><p>Anonymes Dashboard mit Gruppenwerten: Aktivierung, Trend, geschätzt vermiedene Krankheitstage.</p></div></div>
-        <button class="btn block" onclick="go('s-dashboard')">Demo-Dashboard ansehen →</button>
+        <div class="step"><div class="n">1</div><div><h4>Firmencode verteilen</h4><p>Ein Code für Ihre Belegschaft – keine IT-Integration nötig.</p></div></div>
+        <div class="step"><div class="n">2</div><div><h4>Mitarbeiterinnen nutzen FemRisk anonym</h4><p>Risikoprofil und begleiteter Plan – komplett privat.</p></div></div>
+        <div class="step"><div class="n">3</div><div><h4>Sie sehen Wirkung, nie Personen</h4><p>Anonymes Dashboard mit Gruppenwerten.</p></div></div>
       </div>
 
-      <div class="card" style="border:1.6px solid var(--lav);box-shadow:none">
-        <div class="tag">🔒 Datenschutz zuerst</div>
-        <h3 style="margin:8px 0">Betriebsrats-tauglich by Design</h3>
-        <p class="small">Individuelle Gesundheitsdaten verlassen nie das Konto der Nutzerin. Ihr Unternehmen sieht ausschließlich aggregierte Werte ab 20 Teilnehmerinnen (k-Anonymität). EU-Hosting, keine Werbe-Tracker, kein Datenverkauf.</p>
+      <div class="card">
+        <div class="tag">📊 Ihr anonymes Dashboard</div>
+        <h3 style="margin:8px 0 2px">Wirkung – ohne je Personen zu sehen</h3>
+        <div class="dash">
+          <div class="dcell"><b>68 %</b><span>Aktivierung (82 v. 120)</span></div>
+          <div class="dcell"><b>71 <span style="font-size:12px;color:var(--lime-d)">+6</span></b><span>Ø Heart-Balance (8 Wo.)</span></div>
+          <div class="dcell"><b>54</b><span>aktive Pläne</span></div>
+          <div class="dcell"><b>≈ 66</b><span>vermiedene Krankheitstage/J.</span></div>
+        </div>
+        <div class="callout" style="margin-top:14px"><span style="font-size:18px">🔒</span><span>Nur Gruppenwerte ab 20 Teilnehmerinnen. Niemals Namen, individuelle Scores oder Antworten. Betriebsrats-tauglich, EU-Hosting, kein Datenverkauf.</span></div>
       </div>
 
-      <div class="quote">„Meine erfahrensten Leute sind Frauen zwischen 45 und 60. Wenn ich ihre Gesundheit ernst nehme, bleiben sie – so einfach ist die Rechnung.“<br><b style="font-size:12px">— Geschäftsführerin, 140 MA (Pilotinterview)</b></div>
-
-      <div class="price pro">
+      <div class="price">
         <span class="ribbon">3-Monats-Pilot</span>
         <h4>FemRisk für Unternehmen</h4>
         <div class="amt">4 €<span style="font-size:14px;color:var(--muted);font-weight:600"> / Mitarbeiterin / Monat</span></div>
-        <ul>
-          <li>Alle Premium-Funktionen für Ihre Mitarbeiterinnen</li>
-          <li>Anonymes Wirkungs-Dashboard</li>
-          <li>Firmen-Challenges (z. B. Schritte-Challenge)</li>
-          <li>Onboarding-Material für HR & Betriebsrat</li>
-        </ul>
+        <ul><li>Alle Funktionen für Ihre Mitarbeiterinnen</li><li>Anonymes Wirkungs-Dashboard</li><li>Onboarding-Material für HR & Betriebsrat</li></ul>
         <button class="btn block" onclick="toast('Demo: Pilot-Anfrage gesendet – wir melden uns!')">Pilot anfragen</button>
+      </div>
+      <div class="card flat center">
+        <p class="small" style="margin:0 0 10px"><b>Kurze Frage</b> (hilft uns sehr): Würden Sie das als Arbeitgeberin anbieten?</p>
+        <div class="fb"><button onclick="toast('Danke! 4 €/MA notiert')">Ja, zu 4 €</button><button onclick="toast('Danke – Preis notiert')">Nur günstiger</button><button onclick="toast('Danke fürs Feedback')">Nein</button></div>
       </div>
       <button class="btn ghost block" onclick="seedDemo()">Die Mitarbeiterinnen-App ansehen →</button>
       <p class="disc">Demo-Zahlen zur Veranschaulichung. Die App stellt keine medizinische Diagnose.</p>
-    </div>
-  </section>
-
-  <!-- ============ EMPLOYER DASHBOARD (demo) ============ -->
-  <section class="screen" id="s-dashboard">
-    <div class="topbar"><button class="back" onclick="go('s-employer')">‹</button><div><h2>Musterfirma GmbH</h2><div class="sub">Anonymes Wirkungs-Dashboard · letzte 8 Wochen</div></div></div>
-    <div class="scroll">
-      <div class="metrics" style="margin-top:4px">
-        <div class="mtile"><span class="mt-ic">👥</span><span class="mt-face good">☺</span><b>68 %</b><span class="small">Aktivierung (82 von 120)</span></div>
-        <div class="mtile"><span class="mt-ic">💗</span><span class="mt-face good">☺</span><b>71 <span style="font-size:13px;color:var(--lime-d)">+6</span></b><span class="small">Ø Heart-Balance (8 Wo.)</span></div>
-        <div class="mtile"><span class="mt-ic">🗺️</span><span class="mt-face good">☺</span><b>54</b><span class="small">aktive Pläne</span></div>
-        <div class="mtile"><span class="mt-ic">🏥</span><span class="mt-face good">☺</span><b>≈ 66</b><span class="small">vermiedene Krankheitstage (Prognose/Jahr)</span></div>
-      </div>
-
-      <div class="card">
-        <h3>Wöchentlich aktive Nutzerinnen</h3>
-        <div class="bars"><i style="height:38%"></i><i style="height:52%"></i><i style="height:60%"></i><i style="height:66%"></i><i style="height:70%"></i><i style="height:72%"></i><i style="height:76%"></i><i style="height:74%"></i></div>
-        <div class="barlabels"><span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span><span>W7</span><span>W8</span></div>
-      </div>
-
-      <div class="card">
-        <div class="tag">🏆 Firmen-Challenge</div>
-        <h3 style="margin:8px 0">Schritte-Challenge Q3</h3>
-        <p class="small">3 anonyme Teams · 1,24 Mio. Schritte diese Woche · Team „Herzblut“ führt</p>
-        <div class="progress" style="margin-top:10px"><i style="width:62%"></i></div>
-        <p class="small">62 % des Wochenziels erreicht</p>
-      </div>
-
-      <div class="card" style="border:1.6px solid var(--lav);box-shadow:none">
-        <div class="tag">🔒 Was Sie hier nie sehen</div>
-        <p class="small" style="margin:8px 0 0">Namen, individuelle Scores oder Antworten. Alle Werte sind Gruppenwerte ab 20 Teilnehmerinnen. Bei weniger Teilnehmerinnen zeigt das Dashboard: „Zu wenige Daten“.</p>
-        <button class="btn sm ghost" style="margin-top:10px" onclick="toast('Demo: Betriebsrats-Report (PDF) erstellt ✓')">Report für den Betriebsrat</button>
-      </div>
-      <p class="disc">Demo-Daten zur Veranschaulichung des Pilots.</p>
-    </div>
-  </section>
-
-  <!-- ============ BENEFIT (employer-paid premium) ============ -->
-  <section class="screen" id="s-pricing">
-    <div class="topbar"><button class="back" onclick="nav('profile')">‹</button><div><h2>Dein Benefit</h2><div class="sub">Premium – bezahlt von deinem Arbeitgeber</div></div></div>
-    <div class="scroll">
-      <div class="card indigo center">
-        <div style="font-size:34px">🎁</div>
-        <h3 style="font-size:20px;margin-top:6px">FemRisk Premium</h3>
-        <p style="color:#d2d5f1;font-size:13.5px;margin:4px 0 12px">geschenkt von <b id="ben-company" style="color:#fff">Musterfirma GmbH</b></p>
-        <span class="pill" style="background:#fff;color:var(--lime-d)">✓ Aktiv – für dich kostenlos</span>
-      </div>
-      <div class="card">
-        <h3>Für dich freigeschaltet</h3>
-        <div class="see"><span class="ic">✅</span><span><b>Begleiteter Plan</b>, der mit dir mitwächst</span></div>
-        <div class="see"><span class="ic">✅</span><span><b>Community & Bewegungs-Buddy</b> + Firmen-Challenge</span></div>
-        <div class="see"><span class="ic">✅</span><span><b>Geräte-Sync</b> (Uhr, Tracker)</span></div>
-        <div class="see"><span class="ic">✅</span><span><b>Partnervorteile</b> (HelloFresh, Headspace …)</span></div>
-        <div class="see"><span class="ic">✅</span><span><b>Arzt-Finder & Arzt-Bericht</b> (PDF)</span></div>
-      </div>
-      <div class="card" style="border:1.6px solid var(--lav);box-shadow:none">
-        <h3>🔒 Was dein Unternehmen sieht – und was nie</h3>
-        <div class="see"><span class="ic">👁️</span><span>Sieht: <b>anonyme Gruppenwerte</b> (ab 20 Teilnehmerinnen) und die Teilnahmequote</span></div>
-        <div class="see"><span class="ic">🚫</span><span>Sieht nie: deinen Namen, deine Antworten, deinen Score, deine Berichte</span></div>
-      </div>
-      <div class="card flat center">
-        <p class="small" style="margin:0 0 10px"><b>Kurze Frage an dich</b> (hilft uns sehr): Wie findest du FemRisk als Arbeitgeber-Benefit?</p>
-        <div class="fb">
-          <button onclick="toast('Danke! 💜')">Top Benefit</button>
-          <button onclick="toast('Danke fürs Feedback')">Ganz ok</button>
-          <button onclick="toast('Danke – was fehlt dir?')">Brauche ich nicht</button>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -832,375 +346,139 @@
 </div>
 
 <script>
-/* ---------------- state ---------------- */
-const S = {
-  answers:{}, cohort:null, score:0, band:'', factors:[], focus:[],
-  planTitle:'Mehr Bewegung', tasks:[], week:1
-};
+const S={answers:{},score:0,band:'',factors:[],focus:null,planTitle:'Mehr Bewegung',tasks:[],week:1,steps:6240};
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));const el=document.getElementById(id);el.classList.add('active');const sc=el.querySelector('.scroll');if(sc)sc.scrollTop=0;}
+function toast(t){const e=document.getElementById('toast');e.textContent=t;e.classList.add('show');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('show'),1900);}
 
-function go(id){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  const sc=document.getElementById(id).querySelector('.scroll'); if(sc) sc.scrollTop=0;
-}
-function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('show'),1800);}
-
-/* ---------------- bottom nav ---------------- */
-const NAVS=[
-  {k:'home',s:'s-home',i:'🏠',l:'Start'},
-  {k:'plan',s:'s-plan',i:'🗺️',l:'Plan'},
-  {k:'lib',s:'s-lib',i:'📚',l:'Wissen'},
-  {k:'comm',s:'s-comm',i:'👯‍♀️',l:'Community'},
-  {k:'doc',s:'s-doctor',i:'🩺',l:'Ärztin'},
-  {k:'profile',s:'s-profile',i:'👤',l:'Profil'},
-];
-const NAVMAP={home:'s-home',plan:'s-plan',lib:'s-lib',comm:'s-comm',doc:'s-doctor',profile:'s-profile',partners:'s-partners'};
-function nav(k){
-  if(k==='lib') renderLib();
-  if(k==='comm') renderComm();
-  if(k==='plan') renderPlan();
-  if(k==='doc') renderDoc();
-  go(NAVMAP[k]);
-  buildNav(k);
-}
-function buildNav(active){
-  document.querySelectorAll('.nav').forEach(n=>{
-    n.innerHTML=NAVS.map(x=>`<button class="${x.k===active?'on':''}" onclick="nav('${x.k}')"><span class="ni">${x.i}</span>${x.l}</button>`).join('');
-  });
-}
-
-/* ---------------- questionnaire ---------------- */
+/* ---- questionnaire (4 questions) ---- */
 const QS=[
-  {key:'age',title:'Über dich',hint:'Wie alt bist du?',type:'range',min:18,max:100,val:54,unit:'Jahre'},
-  {key:'meno',title:'Hormonstatus',hint:'Wo stehst du gerade?',why:'Mit der Menopause sinkt der schützende Östrogen-Effekt – das verändert dein Herz-Kreislauf-Risiko messbar.',type:'single',opts:['Regelmäßiger Zyklus','Wechseljahre (Zyklus verändert sich)','Postmenopausal (letzte Periode >12 Monate her)','Hormonersatztherapie (HRT)']},
-  {key:'preg',title:'Schwangerschaften',hint:'Gab es Komplikationen? (Mehrfachauswahl)',why:'Eine Schwangerschaft mit Präeklampsie verdoppelt das langfristige kardiovaskuläre Risiko.',type:'multi',none:3,opts:['Präeklampsie / Bluthochdruck','Schwangerschaftsdiabetes','Frühgeburt (<37 Wochen)','Keine / trifft nicht zu']},
-  {key:'smoke',title:'Lebensstil',hint:'Rauchst du?',type:'single',opts:['Nie geraucht','Früher, jetzt nicht mehr','Ja, aktuell']},
-  {key:'activity',title:'Bewegung',hint:'Wie aktiv bist du in einer normalen Woche?',type:'single',opts:['Kaum Bewegung','Leicht (Spaziergänge)','Moderat (2–3× Sport)','Sehr aktiv (4×+ Sport)']},
-  {key:'stress',title:'Stress',hint:'Wie hoch ist dein Stresslevel aktuell? (1 = entspannt, 5 = sehr hoch)',type:'range',min:1,max:5,val:3,unit:''},
+  {key:'age',title:'Über dich',hint:'Wie alt bist du?',type:'range',min:18,max:100,val:52,unit:'Jahre'},
+  {key:'meno',title:'Hormonstatus',hint:'Wo stehst du gerade?',why:'Mit der Menopause sinkt der schützende Östrogen-Effekt – das verändert dein Herz-Kreislauf-Risiko messbar.',type:'single',opts:['Regelmäßiger Zyklus','Wechseljahre (Zyklus verändert sich)','Postmenopausal (>12 Monate keine Periode)','Hormonersatztherapie (HRT)']},
+  {key:'preg',title:'Schwangerschaften',hint:'Gab es Komplikationen?',why:'Eine Schwangerschaft mit Präeklampsie verdoppelt das langfristige kardiovaskuläre Risiko.',type:'multi',none:3,opts:['Präeklampsie / Bluthochdruck','Schwangerschaftsdiabetes','Frühgeburt (<37 Wochen)','Keine / trifft nicht zu']},
+  {key:'activity',title:'Lebensstil',hint:'Wie aktiv bist du in einer normalen Woche?',type:'single',opts:['Kaum Bewegung','Leicht (Spaziergänge)','Moderat (2–3× Sport)','Sehr aktiv (4×+ Sport)']},
 ];
 let qi=0;
-function startQ(){qi=0;renderQ();}
 function renderQ(){
   const q=QS[qi];
   document.getElementById('q-step').textContent=q.title;
-  document.getElementById('q-count').textContent=`Schritt ${qi+1} von ${QS.length}`;
-  document.getElementById('q-bar').style.width=((qi+1)/QS.length*100)+'%';
-  document.querySelectorAll('#s-q .qtabs span').forEach((s,i)=>s.classList.toggle('on',i<=qi));
-  document.getElementById('q-next').textContent = qi===QS.length-1 ? 'Profil erstellen →' : 'Weiter';
+  document.getElementById('q-count').textContent=`Frage ${qi+1} von ${QS.length}`;
+  document.querySelectorAll('#s-check .qtabs span').forEach((s,i)=>s.classList.toggle('on',i<=qi));
+  document.getElementById('q-next').textContent=qi===QS.length-1?'Profil erstellen →':'Weiter';
   const b=document.getElementById('q-body');
   let h=`<div class="qtitle">${q.hint}</div>`;
   if(q.why) h+=`<div class="why" onclick="document.getElementById('whybox').classList.toggle('open')">Warum fragen wir das? ›</div><div class="whybox" id="whybox">${q.why}</div>`;
   if(q.type==='range'){
-    const cur=S.answers[q.key]??q.val;
-    h+=`<div class="field" style="text-align:center"><div class="rangeval"><span id="rv">${cur}</span> ${q.unit}</div>
-      <input type="range" min="${q.min}" max="${q.max}" value="${cur}" oninput="document.getElementById('rv').textContent=this.value;S.answers['${q.key}']=+this.value"></div>`;
-    S.answers[q.key]=S.answers[q.key]??q.val;
+    const cur=S.answers[q.key]??q.val; S.answers[q.key]=cur;
+    h+=`<div class="center"><div class="rangeval"><span id="rv">${cur}</span> ${q.unit}</div><input type="range" min="${q.min}" max="${q.max}" value="${cur}" aria-label="${q.hint}" oninput="document.getElementById('rv').textContent=this.value;S.answers['${q.key}']=+this.value"></div>`;
   } else {
-    q.opts.forEach((o,i)=>{
-      const sel = q.type==='multi' ? (S.answers[q.key]||[]).includes(i) : S.answers[q.key]===i;
-      h+=`<button class="opt ${q.type==='multi'?'multi':''} ${sel?'sel':''}" onclick="pick('${q.key}','${q.type}',${i},this)"><span class="dot"></span><span>${o}</span></button>`;
-    });
+    q.opts.forEach((o,i)=>{const sel=q.type==='multi'?(S.answers[q.key]||[]).includes(i):S.answers[q.key]===i;
+      h+=`<button class="opt ${q.type==='multi'?'multi':''} ${sel?'sel':''}" onclick="pick('${q.key}','${q.type}',${i},this)"><span class="dot"></span><span>${o}</span></button>`;});
   }
   b.innerHTML=h;
 }
 function pick(key,type,i,el){
-  if(type==='multi'){
-    const none=QS[qi].none;
-    let arr=S.answers[key]||[];
-    if(arr.includes(i)){arr=arr.filter(x=>x!==i);}
-    else{
-      if(i===none) arr=[];                                   // "Keine" clears all other selections
-      else if(none!==undefined) arr=arr.filter(x=>x!==none); // a real option clears "Keine"
-      arr.push(i);
-    }
-    S.answers[key]=arr;
-    el.parentNode.querySelectorAll('.opt').forEach((o,idx)=>o.classList.toggle('sel',arr.includes(idx)));
-  } else {
-    S.answers[key]=i;
-    el.parentNode.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
-    el.classList.add('sel');
-  }
+  if(type==='multi'){const none=QS[qi].none;let a=S.answers[key]||[];
+    if(a.includes(i))a=a.filter(x=>x!==i);
+    else{if(i===none)a=[];else if(none!==undefined)a=a.filter(x=>x!==none);a.push(i);}
+    S.answers[key]=a;el.parentNode.querySelectorAll('.opt').forEach((o,idx)=>o.classList.toggle('sel',a.includes(idx)));
+  } else {S.answers[key]=i;el.parentNode.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));el.classList.add('sel');}
 }
 function qNext(){
-  const q=QS[qi], a=S.answers[q.key];
-  if(q.type!=='range' && (a===undefined || (Array.isArray(a)&&a.length===0))){toast('Bitte wähle eine Antwort');return;}
-  if(qi<QS.length-1){qi++;renderQ();document.querySelector('#s-q .scroll').scrollTop=0;}
-  else{runAnalyze();}
+  const q=QS[qi],a=S.answers[q.key];
+  if(q.type!=='range'&&(a===undefined||(Array.isArray(a)&&a.length===0))){toast('Bitte wähle eine Antwort');return;}
+  if(qi<QS.length-1){qi++;renderQ();}else runAnalyze();
 }
-function qBack(){if(qi>0){qi--;renderQ();}else go('s-landing');}
+function qBack(){if(qi>0){qi--;renderQ();}else go('s-welcome');}
 
-/* ---------------- analyze + scoring (deterministic placeholder, swappable) ---------------- */
+/* ---- scoring (deterministic placeholder, swappable) ---- */
 function runAnalyze(){
-  go('s-analyze');
-  let w=0;const bar=document.getElementById('an-bar');bar.style.width='0%';
-  const t=setInterval(()=>{w+=8;bar.style.width=Math.min(w,100)+'%';if(w>=100){clearInterval(t);compute();go('s-reveal');renderReveal();}},140);
+  go('s-analyze');const bar=document.getElementById('an-bar');bar.style.width='0%';let w=0;
+  const t=setInterval(()=>{w+=10;bar.style.width=Math.min(w,100)+'%';if(w>=100){clearInterval(t);compute();renderResult();go('s-result');}},130);
 }
 function compute(){
-  const a=S.answers;
-  const age=a.age??54, meno=a.meno??2, smoke=a.smoke??0, act=a.activity??1, stress=a.stress??3;
-  const preg=a.preg||[]; const hasPregRisk = preg.some(x=>[0,1,2].includes(x));
-  // --- cohort (simplified A–G from spec; respects menopause status, not only age) ---
-  let c;
-  if(age>=60) c = {id:'F',t:'Späte Postmenopause'};
-  else if(meno<=1) c = hasPregRisk?{id:'B',t:'Prä-/Perimenopause mit Schwangerschafts-Risikofaktor'}:{id:'A',t:'Prä-/Perimenopause, niedrigeres Risiko'};
-  else c = hasPregRisk?{id:'D',t:'Frühe Postmenopause mit Schwangerschafts-Risikofaktor'}:{id:'C',t:'Frühe Postmenopause, Ausgangsprofil'};
-  const descs={
-    A:'Frauen vor bzw. in den Wechseljahren, ohne bekannte Risikofaktoren. Gutes Fenster für Prävention.',
-    B:'Frauen vor bzw. in den Wechseljahren mit einem schwangerschaftsbedingten Risikofaktor. Forschung zeigt ein erhöhtes Langzeitrisiko, das durch Lebensstil gut beeinflussbar ist.',
-    C:'Frauen 50–59, postmenopausal, ohne weitere Modifikatoren. Der Wegfall des Östrogenschutzes rückt Blutdruck und Bewegung in den Fokus.',
-    D:'Frauen 50–59, postmenopausal, mit einem schwangerschaftsbedingten Risikofaktor (z. B. Präeklampsie). Studien zeigen für diese Gruppe ein deutlich erhöhtes Herz-Kreislauf-Risiko – und großen Hebel über Lebensstil.',
-    F:'Frauen 60+, postmenopausal. Regelmäßige Kontrolle von Blutdruck und Cholesterin steht im Vordergrund.'
-  };
-  S.cohort={...c,desc:descs[c.id]};
-  // --- heart balance score (transparent rules) ---
-  let s=100; const f=[];
-  if(smoke===2){s-=26;f.push({n:'Aktives Rauchen',d:'up',m:'Veränderbar',e:'🚬'});}
-  else if(smoke===1){s-=8;}
-  else f.push({n:'Nichtraucherin',d:'dn',m:'Schützend',e:'✅'});
-  if(act===0){s-=20;f.push({n:'Wenig Bewegung',d:'up',m:'Veränderbar',e:'🛋️'});}
-  else if(act===1){s-=9;f.push({n:'Wenig Bewegung',d:'up',m:'Veränderbar',e:'🚶‍♀️'});}
-  else if(act>=3) f.push({n:'Regelmäßig aktiv',d:'dn',m:'Schützend',e:'🏃‍♀️'});
-  if(stress>=4){s-=10;f.push({n:'Hoher Stress',d:'up',m:'Teilweise veränderbar',e:'😰'});}
-  if(meno===2){s-=6;f.push({n:'Postmenopausaler Status',d:'up',m:'Nicht veränderbar',e:'🌗'});}
-  else if(meno===3){f.push({n:'Hormonersatztherapie (HRT)',d:'nt',m:'Mit Ärztin besprechen',e:'💊'});}
-  if(hasPregRisk){f.push({n:'Schwangerschafts-Risikofaktor',d:'up',m:'Nicht veränderbar',e:'🤰'});}
+  const a=S.answers,meno=a.meno??0,act=a.activity??1,preg=a.preg||[];
+  const pregRisk=preg.some(x=>[0,1,2].includes(x));
+  let s=100;const f=[];
+  if(act===0){s-=26;f.push({n:'Wenig Bewegung',d:'up',m:'Veränderbar',e:'🛋️'});}
+  else if(act===1){s-=14;f.push({n:'Wenig Bewegung',d:'up',m:'Veränderbar',e:'🚶‍♀️'});}
+  else if(act===2){s-=4;}
+  else f.push({n:'Regelmäßig aktiv',d:'dn',m:'Schützend',e:'🏃‍♀️'});
+  if(meno===2){s-=8;f.push({n:'Postmenopausaler Status',d:'up',m:'Nicht veränderbar',e:'🌗'});}
+  else if(meno===3)f.push({n:'Hormonersatztherapie',d:'nt',m:'Mit Ärztin besprechen',e:'💊'});
+  if(pregRisk){s-=8;f.push({n:'Schwangerschafts-Risikofaktor',d:'up',m:'Nicht veränderbar',e:'🤰'});}
   s=Math.max(34,Math.min(94,s));
   S.score=Math.round(s);
-  S.band = s>=80?'Sehr stabil': s>=60?'Solider Ausgangspunkt': s>=40?'Mehrere Verbesserungspotenziale':'Wichtige Bereiche im Fokus';
-  S.factors=f.slice(0,5);
-  S.focus=[];      // new result → focus areas are chosen fresh
-  S.seeded=false;  // a real computation replaces the demo persona (seedDemo re-sets it)
+  S.band=s>=80?'Sehr stabil':s>=60?'Solider Ausgangspunkt':s>=40?'Mehrere Verbesserungspotenziale':'Wichtige Bereiche im Fokus';
+  S.factors=f.slice(0,3);
+  // plain-language profile line (no jargon)
+  const age=a.age??52;
+  S.profile=(age<50?'Vor bzw. in den Wechseljahren':meno===2?'Postmenopausal':'Um die Lebensmitte')+(pregRisk?', mit einem schwangerschaftsbedingten Risikofaktor.':'.');
+  S.focus=null;
 }
+function setArc(v){document.getElementById('arc').setAttribute('stroke-dashoffset',540-540*v/100);}
+const DIR={up:'Erhöht das Risiko',dn:'Senkt das Risiko',nt:'Relevant für dein Profil'};
+function renderResult(){
+  document.getElementById('score').textContent=S.score;
+  document.getElementById('band').textContent=S.band;
+  document.getElementById('band').className='pill '+(S.score>=60?'sage':'amber');
+  document.getElementById('profile-line').textContent=S.profile+' Auf Basis der Frauen.Herz.KI-Forschung, TU München.';
+  setArc(S.score);
+  document.getElementById('arc').setAttribute('stroke',S.score>=60?'var(--green)':S.score>=40?'var(--yellow)':'var(--orange)');
+  document.getElementById('smile').setAttribute('d',S.score>=60?'M47 66c5.5 7.5 20.5 7.5 26 0':S.score>=40?'M49 68h22':'M47 72c5.5-6.5 20.5-6.5 26 0');
+  document.getElementById('factors').innerHTML=S.factors.map(f=>`<div class="factor"><div class="fic ${f.d}">${f.e}</div><div style="flex:1"><h4>${f.n}</h4><div class="meta">${DIR[f.d]} · ${f.m}</div></div></div>`).join('');
+  document.getElementById('focus').innerHTML=FOCI.map((x,i)=>`<button class="opt ${S.focus===i?'sel':''}" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,${S.focus===i?'.9':'.3'});color:#fff" onclick="pickFocus(${i},this)"><span class="dot" style="border-color:rgba(255,255,255,.6);${S.focus===i?'background:#fff':''}"></span><span>${x}</span></button>`).join('');
+}
+const FOCI=['Mehr Bewegung in den Alltag','Besser schlafen','Blutdruck im Blick behalten','Stress senken'];
+const TITLES=['Mehr Bewegung','Besser schlafen','Blutdruck im Blick','Stress senken'];
+function pickFocus(i,el){S.focus=i;el.parentNode.querySelectorAll('.opt').forEach(o=>{o.classList.remove('sel');o.style.borderColor='rgba(255,255,255,.3)';o.querySelector('.dot').style.background='';});el.classList.add('sel');el.style.borderColor='rgba(255,255,255,.9)';el.querySelector('.dot').style.background='#fff';}
 
-/* ---------------- reveal ---------------- */
-const FOCI=['Mehr Bewegung in den Alltag bringen','Schlaf in den Wechseljahren verbessern','Blutdruck regelmäßig im Blick behalten','Stress senken & Entspannung'];
-const PLAN_TITLES=['Mehr Bewegung','Besser schlafen','Blutdruck im Blick','Stress senken'];
-function renderReveal(){
-  document.getElementById('rv-cohort').textContent='Kohorte '+S.cohort.id;
-  document.getElementById('rv-cohort-title').textContent=S.cohort.t;
-  document.getElementById('rv-cohort-desc').textContent=S.cohort.desc;
-  document.getElementById('rv-score').textContent=S.score;
-  document.getElementById('rv-band').textContent=S.band;
-  document.getElementById('rv-band').className='pill '+(S.score>=60?'sage':'amber');
-  setArc('rv-arc',S.score);
-  // band colour — thresholds match the band labels (60 / 40)
-  const col=S.score>=60?'var(--green)':S.score>=40?'var(--yellow)':'var(--orange)';
-  document.getElementById('rv-arc').setAttribute('stroke',col);
-  // mascot face mirrors the score
-  const smile=document.getElementById('rv-smile');
-  if(smile) smile.setAttribute('d', S.score>=60?'M47 66c5.5 7.5 20.5 7.5 26 0': S.score>=40?'M49 68h22':'M47 72c5.5-6.5 20.5-6.5 26 0');
-  const DIR={up:'Erhöht das Risiko',dn:'Senkt das Risiko',nt:'Relevant für dein Profil'};
-  document.getElementById('rv-factors').innerHTML=S.factors.map(f=>`
-    <div class="factor"><div class="fic ${f.d}">${f.e}</div>
-    <div style="flex:1"><h4>${f.n}</h4><div class="meta">${DIR[f.d]||''} · ${f.m}</div></div></div>`).join('');
-  document.getElementById('rv-focus').innerHTML=FOCI.map((x,i)=>{const on=S.focus.includes(i);
-    return `<button class="opt multi ${on?'sel':''}" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,${on?'.9':'.3'});color:#fff" onclick="toggleFocus(${i},this)"><span class="dot" style="border-color:rgba(255,255,255,.6);${on?'background:#fff':''}"></span><span>${x}</span></button>`;}).join('');
-}
-function setArc(id,score){const c=document.getElementById(id);const len=540;c.setAttribute('stroke-dashoffset',len-(len*score/100));}
-function toggleFocus(i,el){
-  if(S.focus.includes(i)){S.focus=S.focus.filter(x=>x!==i);el.classList.remove('sel');el.querySelector('.dot').style.background='';}
-  else{if(S.focus.length>=2){toast('Wähle maximal 2 Bereiche');return;}S.focus.push(i);el.classList.add('sel');el.querySelector('.dot').style.background='#fff';}
-}
-
-/* ---------------- build plan ---------------- */
-const PLAN_TASKS={
+/* ---- plan ---- */
+const TASKS={
   0:['Lass für Wege unter 2 km das Auto stehen','10 Minuten Spaziergang nach dem Mittagessen','Nimm 1× die Treppe statt Aufzug'],
   1:['Feste Schlafenszeit für 3 Nächte','Bildschirm 30 Min vor dem Schlafen weglegen','Schlafzimmer abdunkeln & lüften'],
-  2:['Blutdruck an 3 Tagen messen & eintragen','Einen Wert morgens, einen abends','Werte im Verlauf ansehen'],
+  2:['Blutdruck an 3 Tagen messen','Einen Wert morgens, einen abends','Werte im Verlauf ansehen'],
   3:['5-Minuten-Atemübung am Morgen','Eine bewusste Pause ohne Handy','Abends 3 gute Dinge notieren'],
 };
-// week 2+ — gently escalated versions
-const PLAN_TASKS_NEXT={
-  0:['20 Minuten zügig spazieren gehen','Einen Weg pro Tag komplett zu Fuß erledigen','2× diese Woche Treppen statt Aufzug'],
-  1:['Feste Schlafenszeit die ganze Woche halten','Kein Koffein nach 14 Uhr','10 Minuten Abendroutine ohne Bildschirm'],
-  2:['Blutdruck an 5 Tagen messen','Deinen Wochendurchschnitt ansehen','Werte für den Arzt-Bericht notieren'],
-  3:['Tägliche 5-Minuten-Atemübung','Einen Termin pro Woche nur für dich blocken','Jeden Abend 3 gute Dinge notieren'],
+const TASKS_NEXT={
+  0:['20 Minuten zügig spazieren gehen','Einen Weg pro Tag komplett zu Fuß','2× diese Woche Treppen statt Aufzug'],
+  1:['Feste Schlafenszeit die ganze Woche','Kein Koffein nach 14 Uhr','10 Min Abendroutine ohne Bildschirm'],
+  2:['Blutdruck an 5 Tagen messen','Wochendurchschnitt ansehen','Werte für die Ärztin notieren'],
+  3:['Tägliche 5-Minuten-Atemübung','Einen Termin pro Woche nur für dich','Jeden Abend 3 gute Dinge notieren'],
 };
 function buildPlan(){
-  if(S.focus.length===0){toast('Wähle 1–2 Bereiche');return;}
-  const primary=S.focus[0], secondary=S.focus[1];
-  S.primary=primary;
-  S.planTitle=PLAN_TITLES[primary]+(secondary!==undefined?' + '+PLAN_TITLES[secondary]:'');
-  const pool=PLAN_TASKS[primary].slice(0,secondary!==undefined?2:3);
-  if(secondary!==undefined) pool.push(PLAN_TASKS[secondary][0]);
-  S.tasks=pool.map(t=>({t,done:false}));
-  S.week=1;
-  refreshHome();
-  nav('plan');
-}
-function refreshHome(){
-  document.getElementById('home-score').textContent=S.score||72;
-  document.getElementById('home-band').textContent=S.band||'Solider Ausgangspunkt';
-  document.getElementById('home-cohort').textContent=S.cohort?S.cohort.id:'D';
-  document.getElementById('doc-cohort').textContent=S.cohort?S.cohort.id:'D';
-  setArc('home-arc',S.score||72);
-  document.getElementById('home-arc').setAttribute('stroke',(S.score||72)>=60?'var(--green)':(S.score||72)>=40?'var(--yellow)':'var(--orange)');
-  document.getElementById('home-plantitle').textContent=S.planTitle;
-  document.getElementById('home-week').textContent=S.week;
-  const done=S.tasks.filter(t=>t.done).length;
-  document.getElementById('home-planbar').style.width=(S.tasks.length?done/S.tasks.length*100:0)+'%';
-  document.getElementById('home-plansub').textContent=`${done} von ${S.tasks.length||3} Aufgaben heute erledigt`;
-  const ct=document.getElementById('cheer-txt');
-  if(ct) ct.textContent=(S.score||72)>=70?'Stark!':(S.score||72)>=50?'Dranbleiben!':'Kleine Schritte!';
-  // profile card reflects the actual state (seeded demo persona vs real answers)
-  if(S.seeded){
-    document.getElementById('prof-name').textContent='Anna, 54';
-    document.getElementById('prof-avatar').textContent='A';
-    document.getElementById('prof-sub').textContent=`Kohorte ${S.cohort?S.cohort.id:'D'} · seit 3 Tagen dabei`;
-  } else if(S.cohort){
-    document.getElementById('prof-name').textContent=`Dein Profil${S.answers.age?`, ${S.answers.age}`:''}`;
-    document.getElementById('prof-avatar').textContent='♥';
-    document.getElementById('prof-sub').textContent=`Kohorte ${S.cohort.id} · Heart-Balance ${S.score}`;
-  }
+  if(S.focus===null){toast('Bitte wähle einen Fokus');return;}
+  S.planTitle=TITLES[S.focus];S.week=1;S.tasks=TASKS[S.focus].map(t=>({t,done:false}));
+  renderPlan();go('s-plan');
 }
 function renderPlan(){
   document.getElementById('plan-focus').textContent=`${S.planTitle} · Woche ${S.week} von 8`;
-  const c=document.getElementById('plan-tasks');
-  if(!S.tasks.length) S.tasks=PLAN_TASKS[0].map(t=>({t,done:false}));
   const done=S.tasks.filter(t=>t.done).length;
-  c.innerHTML=S.tasks.map((t,i)=>`<div class="task ${t.done?'done':''}" onclick="toggleTask(${i})"><div class="check">✓</div><div><h4>${t.t}</h4><p>${t.done?'Erledigt ✓':'Tippen, wenn geschafft'}</p></div></div>`).join('')
-    +(done===S.tasks.length&&done>0&&S.week<8?`<button class="btn sage block" onclick="nextWeek()">Woche ${S.week} abschließen →</button>`:'');
+  document.getElementById('plan-tasks').innerHTML=S.tasks.map((t,i)=>`<div class="task ${t.done?'done':''}" onclick="toggleTask(${i})"><div class="check">✓</div><div><h4>${t.t}</h4><p>${t.done?'Erledigt ✓':'Tippen, wenn geschafft'}</p></div></div>`).join('')
+    +(done===S.tasks.length&&S.week<8?`<button class="btn sage block" onclick="nextWeek()">Woche ${S.week} abschließen →</button>`:'');
   document.getElementById('plan-prog').textContent=`${done}/${S.tasks.length}`;
 }
-function nextWeek(){
-  S.week++;
-  S.tasks=PLAN_TASKS_NEXT[S.primary??0].map(t=>({t,done:false}));
-  renderPlan();refreshHome();
-  toast(`Woche ${S.week} gestartet – wir steigern sanft 💪`);
-}
-function toggleTask(i){S.tasks[i].done=!S.tasks[i].done;renderPlan();refreshHome();
-  if(S.tasks.every(t=>t.done)) setTimeout(()=>toast('Stark! Woche geschafft 🎉 Nächste Woche steigern wir leicht.'),300);}
+function toggleTask(i){S.tasks[i].done=!S.tasks[i].done;renderPlan();
+  if(S.tasks.every(t=>t.done))setTimeout(()=>toast('Stark! Woche geschafft 🎉'),250);}
+function nextWeek(){S.week++;S.tasks=TASKS_NEXT[S.focus].map(t=>({t,done:false}));renderPlan();toast(`Woche ${S.week} gestartet – wir steigern sanft 💪`);}
+function addSteps(){S.steps+=800;document.getElementById('steps').textContent=S.steps.toLocaleString('de-DE');toast('+800 Schritte ✓');}
 
-/* ---------------- library ---------------- */
-const ARTICLES=[
-  {e:'🌙',t:'Warum Schlaf in den Wechseljahren dein Herz beeinflusst',r:'4 Min',body:`Hitzewallungen und unruhiger Schlaf sind in den Wechseljahren häufig – und sie sind mehr als lästig. Schlechter Schlaf hält den Blutdruck nachts oben und belastet das Herz-Kreislauf-System über Jahre.`,todo:['Feste Schlafenszeit, auch am Wochenende','Schlafzimmer kühl (16–18 °C) und dunkel','Koffein nach 14 Uhr meiden']},
-  {e:'🤰',t:'Präeklampsie in der Vergangenheit – was sie heute bedeutet',r:'5 Min',body:`Eine Schwangerschaft mit Präeklampsie verdoppelt das langfristige Risiko für Herz-Kreislauf-Erkrankungen. Die gute Nachricht: Du weißt es – und kannst gezielt gegensteuern.`,todo:['Blutdruck regelmäßig messen','Beim Arzttermin die Vorgeschichte aktiv ansprechen','Cholesterinwerte kennen']},
-  {e:'🚶‍♀️',t:'Bewegung als Herzschutz – wie viel reicht?',r:'3 Min',body:`Schon 150 Minuten moderate Bewegung pro Woche senken das Herzinfarktrisiko deutlich. Es muss kein Sport sein – zügiges Gehen zählt.`,todo:['Tägliche 10-Min-Spaziergänge','Treppe statt Aufzug','Ein fester Bewegungstermin mit einer Freundin']},
-  {e:'🩺',t:'Was ist ein gutes Gespräch mit der Kardiologin?',r:'4 Min',body:`Viele Frauen werden in der Kardiologie unterschätzt. Ein vorbereitetes Gespräch ändert das – mit den richtigen Fragen lenkst du den Termin.`,todo:['Deinen FemRisk-Bericht mitnehmen','Konkrete Fragen vorab notieren','Nach Heim-Blutdruckmessung fragen']},
-  {e:'💗',t:'Hormone, Blutdruck und dein Herz',r:'4 Min',body:`Östrogen schützt die Blutgefäße. Mit der Menopause fällt dieser Schutz weg – der Blutdruck steigt oft unbemerkt. Verstehen, was passiert, ist der erste Schritt.`,todo:['Blutdruck als neue Routine etablieren','Salzkonsum im Blick behalten','Bei HRT die Vor- und Nachteile besprechen']},
-];
-function renderLib(){
-  document.getElementById('lib-list').innerHTML=ARTICLES.map((a,i)=>`<div class="libcard" onclick="openArticle(${i})"><div class="em">${a.e}</div><div><h4>${a.t}</h4><p class="small">${a.r} Lesezeit</p></div></div>`).join('');
-}
-function openArticle(i){
-  const a=ARTICLES[i];
-  document.getElementById('article-body').innerHTML=`
-    <span class="pill berry">${a.r} Lesezeit</span>
-    <h1 style="margin-top:10px">${a.e} ${a.t}</h1>
-    <p>${a.body}</p>
-    <div class="card" style="background:var(--sage-l)"><h3 style="color:#1f5a4e">Was du tun kannst</h3>
-    ${a.todo.map(t=>`<div style="display:flex;gap:9px;margin:8px 0;font-size:14px;color:#1f5a4e"><span>✓</span><span>${t}</span></div>`).join('')}</div>
-    <p class="small">Quellen: ESC Guidelines on CVD in women (2021), AHA Scientific Statement Cardio-Obstetrics. In der Vision: Frauen.Herz.KI-Publikation der TU München.</p>
-    <div class="fb"><span class="small">War das hilfreich?</span><button onclick="toast('Danke!')">👍</button><button onclick="toast('Danke fürs Feedback')">👎</button></div>`;
-  go('s-article');
-}
-
-/* ---------------- community ---------------- */
-const BUDDIES=[
-  {n:'Maren, 58',c:'#2b3168',txt:'Geht heute 16 Uhr 10.000 Schritte im Englischen Garten – wer kommt mit?',a:'M'},
-  {n:'Heike, 51',c:'#5a9b32',txt:'Suche eine Buddy fürs Krafttraining, 2× die Woche. Anfängerin 🙂',a:'H'},
-  {n:'Petra, 62',c:'#e2793c',txt:'Tag 12 ohne Aufzug! Wer macht die Treppen-Challenge mit?',a:'P'},
-  {n:'Sabine, 55',c:'#6b71c9',txt:'Morgen Schwimmen um 9 Uhr. Zu zweit sagt man seltener ab 💪',a:'S'},
-];
-function renderComm(){
-  document.getElementById('comm-feed').innerHTML=BUDDIES.map(b=>`
-    <div class="buddy"><div class="avatar" style="background:${b.c}">${b.a}</div>
-    <div style="flex:1"><h4>${b.n}</h4><p>${b.txt}</p></div>
-    <button class="btn sm sage" style="flex:0 0 auto" onclick="toast('Du bist dabei! 🙌')">Dabei!</button></div>`).join('');
-}
-
-/* ---------------- doctor finder ---------------- */
-const DOCS=[
-  {n:'Dr. med. Claudia Berger',s:'Kardiologie · Schwerpunkt Frauenherz',d:'1,2 km · gesetzl. & privat',flag:true},
-  {n:'Praxis Dr. Lindner & Kollegen',s:'Gynäkologie · kardiologische Vorsorge',d:'2,4 km · Online-Buchung',flag:true},
-  {n:'Dr. med. Anja Hofmann',s:'Kardiologie',d:'3,1 km'},
-];
-function renderDoc(){
-  document.getElementById('doc-cohort').textContent=S.cohort?S.cohort.id:'D';
-  document.getElementById('doc-list').innerHTML=DOCS.map(d=>`
-    <div class="doc"><div class="avatar" style="background:var(--lav-bg);color:var(--indigo)">🩺</div>
-    <div style="flex:1"><h4>${d.n} ${d.flag?'<span class="pill sage" style="font-size:10px">Schwerpunkt Frauenherz</span>':''}</h4><p>${d.s}<br>${d.d}</p>
-    <button class="btn sm ghost" style="margin-top:10px" onclick="toast('Öffnet die Doctolib-Buchung · kein Datenversand')">Online-Termin (Doctolib)</button></div></div>`).join('');
-}
-
-/* ---------------- report ---------------- */
-function renderReport(){
-  document.getElementById('rep-date').textContent=new Date().toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'});
-  document.getElementById('rep-cohort').textContent=`${S.cohort?S.cohort.id:'D'} – ${S.cohort?S.cohort.t:'Frühe Postmenopause mit Schwangerschafts-Risikofaktor'}`;
-  document.getElementById('rep-score').textContent=S.score||72;
-  document.getElementById('rep-band').textContent=S.band||'Solider Ausgangspunkt';
-  const f=(S.factors.length?S.factors:[{n:'Postmenopausaler Status',m:'Nicht veränderbar'},{n:'Wenig Bewegung',m:'Veränderbar'},{n:'Nichtraucherin',m:'Schützend'}]);
-  document.getElementById('rep-factors').innerHTML=f.map(x=>`<tr><td>${x.n}</td><td style="text-align:right;color:var(--muted)">${x.m}</td></tr>`).join('');
-  // discussion prompts derived from the actual profile
-  const a=S.answers||{}, qs=[];
-  if((a.preg||[]).some(x=>[0,1,2].includes(x))) qs.push('Sollte mein LDL-Cholesterin angesichts meiner Schwangerschafts-Vorgeschichte unter 100 mg/dl liegen?');
-  if(a.smoke===2) qs.push('Welche Unterstützung gibt es für einen Rauchstopp?');
-  if(a.meno===3) qs.push('Passt meine Hormonersatztherapie zu meinem Herz-Kreislauf-Profil?');
-  qs.push('Sind regelmäßige Blutdruckkontrollen zu Hause für mich sinnvoll?');
-  qs.push('Welche Untersuchungen sind in meinem Alter und mit meinem Profil empfohlen?');
-  document.getElementById('rep-questions').innerHTML=qs.slice(0,4).map(q=>`<li>${q}</li>`).join('');
-}
-
-/* ---------------- B2B2C: firmencode + ROI ---------------- */
-function applyCode(){
-  const code=(document.getElementById('code-input').value||'').trim();
-  if(!code){toast('Bitte gib deinen Firmencode ein');return;}
-  S.company='Musterfirma GmbH';
-  toast('🎉 Premium freigeschaltet – Musterfirma GmbH');
-  go('s-q');
-}
+/* ---- employer ROI ---- */
 function roiCalc(n){
-  const part=Math.round(n*0.6);              // 60 % Aktivierung
-  const days=Math.round(part*0.8);           // 0,8 vermiedene Krankheitstage / Teilnehmerin / Jahr
-  const save=days*400;                       // 400 € pro Krankheitstag
-  const cost=n*4*12;                         // 4 € / MA / Monat
-  const de=x=>x.toLocaleString('de-DE');
+  const part=Math.round(n*0.6),days=Math.round(part*0.8),save=days*400,cost=n*4*12,de=x=>x.toLocaleString('de-DE');
   document.getElementById('roi-n').textContent=de(n);
-  document.getElementById('roi-part').textContent=de(part);
   document.getElementById('roi-days').textContent=de(days);
-  document.getElementById('roi-save').textContent=de(save)+' €';
   document.getElementById('roi-cost').textContent=de(cost)+' €';
+  document.getElementById('roi-save').textContent=de(save-cost)+' €';
   document.getElementById('roi-x').textContent=(save/cost).toLocaleString('de-DE',{minimumFractionDigits:1,maximumFractionDigits:1})+'×';
 }
 
-/* ---------------- quick log ---------------- */
-let steps=6240;
-function logIt(x){
-  if(x==='Schritte'){
-    steps+=800;
-    document.getElementById('mt-steps').textContent=steps.toLocaleString('de-DE');
-    if(steps>=8000){const f=document.getElementById('mt-steps-face');f.classList.remove('warn');f.classList.add('good');f.textContent='☺';}
-    toast('+800 Schritte eingetragen ✓');return;
-  }
-  toast(x+' eingetragen ✓');
-}
-
-/* ---------------- demo seed ---------------- */
+/* ---- demo shortcut (jump straight into the employee app) ---- */
 function seedDemo(){
-  S.answers={age:54,meno:2,preg:[0],smoke:0,activity:1,stress:4};
-  compute();
-  S.seeded=true;
-  S.focus=[0]; S.primary=0; S.planTitle='Mehr Bewegung'; S.tasks=PLAN_TASKS[0].map(t=>({t,done:false})); S.tasks[0].done=true;
-  refreshHome();renderReveal();renderReport();
-  document.getElementById('home-greet').textContent='Hallo Anna 👋';
-  nav('home');
+  S.answers={age:54,meno:2,preg:[0],activity:1};compute();
+  S.focus=0;S.planTitle='Mehr Bewegung';S.tasks=TASKS[0].map(t=>({t,done:false}));S.tasks[0].done=true;
+  renderResult();renderPlan();go('s-plan');
 }
-
-/* ---------------- full reset ---------------- */
-function resetDemo(){
-  Object.assign(S,{answers:{},cohort:null,score:0,band:'',factors:[],focus:[],planTitle:'Mehr Bewegung',tasks:[],week:1,primary:0,seeded:false});
-  qi=0; steps=6240;
-  const f=document.getElementById('mt-steps-face');
-  f.classList.add('warn'); f.classList.remove('good'); f.textContent='•‿•';
-  document.getElementById('mt-steps').textContent='6.240';
-  document.getElementById('home-greet').textContent='Hallo 👋';
-  startQ(); go('s-landing');
-}
-
-/* init */
-startQ();
-buildNav('home');
-const _go=go; go=function(id){if(id==='s-report')renderReport();_go(id);};
+renderQ();roiCalc(120);
 </script>
 </body>
 </html>

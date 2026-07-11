@@ -289,10 +289,33 @@
         <div class="feature"><div class="ic">🫀</div><div><h4>Dein persönliches Risikoprofil</h4><p>Ein Check, der weibliche Faktoren berücksichtigt – Wechseljahre, Schwangerschaften.</p></div></div>
         <div class="feature"><div class="ic">🎯</div><div><h4>Ein begleiteter Plan</h4><p>Nicht nur eine Zahl. Kleine Schritte, an die Hand genommen – in deinem Tempo.</p></div></div>
         <div class="feature"><div class="ic">📈</div><div><h4>Sieh, dass es wirkt</h4><p>Tracke deinen Fortschritt manuell oder verbinde dein Gerät.</p></div></div>
-        <button class="btn lime block" onclick="go('s-check')">Check starten – 2 Minuten</button>
+        <button class="btn lime block" onclick="go('s-access')">Check starten – ca. 5 Minuten</button>
         <button class="btn link block" onclick="go('s-employer')">🏢 Für Unternehmen: FemRisk als Benefit →</button>
         <p class="disc">Diese App ist keine medizinische Diagnose. Sie ergänzt das Gespräch mit deiner Ärztin oder deinem Arzt.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ CO-BRANDED ACCESS (institution front door) ============ -->
+  <section class="screen" id="s-access">
+    <div class="topbar"><button class="back" onclick="go('s-welcome')" aria-label="Zurück">‹</button><div><h2>Zugang</h2><div class="sub">Bereitgestellt von deiner Kasse</div></div></div>
+    <div class="scroll">
+      <div class="card" style="text-align:center;padding:24px 20px">
+        <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:10px">
+          <span style="font-weight:800;font-size:22px;color:#0a5aa0;letter-spacing:.02em">AOK</span>
+          <span style="color:var(--slate);font-size:18px">×</span>
+          <span class="brand" style="font-size:20px"><span class="logo hm" style="width:24px;height:22px"></span><span class="fem">Fem</span><b>Risk</b></span>
+        </div>
+        <h1 style="font-size:23px">Deine Kasse schenkt dir diesen Herz-Check.</h1>
+        <p class="lead">Kostenlos, privat und anonym. Deine Krankenkasse sieht nie deine persönlichen Ergebnisse.</p>
+      </div>
+      <div class="card">
+        <div class="eyebrow" style="margin-bottom:6px">Zugangscode deiner Kasse</div>
+        <div class="search" style="justify-content:center;font-weight:800;letter-spacing:.12em;color:var(--navy)">AOK-2026-HERZ ✓</div>
+        <button class="btn lime block" onclick="go('s-check')">Check starten →</button>
+        <button class="btn link block" onclick="go('s-check')">Ich habe keinen Code</button>
+      </div>
+      <div class="callout ind"><span>🔒</span><span>Deine Kasse übernimmt die Kosten und erhält nur anonyme Gruppenwerte ab 20 Teilnehmerinnen – nie deine individuellen Angaben.</span></div>
     </div>
   </section>
 
@@ -360,6 +383,27 @@
       <p class="lead" style="margin-bottom:14px">Daraus bauen wir deinen begleiteten 8-Wochen-Plan – kleine Schritte zuerst.</p>
       <div id="focus"></div>
       <button class="btn lime block" onclick="buildPlan()">Plan erstellen →</button>
+    </div>
+  </section>
+
+  <!-- ============ PROFIL SPEICHERN + EINWILLIGUNG ============ -->
+  <section class="screen" id="s-save">
+    <div class="topbar"><button class="back" onclick="go('s-focus')" aria-label="Zurück">‹</button><div><h2>Profil speichern</h2><div class="sub">Damit du deinen Fortschritt verfolgen kannst</div></div></div>
+    <div class="scroll">
+      <div class="seg" style="margin-top:4px"><button id="mode-anon" class="on" onclick="saveMode(true)">Anonym nutzen</button><button id="mode-acc" onclick="saveMode(false)">Mit Konto</button></div>
+      <div class="card" id="acc-field" style="display:none">
+        <div class="eyebrow" style="margin-bottom:6px">Dein Vorname (optional)</div>
+        <input id="save-name" class="search" style="width:100%;color:var(--navy);font-weight:700;justify-content:flex-start" placeholder="z. B. Sabine">
+      </div>
+      <div class="callout ind" id="anon-note"><span>🔒</span><span>Anonym: Deine Angaben bleiben nur auf diesem Gerät. Kein Konto, keine E-Mail nötig.</span></div>
+      <div class="card">
+        <h3>Deine Einwilligung</h3>
+        <div class="what"><span>Angaben speichern, um Fortschritt zu sehen<br><span class="small" style="font-weight:500">App-Nutzung · nur auf deinem Gerät bzw. in deinem Konto</span></span><button class="toggle on" id="c-app" onclick="this.classList.toggle('on')"></button></div>
+        <div class="what"><span>Anonymisierte Daten für die Forschung<br><span class="small" style="font-weight:500">Frauen.Herz.KI, TU München · getrennt & freiwillig</span></span><button class="toggle" id="c-res" onclick="this.classList.toggle('on')"></button></div>
+        <p class="small" style="margin-top:8px">EU-Hosting · verschlüsselt · jederzeit widerrufbar · nichts wird ohne deine Einwilligung weitergegeben (DSGVO Art. 9). App-Nutzung ≠ Forschung ≠ Marketing – du entscheidest granular.</p>
+      </div>
+      <button class="btn lime block" onclick="proceedSave()">Los geht's →</button>
+      <p class="disc">Du kannst alle Einwilligungen jederzeit unter Profil ändern.</p>
     </div>
   </section>
 
@@ -569,10 +613,13 @@ function buildNav(active){document.querySelectorAll('.nav').forEach(n=>{n.innerH
 /* ---- questionnaire (5 questions incl. safety) ---- */
 const QS=[
   {key:'age',title:'Über dich',hint:'Wie alt bist du?',type:'range',min:18,max:100,val:52,unit:'Jahre'},
-  {key:'meno',title:'Hormonstatus',hint:'Wo stehst du gerade?',why:'Mit der Menopause sinkt der schützende Östrogen-Effekt – das verändert dein Herz-Kreislauf-Risiko messbar.',type:'single',opts:['Regelmäßiger Zyklus','Wechseljahre (Zyklus verändert sich)','Postmenopausal (>12 Monate keine Periode)','Hormonersatztherapie (HRT)']},
+  {key:'meno',title:'Hormonstatus',hint:'Wo stehst du gerade?',why:'Mit der Menopause sinkt der schützende Östrogen-Effekt – eine frühe Menopause (vor 45) erhöht das Herz-Kreislauf-Risiko besonders.',type:'single',opts:['Regelmäßiger Zyklus','Wechseljahre (Zyklus verändert sich)','Postmenopausal (nach 45)','Frühe Menopause (vor 45)','Hormonersatztherapie (HRT)']},
   {key:'preg',title:'Schwangerschaften',hint:'Gab es Komplikationen?',why:'Eine Schwangerschaft mit Präeklampsie verdoppelt das langfristige kardiovaskuläre Risiko.',type:'multi',none:3,opts:['Präeklampsie / Bluthochdruck','Schwangerschaftsdiabetes','Frühgeburt (<37 Wochen)','Keine / trifft nicht zu']},
+  {key:'pcos',title:'PCOS',hint:'Wurde bei dir ein PCOS (polyzystisches Ovarialsyndrom) festgestellt?',why:'PCOS geht oft mit Insulinresistenz und erhöhtem Herz-Kreislauf-Risiko einher.',type:'single',opts:['Nein','Ja','Unsicher']},
+  {key:'autoimmun',title:'Autoimmun-Erkrankung',hint:'Hast du eine Autoimmun-Erkrankung (z. B. Rheuma, Lupus, Schuppenflechte)?',why:'Chronische Entzündung erhöht das kardiovaskuläre Risiko – ein oft übersehener weiblicher Faktor.',type:'single',opts:['Nein','Ja','Unsicher']},
+  {key:'cancer',title:'Krebstherapie',hint:'Hattest du eine Brustkrebs-Therapie mit Bestrahlung des Brustkorbs oder Medikamenten wie Anthrazyklinen / Trastuzumab?',why:'Einige Krebstherapien können das Herz langfristig belasten (Kardiotoxizität).',type:'single',opts:['Nein','Ja','Unsicher']},
   {key:'activity',title:'Lebensstil',hint:'Wie aktiv bist du in einer normalen Woche?',type:'single',opts:['Kaum Bewegung','Leicht (Spaziergänge)','Moderat (2–3× Sport)','Sehr aktiv (4×+ Sport)']},
-  {key:'symptoms',title:'Sicherheitsfrage',hint:'Hattest du kürzlich Brustschmerzen, Atemnot oder Herzrasen?',why:'Akute Beschwerden gehören ärztlich abgeklärt – unabhängig von deinem Score. Deshalb fragen wir das zuerst.',type:'single',warnIdx:2,opts:['Nein','Gelegentlich, mild','Ja, aktuell oder akut']},
+  {key:'symptoms',title:'Sicherheitsfrage',hint:'Hattest du kürzlich Brustschmerzen, Atemnot oder Herzrasen?',why:'Akute Beschwerden gehören ärztlich abgeklärt – unabhängig von deinem Score.',type:'single',warnIdx:2,opts:['Nein','Gelegentlich, mild','Ja, aktuell oder akut']},
 ];
 let qi=0;
 function renderQ(){
@@ -607,8 +654,9 @@ function runAnalyze(){go('s-analyze');const bar=document.getElementById('an-bar'
 function compute(){
   const a=S.answers,meno=a.meno??0,act=a.activity??1,preg=a.preg||[],sym=a.symptoms??0;
   const pregRisk=preg.some(x=>[0,1,2].includes(x));
+  const pcos=a.pcos===1, auto=a.autoimmun===1, cancer=a.cancer===1;
   S.age=a.age??52; S.safety=(sym===2);
-  const base=78; let f=[];
+  const base=80; let f=[];
   // activity
   if(act===0)f.push({key:'activity',n:'Wenig Bewegung',pts:-18,dir:'neg',mod:'Veränderbar',dot:'var(--orange)'});
   else if(act===1)f.push({key:'activity',n:'Wenig Bewegung',pts:-10,dir:'neg',mod:'Veränderbar',dot:'var(--orange)'});
@@ -618,15 +666,19 @@ function compute(){
   if(meno===0)f.push({key:'cycle',n:'Regelmäßiger Zyklus',pts:6,dir:'pos',mod:'Schützend',dot:'var(--lime)'});
   else if(meno===1)f.push({key:'peri',n:'Wechseljahre',pts:-6,dir:'neg',mod:'Nicht veränderbar',dot:'var(--orange)'});
   else if(meno===2)f.push({key:'meno',n:'Postmenopausaler Status',pts:-12,dir:'neg',mod:'Nicht veränderbar',dot:'var(--orange)'});
+  else if(meno===3)f.push({key:'early',n:'Frühe Menopause (vor 45)',pts:-16,dir:'neg',mod:'Nicht veränderbar',dot:'var(--orange)'});
   else f.push({key:'hrt',n:'Hormonersatztherapie',pts:0,dir:'neu',mod:'Mit Ärztin besprechen',dot:'var(--indigo)'});
-  // pregnancy
+  // pregnancy + female-specific conditions
   if(pregRisk)f.push({key:'preg',n:'Schwangerschafts-Risikofaktor',pts:-14,dir:'neg',mod:'Nicht veränderbar',dot:'var(--orange)'});
+  if(pcos)f.push({key:'pcos',n:'PCOS',pts:-7,dir:'neg',mod:'Teilweise veränderbar',dot:'var(--orange)'});
+  if(auto)f.push({key:'autoimmun',n:'Autoimmun-Erkrankung',pts:-8,dir:'neg',mod:'Nicht veränderbar',dot:'var(--orange)'});
+  if(cancer)f.push({key:'cancer',n:'Brustkrebs-Therapie',pts:-8,dir:'neg',mod:'Nicht veränderbar',dot:'var(--orange)'});
   const sum=f.reduce((s,x)=>s+x.pts,0);
   S.score=Math.max(34,Math.min(94,base+sum));
   S.band=S.score>=75?{t:'Guter Ausgangspunkt',c:'good'}:S.score>=55?{t:'Mehrere Ansatzpunkte',c:'warn'}:{t:'Wichtige Ansatzpunkte',c:'warn'};
-  S.factors=f.sort((x,y)=>Math.abs(y.pts)-Math.abs(x.pts)).slice(0,4);
+  S.factors=f.sort((x,y)=>Math.abs(y.pts)-Math.abs(x.pts)).slice(0,5);
   S.avg=S.age<50?58:S.age<60?61:57; S.goal=Math.min(94,S.score+12);
-  S.profile=(S.age<50?'Vor bzw. in den Wechseljahren':meno===2?'Postmenopausal':'Um die Lebensmitte')+(pregRisk?', mit einem schwangerschaftsbedingten Risikofaktor.':'.')+' Basis: Frauen.Herz.KI-Forschung, TU München.';
+  S.profile=(meno===3?'Frühe Menopause':meno===2?'Postmenopausal':S.age<50?'Vor bzw. in den Wechseljahren':'Um die Lebensmitte')+(pregRisk?', mit einem schwangerschaftsbedingten Risikofaktor.':'.')+' Basis: Frauen.Herz.KI-Forschung, TU München.';
   S.seeded=false;
 }
 function setArc(id,v){document.getElementById(id).setAttribute('stroke-dashoffset',540-540*v/100);}
@@ -658,6 +710,10 @@ const FDETAIL={
   hrt:{status:[['HRT','aktiv','neu']],proj:0,fixed:true,helps:['Nutzen & Risiken mit Ärztin abwägen','Blutdruck beobachten'],art:4},
   preg:{status:[['Vorgeschichte','Risikofaktor','warn'],['Langzeit-Relevanz','erhöht','warn']],proj:0,fixed:true,helps:['Blutdruck & Cholesterin kennen','Vorgeschichte beim Arzt ansprechen'],art:1},
   cycle:{status:[['Zyklus','regelmäßig','good'],['Östrogen-Schutz','aktiv','good']],proj:0,helps:['Guten Lebensstil beibehalten'],art:0},
+  early:{status:[['Menopause','vor 45','warn'],['Östrogen-Schutz','früh reduziert','warn']],proj:0,fixed:true,helps:['Blutdruck & Cholesterin früh kontrollieren','Mit Ärztin über Vorsorge sprechen'],art:4},
+  pcos:{status:[['PCOS','festgestellt','warn'],['Stoffwechsel','im Blick behalten','warn']],proj:6,helps:['Auf Gewicht & Bewegung achten','Blutzucker checken lassen'],art:5},
+  autoimmun:{status:[['Autoimmun','aktiv','warn'],['Entzündung','erhöht Risiko','warn']],proj:0,fixed:true,helps:['Entzündung gut behandeln lassen','Blutdruck & Cholesterin kennen'],art:1},
+  cancer:{status:[['Krebstherapie','kardiotoxisch möglich','warn']],proj:0,fixed:true,helps:['Kardiologische Nachsorge wahrnehmen','Vorgeschichte beim Arzt ansprechen'],art:1},
 };
 function openFactor(i){
   const f=S.factors[i],d=FDETAIL[f.key]||FDETAIL.activity;
@@ -696,7 +752,20 @@ const TASKS_NEXT={0:['20 Minuten zügig spazieren gehen','Einen Weg pro Tag komp
 function renderFocus(){document.getElementById('focus').innerHTML=FOCI.map((x,i)=>`<button class="opt ${S.focus===i?'sel':''}" onclick="pickFocus(${i},this)"><span class="dot"></span><span>${x.ic} ${x.t}</span></button>`).join('');}
 function pickFocus(i,el){S.focus=i;el.parentNode.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));el.classList.add('sel');}
 function buildPlan(){if(S.focus===null){toast('Bitte wähle einen Fokus');return;}
-  S.planTitle=FOCI[S.focus].t;S.week=1;S.tasks=TASKS[S.focus].map(t=>({t,done:false}));renderHome();nav('home');}
+  S.planTitle=FOCI[S.focus].t;S.week=1;S.tasks=TASKS[S.focus].map(t=>({t,done:false}));
+  saveMode(S.anon!==false);go('s-save');}
+function saveMode(anon){S.anon=anon;
+  document.getElementById('mode-anon').classList.toggle('on',anon);
+  document.getElementById('mode-acc').classList.toggle('on',!anon);
+  document.getElementById('acc-field').style.display=anon?'none':'block';
+  document.getElementById('anon-note').style.display=anon?'flex':'none';}
+function proceedSave(){
+  S.anon=document.getElementById('mode-anon').classList.contains('on');
+  S.name=S.anon?'':document.getElementById('save-name').value.trim();
+  S.consentApp=document.getElementById('c-app').classList.contains('on');
+  S.consentResearch=document.getElementById('c-res').classList.contains('on');
+  renderHome();nav('home');
+  toast(S.anon?'Anonym gespeichert ✓':'Profil gespeichert ✓');}
 function renderHome(){
   document.getElementById('home-hi').textContent='Hallo'+(S.name?' '+S.name:'');
   document.getElementById('home-score').textContent=S.score||73;
@@ -754,15 +823,17 @@ function openArticle(i){const a=ARTICLES[i];
 
 /* ---- profil ---- */
 function renderProfil(){
-  document.getElementById('prof-name').textContent=S.seeded?'Anna, 54':('Dein Profil'+(S.age?', '+S.age:''));
-  document.getElementById('prof-avatar').textContent=S.seeded?'A':'♥';
-  document.getElementById('prof-sub').textContent='Heart-Score '+(S.score||'–');
+  document.getElementById('prof-name').textContent=S.seeded?'Sabine, 52':(S.name?(S.name+(S.age?', '+S.age:'')):'Anonymes Profil');
+  document.getElementById('prof-avatar').textContent=S.seeded?'S':(S.name?S.name[0].toUpperCase():'♥');
+  document.getElementById('prof-sub').textContent='Heart-Score '+(S.score||'–')+(S.anon&&!S.seeded?' · anonym':'');
 }
 function toggleGuide(){const g=document.getElementById('guide'),btn=document.getElementById('guide-btn');
   if(g.style.display==='none'){
     const a=S.answers||{},preg=(a.preg||[]).some(x=>[0,1,2].includes(x)),qs=[];
     if(preg)qs.push('Sollte mein LDL-Cholesterin angesichts meiner Schwangerschafts-Vorgeschichte unter 100 mg/dl liegen?');
-    if(a.meno===3)qs.push('Passt meine Hormonersatztherapie zu meinem Herz-Kreislauf-Profil?');
+    if(a.meno===4)qs.push('Passt meine Hormonersatztherapie zu meinem Herz-Kreislauf-Profil?');
+    if(a.meno===3)qs.push('Sollte ich wegen meiner frühen Menopause früher zur kardiologischen Vorsorge?');
+    if(a.cancer===1||a.autoimmun===1)qs.push('Ist angesichts meiner Vorgeschichte eine kardiologische Kontrolle sinnvoll?');
     qs.push('Sind regelmäßige Blutdruckkontrollen zu Hause für mich sinnvoll?');
     qs.push('Welche Untersuchungen sind in meinem Alter und mit meinem Profil empfohlen?');
     g.innerHTML=qs.slice(0,4).map(q=>`<div class="see"><span>💬</span><span>${q}</span></div>`).join('')+`<button class="btn sm ghost" style="width:100%;margin-top:8px" onclick="toast('Demo: Als PDF gespeichert ✓')">Als PDF speichern</button>`;
@@ -793,10 +864,10 @@ function roiCalc(n){const part=Math.round(n*0.6),days=Math.round(part*0.8),save=
   document.getElementById('roi-x').textContent=(save/cost).toLocaleString('de-DE',{minimumFractionDigits:1,maximumFractionDigits:1})+'×';}
 
 /* ---- demo seed + reset ---- */
-function seedDemo(){S.answers={age:54,meno:2,preg:[0],activity:1,symptoms:0};compute();S.seeded=true;S.name='Anna';
+function seedDemo(){S.answers={age:52,meno:2,preg:[0],pcos:0,autoimmun:0,cancer:0,activity:1,symptoms:0};compute();S.seeded=true;S.name='Sabine';S.anon=false;S.consentApp=true;S.consentResearch=false;
   S.focus=0;S.week=1;S.planTitle='Mehr Bewegung';S.tasks=TASKS[0].map(t=>({t,done:false}));S.tasks[0].done=true;
   renderResult();renderHome();nav('home');}
-function resetDemo(){Object.assign(S,{answers:{},score:0,band:'',factors:[],focus:null,planTitle:'Mehr Bewegung',tasks:[],week:1,safety:false,simple:false,seeded:false,name:'',age:52});qi=0;catFilter='all';metric='bp';renderQ();go('s-welcome');}
+function resetDemo(){Object.assign(S,{answers:{},score:0,band:'',factors:[],focus:null,planTitle:'Mehr Bewegung',tasks:[],week:1,safety:false,simple:false,seeded:false,name:'',age:52,anon:undefined,consentApp:true,consentResearch:false});qi=0;catFilter='all';metric='bp';renderQ();go('s-welcome');}
 
 /* init */
 renderQ();renderFocus();buildNav('home');renderTracking();roiCalc(120);

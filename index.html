@@ -173,6 +173,9 @@
   .gr-ernaehrung{--gr:linear-gradient(150deg,#f0c27a,#d89a3e)}
   .gr-stress{--gr:linear-gradient(150deg,#a9a5e6,#6b71c9)}
   .gr-schlaf{--gr:linear-gradient(150deg,#8fb0e0,#4a6fa5)}
+  .gr-grundlagen{--gr:linear-gradient(150deg,#e98aa8,#b23a63)}
+  .gr-menopause{--gr:linear-gradient(150deg,#d98ac0,#8e4a9e)}
+  .gr-praevention{--gr:linear-gradient(150deg,#5bbf9e,#2e7d6b)}
 
   /* category chips */
   .chips{display:flex;gap:10px;overflow-x:auto;padding:4px 0 8px;scrollbar-width:none} .chips::-webkit-scrollbar{display:none}
@@ -282,11 +285,11 @@
           <span class="logo hm"></span>
           <div><span class="fem">Fem</span><b>Risk</b></div>
         </div>
-        <h1>Kenne dein Herzrisiko. Tu etwas dagegen.</h1>
+        <h1>Versteh deine Herzgesundheit – und was du tun kannst.</h1>
         <p>Ein 2-Minuten-Check auf Basis der Frauen.Herz.KI-Forschung der TU&nbsp;München – und ein Plan, der zu dir passt.</p>
       </div>
       <div style="padding:18px">
-        <div class="feature"><div class="ic">🫀</div><div><h4>Dein persönliches Risikoprofil</h4><p>Ein Check, der weibliche Faktoren berücksichtigt – Wechseljahre, Schwangerschaften.</p></div></div>
+        <div class="feature"><div class="ic">🫀</div><div><h4>Dein persönliches Herz-Profil</h4><p>Ein Check, der weibliche Faktoren berücksichtigt – Wechseljahre, Schwangerschaften.</p></div></div>
         <div class="feature"><div class="ic">🎯</div><div><h4>Ein begleiteter Plan</h4><p>Nicht nur eine Zahl. Kleine Schritte, an die Hand genommen – in deinem Tempo.</p></div></div>
         <div class="feature"><div class="ic">📈</div><div><h4>Sieh, dass es wirkt</h4><p>Tracke deinen Fortschritt manuell oder verbinde dein Gerät.</p></div></div>
         <button class="btn lime block" onclick="go('s-access')">Check starten – ca. 5 Minuten</button>
@@ -561,7 +564,7 @@
       <div class="grid2" style="grid-template-columns:1fr 1fr 1fr;gap:9px;margin:16px 0">
         <div class="card" style="margin:0;text-align:center;padding:13px 8px"><b style="font-size:18px;color:var(--navy)">Nr. 1</b><span class="small" style="display:block;margin-top:3px">Todesursache bei Frauen</span></div>
         <div class="card" style="margin:0;text-align:center;padding:13px 8px"><b style="font-size:18px;color:var(--navy)">1 v. 10</b><span class="small" style="display:block;margin-top:3px">reduziert Arbeitszeit wg. Wechseljahren</span></div>
-        <div class="card" style="margin:0;text-align:center;padding:13px 8px"><b style="font-size:18px;color:var(--navy)">45–60</b><span class="small" style="display:block;margin-top:3px">erfahrenste MA & Risikogruppe</span></div>
+        <div class="card" style="margin:0;text-align:center;padding:13px 8px"><b style="font-size:18px;color:var(--navy)">45–60</b><span class="small" style="display:block;margin-top:3px">erfahrenste MA & Zielgruppe für Vorsorge</span></div>
       </div>
       <div class="card">
         <div class="eyebrow" style="color:var(--indigo)">📈 Ihr Business Case</div>
@@ -705,15 +708,15 @@ function renderResult(){
 const FDETAIL={
   activity:{status:[['Aktivitätslevel','gering','warn'],['Schritte Ø/Tag','~4.200','warn'],['Ruhepuls','74 bpm','warn']],proj:10,helps:['10 Min Spaziergang täglich','Treppe statt Aufzug','2× Krafttraining pro Woche'],art:2},
   activity_ok:{status:[['Aktivitätslevel','gut','good'],['Schritte Ø/Tag','~8.900','good'],['Ruhepuls','63 bpm','good']],proj:0,helps:['Dranbleiben – Routine halten','Einheiten leicht variieren'],art:2},
-  meno:{status:[['Status','postmenopausal','warn'],['Östrogen-Schutz','reduziert','warn']],proj:0,fixed:true,helps:['Blutdruck regelmäßig messen','Mit Ärztin über Vorsorge sprechen'],art:4},
-  peri:{status:[['Status','Wechseljahre','warn'],['Symptome','wechselnd','warn']],proj:0,fixed:true,helps:['Schlaf & Stress im Blick behalten','Beschwerden dokumentieren'],art:4},
-  hrt:{status:[['HRT','aktiv','neu']],proj:0,fixed:true,helps:['Nutzen & Risiken mit Ärztin abwägen','Blutdruck beobachten'],art:4},
-  preg:{status:[['Vorgeschichte','Risikofaktor','warn'],['Langzeit-Relevanz','erhöht','warn']],proj:0,fixed:true,helps:['Blutdruck & Cholesterin kennen','Vorgeschichte beim Arzt ansprechen'],art:1},
-  cycle:{status:[['Zyklus','regelmäßig','good'],['Östrogen-Schutz','aktiv','good']],proj:0,helps:['Guten Lebensstil beibehalten'],art:0},
-  early:{status:[['Menopause','vor 45','warn'],['Östrogen-Schutz','früh reduziert','warn']],proj:0,fixed:true,helps:['Blutdruck & Cholesterin früh kontrollieren','Mit Ärztin über Vorsorge sprechen'],art:4},
-  pcos:{status:[['PCOS','festgestellt','warn'],['Stoffwechsel','im Blick behalten','warn']],proj:6,helps:['Auf Gewicht & Bewegung achten','Blutzucker checken lassen'],art:5},
-  autoimmun:{status:[['Autoimmun','aktiv','warn'],['Entzündung','erhöht Risiko','warn']],proj:0,fixed:true,helps:['Entzündung gut behandeln lassen','Blutdruck & Cholesterin kennen'],art:1},
-  cancer:{status:[['Krebstherapie','kardiotoxisch möglich','warn']],proj:0,fixed:true,helps:['Kardiologische Nachsorge wahrnehmen','Vorgeschichte beim Arzt ansprechen'],art:1},
+  meno:{status:[['Status','postmenopausal','warn'],['Östrogen-Schutz','reduziert','warn']],proj:0,fixed:true,helps:['Blutdruck regelmäßig messen','Mit Ärztin über Vorsorge sprechen'],art:3},
+  peri:{status:[['Status','Wechseljahre','warn'],['Symptome','wechselnd','warn']],proj:0,fixed:true,helps:['Schlaf & Stress im Blick behalten','Beschwerden dokumentieren'],art:3},
+  hrt:{status:[['HRT','aktiv','neu']],proj:0,fixed:true,helps:['Nutzen & Risiken mit Ärztin abwägen','Blutdruck beobachten'],art:3},
+  preg:{status:[['Vorgeschichte','relevant','warn'],['Langzeit-Bedeutung','beachten','warn']],proj:0,fixed:true,helps:['Blutdruck & Cholesterin kennen','Vorgeschichte beim Arzt ansprechen'],art:0},
+  cycle:{status:[['Zyklus','regelmäßig','good'],['Östrogen-Schutz','aktiv','good']],proj:0,helps:['Guten Lebensstil beibehalten'],art:6},
+  early:{status:[['Menopause','vor 45','warn'],['Östrogen-Schutz','früh reduziert','warn']],proj:0,fixed:true,helps:['Blutdruck & Cholesterin früh kontrollieren','Mit Ärztin über Vorsorge sprechen'],art:3},
+  pcos:{status:[['PCOS','festgestellt','warn'],['Stoffwechsel','im Blick behalten','warn']],proj:6,helps:['Auf Gewicht & Bewegung achten','Blutzucker checken lassen'],art:1},
+  autoimmun:{status:[['Autoimmun','aktiv','warn'],['Entzündung','beachten','warn']],proj:0,fixed:true,helps:['Entzündung gut behandeln lassen','Blutdruck & Cholesterin kennen'],art:0},
+  cancer:{status:[['Krebstherapie','Nachsorge wichtig','warn']],proj:0,fixed:true,helps:['Kardiologische Nachsorge wahrnehmen','Vorgeschichte beim Arzt ansprechen'],art:0},
 };
 function openFactor(i){
   const f=S.factors[i],d=FDETAIL[f.key]||FDETAIL.activity;
@@ -789,19 +792,21 @@ function toggleSimple(){S.simple=!S.simple;renderHome();toast(S.simple?'Einfache
 
 /* ---- articles ---- */
 const ARTICLES=[
-  {cat:'schlaf',catLabel:'Schlaf',icon:'🌙',title:'Warum Schlaf in den Wechseljahren dein Herz beeinflusst',sub:'Der nächtliche Blutdruck',read:'4 Min',body:'Hitzewallungen und unruhiger Schlaf sind in den Wechseljahren häufig – und mehr als lästig. Schlechter Schlaf hält den Blutdruck nachts oben und belastet das Herz-Kreislauf-System über Jahre.',todo:['Feste Schlafenszeit, auch am Wochenende','Schlafzimmer kühl (16–18 °C) und dunkel','Koffein nach 14 Uhr meiden']},
-  {cat:'blutdruck',catLabel:'Blutdruck',icon:'🤰',title:'Präeklampsie in der Vergangenheit – was sie heute bedeutet',sub:'Vorgeschichte & Risiko',read:'5 Min',body:'Eine Schwangerschaft mit Präeklampsie verdoppelt das langfristige Risiko für Herz-Kreislauf-Erkrankungen. Die gute Nachricht: Du weißt es – und kannst gezielt gegensteuern.',todo:['Blutdruck regelmäßig messen','Vorgeschichte beim Arzttermin ansprechen','Cholesterinwerte kennen']},
-  {cat:'bewegung',catLabel:'Bewegung',icon:'🏃‍♀️',title:'Bewegung als Herzschutz – wie viel reicht?',sub:'Schon 150 Minuten',read:'3 Min',body:'Schon 150 Minuten moderate Bewegung pro Woche senken das Herzinfarktrisiko deutlich. Es muss kein Sport sein – zügiges Gehen zählt.',todo:['Tägliche 10-Min-Spaziergänge','Treppe statt Aufzug','Ein fester Termin mit einer Freundin']},
-  {cat:'stress',catLabel:'Stress',icon:'🧠',title:'Wie Stress dein Herz beeinflusst',sub:'Die Kopf-Herz-Verbindung',read:'6 Min',body:'Dauerstress hält Puls und Blutdruck oben und verschlechtert den Schlaf. Kleine Routinen zur Entspannung wirken messbar auf die Herzgesundheit.',todo:['Tägliche 5-Minuten-Atemübung','Bewusste Pausen ohne Handy','Auf regelmäßigen Schlaf achten']},
-  {cat:'blutdruck',catLabel:'Blutdruck',icon:'💗',title:'Hormone, Blutdruck und dein Herz',sub:'Warum Östrogen schützt',read:'4 Min',body:'Östrogen schützt die Blutgefäße. Mit der Menopause fällt dieser Schutz weg – der Blutdruck steigt oft unbemerkt. Verstehen, was passiert, ist der erste Schritt.',todo:['Blutdruck als Routine etablieren','Salzkonsum im Blick behalten','Bei HRT Vor- und Nachteile besprechen']},
-  {cat:'ernaehrung',catLabel:'Ernährung',icon:'🥗',title:'Herzgesund essen – einfach anfangen',sub:'Mediterran im Alltag',read:'4 Min',body:'Die mediterrane Küche gilt als besonders herzgesund: viel Gemüse, gute Öle, wenig verarbeitetes Fleisch. Du musst nicht alles umstellen – kleine Wechsel zählen.',todo:['Öfter Fisch statt Wurst','Olivenöl statt Butter','Eine Handvoll Nüsse pro Tag']},
+  {cat:'grundlagen',catLabel:'Grundlagen',icon:'🫀',title:'Dein Herz & seine Risikofaktoren',sub:'Was Frauen wirklich wissen sollten',read:'5 Min',body:'Herzerkrankungen sind die häufigste Todesursache bei Frauen – und werden trotzdem oft als Männerproblem abgetan. Die meisten Faktoren sind bekannt, messbar und vor allem beeinflussbar: Blutdruck, Blutfette, Diabetes, Rauchen und Bauchfett – dazu frauenspezifische Faktoren wie Schwangerschaftskomplikationen, Autoimmunerkrankungen und die Menopause.',todo:['Blutdruck, Nüchternglukose und Lipidwerte kennen – alle 2 Jahre checken lassen','30 Min moderate Bewegung an 5 Tagen pro Woche','Bauchumfang unter 88 cm im Blick behalten','Rauchfrei werden – der stärkste einzelne Hebel']},
+  {cat:'grundlagen',catLabel:'Grundlagen',icon:'⚖️',title:'BMI & Herzgesundheit',sub:'Was der BMI sagt – und was nicht',read:'4 Min',body:'Der BMI ist ein schneller Ausgangspunkt, aber kein vollständiges Bild – er unterscheidet nicht zwischen Fett und Muskeln. Entscheidender fürs Herz ist das Bauchfett: viszerales Fett fördert Entzündung, Insulinresistenz und Bluthochdruck. Der BMI ist ein Orientierungswert, kein Diagnosewert.',todo:['Bauchumfang messen – Ziel für Frauen: unter 88 cm','Waist-to-Height-Ratio unter 0,5 anstreben','2× pro Woche Krafttraining – Muskeln schützen','7–9 Stunden Schlaf als Teil der Vorsorge']},
+  {cat:'bewegung',catLabel:'Bewegung',icon:'🏃‍♀️',title:'Bewegung & Herzgesundheit',sub:'Warum das Gym mehr ist als Ästhetik',read:'4 Min',body:'Regelmäßige Bewegung ist einer der wirksamsten nicht-medikamentösen Hebel für die Herzgesundheit: Sie senkt den Blutdruck, verbessert die Blutfette und stärkt den Herzmuskel. Schon 150 Minuten moderate Bewegung pro Woche machen einen messbaren Unterschied – kein Marathon nötig.',todo:['150 Min moderate Ausdauer pro Woche (z. B. zügiges Gehen)','2× pro Woche Krafttraining für die großen Muskelgruppen','Täglich 5–10 Min Mobilität oder Atmung','Langes Sitzen alle 45–60 Min unterbrechen']},
+  {cat:'menopause',catLabel:'Menopause',icon:'🌸',title:'Menopause & Herzgesundheit',sub:'Warum sich vieles fundamental verändert',read:'5 Min',body:'Bis zur Menopause sind Frauen durch Östrogen relativ geschützt – es wirkt gefäßerweiternd und senkt LDL. Mit dem Östrogenabfall fällt dieser Schutz weg: LDL und Blutdruck steigen, Bauchfett und Insulinresistenz nehmen zu. Eine mögliche Hormonersatztherapie ist immer individuell mit der Frauenärztin abzuwägen.',todo:['Blutdruck als neue Routine etablieren','Lipidwerte (LDL/HDL) kennen und beobachten','Auf Bauchumfang und Bewegung achten','HRT-Fragen mit der Gynäkologin besprechen – nicht selbst entscheiden']},
+  {cat:'schlaf',catLabel:'Schlaf',icon:'🌙',title:'Schlaf & Herzgesundheit',sub:'Der unterschätzte Faktor',read:'4 Min',body:'Schlaf ist keine passive Pause: Im Tiefschlaf sinkt der Blutdruck, das Herz erholt sich, Stresshormone werden abgebaut. Wer dauerhaft unter 6 Stunden schläft, greift diesen Reparaturmechanismus an. Schlafapnoe zeigt sich bei Frauen oft atypisch – Erschöpfung statt lautem Schnarchen.',todo:['7–9 Stunden anpeilen – feste Schlaf- und Aufwachzeit','Schlafzimmer kühl (16–18 °C) und dunkel','Koffein nach 14 Uhr meiden','Bei anhaltender Erschöpfung ärztlich abklären lassen']},
+  {cat:'stress',catLabel:'Stress',icon:'🧘‍♀️',title:'Stress & das Herz',sub:'Chronischer Stress hinterlässt Spuren',read:'5 Min',body:'Kurzer Stress ist sinnvoll – chronischer Stress hält den Körper dauerhaft in Alarmbereitschaft: Cortisol, Blutdruck und Entzündungswerte bleiben erhöht. Frauen internalisieren Stress oft stärker. Auch das „gebrochene Herz“ (Takotsubo) betrifft zu rund 90 % Frauen, besonders nach der Menopause.',todo:['Täglich 10 Min Atemübung oder Meditation','Bewegung bewusst als Stressabbau nutzen','Soziale Einbindung pflegen','Auf regelmäßigen Schlaf achten']},
+  {cat:'praevention',catLabel:'Prävention',icon:'🛡️',title:'Herzprävention – der Gesamtüberblick',sub:'Was du tun kannst, bevor etwas passiert',read:'5 Min',body:'Prävention heißt nicht Verzicht, sondern die wirksamen Hebel kennen und konsequent nutzen. Herzerkrankungen bei Frauen sind zu über 80 % durch Lebensstil beeinflussbar – die größte Wirkung entfaltet nicht das Medikament, sondern das, was täglich getan (oder gelassen) wird.',todo:['Regelmäßige Check-ups ab 40 (Blutdruck, Lipide, Glukose, Bauchumfang)','150 Min Bewegung pro Woche – Ausdauer + Kraft','Mediterrane Ernährung: Olivenöl, Hülsenfrüchte, Fisch, Gemüse','Nicht rauchen · 7–9 h Schlaf · Stress managen']},
+  {cat:'praevention',catLabel:'Prävention',icon:'✅',title:'10 Dinge, die du sofort tun kannst',sub:'Keine Theorie – nur, was heute wirkt',read:'4 Min',body:'Kein perfekter Plan nötig – nur der erste Schritt. Diese kleinen, konkreten Dinge kannst du heute noch anfangen. Jedes wirkt für sich; zusammen verschieben sie dein Herz-Profil spürbar.',todo:['Rauchstopp – heute, nicht morgen','Bauchumfang messen (Ziel: unter 88 cm)','Blutdruck messen (lassen) – Orientierung: unter 130/80','Heute 30 Minuten bewegen','Feste Schlafzeit festlegen (7–9 h)']},
 ];
-const CATS=[{k:'all',l:'Alle',ic:'▦'},{k:'blutdruck',l:'Blutdruck',ic:'💗'},{k:'bewegung',l:'Bewegung',ic:'🏃‍♀️'},{k:'ernaehrung',l:'Ernährung',ic:'🥗'},{k:'stress',l:'Stress',ic:'🧘‍♀️'},{k:'schlaf',l:'Schlaf',ic:'🌙'}];
+const CATS=[{k:'all',l:'Alle',ic:'▦'},{k:'grundlagen',l:'Grundlagen',ic:'🫀'},{k:'bewegung',l:'Bewegung',ic:'🏃‍♀️'},{k:'menopause',l:'Menopause',ic:'🌸'},{k:'schlaf',l:'Schlaf',ic:'🌙'},{k:'stress',l:'Stress',ic:'🧘‍♀️'},{k:'praevention',l:'Prävention',ic:'🛡️'}];
 let catFilter='all';
 function cardHTML(i){const a=ARTICLES[i];return `<div class="acard gr-${a.cat}" onclick="openArticle(${i})"><span class="aic">${a.icon}</span><span class="art">${a.read}</span><span class="cat">${a.catLabel}</span><h4>${a.title}</h4></div>`;}
 function recFor(n){ // profile-based recommendations
   const a=S.answers||{},preg=(a.preg||[]).some(x=>[0,1,2].includes(x));
-  let order=preg?[1,4,2,3,0,5]:(a.meno>=2?[0,4,2,3,1,5]:[2,3,0,5,4,1]);
+  let order=(a.meno===2||a.meno===3)?[3,4,6,0,2,7]:preg?[0,6,3,2,7,1]:[7,2,6,0,4,5];
   return order.slice(0,n);
 }
 function renderWissen(){
@@ -816,7 +821,7 @@ function openArticle(i){const a=ARTICLES[i];
   document.getElementById('article-body').innerHTML=`<div class="acard gr-${a.cat}" style="min-height:150px;margin-bottom:14px"><span class="aic">${a.icon}</span><span class="art">${a.read}</span><span class="cat">${a.catLabel}</span><h4 style="font-size:19px">${a.title}</h4></div>
     <p>${a.body}</p>
     <div class="card" style="background:var(--good-bg);border:none;margin-top:14px"><h3 style="color:var(--good-tx)">Was du tun kannst</h3>${a.todo.map(t=>`<div class="see" style="color:var(--good-tx)"><span>✓</span><span>${t}</span></div>`).join('')}</div>
-    <p class="small">Quellen: ESC Guidelines on CVD in women (2021), AHA Scientific Statement Cardio-Obstetrics.</p>
+    <p class="small">Bildungsinhalt auf Basis von ESC-/AHA-Leitlinien und der Frauen.Herz.KI-Forschung. Ersetzt keine ärztliche Beratung, Untersuchung oder Diagnose.</p>
     <div style="display:flex;gap:8px;align-items:center;justify-content:center;margin-top:10px"><span class="small">War das hilfreich?</span><button class="btn sm ghost" onclick="toast('Danke!')">👍</button><button class="btn sm ghost" onclick="toast('Danke fürs Feedback')">👎</button></div>`;
   go('s-article');
 }

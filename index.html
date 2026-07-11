@@ -159,15 +159,14 @@
   .focusbox b{color:var(--indigo);font-size:14.5px} .focusbox .lbl{font-size:10.5px;color:var(--slate);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
 
   /* article cards */
-  .acard{border-radius:18px;overflow:hidden;box-shadow:var(--shadow-sm);cursor:pointer;position:relative;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;min-height:150px;padding:15px;padding-top:52px}
-  .acard::before{content:"";position:absolute;inset:0;background:var(--gr);z-index:0}
-  .acard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.34));z-index:1}
-  .acard > *{position:relative;z-index:2}
-  .acard .cat{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;opacity:.92}
-  .acard h4{margin:3px 0 0;font-size:15px;font-weight:800;line-height:1.2;text-wrap:balance}
-  .acard .asub{font-size:12px;opacity:.9;margin-top:3px}
-  .acard .aic{position:absolute;top:12px;left:12px;width:30px;height:30px;border-radius:9px;background:rgba(255,255,255,.9);display:grid;place-items:center;font-size:15px;z-index:2}
-  .acard .art{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.92);color:var(--ink);font-size:10.5px;font-weight:800;padding:3px 8px;border-radius:99px;z-index:2}
+  .acard{border-radius:18px;overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--line);cursor:pointer;background:#fff;display:flex;flex-direction:column;transition:.15s}
+  .acard:active{transform:scale(.99)}
+  .acard .illus{position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4ecdb}
+  .acard .illus svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .acard .art{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.92);color:var(--ink);font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:99px;z-index:2}
+  .acard .body{padding:12px 14px 14px}
+  .acard .cat{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--indigo)}
+  .acard h4{margin:3px 0 0;font-size:15px;font-weight:800;line-height:1.22;color:var(--ink);text-wrap:balance}
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
   .gr-blutdruck{--gr:linear-gradient(150deg,#e98aa8,#c25f86)}
   .gr-bewegung{--gr:linear-gradient(150deg,#9fd07a,#5a9b4e)}
@@ -772,7 +771,7 @@ function openFactor(i){
   h+=d.helps.map(x=>`<div class="what"><span>${x}</span><button class="btn sm ghost" onclick="addToPlan('${x.replace(/'/g,'')}')">+ Plan</button></div>`).join('');
   h+=`</div>`;
   const art=ARTICLES[d.art];
-  h+=`<div class="acard gr-${art.cat}" style="min-height:120px" onclick="openArticle(${d.art})"><span class="aic">${art.icon}</span><span class="art">${art.read}</span><span class="cat">${art.catLabel}</span><h4>${art.title}</h4></div>`;
+  h+=cardHTML(d.art);
   document.getElementById('fd-body').innerHTML=h;
   go('s-factor');
 }
@@ -839,7 +838,20 @@ const ARTICLES=[
 ];
 const CATS=[{k:'all',l:'Alle',ic:'▦'},{k:'grundlagen',l:'Grundlagen',ic:'🫀'},{k:'bewegung',l:'Bewegung',ic:'🏃‍♀️'},{k:'menopause',l:'Menopause',ic:'🌸'},{k:'schlaf',l:'Schlaf',ic:'🌙'},{k:'stress',l:'Stress',ic:'🧘‍♀️'},{k:'praevention',l:'Prävention',ic:'🛡️'}];
 let catFilter='all';
-function cardHTML(i){const a=ARTICLES[i];return `<div class="acard gr-${a.cat}" onclick="openArticle(${i})"><span class="aic">${a.icon}</span><span class="art">${a.read}</span><span class="cat">${a.catLabel}</span><h4>${a.title}</h4></div>`;}
+/* ---- flat-vector article illustrations (one per article, Figma-editorial style) ---- */
+const HP='M60 105C25 78 9 56 9 35.5 9 21 20 10 33.5 10 44 10 52 17 60 28 68 17 76 10 86.5 10 100 10 111 21 111 35.5 111 56 95 78 60 105Z';
+const SV=(inner)=>`<svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">${inner}</svg>`;
+const ILLUS=[
+  /*0 Risikofaktoren*/ SV(`<rect width="320" height="200" fill="#f4ecdb"/><path d="M22 132 H86 l12-46 l20 84 l14-38 H176" fill="none" stroke="#d83a34" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(150,38) scale(1.06)"><path d="${HP}" fill="#e0655a" stroke="#c23a33" stroke-width="4"/><path d="M60 92c8-14 34-11 34 8 0 17-26 31-34 40-8-9-34-23-34-40 0-19 26-22 34-8Z" fill="#f3a9c2" opacity=".85"/></g>`),
+  /*1 BMI*/ SV(`<rect width="320" height="200" fill="#accae9"/><rect x="96" y="64" width="128" height="100" rx="18" fill="#ffffff"/><rect x="112" y="150" width="96" height="16" rx="8" fill="#d7e2ef"/><circle cx="160" cy="112" r="37" fill="#eef3fb" stroke="#2d3e5f" stroke-width="4"/><line x1="160" y1="112" x2="184" y2="90" stroke="#d83a34" stroke-width="6" stroke-linecap="round"/><circle cx="160" cy="112" r="6" fill="#2d3e5f"/>`),
+  /*2 Bewegung*/ SV(`<rect width="320" height="200" fill="#accae9"/><rect x="72" y="94" width="116" height="16" rx="8" fill="#e0655a"/><rect x="52" y="74" width="24" height="56" rx="9" fill="#d83a34"/><rect x="184" y="74" width="24" height="56" rx="9" fill="#d83a34"/><rect x="40" y="84" width="14" height="36" rx="6" fill="#c23a33"/><rect x="206" y="84" width="14" height="36" rx="6" fill="#c23a33"/><circle cx="252" cy="134" r="30" fill="#d83a34"/><ellipse cx="266" cy="104" rx="13" ry="7" fill="#5aa46b" transform="rotate(-25 266 104)"/><path d="M252 110 q3 -12 13 -14" fill="none" stroke="#7a4a24" stroke-width="5" stroke-linecap="round"/>`),
+  /*3 Menopause*/ SV(`<rect width="320" height="200" fill="#f8dbe6"/><g transform="translate(132,108)" fill="#f3a9c2"><ellipse cx="0" cy="-32" rx="15" ry="29"/><ellipse cx="0" cy="-32" rx="15" ry="29" transform="rotate(60)"/><ellipse cx="0" cy="-32" rx="15" ry="29" transform="rotate(120)"/><ellipse cx="0" cy="-32" rx="15" ry="29" transform="rotate(180)"/><ellipse cx="0" cy="-32" rx="15" ry="29" transform="rotate(240)"/><ellipse cx="0" cy="-32" rx="15" ry="29" transform="rotate(300)"/></g><circle cx="132" cy="108" r="19" fill="#f0aa3c"/><g transform="translate(212,38) scale(.55)"><path d="${HP}" fill="#e0655a"/></g>`),
+  /*4 Schlaf*/ SV(`<rect width="320" height="200" fill="#2d3e5f"/><circle cx="138" cy="106" r="52" fill="#f4d64f"/><circle cx="162" cy="92" r="47" fill="#2d3e5f"/><circle cx="232" cy="62" r="4.5" fill="#ffffff"/><circle cx="258" cy="98" r="5.5" fill="#ffffff"/><circle cx="240" cy="128" r="3.5" fill="#ffffff"/><text x="206" y="58" fill="#f4d64f" font-family="Plus Jakarta Sans,sans-serif" font-size="24" font-weight="800">z</text><text x="226" y="42" fill="#f4d64f" font-family="Plus Jakarta Sans,sans-serif" font-size="16" font-weight="800">z</text>`),
+  /*5 Stress*/ SV(`<rect width="320" height="200" fill="#f4ecdb"/><g transform="translate(150,46)"><path d="${HP}" fill="#9ca3dc"/></g><path d="M118 96 q-18 22 0 44" fill="none" stroke="#e0655a" stroke-width="5" stroke-linecap="round"/><path d="M102 86 q-27 34 0 66" fill="none" stroke="#e0655a" stroke-width="5" stroke-linecap="round" opacity=".5"/><path d="M270 96 q18 22 0 44" fill="none" stroke="#e0655a" stroke-width="5" stroke-linecap="round"/><path d="M286 86 q27 34 0 66" fill="none" stroke="#e0655a" stroke-width="5" stroke-linecap="round" opacity=".5"/>`),
+  /*6 Prävention*/ SV(`<rect width="320" height="200" fill="#d7ebdd"/><path d="M160 42 l62 22 v42 q0 58 -62 86 q-62 -28 -62 -86 v-42Z" fill="#5aa46b"/><path d="M160 58 l46 17 v33 q0 45 -46 67 q-46 -22 -46 -67 v-33Z" fill="#6fb87f"/><path d="M133 112 l20 21 44 -50" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>`),
+  /*7 10 Dinge*/ SV(`<rect width="320" height="200" fill="#f4ecdb"/><rect x="92" y="38" width="136" height="128" rx="14" fill="#ffffff" stroke="#2d3e5f" stroke-width="4"/><rect x="140" y="28" width="40" height="18" rx="6" fill="#e0655a"/><g><circle cx="118" cy="74" r="9" fill="#5aa46b"/><path d="M113 74 l4 4 7 -8" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="134" y="69" width="78" height="9" rx="4" fill="#dfe3ea"/></g><g><circle cx="118" cy="104" r="9" fill="#5aa46b"/><path d="M113 104 l4 4 7 -8" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="134" y="99" width="78" height="9" rx="4" fill="#dfe3ea"/></g><g><circle cx="118" cy="134" r="9" fill="#9ca3dc"/><rect x="134" y="129" width="60" height="9" rx="4" fill="#e7e9f2"/></g>`),
+];
+function cardHTML(i){const a=ARTICLES[i];return `<div class="acard" onclick="openArticle(${i})"><div class="illus">${ILLUS[i]||''}<span class="art">${a.read}</span></div><div class="body"><span class="cat">${a.catLabel}</span><h4>${a.title}</h4></div></div>`;}
 function recFor(n){ // profile-based recommendations
   const a=S.answers||{},preg=(a.preg||[]).some(x=>[0,1,2,3,4].includes(x));
   let order=(a.meno===2||a.meno===3)?[3,4,6,0,2,7]:preg?[0,6,3,2,7,1]:[7,2,6,0,4,5];
@@ -854,7 +866,9 @@ function renderWissen(){
 }
 function setCat(k){catFilter=k;renderWissen();}
 function openArticle(i){const a=ARTICLES[i];
-  document.getElementById('article-body').innerHTML=`<div class="acard gr-${a.cat}" style="min-height:150px;margin-bottom:14px"><span class="aic">${a.icon}</span><span class="art">${a.read}</span><span class="cat">${a.catLabel}</span><h4 style="font-size:19px">${a.title}</h4></div>
+  document.getElementById('article-body').innerHTML=`<div class="illus" style="position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;margin-bottom:14px">${ILLUS[i]||''}</div>
+    <span class="pill ind">${a.catLabel} · ${a.read}</span>
+    <h1 style="margin-top:10px">${a.title}</h1>
     <p>${a.body}</p>
     <div class="card" style="background:var(--good-bg);border:none;margin-top:14px"><h3 style="color:var(--good-tx)">Was du tun kannst</h3>${a.todo.map(t=>`<div class="see" style="color:var(--good-tx)"><span>✓</span><span>${t}</span></div>`).join('')}</div>
     <p class="small">Bildungsinhalt auf Basis von ESC-/AHA-Leitlinien und der Frauen.Herz.KI-Forschung. Ersetzt keine ärztliche Beratung, Untersuchung oder Diagnose.</p>

@@ -581,7 +581,7 @@
         <div class="center" style="margin-top:8px"><span class="rangeval" id="roi-n">120</span> <span class="small" id="roi-unit">Frauen</span></div>
         <input type="range" min="20" max="2000" step="10" value="120" oninput="roiCalc(+this.value)" aria-label="Anzahl Personen">
         <div class="grid2" style="margin-top:12px">
-          <div class="card" style="margin:0;text-align:center;background:var(--indigo-l);border:none"><b style="font-size:20px;color:var(--navy)" id="roi-days">58</b><span class="small" style="display:block">vermiedene Krankheitstage/J.</span></div>
+          <div class="card" style="margin:0;text-align:center;background:var(--indigo-l);border:none"><b style="font-size:20px;color:var(--navy)" id="roi-days">58</b><span class="small" style="display:block" id="roi-dlabel">vermiedene Krankheitstage/J.</span></div>
           <div class="card" style="margin:0;text-align:center;background:var(--indigo-l);border:none"><b style="font-size:20px;color:var(--navy)" id="roi-cost">3.000 €</b><span class="small" style="display:block">Programmkosten/J.</span></div>
         </div>
         <div class="card" style="margin:10px 0 0;text-align:center;background:var(--good-bg);border:none"><b style="font-size:22px;color:var(--lime-d)" id="roi-save">20.200 €</b><span class="small" style="display:block">geschätzte Netto-Ersparnis/J. · ≈ <span id="roi-x">7,7×</span> Return</span></div>
@@ -981,23 +981,28 @@ function setMetric(k){metric=k;renderTracking();}
 
 /* ---- payer ROI (Krankenkasse vs. Arbeitgeber) ---- */
 const PAYER={
-  kasse:{price:25,unit:'Frauen',q:'Wie viele Frauen (40–69) erreicht ihr?',aLabel:'Teilnehmerin',ctx:'Kassen-Präventionsprogramm nach §20 SGB V'},
-  arbeitgeber:{price:10,unit:'Mitarbeiterinnen',q:'Wie viele Mitarbeiterinnen hat Ihr Unternehmen?',aLabel:'Mitarbeiterin',ctx:'betriebliches Gesundheitsmanagement (BGM)'},
+  kasse:{price:25,unit:'Frauen',q:'Wie viele Frauen (40–69) erreicht ihr?',aLabel:'Teilnehmerin',ctx:'Kassen-Präventionsprogramm nach §20 SGB V',act:0.6,perHead:110,dLabel:'aktivierte Teilnehmerinnen',assume:'60 % Aktivierung · 110 € vermiedene Behandlungs-/Folgekosten je aktivierter Teilnehmerin/Jahr · 25 €/Teilnehmerin/Jahr'},
+  arbeitgeber:{price:10,unit:'Mitarbeiterinnen',q:'Wie viele Mitarbeiterinnen hat Ihr Unternehmen?',aLabel:'Mitarbeiterin',ctx:'betriebliches Gesundheitsmanagement (BGM)',act:0.6,days:0.2,dayCost:350,dLabel:'vermiedene Krankheitstage/J.',assume:'60 % Aktivierung · 0,2 vermiedene Krankheitstage je aktivierter Mitarbeiterin/Jahr · 350 €/Tag · 10 €/Mitarbeiterin/Jahr'},
 };
 let roiN=120;
 function setPayer(p){S.payer=p;
   document.querySelectorAll('#payer-seg button').forEach((b,i)=>b.classList.toggle('on',(i===0)===(p==='kasse')));
   roiCalc(roiN);}
 function roiCalc(n){roiN=n;const p=PAYER[S.payer||'kasse'];const de=x=>x.toLocaleString('de-DE');
-  const part=Math.round(n*0.6),days=Math.round(part*0.8),save=days*400,cost=n*p.price,net=save-cost;
+  const act=Math.round(n*p.act);
+  let dVal,save;
+  if(p.days!==undefined){dVal=Math.round(act*p.days);save=dVal*p.dayCost;}
+  else{dVal=act;save=act*p.perHead;}
+  const cost=n*p.price,net=save-cost;
   document.getElementById('roi-n').textContent=de(n);
   document.getElementById('roi-unit').textContent=p.unit;
   document.getElementById('roi-q').textContent=p.q;
-  document.getElementById('roi-days').textContent=de(days);
+  document.getElementById('roi-days').textContent=de(dVal);
+  document.getElementById('roi-dlabel').textContent=p.dLabel;
   document.getElementById('roi-cost').textContent=de(cost)+' €';
   document.getElementById('roi-save').textContent=de(net)+' €';
   document.getElementById('roi-x').textContent=(save/cost).toLocaleString('de-DE',{minimumFractionDigits:1,maximumFractionDigits:1})+'×';
-  document.getElementById('roi-assume').textContent=`Annahmen (Demo): 60 % Aktivierung · 0,8 vermiedene Tage/${p.aLabel}/Jahr · 400 €/Tag · ${p.price} €/${p.aLabel}/Jahr (${p.ctx}). Im Pilot messen wir eure echten Werte.`;}
+  document.getElementById('roi-assume').textContent=`Annahmen (Demo): ${p.assume} (${p.ctx}). Im Pilot messen wir eure echten Werte.`;}
 
 /* ---- demo seed + reset ---- */
 function seedDemo(){S.answers={age:52,ethnie:0,groesse:168,gewicht:74,smoke:0,activity:1,meno:2,oophor:0,menarche:13,preg:[0],pcos:0,diagnosen:[4],autoimmun:0,cancer:0,depression:0,bp_sys:undefined,ldl:undefined,hba1c:undefined,symptoms:[4]};compute();S.seeded=true;S.name='Sabine';S.anon=false;S.consentApp=true;S.consentResearch=false;

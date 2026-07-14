@@ -10,12 +10,12 @@
 <style>
   :root{
     /* aligned to Figma "Gamified Heart Health App" tokens */
-    --navy:#2d3e5f; --navy-2:#3a4d73; --navy-d:#233150;   /* primary / dark-blue */
+    --navy:#d83a34; --navy-2:#e35247; --navy-d:#7d211b;   /* primary / dark-blue */
     --ink:#2d3748; --slate:#6b7280; --line:rgba(156,163,220,0.22);
     --page:#faf9fb; --frame:#efeef4; --card:#ffffff;
     /* accents */
-    --indigo:#5c66a8; --indigo-l:#e0e4f5; --blue:#8089d4; --blue-l:#eceefb;   /* lavender family */
-    --lavender:#9ca3dc;
+    --indigo:#c23a33; --indigo-l:#fbe4e0; --blue:#e0655a; --blue-l:#fbeae7;   /* lavender family */
+    --lavender:#d6473b;
     --lime:#84c63f; --lime-d:#5a9b32; --good-bg:#e7f3da; --good-tx:#4f8f2e;
     --amber:#d99a2b; --warn-bg:#fef3c7; --warn-tx:#9a6a12; --orange:#e2793c;
     --pink:#ef4444; --pink-d:#c23a33; --blush:#f6b6cf;
@@ -69,8 +69,8 @@
   .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:none;border-radius:15px;
     padding:15px 18px;font-size:15.5px;font-weight:700;cursor:pointer;font-family:inherit;background:var(--navy);color:#fff;transition:.15s;letter-spacing:-.01em}
   .btn:active{transform:scale(.985)} .btn:focus-visible{outline:3px solid var(--indigo);outline-offset:2px}
-  .btn.lime{background:linear-gradient(135deg,#7cbf3a,#5a9b32)}
-  .btn.lav{background:var(--lavender);color:#26314e}
+  .btn.lime{background:linear-gradient(135deg,#e0554a,#c0392f)}
+  .btn.lav{background:var(--lavender);color:#fff}
   .btn.ghost{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.6px var(--line)}
   .btn.link{background:none;color:var(--indigo);font-size:14px;padding:11px;box-shadow:none}
   .btn.block{margin-top:10px}
@@ -86,9 +86,9 @@
   .feature .ic{flex:0 0 auto;width:44px;height:44px;border-radius:13px;background:var(--indigo-l);display:grid;place-items:center;font-size:20px}
   .feature h4{margin:0 0 3px;font-size:15px;font-weight:700} .feature p{font-size:13px;color:var(--slate);line-height:1.45}
 
-  .hero{background:linear-gradient(160deg,#18304f,var(--navy-d));color:#fff;border-radius:0 0 30px 30px;padding:26px 22px 32px;text-align:center}
+  .hero{background:linear-gradient(160deg,#8a1f17,var(--navy-d));color:#fff;border-radius:0 0 30px 30px;padding:26px 22px 32px;text-align:center}
   .hero .brand b,.hero .brand .fem{color:#fff}
-  .hero h1{color:#fff;font-size:26px;margin-top:14px} .hero p{color:#c3cfe2;font-size:14.5px}
+  .hero h1{color:#fff;font-size:26px;margin-top:14px} .hero p{color:#f0d6d1;font-size:14.5px}
 
   /* progress + toggles */
   .progress{height:8px;background:#e4e8f0;border-radius:99px;overflow:hidden;margin:4px 0}
@@ -103,7 +103,7 @@
   .qtitle{font-size:22px;letter-spacing:-.02em;margin:8px 0 4px;font-weight:800;text-wrap:balance}
   .opt{display:flex;align-items:center;gap:13px;width:100%;text-align:left;background:#fff;border:1.6px solid var(--line);
     border-radius:15px;padding:15px 16px;margin-bottom:10px;cursor:pointer;font-size:15px;font-family:inherit;color:var(--ink);transition:.12s;font-weight:600}
-  .opt:hover{border-color:#c4ccdb} .opt.sel{border-color:var(--indigo);background:#f3f4fd;box-shadow:0 0 0 3px #e5e6fa}
+  .opt:hover{border-color:#c4ccdb} .opt.sel{border-color:var(--indigo);background:#fdeeec;box-shadow:0 0 0 3px #f6ddd8}
   .opt.warn.sel{border-color:var(--pink);background:#fdf0f5;box-shadow:0 0 0 3px #fbe0eb}
   .opt .dot{width:22px;height:22px;border-radius:50%;border:2.4px solid #cdd5e0;flex:0 0 auto}
   .opt.sel .dot{border-color:var(--indigo);background:var(--indigo);box-shadow:inset 0 0 0 3.5px #fff}
@@ -121,16 +121,16 @@
   .rangeval{font-weight:800;color:var(--navy);font-size:34px;letter-spacing:-.02em}
 
   /* score / navy hero card */
-  .scorehero{background:linear-gradient(165deg,#1a3252,var(--navy-d));border-radius:26px;padding:22px 20px;color:#fff;text-align:center;margin:6px 0 0}
+  .scorehero{background:linear-gradient(165deg,#8a1f17,var(--navy-d));border-radius:26px;padding:22px 20px;color:#fff;text-align:center;margin:6px 0 0}
   .ring{position:relative;width:170px;height:170px;margin:6px auto}
   .ring > svg{transform:rotate(-90deg)} .ring .rt{stroke:rgba(255,255,255,.14)}
   .ring .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
   .ring .num b{font-size:46px;line-height:1;letter-spacing:-.04em;font-weight:800}
-  .ring .num span{font-size:11px;color:#a9b6cc;font-weight:600;margin-top:2px}
+  .ring .num span{font-size:11px;color:#ecc9c4;font-weight:600;margin-top:2px}
   .statgrid{display:flex;background:rgba(255,255,255,.07);border-radius:16px;margin-top:14px;overflow:hidden}
   .statgrid .st{flex:1;padding:12px 6px;text-align:center;border-right:1px solid rgba(255,255,255,.09)}
   .statgrid .st:last-child{border-right:none}
-  .statgrid .st b{font-size:20px;font-weight:800;letter-spacing:-.02em} .statgrid .st span{display:block;font-size:9.5px;color:#a9b6cc;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-top:3px}
+  .statgrid .st b{font-size:20px;font-weight:800;letter-spacing:-.02em} .statgrid .st span{display:block;font-size:9.5px;color:#ecc9c4;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-top:3px}
 
   /* factor row with contribution bar */
   .frow{background:#fff;border:1px solid var(--line);border-radius:15px;padding:13px 15px;margin-bottom:10px;cursor:pointer;transition:.15s}
@@ -147,8 +147,8 @@
   .chev{color:#b7c0d0;font-size:15px}
 
   /* benefit banner */
-  .benefit{display:flex;gap:12px;align-items:center;background:linear-gradient(135deg,#1c3554,var(--navy-d));color:#fff;border-radius:16px;padding:13px 15px;margin:13px 0}
-  .benefit .g{font-size:24px;flex:0 0 auto} .benefit b{font-size:13.5px} .benefit p{margin-top:2px;font-size:11.5px;color:#bcc8dc}
+  .benefit{display:flex;gap:12px;align-items:center;background:linear-gradient(135deg,#8a1f17,var(--navy-d));color:#fff;border-radius:16px;padding:13px 15px;margin:13px 0}
+  .benefit .g{font-size:24px;flex:0 0 auto} .benefit b{font-size:13.5px} .benefit p{margin-top:2px;font-size:11.5px;color:#eecfca}
 
   /* tasks */
   .task{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line);cursor:pointer}
@@ -299,9 +299,9 @@
         <p>A 2-minute check based on the Women.Heart.AI research at TU&nbsp;Munich — plus a plan that fits you.</p>
       </div>
       <div style="padding:18px">
-        <div class="feature"><div class="ic">🫀</div><div><h4>Your personal heart profile</h4><p>A check that accounts for female-specific factors — menopause, pregnancies.</p></div></div>
-        <div class="feature"><div class="ic">🎯</div><div><h4>A guided plan</h4><p>Not just a number. Small steps, guided — at your own pace.</p></div></div>
-        <div class="feature"><div class="ic">📈</div><div><h4>See that it works</h4><p>Track your progress manually or connect your device.</p></div></div>
+        <div class="feature"><div class="ic" data-ic="cardiology"></div><div><h4>Your personal heart profile</h4><p>A check that accounts for female-specific factors — menopause, pregnancies.</p></div></div>
+        <div class="feature"><div class="ic" data-ic="heart"></div><div><h4>A guided plan</h4><p>Not just a number. Small steps, guided — at your own pace.</p></div></div>
+        <div class="feature"><div class="ic" data-ic="activity"></div><div><h4>See that it works</h4><p>Track your progress manually or connect your device.</p></div></div>
         <button class="btn lime block" onclick="go('s-access')">Start the check — about 5 minutes</button>
         <button class="btn link block" onclick="go('s-employer')">🏢 For business: FemRisk as a benefit →</button>
         <p class="disc">This app is not a medical diagnosis. It complements the conversation with your doctor.</p>
@@ -356,7 +356,7 @@
   <section class="screen" id="s-result">
     <div class="scroll" style="padding-top:4px">
       <div class="scorehero">
-        <div class="eyebrow" style="color:#a9b6cc">Your heart score</div>
+        <div class="eyebrow" style="color:#ecc9c4">Your heart score</div>
         <div class="ring">
           <svg width="170" height="170" viewBox="0 0 200 200"><circle class="rt" cx="100" cy="100" r="86" fill="none" stroke-width="16"/><circle id="arc" cx="100" cy="100" r="86" fill="none" stroke="var(--lime)" stroke-width="16" stroke-linecap="round" stroke-dasharray="540" stroke-dashoffset="540"/></svg>
           <div class="num"><b id="score">0</b><span>out of 100</span></div>
@@ -446,7 +446,7 @@
       <!-- tracking summary (rich) -->
       <div class="card tap rich" onclick="go('s-tracking')">
         <div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">Your progress</h3><span class="chev">›</span></div>
-        <svg class="spark" viewBox="0 0 300 56" preserveAspectRatio="none" style="margin-top:8px"><defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3f8edd" stop-opacity=".22"/><stop offset="1" stop-color="#3f8edd" stop-opacity="0"/></linearGradient></defs><path d="M0 44 L50 40 L100 36 L150 30 L200 24 L250 18 L300 12" fill="none" stroke="var(--blue)" stroke-width="3" stroke-linecap="round"/><path d="M0 44 L50 40 L100 36 L150 30 L200 24 L250 18 L300 12 L300 56 L0 56Z" fill="url(#sg)"/></svg>
+        <svg class="spark" viewBox="0 0 300 56" preserveAspectRatio="none" style="margin-top:8px"><defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e0655a" stop-opacity=".22"/><stop offset="1" stop-color="#e0655a" stop-opacity="0"/></linearGradient></defs><path d="M0 44 L50 40 L100 36 L150 30 L200 24 L250 18 L300 12" fill="none" stroke="var(--blue)" stroke-width="3" stroke-linecap="round"/><path d="M0 44 L50 40 L100 36 L150 30 L200 24 L250 18 L300 12 L300 56 L0 56Z" fill="url(#sg)"/></svg>
         <p class="small">Score +21 since you started your plan · Open tracking ›</p>
       </div>
 
@@ -521,7 +521,7 @@
     <div class="topbar"><div><h2>Profile</h2><div class="sub">Account, doctor & settings</div></div></div>
     <div class="scroll">
       <div class="card" style="display:flex;align-items:center;gap:14px">
-        <div style="width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#1c3554,var(--navy-d));display:grid;place-items:center;color:#fff;font-size:20px;font-weight:800" id="prof-avatar">A</div>
+        <div style="width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#8a1f17,var(--navy-d));display:grid;place-items:center;color:#fff;font-size:20px;font-weight:800" id="prof-avatar">A</div>
         <div><h3 style="margin:0" id="prof-name">Your profile</h3><p class="small" id="prof-sub">Heart score –</p></div>
       </div>
 
@@ -789,10 +789,10 @@ function openFactor(i){
   document.getElementById('fd-title').textContent=f.n;
   const impactColor=f.dir==='pos'?'#1c3d1c':f.dir==='neu'?'var(--navy)':'#3d2318';
   const sign=f.pts>0?'+'+f.pts+' points':f.pts===0?'neutral':f.pts+' points';
-  let h=`<div class="scorehero" style="text-align:left;background:linear-gradient(160deg,#1a3252,var(--navy-d))">
-    <div class="eyebrow" style="color:#a9b6cc">Impact on your score</div>
+  let h=`<div class="scorehero" style="text-align:left;background:linear-gradient(160deg,#8a1f17,var(--navy-d))">
+    <div class="eyebrow" style="color:#ecc9c4">Impact on your score</div>
     <div style="font-size:30px;font-weight:800;letter-spacing:-.02em;margin-top:4px">${sign}</div>
-    <div class="small" style="color:#bcc8dc">${f.dir==='neg'?'Lowers your score':f.dir==='pos'?'Raises your score':'Neutral for the score'} · ${f.mod}</div></div>`;
+    <div class="small" style="color:#eecfca">${f.dir==='neg'?'Lowers your score':f.dir==='pos'?'Raises your score':'Neutral for the score'} · ${f.mod}</div></div>`;
   h+=`<div class="card"><div class="eyebrow" style="margin-bottom:6px">Your current status</div>`;
   h+=d.status.map(s=>`<div class="what"><span>${s[0]}</span><span><b>${s[1]}</b> <span class="pill ${s[2]==='good'?'good':s[2]==='neu'?'ind':'warn'}" style="font-size:10px">${s[2]==='good'?'good':s[2]==='neu'?'ok':'Caution'}</span></span></div>`).join('');
   h+=`</div>`;
@@ -1018,6 +1018,7 @@ function resetDemo(){Object.assign(S,{answers:{},score:0,band:'',factors:[],focu
 
 /* init */
 renderQ();renderFocus();buildNav('home');renderTracking();roiCalc(120);
+document.querySelectorAll('.feature .ic[data-ic]').forEach(el=>{el.style.fontSize=0;el.innerHTML=iconSpan(el.dataset.ic,'var(--navy)',22);});
 /* wire sub-screen renders on entry */
 const _go=go;go=function(id){if(id==='s-tracking')renderTracking();if(id==='s-focus')renderFocus();_go(id);};
 </script>

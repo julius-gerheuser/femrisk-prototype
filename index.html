@@ -70,6 +70,7 @@
     padding:15px 18px;font-size:15.5px;font-weight:700;cursor:pointer;font-family:inherit;background:var(--navy);color:#fff;transition:.15s;letter-spacing:-.01em}
   .btn:active{transform:scale(.985)} .btn:focus-visible{outline:3px solid var(--indigo);outline-offset:2px}
   .btn.lime{background:linear-gradient(135deg,#7cbf3a,#5a9b32)}
+  .btn.lav{background:var(--lavender);color:#26314e}
   .btn.ghost{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.6px var(--line)}
   .btn.link{background:none;color:var(--indigo);font-size:14px;padding:11px;box-shadow:none}
   .btn.block{margin-top:10px}
@@ -427,7 +428,7 @@
     <div class="scroll">
       <div class="card tap" onclick="go('s-result')" style="display:flex;align-items:center;gap:15px">
         <div class="ring" style="width:66px;height:66px;margin:0;flex:0 0 auto">
-          <svg width="66" height="66" viewBox="0 0 200 200"><circle cx="100" cy="100" r="86" fill="none" stroke="#e4e8f0" stroke-width="20"/><circle id="home-arc" cx="100" cy="100" r="86" fill="none" stroke="var(--lime)" stroke-width="20" stroke-linecap="round" stroke-dasharray="540" stroke-dashoffset="540" transform="rotate(-90 100 100)"/></svg>
+          <svg width="66" height="66" viewBox="0 0 200 200"><circle cx="100" cy="100" r="86" fill="none" stroke="#e4e8f0" stroke-width="20"/><circle id="home-arc" cx="100" cy="100" r="86" fill="none" stroke="var(--lime)" stroke-width="20" stroke-linecap="round" stroke-dasharray="540" stroke-dashoffset="540"/></svg>
           <div class="num"><b id="home-score" style="font-size:22px;color:var(--ink)">73</b></div>
         </div>
         <div style="flex:1"><div class="eyebrow">Dein Herz-Score</div><h3 style="margin:2px 0" id="home-band">Guter Ausgangspunkt</h3><span class="small" style="color:var(--lime-d);font-weight:700" id="home-trend">↗ +3 diese Woche</span></div>
@@ -483,12 +484,10 @@
         <div style="display:flex;justify-content:space-between" class="small"><span>6:00</span><span>12:00</span><span>18:00</span><span>jetzt</span></div>
       </div>
       <div class="card">
-        <div class="eyebrow" style="margin-bottom:4px">Messungen heute</div>
-        <div class="mrow"><span>08:14 · Omron</span><span><b>122/78</b> <span class="pill good">gut</span></span></div>
-        <div class="mrow"><span>12:31 · Apple Watch</span><span><b>119/76</b> <span class="pill good">gut</span></span></div>
-        <div class="mrow"><span>18:05 · Omron</span><span><b>128/82</b> <span class="pill warn">erhöht</span></span></div>
+        <div class="eyebrow" style="margin-bottom:4px" id="track-meas-title">Messungen</div>
+        <div id="track-meas"></div>
       </div>
-      <div class="callout"><span>↘</span><span>Dein Blutdruck ist in den letzten 30 Tagen um 6 mmHg gesunken.</span></div>
+      <div class="callout" id="track-insight"><span>↘</span><span>—</span></div>
       <button class="btn ghost block" onclick="nav('profil')">⌚ Gerät verbinden</button>
       <p class="disc">Nur sichtbar, wenn du Geräte oder Apps verbindest – jederzeit trennbar.</p>
     </div>
@@ -531,7 +530,7 @@
       <div class="card">
         <h3>🩺 Zur Ärztin gehen?</h3>
         <p class="small">Für dein Profil kann ein Termin bei Kardiologie oder Gynäkologie sinnvoll sein. Nimm deinen Gesprächsleitfaden mit.</p>
-        <button class="btn sm ghost" style="width:100%;margin-top:10px" onclick="toggleGuide()" id="guide-btn">Gesprächsleitfaden anzeigen</button>
+        <button class="btn sm lav" style="width:100%;margin-top:10px" onclick="toggleGuide()" id="guide-btn">Gesprächsleitfaden anzeigen</button>
         <div id="guide" style="display:none;margin-top:12px"></div>
       </div>
 
@@ -576,16 +575,17 @@
       </div>
       <div class="card">
         <div class="eyebrow" style="color:var(--indigo)">📈 Ihr Business Case</div>
-        <h3 style="margin:8px 0 2px">Was bringt FemRisk Ihrem Unternehmen?</h3>
-        <p class="small">Wie viele Mitarbeiterinnen hat Ihr Unternehmen?</p>
-        <div class="center" style="margin-top:8px"><span class="rangeval" id="roi-n">120</span> <span class="small">Mitarbeiterinnen</span></div>
-        <input type="range" min="20" max="1000" step="10" value="120" oninput="roiCalc(+this.value)" aria-label="Anzahl Mitarbeiterinnen">
+        <h3 style="margin:8px 0 10px" id="roi-h">Was bringt FemRisk?</h3>
+        <div class="seg" id="payer-seg" style="margin:0 0 14px"><button class="on" onclick="setPayer('kasse')">Krankenkasse</button><button onclick="setPayer('arbeitgeber')">Arbeitgeber</button></div>
+        <p class="small" id="roi-q">Wie viele Frauen (40–69) erreicht ihr?</p>
+        <div class="center" style="margin-top:8px"><span class="rangeval" id="roi-n">120</span> <span class="small" id="roi-unit">Frauen</span></div>
+        <input type="range" min="20" max="2000" step="10" value="120" oninput="roiCalc(+this.value)" aria-label="Anzahl Personen">
         <div class="grid2" style="margin-top:12px">
           <div class="card" style="margin:0;text-align:center;background:var(--indigo-l);border:none"><b style="font-size:20px;color:var(--navy)" id="roi-days">58</b><span class="small" style="display:block">vermiedene Krankheitstage/J.</span></div>
-          <div class="card" style="margin:0;text-align:center;background:var(--indigo-l);border:none"><b style="font-size:20px;color:var(--navy)" id="roi-cost">5.760 €</b><span class="small" style="display:block">Programmkosten/J.</span></div>
+          <div class="card" style="margin:0;text-align:center;background:var(--indigo-l);border:none"><b style="font-size:20px;color:var(--navy)" id="roi-cost">3.000 €</b><span class="small" style="display:block">Programmkosten/J.</span></div>
         </div>
-        <div class="card" style="margin:10px 0 0;text-align:center;background:var(--good-bg);border:none"><b style="font-size:22px;color:var(--lime-d)" id="roi-save">23.040 €</b><span class="small" style="display:block">geschätzte Netto-Ersparnis/J. · ≈ <span id="roi-x">4,0×</span> Return</span></div>
-        <p class="small" style="margin-top:10px">Annahmen (Demo): 60 % Aktivierung · 0,8 vermiedene Tage/Teilnehmerin/Jahr · 400 €/Tag · 4 €/MA/Monat. Im Pilot messen wir Ihre echten Werte.</p>
+        <div class="card" style="margin:10px 0 0;text-align:center;background:var(--good-bg);border:none"><b style="font-size:22px;color:var(--lime-d)" id="roi-save">20.200 €</b><span class="small" style="display:block">geschätzte Netto-Ersparnis/J. · ≈ <span id="roi-x">7,7×</span> Return</span></div>
+        <p class="small" style="margin-top:10px" id="roi-assume">Annahmen (Demo): 60 % Aktivierung · 0,8 vermiedene Tage/Teilnehmerin/Jahr · 400 €/Tag · 25 €/Teilnehmerin/Jahr. Im Pilot messen wir Ihre echten Werte.</p>
       </div>
       <div class="card">
         <div class="eyebrow" style="color:var(--indigo)">📊 Ihr anonymes Dashboard</div>
@@ -598,8 +598,8 @@
       </div>
       <button class="btn lime block" onclick="toast('Demo: Pilot-Anfrage gesendet – wir melden uns!')">Pilot anfragen</button>
       <div class="card center" style="margin-top:13px">
-        <p class="small" style="margin:0 0 10px"><b>Kurze Frage</b> (hilft uns sehr): Würden Sie das als Arbeitgeberin anbieten?</p>
-        <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap"><button class="btn sm ghost" onclick="toast('Danke! 4 €/MA notiert')">Ja, zu 4 €</button><button class="btn sm ghost" onclick="toast('Danke – Preis notiert')">Nur günstiger</button><button class="btn sm ghost" onclick="toast('Danke fürs Feedback')">Nein</button></div>
+        <p class="small" style="margin:0 0 10px"><b>Kurze Frage</b> (hilft uns sehr): Wäre das für euch als Programm interessant?</p>
+        <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap"><button class="btn sm ghost" onclick="toast('Danke! Interesse notiert')">Ja, überzeugend</button><button class="btn sm ghost" onclick="toast('Danke – Preis notiert')">Preis müsste niedriger sein</button><button class="btn sm ghost" onclick="toast('Danke fürs Feedback')">Eher nicht</button></div>
       </div>
       <button class="btn ghost block" onclick="seedDemo()">Die Mitarbeiterinnen-App ansehen →</button>
       <p class="disc">Demo-Zahlen zur Veranschaulichung. Die App stellt keine medizinische Diagnose.</p>
@@ -610,7 +610,7 @@
 </div>
 
 <script>
-const S={answers:{},score:0,band:'',factors:[],focus:null,planTitle:'Mehr Bewegung',tasks:[],week:1,safety:false,simple:false,seeded:false,name:'',age:52};
+const S={answers:{},score:0,band:'',factors:[],focus:null,planTitle:'Mehr Bewegung',tasks:[],week:1,safety:false,simple:false,seeded:false,name:'',age:52,payer:'kasse'};
 function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));const el=document.getElementById(id);el.classList.add('active');const sc=el.querySelector('.scroll');if(sc)sc.scrollTop=0;}
 function toast(t){const e=document.getElementById('toast');e.textContent=t;e.classList.add('show');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('show'),1900);}
 
@@ -635,7 +635,7 @@ const QS=[
   {key:'meno',title:'Hormonell & weiblich',hint:'Wo stehst du hormonell gerade?',why:'Mit der Menopause sinkt der schützende Östrogen-Effekt – eine frühe Menopause (vor 45) erhöht das Herz-Kreislauf-Risiko besonders.',type:'single',opts:['Prämenopausal (regelmäßiger Zyklus)','Perimenopausal (Zyklus verändert sich)','Postmenopausal (nach 45)','Frühe Menopause (vor 45)','Hormonersatztherapie (HRT)']},
   {key:'oophor',title:'Hormonell & weiblich',hint:'Wurden dir beide Eierstöcke operativ entfernt?',why:'Eine beidseitige Entfernung der Eierstöcke löst eine frühe, chirurgische Menopause aus – der Östrogenschutz fällt abrupt weg.',type:'single',opts:['Nein','Ja','Unsicher']},
   {key:'menarche',title:'Hormonell & weiblich',hint:'In welchem Alter hattest du deine erste Periode (Menarche)?',why:'Eine sehr frühe erste Periode (vor 11) steht mit einem leicht erhöhten Herz-Kreislauf-Risiko in Verbindung.',type:'range',min:9,max:18,val:13,unit:'Jahre'},
-  {key:'preg',title:'Hormonell & weiblich',hint:'Gab es Schwangerschafts-Komplikationen?',why:'Präeklampsie, Schwangerschaftsdiabetes & Co. gelten als frühe Warnsignale für späteres kardiovaskuläres Risiko.',type:'multi',none:5,opts:['Präeklampsie / Bluthochdruck','Schwangerschaftsdiabetes','Frühgeburt (<37 Wochen)','Sehr großes Baby (Makrosomie)','Fehlgeburt(en)','Keine / trifft nicht zu']},
+  {key:'preg',title:'Hormonell & weiblich',hint:'Gab es Schwangerschafts-Komplikationen?',why:'Präeklampsie, Schwangerschaftsdiabetes & Co. gelten als frühe Warnsignale für späteres kardiovaskuläres Risiko.',type:'multi',none:5,excl:[5,6],opts:['Präeklampsie / Bluthochdruck','Schwangerschaftsdiabetes','Frühgeburt (<37 Wochen)','Sehr großes Baby (Makrosomie)','Fehlgeburt(en)','Keine / trifft nicht zu','Ich war nie schwanger']},
   {key:'pcos',title:'Hormonell & weiblich',hint:'Wurde bei dir PCOS (polyzystisches Ovarialsyndrom) festgestellt?',why:'PCOS geht oft mit Insulinresistenz und erhöhtem Herz-Kreislauf-Risiko einher.',type:'single',opts:['Nein','Ja','Unsicher']},
   /* Abschnitt 4 · Medizinische Vorgeschichte */
   {key:'diagnosen',title:'Vorgeschichte',hint:'Wurde eine dieser Diagnosen bei dir gestellt?',why:'Bluthochdruck, Cholesterin und Diabetes bleiben oft lange unbemerkt, wirken aber direkt aufs Herz.',type:'multi',none:4,opts:['Bluthochdruck','Hohes Cholesterin','Diabetes','Bekannte Herz-Kreislauf-Erkrankung','Keine davon']},
@@ -667,8 +667,9 @@ function renderQ(){
   b.innerHTML=h;
 }
 function pick(key,type,i,el){
-  if(type==='multi'){const none=QS[qi].none;let a=S.answers[key]||[];
-    if(a.includes(i))a=a.filter(x=>x!==i);else{if(i===none)a=[];else if(none!==undefined)a=a.filter(x=>x!==none);a.push(i);}
+  if(type==='multi'){const q=QS[qi];const excl=q.excl||(q.none!==undefined?[q.none]:[]);let a=S.answers[key]||[];
+    if(a.includes(i))a=a.filter(x=>x!==i);
+    else{if(excl.includes(i))a=[i];else{a=a.filter(x=>!excl.includes(x));a.push(i);}}
     S.answers[key]=a;el.parentNode.querySelectorAll('.opt').forEach((o,idx)=>o.classList.toggle('sel',a.includes(idx)));
   } else {S.answers[key]=i;el.parentNode.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));el.classList.add('sel');}
 }
@@ -937,17 +938,23 @@ function toggleGuide(){const g=document.getElementById('guide'),btn=document.get
     if(a.cancer===1||a.autoimmun===1)qs.push('Ist angesichts meiner Vorgeschichte eine kardiologische Kontrolle sinnvoll?');
     qs.push('Sind regelmäßige Blutdruckkontrollen zu Hause für mich sinnvoll?');
     qs.push('Welche Untersuchungen sind in meinem Alter und mit meinem Profil empfohlen?');
-    g.innerHTML=qs.slice(0,4).map(q=>`<div class="see"><span>💬</span><span>${q}</span></div>`).join('')+`<button class="btn sm ghost" style="width:100%;margin-top:8px" onclick="window.open('sabine-summary.html','_blank')">Zusammenfassung als PDF öffnen</button>`;
+    g.innerHTML=qs.slice(0,4).map(q=>`<div class="see"><span>💬</span><span>${q}</span></div>`).join('')+`<button class="btn sm lime" style="width:100%;margin-top:8px" onclick="window.open('sabine-summary.html','_blank')">Zusammenfassung als PDF öffnen</button>`;
     g.style.display='block';btn.textContent='Leitfaden ausblenden';
   } else {g.style.display='none';btn.textContent='Gesprächsleitfaden anzeigen';}
 }
 
 /* ---- tracking metric picker ---- */
-const METRICS=[{k:'hr',l:'Herz-\nfrequenz',ic:'💗',unit:'bpm · heute',line:'M0 50 L60 46 L120 52 L180 44 L240 48 L300 42',area:'M0 50 L60 46 L120 52 L180 44 L240 48 L300 42 L300 90 L0 90Z'},
-  {k:'bp',l:'Blut-\ndruck',ic:'🩸',unit:'mmHg · heute',line:'M0 55 L60 50 L120 46 L180 52 L240 44 L300 48',area:'M0 55 L60 50 L120 46 L180 52 L240 44 L300 48 L300 90 L0 90Z'},
-  {k:'act',l:'Aktivität',ic:'🏃‍♀️',unit:'Schritte · heute',line:'M0 70 L60 60 L120 55 L180 40 L240 35 L300 22',area:'M0 70 L60 60 L120 55 L180 40 L240 35 L300 22 L300 90 L0 90Z'},
-  {k:'sleep',l:'Schlaf',ic:'🌙',unit:'Stunden · Woche',line:'M0 48 L60 40 L120 52 L180 38 L240 42 L300 36',area:'M0 48 L60 40 L120 52 L180 38 L240 42 L300 36 L300 90 L0 90Z'},
-  {k:'cycle',l:'Zyklus',ic:'🌸',unit:'Phase · Monat',line:'M0 60 L60 44 L120 30 L180 40 L240 58 L300 62',area:'M0 60 L60 44 L120 30 L180 40 L240 58 L300 62 L300 90 L0 90Z'}];
+const METRICS=[
+  {k:'hr',l:'Herz-\nfrequenz',unit:'bpm · heute',line:'M0 50 L60 46 L120 52 L180 44 L240 48 L300 42',area:'M0 50 L60 46 L120 52 L180 44 L240 48 L300 42 L300 90 L0 90Z',
+    meas:[['07:30 · Apple Watch','58 bpm','good','gut'],['13:10 · Apple Watch','72 bpm','good','gut'],['21:40 · Apple Watch','64 bpm','good','gut']],insight:'↘ Dein Ruhepuls liegt im guten Bereich (Ø 61 bpm).'},
+  {k:'bp',l:'Blut-\ndruck',unit:'mmHg · heute',line:'M0 55 L60 50 L120 46 L180 52 L240 44 L300 48',area:'M0 55 L60 50 L120 46 L180 52 L240 44 L300 48 L300 90 L0 90Z',
+    meas:[['08:14 · Omron','122/78','good','gut'],['12:31 · Apple Watch','119/76','good','gut'],['18:05 · Omron','128/82','warn','erhöht']],insight:'↘ Dein Blutdruck ist in den letzten 30 Tagen um 6 mmHg gesunken.'},
+  {k:'act',l:'Aktivität',unit:'Schritte · heute',line:'M0 70 L60 60 L120 55 L180 40 L240 35 L300 22',area:'M0 70 L60 60 L120 55 L180 40 L240 35 L300 22 L300 90 L0 90Z',
+    meas:[['Heute','7.240 Schritte','good','gut'],['Gestern','9.100 Schritte','good','gut'],['Ø Woche','6.800 Schritte','warn','ok']],insight:'↗ Du warst diese Woche an 4 Tagen aktiv – dranbleiben!'},
+  {k:'sleep',l:'Schlaf',unit:'Stunden · Woche',line:'M0 48 L60 40 L120 52 L180 38 L240 42 L300 36',area:'M0 48 L60 40 L120 52 L180 38 L240 42 L300 36 L300 90 L0 90Z',
+    meas:[['Mo','7 h 20 m','good','gut'],['Di','6 h 10 m','warn','kurz'],['Mi','7 h 40 m','good','gut']],insight:'→ Deine Schlafdauer ist stabil bei rund 7 Stunden.'},
+  {k:'cycle',l:'Zyklus',unit:'Phase · Monat',line:'M0 60 L60 44 L120 30 L180 40 L240 58 L300 62',area:'M0 60 L60 44 L120 30 L180 40 L240 58 L300 62 L300 90 L0 90Z',
+    meas:[['Aktuelle Phase','Lutealphase','good',''],['Letzte Periode','vor 18 Tagen','good',''],['Ø Zykluslänge','28 Tage','good','']],insight:'→ Dein Zyklus wirkt regelmäßig – wir beziehen ihn optional in den Score ein.'}];
 let metric='bp';
 function renderTracking(){
   const MI={hr:'heart',bp:'cardiology',act:'activity',sleep:'moon',cycle:'cycle'};
@@ -957,14 +964,30 @@ function renderTracking(){
   document.getElementById('track-unit').textContent=m.unit;
   document.getElementById('track-line').setAttribute('d',m.line);
   document.getElementById('track-area').setAttribute('d',m.area);
+  document.getElementById('track-meas').innerHTML=m.meas.map(r=>`<div class="mrow"><span>${r[0]}</span><span><b>${r[1]}</b>${r[3]?` <span class="pill ${r[2]}">${r[3]}</span>`:''}</span></div>`).join('');
+  document.getElementById('track-insight').innerHTML=`<span>${m.insight.charAt(0)}</span><span>${m.insight.slice(2)}</span>`;
 }
 function setMetric(k){metric=k;renderTracking();}
 
-/* ---- employer ROI ---- */
-function roiCalc(n){const part=Math.round(n*0.6),days=Math.round(part*0.8),save=days*400,cost=n*4*12,de=x=>x.toLocaleString('de-DE');
-  document.getElementById('roi-n').textContent=de(n);document.getElementById('roi-days').textContent=de(days);
-  document.getElementById('roi-cost').textContent=de(cost)+' €';document.getElementById('roi-save').textContent=de(save-cost)+' €';
-  document.getElementById('roi-x').textContent=(save/cost).toLocaleString('de-DE',{minimumFractionDigits:1,maximumFractionDigits:1})+'×';}
+/* ---- payer ROI (Krankenkasse vs. Arbeitgeber) ---- */
+const PAYER={
+  kasse:{price:25,unit:'Frauen',q:'Wie viele Frauen (40–69) erreicht ihr?',aLabel:'Teilnehmerin',ctx:'Kassen-Präventionsprogramm nach §20 SGB V'},
+  arbeitgeber:{price:10,unit:'Mitarbeiterinnen',q:'Wie viele Mitarbeiterinnen hat Ihr Unternehmen?',aLabel:'Mitarbeiterin',ctx:'betriebliches Gesundheitsmanagement (BGM)'},
+};
+let roiN=120;
+function setPayer(p){S.payer=p;
+  document.querySelectorAll('#payer-seg button').forEach((b,i)=>b.classList.toggle('on',(i===0)===(p==='kasse')));
+  roiCalc(roiN);}
+function roiCalc(n){roiN=n;const p=PAYER[S.payer||'kasse'];const de=x=>x.toLocaleString('de-DE');
+  const part=Math.round(n*0.6),days=Math.round(part*0.8),save=days*400,cost=n*p.price,net=save-cost;
+  document.getElementById('roi-n').textContent=de(n);
+  document.getElementById('roi-unit').textContent=p.unit;
+  document.getElementById('roi-q').textContent=p.q;
+  document.getElementById('roi-days').textContent=de(days);
+  document.getElementById('roi-cost').textContent=de(cost)+' €';
+  document.getElementById('roi-save').textContent=de(net)+' €';
+  document.getElementById('roi-x').textContent=(save/cost).toLocaleString('de-DE',{minimumFractionDigits:1,maximumFractionDigits:1})+'×';
+  document.getElementById('roi-assume').textContent=`Annahmen (Demo): 60 % Aktivierung · 0,8 vermiedene Tage/${p.aLabel}/Jahr · 400 €/Tag · ${p.price} €/${p.aLabel}/Jahr (${p.ctx}). Im Pilot messen wir eure echten Werte.`;}
 
 /* ---- demo seed + reset ---- */
 function seedDemo(){S.answers={age:52,ethnie:0,groesse:168,gewicht:74,smoke:0,activity:1,meno:2,oophor:0,menarche:13,preg:[0],pcos:0,diagnosen:[4],autoimmun:0,cancer:0,depression:0,bp_sys:undefined,ldl:undefined,hba1c:undefined,symptoms:[4]};compute();S.seeded=true;S.name='Sabine';S.anon=false;S.consentApp=true;S.consentResearch=false;

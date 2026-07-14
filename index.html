@@ -10,12 +10,12 @@
 <style>
   :root{
     /* aligned to Figma "Gamified Heart Health App" tokens */
-    --navy:#204a54; --navy-2:#2c5f6b; --navy-d:#163942;   /* primary / dark-blue */
-    --ink:#332f38; --slate:#6e655e; --line:rgba(120,95,80,0.2);
-    --page:#fbf6f2; --frame:#f2ece6; --card:#ffffff;
+    --navy:#1b3a63; --navy-2:#2b4f80; --navy-d:#14284a;   /* primary / dark-blue */
+    --ink:#2a2c36; --slate:#726f7a; --line:rgba(90,85,110,0.2);
+    --page:#fbf3ee; --frame:#f3e8e1; --card:#ffffff;
     /* accents */
-    --indigo:#b84a38; --indigo-l:#fde7e1; --blue:#4c8c8c; --blue-l:#e3eeec;   /* lavender family */
-    --lavender:#4c8c8c;
+    --indigo:#bd4a3a; --indigo-l:#fbdccf; --blue:#6f92d6; --blue-l:#e6ecf8;   /* lavender family */
+    --lavender:#6f92d6;
     --lime:#7fb08a; --lime-d:#3e7a54; --good-bg:#e7f1ea; --good-tx:#3e7a54;
     --amber:#e7a94e; --warn-bg:#fbefd9; --warn-tx:#8a5a12; --orange:#e0894e;
     --pink:#ef4444; --pink-d:#c23a33; --blush:#f6b6cf;
@@ -26,7 +26,7 @@
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;padding:0}
   body{font-family:"Figtree",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    background:linear-gradient(160deg,#fbf6f2,#f4ebe3);color:var(--ink);
+    background:linear-gradient(160deg,#fbf3ee,#f6e6dd);color:var(--ink);
     height:100vh;height:100dvh;overflow:hidden;display:flex;align-items:stretch;justify-content:center;padding:0}
   .phone{width:100%;max-width:var(--maxw);background:var(--page);border-radius:0;
     box-shadow:0 24px 60px rgba(20,30,55,.22);overflow:hidden;position:relative;height:100vh;height:100dvh;display:flex;flex-direction:column;
@@ -69,8 +69,8 @@
   .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:none;border-radius:15px;
     padding:15px 18px;font-size:15.5px;font-weight:700;cursor:pointer;font-family:inherit;background:var(--navy);color:#fff;transition:.15s;letter-spacing:-.01em}
   .btn:active{transform:scale(.985)} .btn:focus-visible{outline:3px solid var(--indigo);outline-offset:2px}
-  .btn.lime{background:linear-gradient(135deg,#ff7b6b,#f96a58);color:#16323a}
-  .btn.lav{background:#fde7e1;color:#b24631}
+  .btn.lime{background:linear-gradient(135deg,#ff7b6b,#f96a58);color:#14284a}
+  .btn.lav{background:#fbdccf;color:#b24631}
   .btn.ghost{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.6px var(--line)}
   .btn.link{background:none;color:var(--indigo);font-size:14px;padding:11px;box-shadow:none}
   .btn.block{margin-top:10px}
@@ -86,9 +86,9 @@
   .feature .ic{flex:0 0 auto;width:44px;height:44px;border-radius:13px;background:var(--indigo-l);display:grid;place-items:center;font-size:20px}
   .feature h4{margin:0 0 3px;font-size:15px;font-weight:700} .feature p{font-size:13px;color:var(--slate);line-height:1.45}
 
-  .hero{background:linear-gradient(160deg,#23515c,var(--navy-d));color:#fff;border-radius:0 0 30px 30px;padding:26px 22px 32px;text-align:center}
+  .hero{background:linear-gradient(160deg,#1f4576,var(--navy-d));color:#fff;border-radius:0 0 30px 30px;padding:26px 22px 32px;text-align:center}
   .hero .brand b,.hero .brand .fem{color:#fff}
-  .hero h1{color:#fff;font-size:26px;margin-top:14px} .hero p{color:#d6e6e3;font-size:14.5px}
+  .hero h1{color:#fff;font-size:26px;margin-top:14px} .hero p{color:#d8e1f4;font-size:14.5px}
 
   /* progress + toggles */
   .progress{height:8px;background:#e4e8f0;border-radius:99px;overflow:hidden;margin:4px 0}
@@ -103,7 +103,7 @@
   .qtitle{font-family:'Fraunces',Georgia,serif;font-size:22px;letter-spacing:-.01em;margin:8px 0 4px;font-weight:600;text-wrap:balance}
   .opt{display:flex;align-items:center;gap:13px;width:100%;text-align:left;background:#fff;border:1.6px solid var(--line);
     border-radius:15px;padding:15px 16px;margin-bottom:10px;cursor:pointer;font-size:15px;font-family:inherit;color:var(--ink);transition:.12s;font-weight:600}
-  .opt:hover{border-color:#c4ccdb} .opt.sel{border-color:var(--indigo);background:#feede8;box-shadow:0 0 0 3px #fde7e1}
+  .opt:hover{border-color:#c4ccdb} .opt.sel{border-color:var(--indigo);background:#fdeae1;box-shadow:0 0 0 3px #fbdccf}
   .opt.warn.sel{border-color:var(--pink);background:#fdf0f5;box-shadow:0 0 0 3px #fbe0eb}
   .opt .dot{width:22px;height:22px;border-radius:50%;border:2.4px solid #cdd5e0;flex:0 0 auto}
   .opt.sel .dot{border-color:var(--indigo);background:var(--indigo);box-shadow:inset 0 0 0 3.5px #fff}
@@ -121,16 +121,16 @@
   .rangeval{font-family:'Fraunces',Georgia,serif;font-weight:600;color:var(--navy);font-size:34px;letter-spacing:-.02em}
 
   /* score / navy hero card */
-  .scorehero{background:linear-gradient(165deg,#23515c,var(--navy-d));border-radius:26px;padding:22px 20px;color:#fff;text-align:center;margin:6px 0 0}
+  .scorehero{background:linear-gradient(165deg,#1f4576,var(--navy-d));border-radius:26px;padding:22px 20px;color:#fff;text-align:center;margin:6px 0 0}
   .ring{position:relative;width:170px;height:170px;margin:6px auto}
   .ring > svg{transform:rotate(-90deg)} .ring .rt{stroke:rgba(255,255,255,.14)}
   .ring .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
   .ring .num b{font-family:'Fraunces',Georgia,serif;font-size:46px;line-height:1;letter-spacing:-.03em;font-weight:600}
-  .ring .num span{font-size:11px;color:#bcd6d3;font-weight:600;margin-top:2px}
+  .ring .num span{font-size:11px;color:#bccbe8;font-weight:600;margin-top:2px}
   .statgrid{display:flex;background:rgba(255,255,255,.07);border-radius:16px;margin-top:14px;overflow:hidden}
   .statgrid .st{flex:1;padding:12px 6px;text-align:center;border-right:1px solid rgba(255,255,255,.09)}
   .statgrid .st:last-child{border-right:none}
-  .statgrid .st b{font-size:20px;font-weight:800;letter-spacing:-.02em} .statgrid .st span{display:block;font-size:9.5px;color:#bcd6d3;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-top:3px}
+  .statgrid .st b{font-size:20px;font-weight:800;letter-spacing:-.02em} .statgrid .st span{display:block;font-size:9.5px;color:#bccbe8;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-top:3px}
 
   /* factor row with contribution bar */
   .frow{background:#fff;border:1px solid var(--line);border-radius:15px;padding:13px 15px;margin-bottom:10px;cursor:pointer;transition:.15s}
@@ -147,8 +147,8 @@
   .chev{color:#b7c0d0;font-size:15px}
 
   /* benefit banner */
-  .benefit{display:flex;gap:12px;align-items:center;background:linear-gradient(135deg,#23515c,var(--navy-d));color:#fff;border-radius:16px;padding:13px 15px;margin:13px 0}
-  .benefit .g{font-size:24px;flex:0 0 auto} .benefit b{font-size:13.5px} .benefit p{margin-top:2px;font-size:11.5px;color:#cadedb}
+  .benefit{display:flex;gap:12px;align-items:center;background:linear-gradient(135deg,#1f4576,var(--navy-d));color:#fff;border-radius:16px;padding:13px 15px;margin:13px 0}
+  .benefit .g{font-size:24px;flex:0 0 auto} .benefit b{font-size:13.5px} .benefit p{margin-top:2px;font-size:11.5px;color:#cbd7f0}
 
   /* tasks */
   .task{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line);cursor:pointer}
@@ -265,6 +265,7 @@
     /* headings scale up a touch */
     .topbar h2{font-size:24px}
   }
+  .phone::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:100;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27170%27%20height%3D%27170%27%3E%3Cfilter%20id%3D%27n%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.82%27%20numOctaves%3D%272%27%20stitchTiles%3D%27stitch%27%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%27170%27%20height%3D%27170%27%20filter%3D%27url%28%23n%29%27%2F%3E%3C%2Fsvg%3E");background-size:170px 170px}
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -351,7 +352,7 @@
   <section class="screen" id="s-result">
     <div class="scroll" style="padding-top:4px">
       <div class="scorehero">
-        <div class="eyebrow" style="color:#bcd6d3">Dein Herz-Score</div>
+        <div class="eyebrow" style="color:#bccbe8">Dein Herz-Score</div>
         <div class="ring">
           <svg width="170" height="170" viewBox="0 0 200 200"><circle class="rt" cx="100" cy="100" r="86" fill="none" stroke-width="16"/><circle id="arc" cx="100" cy="100" r="86" fill="none" stroke="var(--lime)" stroke-width="16" stroke-linecap="round" stroke-dasharray="540" stroke-dashoffset="540"/></svg>
           <div class="num"><b id="score">0</b><span>von 100</span></div>
@@ -440,7 +441,7 @@
       <!-- tracking summary (rich) -->
       <div class="card tap rich" onclick="go('s-tracking')">
         <div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">Dein Fortschritt</h3><span class="chev">›</span></div>
-        <svg class="spark" viewBox="0 0 300 56" preserveAspectRatio="none" style="margin-top:8px"><defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fb6ac" stop-opacity=".22"/><stop offset="1" stop-color="#7fb6ac" stop-opacity="0"/></linearGradient></defs><path d="M0 44 L50 40 L100 36 L150 30 L200 24 L250 18 L300 12" fill="none" stroke="var(--blue)" stroke-width="3" stroke-linecap="round"/><path d="M0 44 L50 40 L100 36 L150 30 L200 24 L250 18 L300 12 L300 56 L0 56Z" fill="url(#sg)"/></svg>
+        <svg class="spark" viewBox="0 0 300 56" preserveAspectRatio="none" style="margin-top:8px"><defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9db6e0" stop-opacity=".22"/><stop offset="1" stop-color="#9db6e0" stop-opacity="0"/></linearGradient></defs><path d="M0 44 L50 40 L100 36 L150 30 L200 24 L250 18 L300 12" fill="none" stroke="var(--blue)" stroke-width="3" stroke-linecap="round"/><path d="M0 44 L50 40 L100 36 L150 30 L200 24 L250 18 L300 12 L300 56 L0 56Z" fill="url(#sg)"/></svg>
         <p class="small">Score +21 seit Start deines Plans · Tracking öffnen ›</p>
       </div>
 
@@ -515,7 +516,7 @@
     <div class="topbar"><div><h2>Profil</h2><div class="sub">Konto, Ärztin & Einstellungen</div></div></div>
     <div class="scroll">
       <div class="card" style="display:flex;align-items:center;gap:14px">
-        <div style="width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#23515c,var(--navy-d));display:grid;place-items:center;color:#fff;font-size:20px;font-weight:800" id="prof-avatar">A</div>
+        <div style="width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#1f4576,var(--navy-d));display:grid;place-items:center;color:#fff;font-size:20px;font-weight:800" id="prof-avatar">A</div>
         <div><h3 style="margin:0" id="prof-name">Dein Profil</h3><p class="small" id="prof-sub">Heart-Score –</p></div>
       </div>
 
@@ -783,10 +784,10 @@ function openFactor(i){
   document.getElementById('fd-title').textContent=f.n;
   const impactColor=f.dir==='pos'?'#1c3d1c':f.dir==='neu'?'var(--navy)':'#3d2318';
   const sign=f.pts>0?'+'+f.pts+' Punkte':f.pts===0?'neutral':f.pts+' Punkte';
-  let h=`<div class="scorehero" style="text-align:left;background:linear-gradient(160deg,#23515c,var(--navy-d))">
-    <div class="eyebrow" style="color:#bcd6d3">Einfluss auf deinen Score</div>
+  let h=`<div class="scorehero" style="text-align:left;background:linear-gradient(160deg,#1f4576,var(--navy-d))">
+    <div class="eyebrow" style="color:#bccbe8">Einfluss auf deinen Score</div>
     <div style="font-size:30px;font-weight:800;letter-spacing:-.02em;margin-top:4px">${sign}</div>
-    <div class="small" style="color:#cadedb">${f.dir==='neg'?'Senkt deinen Score':f.dir==='pos'?'Hebt deinen Score':'Neutral für den Score'} · ${f.mod}</div></div>`;
+    <div class="small" style="color:#cbd7f0">${f.dir==='neg'?'Senkt deinen Score':f.dir==='pos'?'Hebt deinen Score':'Neutral für den Score'} · ${f.mod}</div></div>`;
   h+=`<div class="card"><div class="eyebrow" style="margin-bottom:6px">Dein aktueller Status</div>`;
   h+=d.status.map(s=>`<div class="what"><span>${s[0]}</span><span><b>${s[1]}</b> <span class="pill ${s[2]==='good'?'good':s[2]==='neu'?'ind':'warn'}" style="font-size:10px">${s[2]==='good'?'gut':s[2]==='neu'?'ok':'Achtung'}</span></span></div>`).join('');
   h+=`</div>`;

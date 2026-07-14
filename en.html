@@ -225,8 +225,6 @@
   .nav button .ni{font-size:20px;width:44px;height:30px;display:grid;place-items:center;border-radius:12px;transition:.15s}
   .nav button.on{color:var(--navy)} .nav button.on .ni{background:var(--indigo-l)}
 
-  /* simple mode hides rich elements on home */
-  #s-home.simple .rich{display:none}
 
   /* ============ DESKTOP: full-width responsive website ============ */
   @media (min-width:860px){
@@ -424,7 +422,6 @@
   <section class="screen" id="s-home">
     <div class="topbar">
       <div><h2 id="home-hi">Hello</h2></div>
-      <div style="margin-left:auto;display:flex;align-items:center;gap:9px"><span class="small" style="font-weight:700">Simple mode</span><button class="toggle" id="simple-tog" onclick="toggleSimple()" aria-label="Simple mode"></button></div>
     </div>
     <div class="scroll">
       <div class="card tap" onclick="go('s-result')" style="display:flex;align-items:center;gap:15px">
@@ -611,7 +608,7 @@
 </div>
 
 <script>
-const S={answers:{},score:0,band:'',factors:[],focus:null,planTitle:'More movement',tasks:[],week:1,safety:false,simple:false,seeded:false,name:'',age:52,payer:'kasse'};
+const S={answers:{},score:0,band:'',factors:[],focus:null,planTitle:'More movement',tasks:[],week:1,safety:false,seeded:false,name:'',age:52,payer:'kasse'};
 function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));const el=document.getElementById(id);el.classList.add('active');const sc=el.querySelector('.scroll');if(sc)sc.scrollTop=0;}
 function toast(t){const e=document.getElementById('toast');e.textContent=t;e.classList.add('show');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('show'),1900);}
 
@@ -849,12 +846,9 @@ function renderHome(){
     +(done===S.tasks.length&&S.week<8?`<button class="btn lime block" onclick="nextWeek()">Finish week ${S.week} →</button>`:'');
   document.getElementById('home-planprog').textContent=`${done}/${S.tasks.length}`;
   document.getElementById('home-recs').innerHTML=recFor(2).map(cardHTML).join('');
-  document.getElementById('simple-tog').classList.toggle('on',S.simple);
-  document.getElementById('s-home').classList.toggle('simple',S.simple);
 }
 function toggleTask(i){S.tasks[i].done=!S.tasks[i].done;renderHome();if(S.tasks.every(t=>t.done))setTimeout(()=>toast('Great! Week complete 🎉'),250);}
 function nextWeek(){S.week++;S.tasks=TASKS_NEXT[S.focus??0].map(t=>({t,done:false}));renderHome();toast(`Week ${S.week} started — we'll ramp up gently 💪`);}
-function toggleSimple(){S.simple=!S.simple;renderHome();toast(S.simple?'Simple mode on':'Simple mode off');}
 
 /* ---- articles ---- */
 const ARTICLES=[
@@ -1014,7 +1008,7 @@ function roiCalc(n){roiN=n;const p=PAYER[S.payer||'kasse'];const de=x=>x.toLocal
 function seedDemo(){S.answers={age:62,ethnie:0,groesse:168,gewicht:74,smoke:0,activity:1,meno:2,oophor:0,menarche:13,preg:[0],pcos:0,diagnosen:[4],autoimmun:0,cancer:0,depression:0,bp_sys:undefined,ldl:undefined,hba1c:undefined,symptoms:[4]};compute();S.seeded=true;S.name='Sabine';S.anon=false;S.consentApp=true;S.consentResearch=false;
   S.focus=0;S.week=1;S.planTitle='More movement';S.tasks=TASKS[0].map(t=>({t,done:false}));S.tasks[0].done=true;
   renderResult();renderHome();nav('home');}
-function resetDemo(){Object.assign(S,{answers:{},score:0,band:'',factors:[],focus:null,planTitle:'More movement',tasks:[],week:1,safety:false,simple:false,seeded:false,name:'',age:52,anon:undefined,consentApp:true,consentResearch:false});qi=0;catFilter='all';metric='bp';renderQ();go('s-welcome');}
+function resetDemo(){Object.assign(S,{answers:{},score:0,band:'',factors:[],focus:null,planTitle:'More movement',tasks:[],week:1,safety:false,seeded:false,name:'',age:52,anon:undefined,consentApp:true,consentResearch:false});qi=0;catFilter='all';metric='bp';renderQ();go('s-welcome');}
 
 /* init */
 renderQ();renderFocus();buildNav('home');renderTracking();roiCalc(120);

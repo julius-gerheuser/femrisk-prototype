@@ -168,8 +168,8 @@
   .acard{border-radius:18px;overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--line);cursor:pointer;background:#fff;display:flex;flex-direction:column;transition:.15s}
   .acard:active{transform:scale(.99)}
   .mask{display:inline-block;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain}
-  .acard .top{position:relative;width:100%;aspect-ratio:16/9;display:grid;place-items:center}
-  .acard .top .mask{width:52px;height:52px}
+  .acard .top{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden}
+  .acard .top svg,.illus-banner svg{position:absolute;inset:0;width:100%;height:100%;display:block}
   .acard .illus{position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;background:#f4ecdb}
   .acard .illus svg{position:absolute;inset:0;width:100%;height:100%;display:block}
   .acard .art{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.92);color:var(--ink);font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:99px;z-index:2}
@@ -892,8 +892,18 @@ const CATSTYLE={
   praevention:{c:'#5aa46b',bg:'#e3f0e5',icon:'heart'},
 };
 function iconSpan(name,color,size){return `<span class="mask" style="width:${size}px;height:${size}px;background:${color};-webkit-mask-image:url(${ICONS[name]});mask-image:url(${ICONS[name]})"></span>`;}
+/* flat, colourful editorial illustrations per category (card headers + article reader) */
+const SVI=(inner)=>`<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">${inner}</svg>`;
+const CATILLUS={
+  grundlagen:SVI(`<rect width="320" height="180" fill="#f6ede0"/><path d="M18 116 H74 l12-40 l18 72 l12-32 H150" fill="none" stroke="#d83a34" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(150,26) scale(.95)"><path d="${HP}" fill="#e0655a" stroke="#c23a33" stroke-width="4"/><path d="M60 92c8-14 34-11 34 8 0 17-26 31-34 40-8-9-34-23-34-40 0-19 26-22 34-8Z" fill="#f3a9c2" opacity=".85"/></g>`),
+  bewegung:SVI(`<rect width="320" height="180" fill="#bcd3ee"/><path d="M40 150 H280" stroke="#9fbde0" stroke-width="4" stroke-linecap="round"/><path d="M96 60 q-14 10 0 26 M78 50 q-22 16 0 40" fill="none" stroke="#e0655a" stroke-width="5" stroke-linecap="round" opacity=".7"/><circle cx="178" cy="52" r="13" fill="#20324e"/><path d="M176 66 L152 108" fill="none" stroke="#20324e" stroke-width="13" stroke-linecap="round"/><path d="M152 108 L128 138 M152 108 L182 140" fill="none" stroke="#e0655a" stroke-width="12" stroke-linecap="round"/><path d="M168 80 L142 70 M170 84 L200 96" fill="none" stroke="#e0655a" stroke-width="11" stroke-linecap="round"/>`),
+  menopause:SVI(`<rect width="320" height="180" fill="#f7dbe8"/><g transform="translate(150,90)" fill="#e07aa8"><ellipse cx="0" cy="-34" rx="16" ry="30"/><ellipse cx="0" cy="-34" rx="16" ry="30" transform="rotate(60)"/><ellipse cx="0" cy="-34" rx="16" ry="30" transform="rotate(120)"/><ellipse cx="0" cy="-34" rx="16" ry="30" transform="rotate(180)"/><ellipse cx="0" cy="-34" rx="16" ry="30" transform="rotate(240)"/><ellipse cx="0" cy="-34" rx="16" ry="30" transform="rotate(300)"/></g><circle cx="150" cy="90" r="20" fill="#f0aa3c"/><circle cx="232" cy="44" r="6" fill="#fff" opacity=".8"/><circle cx="250" cy="70" r="4" fill="#fff" opacity=".7"/><circle cx="72" cy="60" r="5" fill="#fff" opacity=".7"/>`),
+  schlaf:SVI(`<rect width="320" height="180" fill="#24344f"/><circle cx="132" cy="74" r="42" fill="#f4d64f"/><circle cx="152" cy="62" r="38" fill="#24344f"/><g fill="#cfe0f5"><ellipse cx="205" cy="126" rx="52" ry="20"/><circle cx="180" cy="120" r="20"/><circle cx="220" cy="112" r="26"/></g><path d="M232 52 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4Z" fill="#fff"/><circle cx="96" cy="44" r="3.5" fill="#fff"/><circle cx="258" cy="70" r="3" fill="#fff"/>`),
+  stress:SVI(`<rect width="320" height="180" fill="#d9d3e6"/><path d="M112 44 q74 -16 96 46 q16 50 -30 76 q-6 18 -6 28 h-34 v-16 q-46 -14 -48 -70 q-2 -54 22 -64Z" fill="#efeae0"/><path d="M112 120 q-8 4 -6 14" fill="none" stroke="#efeae0" stroke-width="8" stroke-linecap="round"/><g><circle cx="176" cy="70" r="27" fill="#4a9d6a"/><circle cx="152" cy="84" r="21" fill="#e0655a"/><circle cx="200" cy="80" r="19" fill="#3f7fd6"/><circle cx="180" cy="98" r="16" fill="#c9d24a"/><circle cx="160" cy="64" r="11" fill="#f0aa3c"/></g>`),
+  praevention:SVI(`<rect width="320" height="180" fill="#d7ebdd"/><path d="M160 30 l58 20 v40 q0 54 -58 82 q-58 -28 -58 -82 v-40Z" fill="#5aa46b"/><path d="M160 44 l44 15 v32 q0 42 -44 64 q-44 -22 -44 -64 v-32Z" fill="#6fb87f"/><path d="M134 96 l19 20 42 -48" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>`),
+};
 function cardHTML(i){const a=ARTICLES[i],s=CATSTYLE[a.cat]||CATSTYLE.grundlagen;
-  return `<div class="acard" onclick="openArticle(${i})"><div class="top" style="background:${s.bg}">${iconSpan(s.icon,s.c,52)}<span class="art">${a.read}</span></div><div class="body"><span class="cat" style="color:${s.c}">${a.catLabel}</span><h4>${a.title}</h4></div></div>`;}
+  return `<div class="acard" onclick="openArticle(${i})"><div class="top">${CATILLUS[a.cat]||''}<span class="art">${a.read}</span></div><div class="body"><span class="cat" style="color:${s.c}">${a.catLabel}</span><h4>${a.title}</h4></div></div>`;}
 function recFor(n){ // profile-based recommendations
   const a=S.answers||{},preg=(a.preg||[]).some(x=>[0,1,2,3,4].includes(x));
   let order=(a.meno===2||a.meno===3)?[3,4,6,0,2,7]:preg?[0,6,3,2,7,1]:[7,2,6,0,4,5];
@@ -912,7 +922,7 @@ function renderWissen(){
 function setCat(k){catFilter=k;renderWissen();}
 function openArticle(i){const a=ARTICLES[i];
   const s=CATSTYLE[a.cat]||CATSTYLE.grundlagen;
-  document.getElementById('article-body').innerHTML=`<div style="aspect-ratio:16/9;border-radius:16px;margin-bottom:14px;display:grid;place-items:center;background:${s.bg}">${iconSpan(s.icon,s.c,76)}</div>
+  document.getElementById('article-body').innerHTML=`<div class="illus-banner" style="aspect-ratio:16/9;border-radius:16px;margin-bottom:14px;overflow:hidden;position:relative">${CATILLUS[a.cat]||''}</div>
     <span class="pill" style="background:${s.bg};color:${s.c}">${a.catLabel} · ${a.read}</span>
     <h1 style="margin-top:10px">${a.title}</h1>
     <p>${a.body}</p>

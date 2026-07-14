@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>FemRisk — Prototyp</title>
+<title>FemRisk — Prototype</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -273,21 +273,21 @@
 </style>
 </head>
 <body>
-<div class="demobadge">Prototyp · Demodaten</div>
+<div class="demobadge">Prototype · Demo data</div>
 <div class="phone">
   <nav class="topnav">
     <div class="tn-in">
       <div class="brand"><span class="logo hm"></span><div><span class="fem">Fem</span><b>Risk</b></div></div>
       <div class="tn-links">
-        <button data-k="home" onclick="nav('home')">Start</button>
-        <button data-k="wissen" onclick="nav('wissen')">Wissen</button>
-        <button data-k="profil" onclick="nav('profil')">Profil</button>
-        <button class="tn-cta" onclick="go('s-employer')">Für Unternehmen</button>
+        <button data-k="home" onclick="nav('home')">Home</button>
+        <button data-k="wissen" onclick="nav('wissen')">Learn</button>
+        <button data-k="profil" onclick="nav('profil')">Profile</button>
+        <button class="tn-cta" onclick="go('s-employer')">For business</button>
       </div>
     </div>
   </nav>
 
-  <!-- ============ WILLKOMMEN ============ -->
+  <!-- ============ WELCOME ============ -->
   <section class="screen active" id="s-welcome">
     <div class="scroll" style="padding:0 0 30px">
       <div class="hero">
@@ -295,23 +295,23 @@
           <span class="logo hm"></span>
           <div><span class="fem">Fem</span><b>Risk</b></div>
         </div>
-        <h1>Versteh deine Herzgesundheit – und was du tun kannst.</h1>
-        <p>Ein 2-Minuten-Check auf Basis der Frauen.Herz.KI-Forschung der TU&nbsp;München – und ein Plan, der zu dir passt.</p>
+        <h1>Understand your heart health — and what you can do about it.</h1>
+        <p>A 2-minute check based on the Women.Heart.AI research at TU&nbsp;Munich — plus a plan that fits you.</p>
       </div>
       <div style="padding:18px">
-        <div class="feature"><div class="ic">🫀</div><div><h4>Dein persönliches Herz-Profil</h4><p>Ein Check, der weibliche Faktoren berücksichtigt – Wechseljahre, Schwangerschaften.</p></div></div>
-        <div class="feature"><div class="ic">🎯</div><div><h4>Ein begleiteter Plan</h4><p>Nicht nur eine Zahl. Kleine Schritte, an die Hand genommen – in deinem Tempo.</p></div></div>
-        <div class="feature"><div class="ic">📈</div><div><h4>Sieh, dass es wirkt</h4><p>Tracke deinen Fortschritt manuell oder verbinde dein Gerät.</p></div></div>
-        <button class="btn lime block" onclick="go('s-access')">Check starten – ca. 5 Minuten</button>
-        <button class="btn link block" onclick="go('s-employer')">🏢 Für Unternehmen: FemRisk als Benefit →</button>
-        <p class="disc">Diese App ist keine medizinische Diagnose. Sie ergänzt das Gespräch mit deiner Ärztin oder deinem Arzt.</p>
+        <div class="feature"><div class="ic">🫀</div><div><h4>Your personal heart profile</h4><p>A check that accounts for female-specific factors — menopause, pregnancies.</p></div></div>
+        <div class="feature"><div class="ic">🎯</div><div><h4>A guided plan</h4><p>Not just a number. Small steps, guided — at your own pace.</p></div></div>
+        <div class="feature"><div class="ic">📈</div><div><h4>See that it works</h4><p>Track your progress manually or connect your device.</p></div></div>
+        <button class="btn lime block" onclick="go('s-access')">Start the check — about 5 minutes</button>
+        <button class="btn link block" onclick="go('s-employer')">🏢 For business: FemRisk as a benefit →</button>
+        <p class="disc">This app is not a medical diagnosis. It complements the conversation with your doctor.</p>
       </div>
     </div>
   </section>
 
   <!-- ============ CO-BRANDED ACCESS (institution front door) ============ -->
   <section class="screen" id="s-access">
-    <div class="topbar"><button class="back" onclick="go('s-welcome')" aria-label="Zurück">‹</button><div><h2>Zugang</h2><div class="sub">Bereitgestellt von deiner Kasse</div></div></div>
+    <div class="topbar"><button class="back" onclick="go('s-welcome')" aria-label="Back">‹</button><div><h2>Access</h2><div class="sub">Provided by your health insurer</div></div></div>
     <div class="scroll">
       <div class="card" style="text-align:center;padding:24px 20px">
         <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:10px">
@@ -319,26 +319,26 @@
           <span style="color:var(--slate);font-size:18px">×</span>
           <span class="brand" style="font-size:20px"><span class="logo hm" style="width:24px;height:22px"></span><span class="fem">Fem</span><b>Risk</b></span>
         </div>
-        <h1 style="font-size:23px">Deine Kasse schenkt dir diesen Herz-Check.</h1>
-        <p class="lead">Kostenlos, privat und anonym. Deine Krankenkasse sieht nie deine persönlichen Ergebnisse.</p>
+        <h1 style="font-size:23px">Your insurer is giving you this heart check.</h1>
+        <p class="lead">Free, private and anonymous. Your health insurer never sees your personal results.</p>
       </div>
       <div class="card">
-        <div class="eyebrow" style="margin-bottom:6px">Zugangscode deiner Kasse</div>
-        <div class="search" style="justify-content:center;font-weight:800;letter-spacing:.12em;color:var(--navy)">AOK-2026-HERZ ✓</div>
-        <button class="btn lime block" onclick="go('s-check')">Check starten →</button>
-        <button class="btn link block" onclick="go('s-check')">Ich habe keinen Code</button>
+        <div class="eyebrow" style="margin-bottom:6px">Access code from your insurer</div>
+        <div class="search" style="justify-content:center;font-weight:800;letter-spacing:.12em;color:var(--navy)">AOK-2026-HEART ✓</div>
+        <button class="btn lime block" onclick="go('s-check')">Start the check →</button>
+        <button class="btn link block" onclick="go('s-check')">I don't have a code</button>
       </div>
-      <div class="callout ind"><span>🔒</span><span>Deine Kasse übernimmt die Kosten und erhält nur anonyme Gruppenwerte ab 20 Teilnehmerinnen – nie deine individuellen Angaben.</span></div>
+      <div class="callout ind"><span>🔒</span><span>Your insurer covers the cost and only receives anonymous group figures from 20+ participants — never your individual answers.</span></div>
     </div>
   </section>
 
   <!-- ============ CHECK ============ -->
   <section class="screen" id="s-check">
-    <div class="topbar"><button class="back" onclick="qBack()" aria-label="Zurück">‹</button><div><h2 id="q-step">Über dich</h2><div class="sub" id="q-count">Frage 1 von 5</div></div></div>
+    <div class="topbar"><button class="back" onclick="qBack()" aria-label="Back">‹</button><div><h2 id="q-step">About you</h2><div class="sub" id="q-count">Question 1 of 5</div></div></div>
     <div class="scroll">
       <div class="qdots" id="q-dots"></div>
       <div id="q-body"></div>
-      <button class="btn lime block" id="q-next" onclick="qNext()">Weiter</button>
+      <button class="btn lime block" id="q-next" onclick="qNext()">Next</button>
     </div>
   </section>
 
@@ -346,26 +346,26 @@
   <section class="screen" id="s-analyze">
     <div class="scroll center" style="display:flex;flex-direction:column;justify-content:center;align-items:center">
       <span class="logo" style="width:104px;height:88px;animation:pulse 1.2s infinite;display:block;margin:0 auto"></span>
-      <h1 style="margin-top:22px">Wir erstellen dein Profil…</h1>
+      <h1 style="margin-top:22px">Building your profile…</h1>
       <div class="progress" style="width:200px;margin-top:8px"><i id="an-bar" style="width:0"></i></div>
     </div>
     <style>@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}</style>
   </section>
 
-  <!-- ============ ERGEBNIS ============ -->
+  <!-- ============ RESULT ============ -->
   <section class="screen" id="s-result">
     <div class="scroll" style="padding-top:4px">
       <div class="scorehero">
-        <div class="eyebrow" style="color:#a9b6cc">Dein Herz-Score</div>
+        <div class="eyebrow" style="color:#a9b6cc">Your heart score</div>
         <div class="ring">
           <svg width="170" height="170" viewBox="0 0 200 200"><circle class="rt" cx="100" cy="100" r="86" fill="none" stroke-width="16"/><circle id="arc" cx="100" cy="100" r="86" fill="none" stroke="var(--lime)" stroke-width="16" stroke-linecap="round" stroke-dasharray="540" stroke-dashoffset="540"/></svg>
-          <div class="num"><b id="score">0</b><span>von 100</span></div>
+          <div class="num"><b id="score">0</b><span>out of 100</span></div>
         </div>
-        <span class="pill good" id="band">Guter Ausgangspunkt</span>
+        <span class="pill good" id="band">A good starting point</span>
         <div class="statgrid">
-          <div class="st"><b id="st-score">73</b><span>Dein Score</span></div>
-          <div class="st"><b id="st-avg">61</b><span>Ø Altersgruppe</span></div>
-          <div class="st"><b id="st-goal">85</b><span>Dein Ziel</span></div>
+          <div class="st"><b id="st-score">73</b><span>Your score</span></div>
+          <div class="st"><b id="st-avg">61</b><span>Ø age group</span></div>
+          <div class="st"><b id="st-goal">85</b><span>Your goal</span></div>
         </div>
       </div>
 
@@ -373,58 +373,58 @@
 
       <div style="padding:4px 2px 0">
         <p class="small center" id="profile-line" style="margin:12px 0 4px"></p>
-        <div class="eyebrow" style="margin:16px 0 8px">Was beeinflusst deinen Score?</div>
+        <div class="eyebrow" style="margin:16px 0 8px">What's affecting your score?</div>
         <div id="factors"></div>
-        <p class="small" style="margin-top:2px">Tippe auf einen Faktor für Details.</p>
+        <p class="small" style="margin-top:2px">Tap a factor for details.</p>
       </div>
 
-      <button class="btn lime block" style="margin:14px 0 0" onclick="go('s-focus')">Fokus wählen & Plan erstellen →</button>
-      <p class="disc">Der Score ist ein Lifestyle-Index aus deinen Angaben – keine medizinische Diagnose. Basis: veröffentlichte Forschung für Frauen mit ähnlichem Profil.</p>
+      <button class="btn lime block" style="margin:14px 0 0" onclick="go('s-focus')">Choose a focus & build a plan →</button>
+      <p class="disc">The score is a lifestyle index based on your answers — not a medical diagnosis. Based on published research for women with a similar profile.</p>
     </div>
   </section>
 
-  <!-- ============ FAKTOR-DETAIL ============ -->
+  <!-- ============ FACTOR DETAIL ============ -->
   <section class="screen" id="s-factor">
-    <div class="topbar"><button class="back" onclick="go('s-result')" aria-label="Zurück">‹</button><div><h2 id="fd-title">Faktor</h2></div></div>
+    <div class="topbar"><button class="back" onclick="go('s-result')" aria-label="Back">‹</button><div><h2 id="fd-title">Factor</h2></div></div>
     <div class="scroll" id="fd-body"></div>
   </section>
 
-  <!-- ============ FOKUS WÄHLEN ============ -->
+  <!-- ============ CHOOSE FOCUS ============ -->
   <section class="screen" id="s-focus">
-    <div class="topbar"><button class="back" onclick="go('s-result')" aria-label="Zurück">‹</button><div><h2>Dein Fokus</h2><div class="sub">Womit möchtest du starten?</div></div></div>
+    <div class="topbar"><button class="back" onclick="go('s-result')" aria-label="Back">‹</button><div><h2>Your focus</h2><div class="sub">Where would you like to start?</div></div></div>
     <div class="scroll">
-      <p class="lead" style="margin-bottom:14px">Daraus bauen wir deinen begleiteten 8-Wochen-Plan – kleine Schritte zuerst.</p>
+      <p class="lead" style="margin-bottom:14px">We'll build your guided 8-week plan from this — small steps first.</p>
       <div id="focus"></div>
-      <button class="btn lime block" onclick="buildPlan()">Plan erstellen →</button>
+      <button class="btn lime block" onclick="buildPlan()">Build my plan →</button>
     </div>
   </section>
 
-  <!-- ============ PROFIL SPEICHERN + EINWILLIGUNG ============ -->
+  <!-- ============ SAVE PROFILE + CONSENT ============ -->
   <section class="screen" id="s-save">
-    <div class="topbar"><button class="back" onclick="go('s-focus')" aria-label="Zurück">‹</button><div><h2>Profil speichern</h2><div class="sub">Damit du deinen Fortschritt verfolgen kannst</div></div></div>
+    <div class="topbar"><button class="back" onclick="go('s-focus')" aria-label="Back">‹</button><div><h2>Save profile</h2><div class="sub">So you can track your progress</div></div></div>
     <div class="scroll">
-      <div class="seg" style="margin-top:4px"><button id="mode-anon" class="on" onclick="saveMode(true)">Anonym nutzen</button><button id="mode-acc" onclick="saveMode(false)">Mit Konto</button></div>
+      <div class="seg" style="margin-top:4px"><button id="mode-anon" class="on" onclick="saveMode(true)">Use anonymously</button><button id="mode-acc" onclick="saveMode(false)">With account</button></div>
       <div class="card" id="acc-field" style="display:none">
-        <div class="eyebrow" style="margin-bottom:6px">Dein Vorname (optional)</div>
-        <input id="save-name" class="search" style="width:100%;color:var(--navy);font-weight:700;justify-content:flex-start" placeholder="z. B. Sabine">
+        <div class="eyebrow" style="margin-bottom:6px">Your first name (optional)</div>
+        <input id="save-name" class="search" style="width:100%;color:var(--navy);font-weight:700;justify-content:flex-start" placeholder="e.g. Sabine">
       </div>
-      <div class="callout ind" id="anon-note"><span>🔒</span><span>Anonym: Deine Angaben bleiben nur auf diesem Gerät. Kein Konto, keine E-Mail nötig.</span></div>
+      <div class="callout ind" id="anon-note"><span>🔒</span><span>Anonymous: your answers stay on this device only. No account, no email needed.</span></div>
       <div class="card">
-        <h3>Deine Einwilligung</h3>
-        <div class="what"><span>Angaben speichern, um Fortschritt zu sehen<br><span class="small" style="font-weight:500">App-Nutzung · nur auf deinem Gerät bzw. in deinem Konto</span></span><button class="toggle on" id="c-app" onclick="this.classList.toggle('on')"></button></div>
-        <div class="what"><span>Anonymisierte Daten für die Forschung<br><span class="small" style="font-weight:500">Frauen.Herz.KI, TU München · getrennt & freiwillig</span></span><button class="toggle" id="c-res" onclick="this.classList.toggle('on')"></button></div>
-        <p class="small" style="margin-top:8px">EU-Hosting · verschlüsselt · jederzeit widerrufbar · nichts wird ohne deine Einwilligung weitergegeben (DSGVO Art. 9). App-Nutzung ≠ Forschung ≠ Marketing – du entscheidest granular.</p>
+        <h3>Your consent</h3>
+        <div class="what"><span>Save my answers to track progress<br><span class="small" style="font-weight:500">App use · on your device or in your account only</span></span><button class="toggle on" id="c-app" onclick="this.classList.toggle('on')"></button></div>
+        <div class="what"><span>Anonymized data for research<br><span class="small" style="font-weight:500">Women.Heart.AI, TU Munich · separate & voluntary</span></span><button class="toggle" id="c-res" onclick="this.classList.toggle('on')"></button></div>
+        <p class="small" style="margin-top:8px">EU hosting · encrypted · revocable anytime · nothing is shared without your consent (GDPR Art. 9). App use ≠ research ≠ marketing — you decide granularly.</p>
       </div>
-      <button class="btn lime block" onclick="proceedSave()">Los geht's →</button>
-      <p class="disc">Du kannst alle Einwilligungen jederzeit unter Profil ändern.</p>
+      <button class="btn lime block" onclick="proceedSave()">Let's go →</button>
+      <p class="disc">You can change all consents anytime under Profile.</p>
     </div>
   </section>
 
   <!-- ============ HOME ============ -->
   <section class="screen" id="s-home">
     <div class="topbar">
-      <div><h2 id="home-hi">Hallo</h2></div>
-      <div style="margin-left:auto;display:flex;align-items:center;gap:9px"><span class="small" style="font-weight:700">Einfacher Modus</span><button class="toggle" id="simple-tog" onclick="toggleSimple()" aria-label="Einfacher Modus"></button></div>
+      <div><h2 id="home-hi">Hello</h2></div>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:9px"><span class="small" style="font-weight:700">Simple mode</span><button class="toggle" id="simple-tog" onclick="toggleSimple()" aria-label="Simple mode"></button></div>
     </div>
     <div class="scroll">
       <div class="card tap" onclick="go('s-result')" style="display:flex;align-items:center;gap:15px">
@@ -432,79 +432,79 @@
           <svg width="66" height="66" viewBox="0 0 200 200"><circle cx="100" cy="100" r="86" fill="none" stroke="#e4e8f0" stroke-width="20"/><circle id="home-arc" cx="100" cy="100" r="86" fill="none" stroke="var(--lime)" stroke-width="20" stroke-linecap="round" stroke-dasharray="540" stroke-dashoffset="540"/></svg>
           <div class="num"><b id="home-score" style="font-size:22px;color:var(--ink)">73</b></div>
         </div>
-        <div style="flex:1"><div class="eyebrow">Dein Herz-Score</div><h3 style="margin:2px 0" id="home-band">Guter Ausgangspunkt</h3><span class="small" style="color:var(--lime-d);font-weight:700" id="home-trend">↗ +3 diese Woche</span></div>
+        <div style="flex:1"><div class="eyebrow">Your heart score</div><h3 style="margin:2px 0" id="home-band">A good starting point</h3><span class="small" style="color:var(--lime-d);font-weight:700" id="home-trend">↗ +3 this week</span></div>
         <span class="chev">›</span>
       </div>
 
       <!-- goal / plan -->
       <div class="card">
-        <div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">Dein Ziel · Woche <span id="home-week">1</span>/8</h3><span class="pill good" id="home-planprog">0/3</span></div>
-        <div class="focusbox"><div class="fi" id="home-focus-ic"></div><div style="flex:1"><div class="lbl">Aktueller Fokus</div><b id="home-focus">Mehr Bewegung</b></div></div>
+        <div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">Your goal · Week <span id="home-week">1</span>/8</h3><span class="pill good" id="home-planprog">0/3</span></div>
+        <div class="focusbox"><div class="fi" id="home-focus-ic"></div><div style="flex:1"><div class="lbl">Current focus</div><b id="home-focus">More movement</b></div></div>
         <div id="home-tasks"></div>
       </div>
 
       <!-- tracking summary (rich) -->
       <div class="card tap rich" onclick="go('s-tracking')">
-        <div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">Dein Fortschritt</h3><span class="chev">›</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">Your progress</h3><span class="chev">›</span></div>
         <svg class="spark" viewBox="0 0 300 56" preserveAspectRatio="none" style="margin-top:8px"><defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3f8edd" stop-opacity=".22"/><stop offset="1" stop-color="#3f8edd" stop-opacity="0"/></linearGradient></defs><path d="M0 44 L50 40 L100 36 L150 30 L200 24 L250 18 L300 12" fill="none" stroke="var(--blue)" stroke-width="3" stroke-linecap="round"/><path d="M0 44 L50 40 L100 36 L150 30 L200 24 L250 18 L300 12 L300 56 L0 56Z" fill="url(#sg)"/></svg>
-        <p class="small">Score +21 seit Start deines Plans · Tracking öffnen ›</p>
+        <p class="small">Score +21 since you started your plan · Open tracking ›</p>
       </div>
 
       <!-- doctor summary (rich) -->
       <div class="card tap rich" onclick="nav('profil')" style="display:flex;gap:13px;align-items:center">
         <div class="fi" style="width:40px;height:40px;border-radius:11px;background:var(--indigo-l);display:grid;place-items:center;font-size:19px;flex:0 0 auto">📄</div>
-        <div style="flex:1"><h3 style="margin:0;font-size:15px">Bereit für deinen Arzttermin?</h3><span class="small">Gesprächsleitfaden & Zusammenfassung</span></div>
+        <div style="flex:1"><h3 style="margin:0;font-size:15px">Ready for your doctor's appointment?</h3><span class="small">Talking points & summary</span></div>
         <span class="chev">›</span>
       </div>
 
       <!-- recommended (rich) -->
       <div class="rich">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 2px 8px"><div class="eyebrow">Für dich empfohlen</div><span class="small" style="color:var(--indigo);font-weight:700;cursor:pointer" onclick="nav('wissen')">ALLE →</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 2px 8px"><div class="eyebrow">Recommended for you</div><span class="small" style="color:var(--indigo);font-weight:700;cursor:pointer" onclick="nav('wissen')">ALL →</span></div>
         <div class="grid2" id="home-recs"></div>
       </div>
 
-      <div class="benefit rich"><span class="g">🎁</span><div><b>FemRisk Premium – von deiner Arbeitgeberin</b><p>Musterfirma GmbH · anonym · auch ohne Arbeitgeber nutzbar</p></div></div>
+      <div class="benefit rich"><span class="g">🎁</span><div><b>FemRisk Premium — from your employer</b><p>Sample Company Ltd · anonymous · usable without an employer too</p></div></div>
     </div>
     <div class="nav" id="nav"></div>
   </section>
 
   <!-- ============ TRACKING ============ -->
   <section class="screen" id="s-tracking">
-    <div class="topbar"><button class="back" onclick="nav('home')" aria-label="Zurück">‹</button><div><h2>Tracking</h2><div class="sub">Verbundene Geräte & Trends</div></div></div>
+    <div class="topbar"><button class="back" onclick="nav('home')" aria-label="Back">‹</button><div><h2>Tracking</h2><div class="sub">Connected devices & trends</div></div></div>
     <div class="scroll">
       <div class="metricrow" id="metricrow"></div>
-      <div class="seg" id="tseg"><button class="on">Tag</button><button>30 T</button><button>Monat</button><button>Jahr</button></div>
+      <div class="seg" id="tseg"><button class="on">Day</button><button>30 d</button><button>Month</button><button>Year</button></div>
       <div class="card">
-        <div class="small" id="track-unit">mmHg · heute</div>
+        <div class="small" id="track-unit">mmHg · today</div>
         <svg class="spark" viewBox="0 0 300 90" preserveAspectRatio="none" style="height:100px;margin-top:6px">
           <line x1="0" y1="20" x2="300" y2="20" stroke="#eef1f6"/><line x1="0" y1="50" x2="300" y2="50" stroke="#eef1f6"/><line x1="0" y1="80" x2="300" y2="80" stroke="#eef1f6"/>
           <path id="track-area" d="M0 55 L60 50 L120 46 L180 52 L240 44 L300 48 L300 90 L0 90Z" fill="#e7f3da"/>
           <path id="track-line" d="M0 55 L60 50 L120 46 L180 52 L240 44 L300 48" fill="none" stroke="var(--navy)" stroke-width="3" stroke-linecap="round"/>
           <circle cx="300" cy="48" r="4.5" fill="var(--navy)"/>
         </svg>
-        <div style="display:flex;justify-content:space-between" class="small"><span>6:00</span><span>12:00</span><span>18:00</span><span>jetzt</span></div>
+        <div style="display:flex;justify-content:space-between" class="small"><span>6:00</span><span>12:00</span><span>18:00</span><span>now</span></div>
       </div>
       <div class="card">
-        <div class="eyebrow" style="margin-bottom:4px" id="track-meas-title">Messungen</div>
+        <div class="eyebrow" style="margin-bottom:4px" id="track-meas-title">Measurements</div>
         <div id="track-meas"></div>
       </div>
       <div class="callout" id="track-insight"><span>↘</span><span>—</span></div>
-      <button class="btn ghost block" onclick="nav('profil')">⌚ Gerät verbinden</button>
-      <p class="disc">Nur sichtbar, wenn du Geräte oder Apps verbindest – jederzeit trennbar.</p>
+      <button class="btn ghost block" onclick="nav('profil')">⌚ Connect a device</button>
+      <p class="disc">Only visible if you connect devices or apps — disconnect anytime.</p>
     </div>
   </section>
 
   <!-- ============ WISSEN ============ -->
   <section class="screen" id="s-wissen">
-    <div class="topbar"><div><h2>Wissen</h2><div class="sub">Verständlich erklärt – was es für dich bedeutet</div></div>
+    <div class="topbar"><div><h2>Learn</h2><div class="sub">Explained simply — what it means for you</div></div>
       <span class="logo hm" style="width:34px;height:32px;margin-left:auto"></span>
     </div>
     <div class="scroll">
-      <div class="search">🔍 Artikel suchen…</div>
+      <div class="search">🔍 Search articles…</div>
       <div class="chips" id="chips"></div>
-      <div style="display:flex;justify-content:space-between;align-items:center;margin:14px 2px 8px"><div class="eyebrow">Für dich empfohlen</div></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin:14px 2px 8px"><div class="eyebrow">Recommended for you</div></div>
       <div class="grid2" id="wissen-recs"></div>
-      <div class="eyebrow" style="margin:18px 2px 8px" id="wissen-all-label">Alle Themen</div>
+      <div class="eyebrow" style="margin:18px 2px 8px" id="wissen-all-label">All topics</div>
       <div id="wissen-list" style="display:flex;flex-direction:column;gap:11px"></div>
     </div>
     <div class="nav" id="nav-wissen"></div>
@@ -512,98 +512,98 @@
 
   <!-- article reader -->
   <section class="screen" id="s-article">
-    <div class="topbar"><button class="back" onclick="nav('wissen')" aria-label="Zurück">‹</button><div><h2 style="font-size:16px">Bibliothek</h2></div></div>
+    <div class="topbar"><button class="back" onclick="nav('wissen')" aria-label="Back">‹</button><div><h2 style="font-size:16px">Library</h2></div></div>
     <div class="scroll" id="article-body"></div>
   </section>
 
   <!-- ============ PROFIL ============ -->
   <section class="screen" id="s-profil">
-    <div class="topbar"><div><h2>Profil</h2><div class="sub">Konto, Ärztin & Einstellungen</div></div></div>
+    <div class="topbar"><div><h2>Profile</h2><div class="sub">Account, doctor & settings</div></div></div>
     <div class="scroll">
       <div class="card" style="display:flex;align-items:center;gap:14px">
         <div style="width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#1c3554,var(--navy-d));display:grid;place-items:center;color:#fff;font-size:20px;font-weight:800" id="prof-avatar">A</div>
-        <div><h3 style="margin:0" id="prof-name">Dein Profil</h3><p class="small" id="prof-sub">Heart-Score –</p></div>
+        <div><h3 style="margin:0" id="prof-name">Your profile</h3><p class="small" id="prof-sub">Heart score –</p></div>
       </div>
 
-      <div class="benefit"><span class="g">🎁</span><div><b>Premium – von deiner Arbeitgeberin</b><p id="prof-company">Musterfirma GmbH · dein Unternehmen sieht nie deine Daten</p></div></div>
+      <div class="benefit"><span class="g">🎁</span><div><b>Premium — from your employer</b><p id="prof-company">Sample Company Ltd · your company never sees your data</p></div></div>
 
-      <!-- Ärztin -->
+      <!-- doctor -->
       <div class="card">
-        <h3>🩺 Zur Ärztin gehen?</h3>
-        <p class="small">Für dein Profil kann ein Termin bei Kardiologie oder Gynäkologie sinnvoll sein. Nimm deinen Gesprächsleitfaden mit.</p>
-        <button class="btn sm lav" style="width:100%;margin-top:10px" onclick="toggleGuide()" id="guide-btn">Gesprächsleitfaden anzeigen</button>
+        <h3>🩺 Time to see a doctor?</h3>
+        <p class="small">For your profile, an appointment with cardiology or gynecology may make sense. Take your talking points with you.</p>
+        <button class="btn sm lav" style="width:100%;margin-top:10px" onclick="toggleGuide()" id="guide-btn">Show talking points</button>
         <div id="guide" style="display:none;margin-top:12px"></div>
       </div>
 
-      <!-- Verbindungen -->
+      <!-- connections -->
       <div class="card">
-        <h3>🔗 Verbindungen</h3>
-        <p class="small" style="margin-bottom:8px">Optional – deine Entscheidung. FemRisk funktioniert komplett ohne Verbindung.</p>
-        <div class="what"><span>Apple Health / Health Connect<br><span class="small" style="font-weight:500">Schlaf- und Aktivitätsdaten</span></span><button class="toggle" onclick="this.classList.toggle('on');toast(this.classList.contains('on')?'Health verbunden ✓':'Health getrennt')"></button></div>
-        <div class="what"><span>Zyklus-Tracking-App<br><span class="small" style="font-weight:500">Optional in den Score einbezogen</span></span><button class="toggle" onclick="this.classList.toggle('on');toast(this.classList.contains('on')?'Zyklus-App verbunden ✓':'Getrennt')"></button></div>
+        <h3>🔗 Connections</h3>
+        <p class="small" style="margin-bottom:8px">Optional — your choice. FemRisk works completely without any connection.</p>
+        <div class="what"><span>Apple Health / Health Connect<br><span class="small" style="font-weight:500">Sleep and activity data</span></span><button class="toggle" onclick="this.classList.toggle('on');toast(this.classList.contains('on')?'Health connected ✓':'Health disconnected')"></button></div>
+        <div class="what"><span>Cycle-tracking app<br><span class="small" style="font-weight:500">Optionally included in the score</span></span><button class="toggle" onclick="this.classList.toggle('on');toast(this.classList.contains('on')?'Cycle app connected ✓':'Disconnected')"></button></div>
       </div>
 
       <!-- Consent -->
       <div class="card">
-        <h3>💜 Forschung unterstützen</h3>
-        <div class="what"><span>Anonymisierte Daten freigeben<br><span class="small" style="font-weight:500">Für die Frauen.Herz.KI-Forschung, TU München</span></span><button class="toggle" onclick="this.classList.toggle('on');toast(this.classList.contains('on')?'Danke! Du unterstützt die Forschung 💜':'Freigabe widerrufen ✓')"></button></div>
-        <p class="small" style="margin-top:8px">Kein Rückschluss auf dich möglich. Jederzeit hier widerrufbar. Unabhängig von der App-Nutzung.</p>
+        <h3>💜 Support research</h3>
+        <div class="what"><span>Share anonymized data<br><span class="small" style="font-weight:500">For the Women.Heart.AI research, TU Munich</span></span><button class="toggle" onclick="this.classList.toggle('on');toast(this.classList.contains('on')?'Thank you! You are supporting research 💜':'Sharing revoked ✓')"></button></div>
+        <p class="small" style="margin-top:8px">No way to trace it back to you. Revocable here anytime. Independent of app use.</p>
       </div>
 
-      <!-- Einstellungen -->
+      <!-- settings -->
       <div class="card">
-        <h3>⚙️ Einstellungen</h3>
-        <div class="what"><span>Benachrichtigungen</span><button class="toggle on" onclick="this.classList.toggle('on')"></button></div>
-        <button class="btn sm ghost" style="width:100%;margin-top:10px" onclick="toast('Demo: Datenexport erstellt ✓')">Meine Daten exportieren</button>
+        <h3>⚙️ Settings</h3>
+        <div class="what"><span>Notifications</span><button class="toggle on" onclick="this.classList.toggle('on')"></button></div>
+        <button class="btn sm ghost" style="width:100%;margin-top:10px" onclick="toast('Demo: data export created ✓')">Export my data</button>
       </div>
 
-      <button class="btn link block" onclick="go('s-employer')">🏢 Für Unternehmen ansehen →</button>
-      <button class="btn sm" style="width:100%;background:#e4e8f0;color:var(--slate);margin-top:6px" onclick="resetDemo()">Demo neu starten</button>
+      <button class="btn link block" onclick="go('s-employer')">🏢 View for business →</button>
+      <button class="btn sm" style="width:100%;background:#e4e8f0;color:var(--slate);margin-top:6px" onclick="resetDemo()">Restart demo</button>
     </div>
     <div class="nav" id="nav-profil"></div>
   </section>
 
-  <!-- ============ FÜR UNTERNEHMEN ============ -->
+  <!-- ============ FOR BUSINESS ============ -->
   <section class="screen" id="s-employer">
-    <div class="topbar"><button class="back" onclick="go('s-welcome')" aria-label="Zurück">‹</button><div class="brand"><span class="logo hm"></span><div><span class="fem">Fem</span><b>Risk</b></div></div><span class="pill ind" style="margin-left:auto">Unternehmen</span></div>
+    <div class="topbar"><button class="back" onclick="go('s-welcome')" aria-label="Back">‹</button><div class="brand"><span class="logo hm"></span><div><span class="fem">Fem</span><b>Risk</b></div></div><span class="pill ind" style="margin-left:auto">Business</span></div>
     <div class="scroll">
-      <h1>Die häufigste Todesursache bei Frauen ist auch ein Business-Problem.</h1>
-      <p class="lead">Herz-Kreislauf-Risiken und unbehandelte Wechseljahres-Beschwerden kosten Krankheitstage – und drängen erfahrene Frauen aus dem Job. FemRisk macht Prävention zum Benefit, den Ihr Unternehmen stellt.</p>
+      <h1>The leading cause of death in women is also a business problem.</h1>
+      <p class="lead">Cardiovascular risks and untreated menopause symptoms cost sick days — and push experienced women out of work. FemRisk turns prevention into a benefit your company provides.</p>
       <div class="grid2" style="grid-template-columns:1fr 1fr 1fr;gap:9px;margin:16px 0">
-        <div class="card" style="margin:0;text-align:center;padding:13px 8px"><b style="font-size:18px;color:var(--navy)">Nr. 1</b><span class="small" style="display:block;margin-top:3px">Todesursache bei Frauen</span></div>
-        <div class="card" style="margin:0;text-align:center;padding:13px 8px"><b style="font-size:18px;color:var(--navy)">1 v. 10</b><span class="small" style="display:block;margin-top:3px">reduziert Arbeitszeit i. d. Menopause</span></div>
-        <div class="card" style="margin:0;text-align:center;padding:13px 8px"><b style="font-size:18px;color:var(--navy)">45–60</b><span class="small" style="display:block;margin-top:3px">erfahrenste Mitarbeiterinnen</span></div>
+        <div class="card" style="margin:0;text-align:center;padding:13px 8px"><b style="font-size:18px;color:var(--navy)">No. 1</b><span class="small" style="display:block;margin-top:3px">cause of death in women</span></div>
+        <div class="card" style="margin:0;text-align:center;padding:13px 8px"><b style="font-size:18px;color:var(--navy)">1 in 10</b><span class="small" style="display:block;margin-top:3px">cut work hours in menopause</span></div>
+        <div class="card" style="margin:0;text-align:center;padding:13px 8px"><b style="font-size:18px;color:var(--navy)">45–60</b><span class="small" style="display:block;margin-top:3px">most experienced employees</span></div>
       </div>
       <div class="card">
-        <div class="eyebrow" style="color:var(--indigo)">📈 Ihr Business Case</div>
-        <h3 style="margin:8px 0 10px" id="roi-h">Was bringt FemRisk?</h3>
-        <div class="seg" id="payer-seg" style="margin:0 0 14px"><button class="on" onclick="setPayer('kasse')">Krankenkasse</button><button onclick="setPayer('arbeitgeber')">Arbeitgeber</button></div>
-        <p class="small" id="roi-q">Wie viele Frauen (40–69) erreicht ihr?</p>
-        <div class="center" style="margin-top:8px"><span class="rangeval" id="roi-n">120</span> <span class="small" id="roi-unit">Frauen</span></div>
-        <input type="range" min="20" max="2000" step="10" value="120" oninput="roiCalc(+this.value)" aria-label="Anzahl Personen">
+        <div class="eyebrow" style="color:var(--indigo)">📈 Your business case</div>
+        <h3 style="margin:8px 0 10px" id="roi-h">What does FemRisk deliver?</h3>
+        <div class="seg" id="payer-seg" style="margin:0 0 14px"><button class="on" onclick="setPayer('kasse')">Health insurer</button><button onclick="setPayer('arbeitgeber')">Employer</button></div>
+        <p class="small" id="roi-q">How many women (40–69) do you reach?</p>
+        <div class="center" style="margin-top:8px"><span class="rangeval" id="roi-n">120</span> <span class="small" id="roi-unit">women</span></div>
+        <input type="range" min="20" max="2000" step="10" value="120" oninput="roiCalc(+this.value)" aria-label="Number of people">
         <div class="grid2" style="margin-top:12px">
-          <div class="card" style="margin:0;text-align:center;background:var(--indigo-l);border:none"><b style="font-size:20px;color:var(--navy)" id="roi-days">58</b><span class="small" style="display:block" id="roi-dlabel">vermiedene Krankheitstage/J.</span></div>
-          <div class="card" style="margin:0;text-align:center;background:var(--indigo-l);border:none"><b style="font-size:20px;color:var(--navy)" id="roi-cost">3.000 €</b><span class="small" style="display:block">Programmkosten/J.</span></div>
+          <div class="card" style="margin:0;text-align:center;background:var(--indigo-l);border:none"><b style="font-size:20px;color:var(--navy)" id="roi-days">58</b><span class="small" style="display:block" id="roi-dlabel">sick days avoided/yr</span></div>
+          <div class="card" style="margin:0;text-align:center;background:var(--indigo-l);border:none"><b style="font-size:20px;color:var(--navy)" id="roi-cost">€3,000</b><span class="small" style="display:block">program cost/yr</span></div>
         </div>
-        <div class="card" style="margin:10px 0 0;text-align:center;background:var(--good-bg);border:none"><b style="font-size:22px;color:var(--lime-d)" id="roi-save">20.200 €</b><span class="small" style="display:block">geschätzte Netto-Ersparnis/J. · ≈ <span id="roi-x">7,7×</span> Return</span></div>
-        <p class="small" style="margin-top:10px" id="roi-assume">Annahmen (Demo): 60 % Aktivierung · 0,8 vermiedene Tage/Teilnehmerin/Jahr · 400 €/Tag · 25 €/Teilnehmerin/Jahr. Im Pilot messen wir Ihre echten Werte.</p>
+        <div class="card" style="margin:10px 0 0;text-align:center;background:var(--good-bg);border:none"><b style="font-size:22px;color:var(--lime-d)" id="roi-save">€20,200</b><span class="small" style="display:block">estimated net savings/yr · ≈ <span id="roi-x">7.7×</span> return</span></div>
+        <p class="small" style="margin-top:10px" id="roi-assume">Assumptions (demo): 60% activation · 0.8 days avoided/participant/year · €400/day · €25/participant/year. In the pilot we measure your real figures.</p>
       </div>
       <div class="card">
-        <div class="eyebrow" style="color:var(--indigo)">📊 Ihr anonymes Dashboard</div>
-        <h3 style="margin:8px 0 8px">Wirkung – ohne je Personen zu sehen</h3>
+        <div class="eyebrow" style="color:var(--indigo)">📊 Your anonymous dashboard</div>
+        <h3 style="margin:8px 0 8px">Impact — without ever seeing individuals</h3>
         <div class="grid2">
-          <div class="card" style="margin:0;background:var(--page);border:none"><b style="font-size:19px;color:var(--navy)">68 %</b><span class="small" style="display:block">Aktivierung (82 v. 120)</span></div>
-          <div class="card" style="margin:0;background:var(--page);border:none"><b style="font-size:19px;color:var(--navy)">71 <span style="font-size:12px;color:var(--lime-d)">+6</span></b><span class="small" style="display:block">Ø Herz-Score (8 Wo.)</span></div>
+          <div class="card" style="margin:0;background:var(--page);border:none"><b style="font-size:19px;color:var(--navy)">68 %</b><span class="small" style="display:block">Activation (82 of 120)</span></div>
+          <div class="card" style="margin:0;background:var(--page);border:none"><b style="font-size:19px;color:var(--navy)">71 <span style="font-size:12px;color:var(--lime-d)">+6</span></b><span class="small" style="display:block">Ø heart score (8 wks)</span></div>
         </div>
-        <div class="callout ind" style="margin-top:12px"><span>🔒</span><span>Nur Gruppenwerte ab 20 Teilnehmerinnen. Niemals Namen, individuelle Scores oder Antworten. Betriebsrats-tauglich, EU-Hosting, kein Datenverkauf.</span></div>
+        <div class="callout ind" style="margin-top:12px"><span>🔒</span><span>Group figures only, from 20+ participants. Never names, individual scores or answers. Works councils approve, EU hosting, no data sales.</span></div>
       </div>
-      <button class="btn lime block" onclick="toast('Demo: Pilot-Anfrage gesendet – wir melden uns!')">Pilot anfragen</button>
+      <button class="btn lime block" onclick="toast('Demo: pilot request sent — we will be in touch!')">Request a pilot</button>
       <div class="card center" style="margin-top:13px">
-        <p class="small" style="margin:0 0 10px"><b>Kurze Frage</b> (hilft uns sehr): Wäre das für euch als Programm interessant?</p>
-        <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap"><button class="btn sm ghost" onclick="toast('Danke! Interesse notiert')">Ja, überzeugend</button><button class="btn sm ghost" onclick="toast('Danke – Preis notiert')">Preis müsste niedriger sein</button><button class="btn sm ghost" onclick="toast('Danke fürs Feedback')">Eher nicht</button></div>
+        <p class="small" style="margin:0 0 10px"><b>Quick question</b> (really helps us): would this be interesting as a program for you?</p>
+        <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap"><button class="btn sm ghost" onclick="toast('Thanks! Interest noted')">Yes, convincing</button><button class="btn sm ghost" onclick="toast('Thanks — price noted')">Price would need to be lower</button><button class="btn sm ghost" onclick="toast('Thanks for the feedback')">Probably not</button></div>
       </div>
-      <button class="btn ghost block" onclick="seedDemo()">Die Mitarbeiterinnen-App ansehen →</button>
-      <p class="disc">Demo-Zahlen zur Veranschaulichung. Die App stellt keine medizinische Diagnose.</p>
+      <button class="btn ghost block" onclick="seedDemo()">View the employee app →</button>
+      <p class="disc">Demo figures for illustration. The app does not provide a medical diagnosis.</p>
     </div>
   </section>
 
@@ -611,12 +611,12 @@
 </div>
 
 <script>
-const S={answers:{},score:0,band:'',factors:[],focus:null,planTitle:'Mehr Bewegung',tasks:[],week:1,safety:false,simple:false,seeded:false,name:'',age:52,payer:'kasse'};
+const S={answers:{},score:0,band:'',factors:[],focus:null,planTitle:'More movement',tasks:[],week:1,safety:false,simple:false,seeded:false,name:'',age:52,payer:'kasse'};
 function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));const el=document.getElementById(id);el.classList.add('active');const sc=el.querySelector('.scroll');if(sc)sc.scrollTop=0;}
 function toast(t){const e=document.getElementById('toast');e.textContent=t;e.classList.add('show');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('show'),1900);}
 
 /* ---- bottom nav (3 tabs) ---- */
-const NAVS=[{k:'home',s:'s-home',i:'🏠',l:'Start'},{k:'wissen',s:'s-wissen',i:'📚',l:'Wissen'},{k:'profil',s:'s-profil',i:'👤',l:'Profil'}];
+const NAVS=[{k:'home',s:'s-home',i:'🏠',l:'Home'},{k:'wissen',s:'s-wissen',i:'📚',l:'Learn'},{k:'profil',s:'s-profil',i:'👤',l:'Profile'}];
 const NAVMAP={home:'s-home',wissen:'s-wissen',profil:'s-profil'};
 function nav(k){if(k==='wissen')renderWissen();if(k==='profil')renderProfil();if(k==='home')renderHome();go(NAVMAP[k]);buildNav(k);}
 function buildNav(active){document.querySelectorAll('.nav').forEach(n=>{n.innerHTML=NAVS.map(x=>`<button class="${x.k===active?'on':''}" onclick="nav('${x.k}')"><span class="ni">${x.i}</span>${x.l}</button>`).join('');});
@@ -624,45 +624,45 @@ function buildNav(active){document.querySelectorAll('.nav').forEach(n=>{n.innerH
 
 /* ---- questionnaire (5 questions incl. safety) ---- */
 const QS=[
-  /* Abschnitt 1 · Über dich */
-  {key:'age',title:'Über dich',hint:'Wie alt bist du?',type:'range',min:18,max:100,val:52,unit:'Jahre'},
-  {key:'ethnie',title:'Über dich',hint:'Welche Herkunft beschreibt dich am besten?',why:'Die ethnische Herkunft beeinflusst das kardiovaskuläre Basisrisiko in der Forschung – die Angabe ist freiwillig.',type:'single',opts:['Kaukasisch','Asiatisch','Afrikanisch','Hispanisch','Andere / keine Angabe']},
-  /* Abschnitt 2 · Körper & Lebensstil */
-  {key:'groesse',title:'Körper & Lebensstil',hint:'Wie groß bist du?',type:'range',min:140,max:200,val:168,unit:'cm'},
-  {key:'gewicht',title:'Körper & Lebensstil',hint:'Wie viel wiegst du?',why:'Aus Größe und Gewicht berechnen wir deinen BMI. Entscheidend fürs Herz ist aber vor allem das Bauchfett.',type:'range',min:40,max:150,val:70,unit:'kg'},
-  {key:'smoke',title:'Körper & Lebensstil',hint:'Rauchst du?',why:'Rauchen ist der stärkste einzelne beeinflussbare Herzfaktor – schon wenige Zigaretten täglich zählen.',type:'single',opts:['Nie geraucht','Früher, jetzt nicht mehr','Ja, aktuell']},
-  {key:'activity',title:'Körper & Lebensstil',hint:'Wie aktiv bist du in einer normalen Woche?',type:'single',opts:['Kaum Bewegung','Moderat (1–3×/Woche)','Hoch (4×+/Woche)']},
-  /* Abschnitt 3 · Hormonell & weiblich */
-  {key:'meno',title:'Hormonell & weiblich',hint:'Wo stehst du hormonell gerade?',why:'Mit der Menopause sinkt der schützende Östrogen-Effekt – eine frühe Menopause (vor 45) erhöht das Herz-Kreislauf-Risiko besonders.',type:'single',opts:['Prämenopausal (regelmäßiger Zyklus)','Perimenopausal (Zyklus verändert sich)','Postmenopausal (nach 45)','Frühe Menopause (vor 45)','Hormonersatztherapie (HRT)']},
-  {key:'oophor',title:'Hormonell & weiblich',hint:'Wurden dir beide Eierstöcke operativ entfernt?',why:'Eine beidseitige Entfernung der Eierstöcke löst eine frühe, chirurgische Menopause aus – der Östrogenschutz fällt abrupt weg.',type:'single',opts:['Nein','Ja','Unsicher']},
-  {key:'menarche',title:'Hormonell & weiblich',hint:'In welchem Alter hattest du deine erste Periode (Menarche)?',why:'Eine sehr frühe erste Periode (vor 11) steht mit einem leicht erhöhten Herz-Kreislauf-Risiko in Verbindung.',type:'range',min:9,max:18,val:13,unit:'Jahre'},
-  {key:'preg',title:'Hormonell & weiblich',hint:'Gab es Schwangerschafts-Komplikationen?',why:'Präeklampsie, Schwangerschaftsdiabetes & Co. gelten als frühe Warnsignale für späteres kardiovaskuläres Risiko.',type:'multi',none:5,excl:[5,6],opts:['Präeklampsie / Bluthochdruck','Schwangerschaftsdiabetes','Frühgeburt (<37 Wochen)','Sehr großes Baby (Makrosomie)','Fehlgeburt(en)','Keine / trifft nicht zu','Ich war nie schwanger']},
-  {key:'pcos',title:'Hormonell & weiblich',hint:'Wurde bei dir PCOS (polyzystisches Ovarialsyndrom) festgestellt?',why:'PCOS geht oft mit Insulinresistenz und erhöhtem Herz-Kreislauf-Risiko einher.',type:'single',opts:['Nein','Ja','Unsicher']},
-  /* Abschnitt 4 · Medizinische Vorgeschichte */
-  {key:'diagnosen',title:'Vorgeschichte',hint:'Wurde eine dieser Diagnosen bei dir gestellt?',why:'Bluthochdruck, Cholesterin und Diabetes bleiben oft lange unbemerkt, wirken aber direkt aufs Herz.',type:'multi',none:4,opts:['Bluthochdruck','Hohes Cholesterin','Diabetes','Bekannte Herz-Kreislauf-Erkrankung','Keine davon']},
-  {key:'autoimmun',title:'Vorgeschichte',hint:'Hast du eine Autoimmun-Erkrankung (z. B. Rheuma, Lupus, Schuppenflechte)?',why:'Chronische Entzündung erhöht das kardiovaskuläre Risiko – ein oft übersehener weiblicher Faktor.',type:'single',opts:['Nein','Ja','Unsicher']},
-  {key:'cancer',title:'Vorgeschichte',hint:'Hattest du eine Brustkrebs-Therapie mit Bestrahlung des Brustkorbs oder Medikamenten wie Anthrazyklinen / Trastuzumab?',why:'Einige Krebstherapien können das Herz langfristig belasten (Kardiotoxizität).',type:'single',opts:['Nein','Ja','Unsicher']},
-  {key:'depression',title:'Vorgeschichte',hint:'Warst oder bist du wegen Depression oder starker seelischer Belastung in Behandlung?',why:'Anhaltende psychische Belastung wirkt über Stresshormone messbar aufs Herz-Kreislauf-System.',type:'single',opts:['Nein','Ja, früher','Ja, aktuell in Behandlung']},
-  /* Abschnitt 5 · Laborwerte (optional) */
-  {key:'labs',title:'Laborwerte',hint:'Kennst du aktuelle Werte? (optional)',why:'Wenn du deine Werte kennst, wird dein Score genauer. Alles freiwillig – du kannst den Schritt mit „Weiter" überspringen.',type:'labs'},
-  /* Abschnitt 6 · Aktuelle Beschwerden */
-  {key:'symptoms',title:'Aktuelle Beschwerden',hint:'Hast du aktuell eines dieser Warnzeichen?',why:'Akute Beschwerden gehören ärztlich abgeklärt – unabhängig von deinem Score.',type:'multi',none:4,warnMulti:true,opts:['Brustschmerz / -druck','Atemnot','Ausstrahlender Schmerz (Arm, Hals, Kiefer)','Beschwerden in Ruhe','Nichts davon']},
+  /* Section 1 · About you */
+  {key:'age',title:'About you',hint:'How old are you?',type:'range',min:18,max:100,val:52,unit:'years'},
+  {key:'ethnie',title:'About you',hint:'Which background best describes you?',why:'Ethnic background influences baseline cardiovascular risk in research — this answer is optional.',type:'single',opts:['White / European','Asian','African','Hispanic','Other / prefer not to say']},
+  /* Section 2 · Body & lifestyle */
+  {key:'groesse',title:'Body & lifestyle',hint:'How tall are you?',type:'range',min:140,max:200,val:168,unit:'cm'},
+  {key:'gewicht',title:'Body & lifestyle',hint:'How much do you weigh?',why:'We use height and weight to calculate your BMI. But what matters most for the heart is abdominal fat.',type:'range',min:40,max:150,val:70,unit:'kg'},
+  {key:'smoke',title:'Body & lifestyle',hint:'Do you smoke?',why:'Smoking is the single strongest modifiable heart factor — even a few cigarettes a day count.',type:'single',opts:['Never smoked','Formerly, not anymore','Yes, currently']},
+  {key:'activity',title:'Body & lifestyle',hint:'How active are you in a typical week?',type:'single',opts:['Barely any movement','Moderate (1–3×/week)','High (4×+/week)']},
+  /* Section 3 · Hormonal & female */
+  {key:'meno',title:'Hormonal & female',hint:'Where are you hormonally right now?',why:'With menopause the protective estrogen effect declines — early menopause (before 45) raises cardiovascular risk especially.',type:'single',opts:['Premenopausal (regular cycle)','Perimenopausal (cycle is changing)','Postmenopausal (after 45)','Early menopause (before 45)','Hormone replacement therapy (HRT)']},
+  {key:'oophor',title:'Hormonal & female',hint:'Have both of your ovaries been surgically removed?',why:'Removing both ovaries triggers an early, surgical menopause — estrogen protection drops abruptly.',type:'single',opts:['No','Yes','Not sure']},
+  {key:'menarche',title:'Hormonal & female',hint:'At what age did you have your first period (menarche)?',why:'A very early first period (before 11) is linked to a slightly higher cardiovascular risk.',type:'range',min:9,max:18,val:13,unit:'years'},
+  {key:'preg',title:'Hormonal & female',hint:'Were there any pregnancy complications?',why:'Preeclampsia, gestational diabetes and similar are considered early warning signs for later cardiovascular risk.',type:'multi',none:5,excl:[5,6],opts:['Preeclampsia / high blood pressure','Gestational diabetes','Preterm birth (<37 weeks)','Very large baby (macrosomia)','Miscarriage(s)','None / not applicable','I have never been pregnant']},
+  {key:'pcos',title:'Hormonal & female',hint:'Have you been diagnosed with PCOS (polycystic ovary syndrome)?',why:'PCOS often goes along with insulin resistance and higher cardiovascular risk.',type:'single',opts:['No','Yes','Not sure']},
+  /* Section 4 · Medical history */
+  {key:'diagnosen',title:'Medical history',hint:'Have you been diagnosed with any of these?',why:'High blood pressure, cholesterol and diabetes often go unnoticed for a long time but affect the heart directly.',type:'multi',none:4,opts:['High blood pressure','High cholesterol','Diabetes','Known cardiovascular disease','None of these']},
+  {key:'autoimmun',title:'Medical history',hint:'Do you have an autoimmune condition (e.g. rheumatoid arthritis, lupus, psoriasis)?',why:'Chronic inflammation raises cardiovascular risk — an often-overlooked female factor.',type:'single',opts:['No','Yes','Not sure']},
+  {key:'cancer',title:'Medical history',hint:'Did you have breast cancer treatment involving chest radiation or drugs such as anthracyclines / trastuzumab?',why:'Some cancer therapies can strain the heart over the long term (cardiotoxicity).',type:'single',opts:['No','Yes','Not sure']},
+  {key:'depression',title:'Medical history',hint:'Have you been or are you in treatment for depression or severe emotional strain?',why:'Persistent psychological strain has a measurable effect on the cardiovascular system via stress hormones.',type:'single',opts:['No','Yes, in the past','Yes, currently in treatment']},
+  /* Section 5 · Lab values (optional) */
+  {key:'labs',title:'Lab values',hint:'Do you know your current values? (optional)',why:'If you know your values, your score gets more accurate. Everything is optional — you can skip this step with "Next".',type:'labs'},
+  /* Section 6 · Current symptoms */
+  {key:'symptoms',title:'Current symptoms',hint:'Do you currently have any of these warning signs?',why:'Acute symptoms should be checked by a doctor — regardless of your score.',type:'multi',none:4,warnMulti:true,opts:['Chest pain / pressure','Shortness of breath','Radiating pain (arm, neck, jaw)','Symptoms at rest','None of these']},
 ];
 let qi=0;
 function renderQ(){
   const q=QS[qi];
   document.getElementById('q-step').textContent=q.title;
-  document.getElementById('q-count').textContent=`Frage ${qi+1} von ${QS.length}`;
+  document.getElementById('q-count').textContent=`Question ${qi+1} of ${QS.length}`;
   document.getElementById('q-dots').innerHTML=QS.map((_,i)=>`<span class="${i<=qi?'on':''}"></span>`).join('');
-  document.getElementById('q-next').textContent=qi===QS.length-1?'Profil erstellen →':'Weiter';
+  document.getElementById('q-next').textContent=qi===QS.length-1?'Build my profile →':'Next';
   const b=document.getElementById('q-body');
   let h=`<div class="qtitle">${q.hint}</div>`;
-  if(q.why) h+=`<div class="why" onclick="document.getElementById('whybox').classList.toggle('open')">Warum fragen wir das? ›</div><div class="whybox" id="whybox">${q.why}</div>`;
+  if(q.why) h+=`<div class="why" onclick="document.getElementById('whybox').classList.toggle('open')">Why do we ask? ›</div><div class="whybox" id="whybox">${q.why}</div>`;
   if(q.type==='range'){const cur=S.answers[q.key]??q.val;S.answers[q.key]=cur;
     h+=`<div class="center"><div class="rangeval"><span id="rv">${cur}</span> ${q.unit}</div><input type="range" min="${q.min}" max="${q.max}" value="${cur}" aria-label="${q.hint}" oninput="document.getElementById('rv').textContent=this.value;S.answers['${q.key}']=+this.value"></div>`;
   } else if(q.type==='labs'){
     const L=(k,label,unit,ph,step)=>`<label>${label} <span>${unit}</span><input type="number" inputmode="decimal" ${step?'step="'+step+'"':''} placeholder="${ph}" value="${S.answers[k]??''}" oninput="S.answers['${k}']=this.value?+this.value:undefined"></label>`;
-    h+=`<div class="labgrid">${L('bp_sys','Blutdruck (systolisch)','mmHg','z. B. 128')}${L('ldl','LDL-Cholesterin','mg/dl','z. B. 115')}${L('hba1c','HbA1c','%','z. B. 5,4','0.1')}</div>`;
+    h+=`<div class="labgrid">${L('bp_sys','Blood pressure (systolic)','mmHg','e.g. 128')}${L('ldl','LDL cholesterol','mg/dl','e.g. 115')}${L('hba1c','HbA1c','%','e.g. 5.4','0.1')}</div>`;
   } else {q.opts.forEach((o,i)=>{const sel=q.type==='multi'?(S.answers[q.key]||[]).includes(i):S.answers[q.key]===i;const warn=(q.warnIdx===i||(q.warnMulti&&i!==q.none))?'warn':'';
     h+=`<button class="opt ${q.type==='multi'?'multi':''} ${warn} ${sel?'sel':''}" onclick="pick('${q.key}','${q.type}',${i},this)"><span class="dot"></span><span>${o}</span></button>`;});}
   b.innerHTML=h;
@@ -675,7 +675,7 @@ function pick(key,type,i,el){
   } else {S.answers[key]=i;el.parentNode.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));el.classList.add('sel');}
 }
 function qNext(){const q=QS[qi],a=S.answers[q.key];
-  if(q.type!=='range'&&q.type!=='labs'&&(a===undefined||(Array.isArray(a)&&a.length===0))){toast('Bitte wähle eine Antwort');return;}
+  if(q.type!=='range'&&q.type!=='labs'&&(a===undefined||(Array.isArray(a)&&a.length===0))){toast('Please choose an answer');return;}
   if(qi<QS.length-1){qi++;renderQ();}else runAnalyze();}
 function qBack(){if(qi>0){qi--;renderQ();}else go('s-welcome');}
 
@@ -694,50 +694,50 @@ function compute(){
   const g=a.groesse??168, w=a.gewicht??70, bmi=w/Math.pow(g/100,2); S.bmi=Math.round(bmi*10)/10;
   const base=86; let f=[];
   // activity
-  if(act===0)f.push({key:'activity',n:'Wenig Bewegung',pts:-16,dir:'neg',mod:'Veränderbar',dot:'var(--orange)'});
-  else if(act===1)f.push({key:'activity_ok',n:'Moderate Bewegung',pts:6,dir:'pos',mod:'Schützend',dot:'var(--lime)'});
-  else f.push({key:'activity_ok',n:'Regelmäßig aktiv',pts:14,dir:'pos',mod:'Schützend',dot:'var(--lime)'});
+  if(act===0)f.push({key:'activity',n:'Little movement',pts:-16,dir:'neg',mod:'Modifiable',dot:'var(--orange)'});
+  else if(act===1)f.push({key:'activity_ok',n:'Moderate movement',pts:6,dir:'pos',mod:'Protective',dot:'var(--lime)'});
+  else f.push({key:'activity_ok',n:'Regularly active',pts:14,dir:'pos',mod:'Protective',dot:'var(--lime)'});
   // smoking
-  if(smoke===2)f.push({key:'smoking',n:'Rauchen',pts:-18,dir:'neg',mod:'Veränderbar',dot:'var(--orange)'});
-  else if(smoke===1)f.push({key:'smoking',n:'Früheres Rauchen',pts:-5,dir:'neg',mod:'Erledigt – stark!',dot:'var(--orange)'});
+  if(smoke===2)f.push({key:'smoking',n:'Smoking',pts:-18,dir:'neg',mod:'Modifiable',dot:'var(--orange)'});
+  else if(smoke===1)f.push({key:'smoking',n:'Former smoking',pts:-5,dir:'neg',mod:'Done — great!',dot:'var(--orange)'});
   // BMI
-  if(bmi>=30)f.push({key:'bmi',n:'Erhöhter BMI',pts:-10,dir:'neg',mod:'Veränderbar',dot:'var(--orange)'});
-  else if(bmi>=25)f.push({key:'bmi',n:'Leicht erhöhter BMI',pts:-5,dir:'neg',mod:'Veränderbar',dot:'var(--orange)'});
-  else if(bmi>=18.5)f.push({key:'bmi_ok',n:'Gesundes Gewicht',pts:6,dir:'pos',mod:'Schützend',dot:'var(--lime)'});
+  if(bmi>=30)f.push({key:'bmi',n:'Elevated BMI',pts:-10,dir:'neg',mod:'Modifiable',dot:'var(--orange)'});
+  else if(bmi>=25)f.push({key:'bmi',n:'Slightly elevated BMI',pts:-5,dir:'neg',mod:'Modifiable',dot:'var(--orange)'});
+  else if(bmi>=18.5)f.push({key:'bmi_ok',n:'Healthy weight',pts:6,dir:'pos',mod:'Protective',dot:'var(--lime)'});
   // menopause
-  if(meno===0)f.push({key:'cycle',n:'Regelmäßiger Zyklus',pts:6,dir:'pos',mod:'Schützend',dot:'var(--lime)'});
-  else if(meno===1)f.push({key:'peri',n:'Wechseljahre',pts:-6,dir:'neg',mod:'Nicht veränderbar',dot:'var(--orange)'});
-  else if(meno===2)f.push({key:'meno',n:'Postmenopausaler Status',pts:-12,dir:'neg',mod:'Nicht veränderbar',dot:'var(--orange)'});
-  else if(meno===3)f.push({key:'early',n:'Frühe Menopause (vor 45)',pts:-16,dir:'neg',mod:'Nicht veränderbar',dot:'var(--orange)'});
-  else f.push({key:'hrt',n:'Hormonersatztherapie',pts:0,dir:'neu',mod:'Mit Ärztin besprechen',dot:'var(--indigo)'});
+  if(meno===0)f.push({key:'cycle',n:'Regular cycle',pts:6,dir:'pos',mod:'Protective',dot:'var(--lime)'});
+  else if(meno===1)f.push({key:'peri',n:'Menopause transition',pts:-6,dir:'neg',mod:'Not modifiable',dot:'var(--orange)'});
+  else if(meno===2)f.push({key:'meno',n:'Postmenopausal status',pts:-12,dir:'neg',mod:'Not modifiable',dot:'var(--orange)'});
+  else if(meno===3)f.push({key:'early',n:'Early menopause (before 45)',pts:-16,dir:'neg',mod:'Not modifiable',dot:'var(--orange)'});
+  else f.push({key:'hrt',n:'Hormone therapy',pts:0,dir:'neu',mod:'Discuss with your doctor',dot:'var(--indigo)'});
   // pregnancy + female-specific
-  if(pregRisk)f.push({key:'preg',n:'Schwangerschafts-Risikofaktor',pts:-14,dir:'neg',mod:'Nicht veränderbar',dot:'var(--orange)'});
-  if(pcos)f.push({key:'pcos',n:'PCOS',pts:-7,dir:'neg',mod:'Teilweise veränderbar',dot:'var(--orange)'});
-  if(auto)f.push({key:'autoimmun',n:'Autoimmun-Erkrankung',pts:-8,dir:'neg',mod:'Nicht veränderbar',dot:'var(--orange)'});
-  if(cancer)f.push({key:'cancer',n:'Brustkrebs-Therapie',pts:-8,dir:'neg',mod:'Nicht veränderbar',dot:'var(--orange)'});
+  if(pregRisk)f.push({key:'preg',n:'Pregnancy risk factor',pts:-14,dir:'neg',mod:'Not modifiable',dot:'var(--orange)'});
+  if(pcos)f.push({key:'pcos',n:'PCOS',pts:-7,dir:'neg',mod:'Partly modifiable',dot:'var(--orange)'});
+  if(auto)f.push({key:'autoimmun',n:'Autoimmune condition',pts:-8,dir:'neg',mod:'Not modifiable',dot:'var(--orange)'});
+  if(cancer)f.push({key:'cancer',n:'Breast cancer treatment',pts:-8,dir:'neg',mod:'Not modifiable',dot:'var(--orange)'});
   // medical history
-  if(cvd)f.push({key:'cvd',n:'Bekannte Herz-Kreislauf-Erkrankung',pts:-20,dir:'neg',mod:'Ärztlich begleiten',dot:'var(--orange)'});
-  if(bp)f.push({key:'bp',n:'Bluthochdruck',pts:-12,dir:'neg',mod:'Teilweise veränderbar',dot:'var(--orange)'});
-  if(diab)f.push({key:'diab',n:'Diabetes',pts:-12,dir:'neg',mod:'Teilweise veränderbar',dot:'var(--orange)'});
-  if(chol)f.push({key:'chol',n:'Hohes Cholesterin',pts:-8,dir:'neg',mod:'Teilweise veränderbar',dot:'var(--orange)'});
-  if(dep===2)f.push({key:'depression',n:'Seelische Belastung',pts:-8,dir:'neg',mod:'Teilweise veränderbar',dot:'var(--orange)'});
-  else if(dep===1)f.push({key:'depression',n:'Frühere seelische Belastung',pts:-3,dir:'neg',mod:'Teilweise veränderbar',dot:'var(--orange)'});
+  if(cvd)f.push({key:'cvd',n:'Known cardiovascular disease',pts:-20,dir:'neg',mod:'Manage with a doctor',dot:'var(--orange)'});
+  if(bp)f.push({key:'bp',n:'High blood pressure',pts:-12,dir:'neg',mod:'Partly modifiable',dot:'var(--orange)'});
+  if(diab)f.push({key:'diab',n:'Diabetes',pts:-12,dir:'neg',mod:'Partly modifiable',dot:'var(--orange)'});
+  if(chol)f.push({key:'chol',n:'High cholesterol',pts:-8,dir:'neg',mod:'Partly modifiable',dot:'var(--orange)'});
+  if(dep===2)f.push({key:'depression',n:'Emotional strain',pts:-8,dir:'neg',mod:'Partly modifiable',dot:'var(--orange)'});
+  else if(dep===1)f.push({key:'depression',n:'Past emotional strain',pts:-3,dir:'neg',mod:'Partly modifiable',dot:'var(--orange)'});
   // hormonal detail (Figma-aligned)
-  if(oophor)f.push({key:'oophor',n:'Beide Eierstöcke entfernt',pts:-14,dir:'neg',mod:'Nicht veränderbar',dot:'var(--orange)'});
-  if(menarche&&menarche<11)f.push({key:'menarche',n:'Frühe Menarche (vor 11)',pts:-4,dir:'neg',mod:'Nicht veränderbar',dot:'var(--orange)'});
+  if(oophor)f.push({key:'oophor',n:'Both ovaries removed',pts:-14,dir:'neg',mod:'Not modifiable',dot:'var(--orange)'});
+  if(menarche&&menarche<11)f.push({key:'menarche',n:'Early menarche (before 11)',pts:-4,dir:'neg',mod:'Not modifiable',dot:'var(--orange)'});
   // measured lab values (optional)
-  if(bpSys>=140)f.push({key:'bp',n:'Blutdruck erhöht (gemessen)',pts:-10,dir:'neg',mod:'Teilweise veränderbar',dot:'var(--orange)'});
-  else if(bpSys>=130)f.push({key:'bp',n:'Blutdruck grenzwertig (gemessen)',pts:-5,dir:'neg',mod:'Teilweise veränderbar',dot:'var(--orange)'});
-  if(ldl>=160)f.push({key:'chol',n:'LDL stark erhöht (gemessen)',pts:-8,dir:'neg',mod:'Teilweise veränderbar',dot:'var(--orange)'});
-  else if(ldl>=130)f.push({key:'chol',n:'LDL erhöht (gemessen)',pts:-4,dir:'neg',mod:'Teilweise veränderbar',dot:'var(--orange)'});
-  if(hba1c>=6.5)f.push({key:'diab',n:'HbA1c im Diabetes-Bereich',pts:-10,dir:'neg',mod:'Teilweise veränderbar',dot:'var(--orange)'});
-  else if(hba1c>=5.7)f.push({key:'diab',n:'HbA1c grenzwertig',pts:-4,dir:'neg',mod:'Teilweise veränderbar',dot:'var(--orange)'});
+  if(bpSys>=140)f.push({key:'bp',n:'Blood pressure elevated (measured)',pts:-10,dir:'neg',mod:'Partly modifiable',dot:'var(--orange)'});
+  else if(bpSys>=130)f.push({key:'bp',n:'Blood pressure borderline (measured)',pts:-5,dir:'neg',mod:'Partly modifiable',dot:'var(--orange)'});
+  if(ldl>=160)f.push({key:'chol',n:'LDL strongly elevated (measured)',pts:-8,dir:'neg',mod:'Partly modifiable',dot:'var(--orange)'});
+  else if(ldl>=130)f.push({key:'chol',n:'LDL elevated (measured)',pts:-4,dir:'neg',mod:'Partly modifiable',dot:'var(--orange)'});
+  if(hba1c>=6.5)f.push({key:'diab',n:'HbA1c in the diabetes range',pts:-10,dir:'neg',mod:'Partly modifiable',dot:'var(--orange)'});
+  else if(hba1c>=5.7)f.push({key:'diab',n:'HbA1c borderline',pts:-4,dir:'neg',mod:'Partly modifiable',dot:'var(--orange)'});
   const sum=f.reduce((s,x)=>s+x.pts,0);
   S.score=Math.max(30,Math.min(95,base+sum));
-  S.band=S.score>=75?{t:'Guter Ausgangspunkt',c:'good'}:S.score>=55?{t:'Mehrere Ansatzpunkte',c:'warn'}:{t:'Wichtige Ansatzpunkte',c:'warn'};
+  S.band=S.score>=75?{t:'A good starting point',c:'good'}:S.score>=55?{t:'Several areas to work on',c:'warn'}:{t:'Important areas to work on',c:'warn'};
   S.factors=f.sort((x,y)=>Math.abs(y.pts)-Math.abs(x.pts)).slice(0,5);
   S.avg=S.age<50?58:S.age<60?61:57; S.goal=Math.min(95,S.score+12);
-  S.profile=(meno===3?'Frühe Menopause':meno===2?'Postmenopausal':S.age<50?'Vor bzw. in den Wechseljahren':'Um die Lebensmitte')+(pregRisk?', mit einem schwangerschaftsbedingten Risikofaktor.':'.')+' Basis: Frauen.Herz.KI-Forschung, TU München.';
+  S.profile=(meno===3?'Early menopause':meno===2?'Postmenopausal':S.age<50?'Before or during menopause':'Around midlife')+(pregRisk?', with a pregnancy-related risk factor.':'.')+' Based on Women.Heart.AI research, TU Munich.';
   S.seeded=false;
 }
 function setArc(id,v){document.getElementById(id).setAttribute('stroke-dashoffset',540-540*v/100);}
@@ -751,7 +751,7 @@ function renderResult(){
   document.getElementById('st-goal').textContent=S.goal;
   setArc('arc',S.score);document.getElementById('arc').setAttribute('stroke',scoreColor(S.score));
   document.getElementById('profile-line').textContent=S.profile;
-  document.getElementById('safety-note').innerHTML=S.safety?`<div class="callout safety" style="margin:14px 0 0"><span style="font-size:18px">⚠️</span><span><b>Bitte zeitnah ärztlich abklären.</b> Du hast akute Beschwerden angegeben. Diese App ersetzt keinen Arztbesuch.</span></div>`:'';
+  document.getElementById('safety-note').innerHTML=S.safety?`<div class="callout safety" style="margin:14px 0 0"><span style="font-size:18px">⚠️</span><span><b>Please see a doctor soon.</b> You reported acute symptoms. This app does not replace a doctor's visit.</span></div>`:'';
   const maxAbs=Math.max(...S.factors.map(f=>Math.abs(f.pts)),18);
   document.getElementById('factors').innerHTML=S.factors.map((f,i)=>{
     const w=Math.round(Math.abs(f.pts)/maxAbs*50);const cls=f.dir==='pos'?'pos':f.dir==='neg'?'neg':'neu';
@@ -762,43 +762,43 @@ function renderResult(){
 
 /* ---- factor deep-dive ---- */
 const FDETAIL={
-  activity:{status:[['Aktivitätslevel','gering','warn'],['Schritte Ø/Tag','~4.200','warn'],['Ruhepuls','74 bpm','warn']],proj:10,helps:['10 Min Spaziergang täglich','Treppe statt Aufzug','2× Krafttraining pro Woche'],art:2},
-  activity_ok:{status:[['Aktivitätslevel','gut','good'],['Schritte Ø/Tag','~8.900','good'],['Ruhepuls','63 bpm','good']],proj:0,helps:['Dranbleiben – Routine halten','Einheiten leicht variieren'],art:2},
-  meno:{status:[['Status','postmenopausal','warn'],['Östrogen-Schutz','reduziert','warn']],proj:0,fixed:true,helps:['Blutdruck regelmäßig messen','Mit Ärztin über Vorsorge sprechen'],art:3},
-  peri:{status:[['Status','Wechseljahre','warn'],['Symptome','wechselnd','warn']],proj:0,fixed:true,helps:['Schlaf & Stress im Blick behalten','Beschwerden dokumentieren'],art:3},
-  hrt:{status:[['HRT','aktiv','neu']],proj:0,fixed:true,helps:['Nutzen & Risiken mit Ärztin abwägen','Blutdruck beobachten'],art:3},
-  preg:{status:[['Vorgeschichte','relevant','warn'],['Langzeit-Bedeutung','beachten','warn']],proj:0,fixed:true,helps:['Blutdruck & Cholesterin kennen','Vorgeschichte beim Arzt ansprechen'],art:0},
-  cycle:{status:[['Zyklus','regelmäßig','good'],['Östrogen-Schutz','aktiv','good']],proj:0,helps:['Guten Lebensstil beibehalten'],art:6},
-  early:{status:[['Menopause','vor 45','warn'],['Östrogen-Schutz','früh reduziert','warn']],proj:0,fixed:true,helps:['Blutdruck & Cholesterin früh kontrollieren','Mit Ärztin über Vorsorge sprechen'],art:3},
-  oophor:{status:[['Eierstöcke','entfernt','warn'],['Menopause','chirurgisch, früh','warn']],proj:0,fixed:true,helps:['Herz-Kreislauf-Vorsorge früh beginnen','HRT-Optionen mit Ärztin besprechen'],art:3},
-  menarche:{status:[['Erste Periode','sehr früh','warn']],proj:0,fixed:true,helps:['Auf die übrigen, beeinflussbaren Faktoren achten'],art:3},
-  pcos:{status:[['PCOS','festgestellt','warn'],['Stoffwechsel','im Blick behalten','warn']],proj:6,helps:['Auf Gewicht & Bewegung achten','Blutzucker checken lassen'],art:1},
-  autoimmun:{status:[['Autoimmun','aktiv','warn'],['Entzündung','beachten','warn']],proj:0,fixed:true,helps:['Entzündung gut behandeln lassen','Blutdruck & Cholesterin kennen'],art:0},
-  cancer:{status:[['Krebstherapie','Nachsorge wichtig','warn']],proj:0,fixed:true,helps:['Kardiologische Nachsorge wahrnehmen','Vorgeschichte beim Arzt ansprechen'],art:0},
-  smoking:{status:[['Rauchstatus','aktiv','warn'],['Wirkung','stärkster Hebel','warn']],proj:14,helps:['Rauchstopp-Angebot nutzen','Jeder rauchfreie Tag zählt','Nach 1 Jahr sinkt das Risiko deutlich'],art:7},
-  bmi:{status:[['BMI','erhöht','warn'],['Bauchumfang','im Blick behalten','warn']],proj:8,helps:['Bauchumfang unter 88 cm anstreben','2× Krafttraining pro Woche','Ausdauer + langsame Umstellung'],art:1},
-  bmi_ok:{status:[['BMI','gesunder Bereich','good']],proj:0,helps:['Gewicht & Muskeln halten'],art:1},
-  bp:{status:[['Blutdruck','beachten','warn']],proj:6,fixed:false,helps:['Zu Hause regelmäßig messen','Salz reduzieren','Bewegung & Gewicht'],art:0},
-  diab:{status:[['Diabetes','beachten','warn']],proj:0,fixed:true,helps:['Blutzucker gut einstellen','Bewegung & Ernährung'],art:0},
-  chol:{status:[['Cholesterin','beachten','warn']],proj:6,helps:['LDL-Wert kennen','Mediterrane Ernährung','Mit Ärztin besprechen'],art:0},
-  cvd:{status:[['Vorerkrankung','ärztlich begleitet','warn']],proj:0,fixed:true,helps:['Verordnete Therapie einhalten','Regelmäßige Kontrollen','Reha-Angebote nutzen'],art:6},
-  depression:{status:[['Seelische Belastung','beachten','warn']],proj:6,helps:['Behandlung/Unterstützung annehmen','Atemübungen & Bewegung','Soziale Einbindung pflegen'],art:5},
+  activity:{status:[['Activity level','low','warn'],['Steps Ø/day','~4,200','warn'],['Resting HR','74 bpm','warn']],proj:10,helps:['10-min walk daily','Stairs instead of the elevator','2× strength training per week'],art:2},
+  activity_ok:{status:[['Activity level','good','good'],['Steps Ø/day','~8,900','good'],['Resting HR','63 bpm','good']],proj:0,helps:['Keep it up — hold the routine','Vary your sessions a little'],art:2},
+  meno:{status:[['Status','postmenopausal','warn'],['Estrogen protection','reduced','warn']],proj:0,fixed:true,helps:['Measure blood pressure regularly','Talk to your doctor about prevention'],art:3},
+  peri:{status:[['Status','menopause transition','warn'],['Symptoms','fluctuating','warn']],proj:0,fixed:true,helps:['Keep an eye on sleep & stress','Document your symptoms'],art:3},
+  hrt:{status:[['HRT','active','neu']],proj:0,fixed:true,helps:['Weigh benefits & risks with your doctor','Watch your blood pressure'],art:3},
+  preg:{status:[['History','relevant','warn'],['Long-term relevance','note it','warn']],proj:0,fixed:true,helps:['Know your blood pressure & cholesterol','Raise your history with your doctor'],art:0},
+  cycle:{status:[['Cycle','regular','good'],['Estrogen protection','active','good']],proj:0,helps:['Keep up your good lifestyle'],art:6},
+  early:{status:[['Menopause','before 45','warn'],['Estrogen protection','reduced early','warn']],proj:0,fixed:true,helps:['Check blood pressure & cholesterol early','Talk to your doctor about prevention'],art:3},
+  oophor:{status:[['Ovaries','removed','warn'],['Menopause','surgical, early','warn']],proj:0,fixed:true,helps:['Start cardiovascular prevention early','Discuss HRT options with your doctor'],art:3},
+  menarche:{status:[['First period','very early','warn']],proj:0,fixed:true,helps:['Focus on the other, modifiable factors'],art:3},
+  pcos:{status:[['PCOS','diagnosed','warn'],['Metabolism','keep an eye on it','warn']],proj:6,helps:['Mind your weight & movement','Get your blood sugar checked'],art:1},
+  autoimmun:{status:[['Autoimmune','active','warn'],['Inflammation','note it','warn']],proj:0,fixed:true,helps:['Get inflammation well treated','Know your blood pressure & cholesterol'],art:0},
+  cancer:{status:[['Cancer therapy','follow-up matters','warn']],proj:0,fixed:true,helps:['Attend cardiology follow-ups','Raise your history with your doctor'],art:0},
+  smoking:{status:[['Smoking status','active','warn'],['Impact','strongest lever','warn']],proj:14,helps:['Use a stop-smoking program','Every smoke-free day counts','After 1 year the risk drops markedly'],art:7},
+  bmi:{status:[['BMI','elevated','warn'],['Waist','keep an eye on it','warn']],proj:8,helps:['Aim for a waist under 88 cm','2× strength training per week','Endurance + gradual changes'],art:1},
+  bmi_ok:{status:[['BMI','healthy range','good']],proj:0,helps:['Maintain weight & muscle'],art:1},
+  bp:{status:[['Blood pressure','note it','warn']],proj:6,fixed:false,helps:['Measure regularly at home','Cut down on salt','Movement & weight'],art:0},
+  diab:{status:[['Diabetes','note it','warn']],proj:0,fixed:true,helps:['Manage blood sugar well','Movement & nutrition'],art:0},
+  chol:{status:[['Cholesterol','note it','warn']],proj:6,helps:['Know your LDL value','Mediterranean diet','Discuss with your doctor'],art:0},
+  cvd:{status:[['Pre-existing condition','under medical care','warn']],proj:0,fixed:true,helps:['Stick to prescribed therapy','Regular check-ups','Use rehab programs'],art:6},
+  depression:{status:[['Emotional strain','note it','warn']],proj:6,helps:['Accept treatment/support','Breathing exercises & movement','Nurture social connection'],art:5},
 };
 function openFactor(i){
-  const f=S.factors[i],d=FDETAIL[f.key]||{status:[[f.n,f.dir==='pos'?'schützend':'relevant',f.dir==='pos'?'good':'warn']],proj:0,fixed:f.dir!=='pos',helps:['Mit deiner Ärztin besprechen','In deinem Plan berücksichtigen'],art:6};
+  const f=S.factors[i],d=FDETAIL[f.key]||{status:[[f.n,f.dir==='pos'?'protective':'relevant',f.dir==='pos'?'good':'warn']],proj:0,fixed:f.dir!=='pos',helps:['Discuss with your doctor','Include it in your plan'],art:6};
   document.getElementById('fd-title').textContent=f.n;
   const impactColor=f.dir==='pos'?'#1c3d1c':f.dir==='neu'?'var(--navy)':'#3d2318';
-  const sign=f.pts>0?'+'+f.pts+' Punkte':f.pts===0?'neutral':f.pts+' Punkte';
+  const sign=f.pts>0?'+'+f.pts+' points':f.pts===0?'neutral':f.pts+' points';
   let h=`<div class="scorehero" style="text-align:left;background:linear-gradient(160deg,#1a3252,var(--navy-d))">
-    <div class="eyebrow" style="color:#a9b6cc">Einfluss auf deinen Score</div>
+    <div class="eyebrow" style="color:#a9b6cc">Impact on your score</div>
     <div style="font-size:30px;font-weight:800;letter-spacing:-.02em;margin-top:4px">${sign}</div>
-    <div class="small" style="color:#bcc8dc">${f.dir==='neg'?'Senkt deinen Score':f.dir==='pos'?'Hebt deinen Score':'Neutral für den Score'} · ${f.mod}</div></div>`;
-  h+=`<div class="card"><div class="eyebrow" style="margin-bottom:6px">Dein aktueller Status</div>`;
-  h+=d.status.map(s=>`<div class="what"><span>${s[0]}</span><span><b>${s[1]}</b> <span class="pill ${s[2]==='good'?'good':s[2]==='neu'?'ind':'warn'}" style="font-size:10px">${s[2]==='good'?'gut':s[2]==='neu'?'ok':'Achtung'}</span></span></div>`).join('');
+    <div class="small" style="color:#bcc8dc">${f.dir==='neg'?'Lowers your score':f.dir==='pos'?'Raises your score':'Neutral for the score'} · ${f.mod}</div></div>`;
+  h+=`<div class="card"><div class="eyebrow" style="margin-bottom:6px">Your current status</div>`;
+  h+=d.status.map(s=>`<div class="what"><span>${s[0]}</span><span><b>${s[1]}</b> <span class="pill ${s[2]==='good'?'good':s[2]==='neu'?'ind':'warn'}" style="font-size:10px">${s[2]==='good'?'good':s[2]==='neu'?'ok':'Caution'}</span></span></div>`).join('');
   h+=`</div>`;
-  if(!d.fixed&&d.proj>0)h+=`<div class="callout ind"><span>📈</span><span><b>Wenn du hier ansetzt:</b> ${S.score} → ${Math.min(94,S.score+d.proj)}. Modellierte Schätzung auf Basis ähnlicher Profile, kein garantiertes Ergebnis.</span></div>`;
-  else if(d.fixed)h+=`<div class="callout ind"><span>ℹ️</span><span>Dieser Faktor ist nicht veränderbar. Dein Plan setzt deshalb bei den Dingen an, die du beeinflussen kannst.</span></div>`;
-  h+=`<div class="card"><div class="eyebrow" style="margin-bottom:4px">Was hilft</div>`;
+  if(!d.fixed&&d.proj>0)h+=`<div class="callout ind"><span>📈</span><span><b>If you work on this:</b> ${S.score} → ${Math.min(94,S.score+d.proj)}. A modeled estimate based on similar profiles, not a guaranteed result.</span></div>`;
+  else if(d.fixed)h+=`<div class="callout ind"><span>ℹ️</span><span>This factor can't be changed, so your plan focuses on the things you can influence.</span></div>`;
+  h+=`<div class="card"><div class="eyebrow" style="margin-bottom:4px">What helps</div>`;
   h+=d.helps.map(x=>`<div class="what"><span>${x}</span><button class="btn sm ghost" onclick="addToPlan('${x.replace(/'/g,'')}')">+ Plan</button></div>`).join('');
   h+=`</div>`;
   const art=ARTICLES[d.art];
@@ -806,21 +806,21 @@ function openFactor(i){
   document.getElementById('fd-body').innerHTML=h;
   go('s-factor');
 }
-function addToPlan(t){if(!S.tasks.some(x=>x.t===t)){S.tasks.push({t,done:false});toast('Zum Plan hinzugefügt ✓');}else toast('Ist schon im Plan');}
+function addToPlan(t){if(!S.tasks.some(x=>x.t===t)){S.tasks.push({t,done:false});toast('Added to your plan ✓');}else toast('Already in your plan');}
 
 /* ---- focus + plan ---- */
-const FOCI=[{t:'Mehr Bewegung',icon:'activity',c:'#d99a2b'},{t:'Besser schlafen',icon:'moon',c:'#4a5680'},{t:'Blutdruck im Blick',icon:'cardiology',c:'#e0655a'},{t:'Stress senken',icon:'stress',c:'#3f7fd6'}];
-const TASKS={0:['Lass für Wege unter 2 km das Auto stehen','10 Minuten Spaziergang nach dem Mittagessen','Nimm 1× die Treppe statt Aufzug'],
-  1:['Feste Schlafenszeit für 3 Nächte','Bildschirm 30 Min vor dem Schlafen weglegen','Schlafzimmer abdunkeln & lüften'],
-  2:['Blutdruck an 3 Tagen messen','Einen Wert morgens, einen abends','Werte im Verlauf ansehen'],
-  3:['5-Minuten-Atemübung am Morgen','Eine bewusste Pause ohne Handy','Abends 3 gute Dinge notieren']};
-const TASKS_NEXT={0:['20 Minuten zügig spazieren gehen','Einen Weg pro Tag komplett zu Fuß','2× diese Woche Treppen statt Aufzug'],
-  1:['Feste Schlafenszeit die ganze Woche','Kein Koffein nach 14 Uhr','10 Min Abendroutine ohne Bildschirm'],
-  2:['Blutdruck an 5 Tagen messen','Wochendurchschnitt ansehen','Werte für die Ärztin notieren'],
-  3:['Tägliche 5-Minuten-Atemübung','Einen Termin pro Woche nur für dich','Jeden Abend 3 gute Dinge notieren']};
+const FOCI=[{t:'More movement',icon:'activity',c:'#d99a2b'},{t:'Sleep better',icon:'moon',c:'#4a5680'},{t:'Blood pressure in check',icon:'cardiology',c:'#e0655a'},{t:'Reduce stress',icon:'stress',c:'#3f7fd6'}];
+const TASKS={0:['Leave the car for trips under 2 km','10-minute walk after lunch','Take the stairs once instead of the elevator'],
+  1:['Fixed bedtime for 3 nights','Put screens away 30 min before bed','Darken & air out the bedroom'],
+  2:['Measure blood pressure on 3 days','One reading in the morning, one in the evening','Review your readings over time'],
+  3:['5-minute breathing exercise in the morning','One mindful break without your phone','Note 3 good things each evening']};
+const TASKS_NEXT={0:['Take a brisk 20-minute walk','One trip a day entirely on foot','Stairs instead of elevator 2× this week'],
+  1:['Fixed bedtime all week','No caffeine after 2 pm','10-min evening routine without screens'],
+  2:['Measure blood pressure on 5 days','Look at your weekly average','Note your readings for the doctor'],
+  3:['Daily 5-minute breathing exercise','One appointment a week just for you','Note 3 good things every evening']};
 function renderFocus(){document.getElementById('focus').innerHTML=FOCI.map((x,i)=>`<button class="opt ${S.focus===i?'sel':''}" onclick="pickFocus(${i},this)"><span class="dot"></span><span class="mask" style="width:22px;height:22px;flex:0 0 auto;background:${x.c};-webkit-mask-image:url(${ICONS[x.icon]});mask-image:url(${ICONS[x.icon]})"></span><span>${x.t}</span></button>`).join('');}
 function pickFocus(i,el){S.focus=i;el.parentNode.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));el.classList.add('sel');}
-function buildPlan(){if(S.focus===null){toast('Bitte wähle einen Fokus');return;}
+function buildPlan(){if(S.focus===null){toast('Please choose a focus');return;}
   S.planTitle=FOCI[S.focus].t;S.week=1;S.tasks=TASKS[S.focus].map(t=>({t,done:false}));
   saveMode(S.anon!==false);go('s-save');}
 function saveMode(anon){S.anon=anon;
@@ -834,42 +834,42 @@ function proceedSave(){
   S.consentApp=document.getElementById('c-app').classList.contains('on');
   S.consentResearch=document.getElementById('c-res').classList.contains('on');
   renderHome();nav('home');
-  toast(S.anon?'Anonym gespeichert ✓':'Profil gespeichert ✓');}
+  toast(S.anon?'Saved anonymously ✓':'Profile saved ✓');}
 function renderHome(){
-  document.getElementById('home-hi').textContent='Hallo'+(S.name?' '+S.name:'');
+  document.getElementById('home-hi').textContent='Hello'+(S.name?' '+S.name:'');
   document.getElementById('home-score').textContent=S.score||73;
-  document.getElementById('home-band').textContent=(S.band&&S.band.t)||'Guter Ausgangspunkt';
+  document.getElementById('home-band').textContent=(S.band&&S.band.t)||'A good starting point';
   setArc('home-arc',S.score||73);document.getElementById('home-arc').setAttribute('stroke',scoreColor(S.score||73));
   document.getElementById('home-week').textContent=S.week;
   document.getElementById('home-focus').textContent=S.planTitle;
   {const fx=FOCI[S.focus]||FOCI[0];document.getElementById('home-focus-ic').innerHTML=`<span class="mask" style="width:22px;height:22px;background:${fx.c};-webkit-mask-image:url(${ICONS[fx.icon]});mask-image:url(${ICONS[fx.icon]})"></span>`;}
   if(!S.tasks.length)S.tasks=TASKS[0].map(t=>({t,done:false}));
   const done=S.tasks.filter(t=>t.done).length;
-  document.getElementById('home-tasks').innerHTML=S.tasks.map((t,i)=>`<div class="task ${t.done?'done':''}" onclick="toggleTask(${i})"><div class="check">✓</div><div><h4>${t.t}</h4><p>${t.done?'Erledigt ✓':'Tippen, wenn geschafft'}</p></div></div>`).join('')
-    +(done===S.tasks.length&&S.week<8?`<button class="btn lime block" onclick="nextWeek()">Woche ${S.week} abschließen →</button>`:'');
+  document.getElementById('home-tasks').innerHTML=S.tasks.map((t,i)=>`<div class="task ${t.done?'done':''}" onclick="toggleTask(${i})"><div class="check">✓</div><div><h4>${t.t}</h4><p>${t.done?'Done ✓':'Tap when done'}</p></div></div>`).join('')
+    +(done===S.tasks.length&&S.week<8?`<button class="btn lime block" onclick="nextWeek()">Finish week ${S.week} →</button>`:'');
   document.getElementById('home-planprog').textContent=`${done}/${S.tasks.length}`;
   document.getElementById('home-recs').innerHTML=recFor(2).map(cardHTML).join('');
   document.getElementById('simple-tog').classList.toggle('on',S.simple);
   document.getElementById('s-home').classList.toggle('simple',S.simple);
 }
-function toggleTask(i){S.tasks[i].done=!S.tasks[i].done;renderHome();if(S.tasks.every(t=>t.done))setTimeout(()=>toast('Stark! Woche geschafft 🎉'),250);}
-function nextWeek(){S.week++;S.tasks=TASKS_NEXT[S.focus??0].map(t=>({t,done:false}));renderHome();toast(`Woche ${S.week} gestartet – wir steigern sanft 💪`);}
-function toggleSimple(){S.simple=!S.simple;renderHome();toast(S.simple?'Einfacher Modus an':'Einfacher Modus aus');}
+function toggleTask(i){S.tasks[i].done=!S.tasks[i].done;renderHome();if(S.tasks.every(t=>t.done))setTimeout(()=>toast('Great! Week complete 🎉'),250);}
+function nextWeek(){S.week++;S.tasks=TASKS_NEXT[S.focus??0].map(t=>({t,done:false}));renderHome();toast(`Week ${S.week} started — we'll ramp up gently 💪`);}
+function toggleSimple(){S.simple=!S.simple;renderHome();toast(S.simple?'Simple mode on':'Simple mode off');}
 
 /* ---- articles ---- */
 const ARTICLES=[
-  {cat:'grundlagen',catLabel:'Grundlagen',icon:'🫀',title:'Dein Herz & seine Risikofaktoren',sub:'Was Frauen wirklich wissen sollten',read:'5 Min',body:'Herzerkrankungen sind die häufigste Todesursache bei Frauen – und werden trotzdem oft als Männerproblem abgetan. Die meisten Faktoren sind bekannt, messbar und vor allem beeinflussbar: Blutdruck, Blutfette, Diabetes, Rauchen und Bauchfett – dazu frauenspezifische Faktoren wie Schwangerschaftskomplikationen, Autoimmunerkrankungen und die Menopause.',todo:['Blutdruck, Nüchternglukose und Lipidwerte kennen – alle 2 Jahre checken lassen','30 Min moderate Bewegung an 5 Tagen pro Woche','Bauchumfang unter 88 cm im Blick behalten','Rauchfrei werden – der stärkste einzelne Hebel']},
-  {cat:'grundlagen',catLabel:'Grundlagen',icon:'⚖️',title:'BMI & Herzgesundheit',sub:'Was der BMI sagt – und was nicht',read:'4 Min',body:'Der BMI ist ein schneller Ausgangspunkt, aber kein vollständiges Bild – er unterscheidet nicht zwischen Fett und Muskeln. Entscheidender fürs Herz ist das Bauchfett: viszerales Fett fördert Entzündung, Insulinresistenz und Bluthochdruck. Der BMI ist ein Orientierungswert, kein Diagnosewert.',todo:['Bauchumfang messen – Ziel für Frauen: unter 88 cm','Waist-to-Height-Ratio unter 0,5 anstreben','2× pro Woche Krafttraining – Muskeln schützen','7–9 Stunden Schlaf als Teil der Vorsorge']},
-  {cat:'bewegung',catLabel:'Bewegung',icon:'🏃‍♀️',title:'Bewegung & Herzgesundheit',sub:'Warum das Gym mehr ist als Ästhetik',read:'4 Min',body:'Regelmäßige Bewegung ist einer der wirksamsten nicht-medikamentösen Hebel für die Herzgesundheit: Sie senkt den Blutdruck, verbessert die Blutfette und stärkt den Herzmuskel. Schon 150 Minuten moderate Bewegung pro Woche machen einen messbaren Unterschied – kein Marathon nötig.',todo:['150 Min moderate Ausdauer pro Woche (z. B. zügiges Gehen)','2× pro Woche Krafttraining für die großen Muskelgruppen','Täglich 5–10 Min Mobilität oder Atmung','Langes Sitzen alle 45–60 Min unterbrechen']},
-  {cat:'menopause',catLabel:'Menopause',icon:'🌸',title:'Menopause & Herzgesundheit',sub:'Warum sich vieles fundamental verändert',read:'5 Min',body:'Bis zur Menopause sind Frauen durch Östrogen relativ geschützt – es wirkt gefäßerweiternd und senkt LDL. Mit dem Östrogenabfall fällt dieser Schutz weg: LDL und Blutdruck steigen, Bauchfett und Insulinresistenz nehmen zu. Eine mögliche Hormonersatztherapie ist immer individuell mit der Frauenärztin abzuwägen.',todo:['Blutdruck als neue Routine etablieren','Lipidwerte (LDL/HDL) kennen und beobachten','Auf Bauchumfang und Bewegung achten','HRT-Fragen mit der Gynäkologin besprechen – nicht selbst entscheiden']},
-  {cat:'schlaf',catLabel:'Schlaf',icon:'🌙',title:'Schlaf & Herzgesundheit',sub:'Der unterschätzte Faktor',read:'4 Min',body:'Schlaf ist keine passive Pause: Im Tiefschlaf sinkt der Blutdruck, das Herz erholt sich, Stresshormone werden abgebaut. Wer dauerhaft unter 6 Stunden schläft, greift diesen Reparaturmechanismus an. Schlafapnoe zeigt sich bei Frauen oft atypisch – Erschöpfung statt lautem Schnarchen.',todo:['7–9 Stunden anpeilen – feste Schlaf- und Aufwachzeit','Schlafzimmer kühl (16–18 °C) und dunkel','Koffein nach 14 Uhr meiden','Bei anhaltender Erschöpfung ärztlich abklären lassen']},
-  {cat:'stress',catLabel:'Stress',icon:'🧘‍♀️',title:'Stress & das Herz',sub:'Chronischer Stress hinterlässt Spuren',read:'5 Min',body:'Kurzer Stress ist sinnvoll – chronischer Stress hält den Körper dauerhaft in Alarmbereitschaft: Cortisol, Blutdruck und Entzündungswerte bleiben erhöht. Frauen internalisieren Stress oft stärker. Auch das „gebrochene Herz“ (Takotsubo) betrifft zu rund 90 % Frauen, besonders nach der Menopause.',todo:['Täglich 10 Min Atemübung oder Meditation','Bewegung bewusst als Stressabbau nutzen','Soziale Einbindung pflegen','Auf regelmäßigen Schlaf achten']},
-  {cat:'praevention',catLabel:'Prävention',icon:'🛡️',title:'Herzprävention – der Gesamtüberblick',sub:'Was du tun kannst, bevor etwas passiert',read:'5 Min',body:'Prävention heißt nicht Verzicht, sondern die wirksamen Hebel kennen und konsequent nutzen. Herzerkrankungen bei Frauen sind zu über 80 % durch Lebensstil beeinflussbar – die größte Wirkung entfaltet nicht das Medikament, sondern das, was täglich getan (oder gelassen) wird.',todo:['Regelmäßige Check-ups ab 40 (Blutdruck, Lipide, Glukose, Bauchumfang)','150 Min Bewegung pro Woche – Ausdauer + Kraft','Mediterrane Ernährung: Olivenöl, Hülsenfrüchte, Fisch, Gemüse','Nicht rauchen · 7–9 h Schlaf · Stress managen']},
-  {cat:'praevention',catLabel:'Prävention',icon:'✅',title:'10 Dinge, die du sofort tun kannst',sub:'Keine Theorie – nur, was heute wirkt',read:'4 Min',body:'Kein perfekter Plan nötig – nur der erste Schritt. Diese kleinen, konkreten Dinge kannst du heute noch anfangen. Jedes wirkt für sich; zusammen verschieben sie dein Herz-Profil spürbar.',todo:['Rauchstopp – heute, nicht morgen','Bauchumfang messen (Ziel: unter 88 cm)','Blutdruck messen (lassen) – Orientierung: unter 130/80','Heute 30 Minuten bewegen','Feste Schlafzeit festlegen (7–9 h)']},
-  {cat:'schwangerschaft',catLabel:'Schwangerschaft',icon:'🤰',title:'Präeklampsie & dein Herzrisiko',sub:'Was eine Schwangerschaftskomplikation verrät',read:'5 Min',body:'Präeklampsie – Bluthochdruck ab der 20. Schwangerschaftswoche – betrifft 2–8 % aller Schwangerschaften. Was als geburtshilfliche Ausnahmesituation beginnt, kann langfristige Spuren an den Gefäßen hinterlassen: In großen Auswertungen ist das spätere Risiko für Herz-Kreislauf-Themen und Bluthochdruck deutlich erhöht – oft noch Jahrzehnte später. Der Grund liegt in einer anhaltenden Gefäß- und Blutdruckveränderung, die nach der Geburt bestehen bleiben kann. Die gute Nachricht: Wer davon weiß, kann früh und gezielt gegensteuern.',todo:['Blutdruck in den ersten Wochen nach der Geburt engmaschig im Blick behalten','Nach ~3 Monaten Lipidwerte und Nüchternglukose bestimmen lassen','Eine frühere Präeklampsie beim Arztgespräch immer aktiv erwähnen','An regelmäßige Herz-Check-ups denken – eher früher als später','Bewegung, Gewicht und Salzzufuhr bewusst zur Blutdrucksenkung nutzen']},
-  {cat:'schwangerschaft',catLabel:'Schwangerschaft',icon:'🤰',title:'Gestationsdiabetes & dein Herz',sub:'Mehr als ein vorübergehender Blutzuckerwert',read:'4 Min',body:'Schwangerschaftsdiabetes (GDM) betrifft 3–15 % aller Schwangerschaften. Er gilt lange als rein geburtshilfliches Thema – dabei zählt er zu den aussagekräftigsten Hinweisen auf ein späteres erhöhtes Herz-Kreislauf-Risiko. Das Risiko verschwindet nicht mit der Entbindung: Ein erhöhter Blutzucker in der Schwangerschaft geht häufig mit ungünstigen Blutfetten und Gefäßveränderungen einher, die danach bestehen bleiben können. GDM ist damit weniger ein Zufallsbefund als ein frühes Warnsignal – und ein guter Anlass für strukturierte Nachsorge.',todo:['6–12 Wochen nach der Geburt einen Zuckerbelastungstest machen lassen','Nüchternblutzucker und HbA1c jährlich kontrollieren','Stillen unterstützt einen stabileren Zuckerstoffwechsel','150 Min Ausdauerbewegung pro Woche verbessert die Insulinsensitivität','Auf eine mediterrane, ballaststoffreiche Ernährung setzen']},
+  {cat:'grundlagen',catLabel:'Basics',icon:'🫀',title:'Your heart & its risk factors',sub:'What women really should know',read:'5 Min',body:'Heart disease is the leading cause of death in women — and yet it is still often dismissed as a men\'s problem. Most factors are known, measurable and, above all, changeable: blood pressure, blood lipids, diabetes, smoking and abdominal fat — plus female-specific factors such as pregnancy complications, autoimmune conditions and menopause.',todo:['Know your blood pressure, fasting glucose and lipid values — get checked every 2 years','30 min of moderate movement on 5 days a week','Keep your waist under 88 cm','Become smoke-free — the single strongest lever']},
+  {cat:'grundlagen',catLabel:'Basics',icon:'⚖️',title:'BMI & heart health',sub:'What BMI tells you — and what it doesn\'t',read:'4 Min',body:'BMI is a quick starting point but not a complete picture — it doesn\'t distinguish between fat and muscle. What matters more for the heart is abdominal fat: visceral fat drives inflammation, insulin resistance and high blood pressure. BMI is a rough guide, not a diagnostic value.',todo:['Measure your waist — target for women: under 88 cm','Aim for a waist-to-height ratio under 0.5','Strength training 2× a week — muscle protects','7–9 hours of sleep as part of prevention']},
+  {cat:'bewegung',catLabel:'Movement',icon:'🏃‍♀️',title:'Movement & heart health',sub:'Why the gym is more than aesthetics',read:'4 Min',body:'Regular movement is one of the most effective non-drug levers for heart health: it lowers blood pressure, improves blood lipids and strengthens the heart muscle. Even 150 minutes of moderate movement a week makes a measurable difference — no marathon required.',todo:['150 min of moderate endurance per week (e.g. brisk walking)','Strength training 2× a week for the large muscle groups','5–10 min of mobility or breathing daily','Break up long sitting every 45–60 min']},
+  {cat:'menopause',catLabel:'Menopause',icon:'🌸',title:'Menopause & heart health',sub:'Why so much changes fundamentally',read:'5 Min',body:'Until menopause, women are relatively protected by estrogen — it dilates vessels and lowers LDL. As estrogen drops, that protection fades: LDL and blood pressure rise, abdominal fat and insulin resistance increase. Any hormone replacement therapy should always be weighed individually with your gynecologist.',todo:['Make blood pressure a new routine','Know and watch your lipid values (LDL/HDL)','Mind your waist and movement','Discuss HRT questions with your gynecologist — don\'t decide alone']},
+  {cat:'schlaf',catLabel:'Sleep',icon:'🌙',title:'Sleep & heart health',sub:'The underrated factor',read:'4 Min',body:'Sleep is not a passive break: in deep sleep, blood pressure drops, the heart recovers and stress hormones are cleared. Consistently sleeping under 6 hours undermines this repair mechanism. In women, sleep apnea often looks atypical — exhaustion rather than loud snoring.',todo:['Aim for 7–9 hours — fixed sleep and wake times','Keep the bedroom cool (16–18 °C) and dark','Avoid caffeine after 2 pm','Get persistent exhaustion checked by a doctor']},
+  {cat:'stress',catLabel:'Stress',icon:'🧘‍♀️',title:'Stress & the heart',sub:'Chronic stress leaves its mark',read:'5 Min',body:'Short-term stress is useful — chronic stress keeps the body on constant alert: cortisol, blood pressure and inflammation stay elevated. Women often internalize stress more. The "broken heart" (Takotsubo) also affects women in about 90% of cases, especially after menopause.',todo:['10 min of breathing or meditation daily','Use movement deliberately to relieve stress','Nurture social connection','Keep a regular sleep schedule']},
+  {cat:'praevention',catLabel:'Prevention',icon:'🛡️',title:'Heart prevention — the big picture',sub:'What you can do before anything happens',read:'5 Min',body:'Prevention isn\'t about doing without — it\'s about knowing the effective levers and using them consistently. In women, heart disease is over 80% influenceable through lifestyle — the biggest impact comes not from medication but from what is done (or not done) every day.',todo:['Regular check-ups from age 40 (blood pressure, lipids, glucose, waist)','150 min of movement a week — endurance + strength','Mediterranean diet: olive oil, legumes, fish, vegetables','Don\'t smoke · 7–9 h sleep · manage stress']},
+  {cat:'praevention',catLabel:'Prevention',icon:'✅',title:'10 things you can do right now',sub:'No theory — just what works today',read:'4 Min',body:'No perfect plan needed — just the first step. You can start these small, concrete things today. Each one helps on its own; together they shift your heart profile noticeably.',todo:['Quit smoking — today, not tomorrow','Measure your waist (target: under 88 cm)','Get your blood pressure measured — guide: under 130/80','Move for 30 minutes today','Set a fixed sleep time (7–9 h)']},
+  {cat:'schwangerschaft',catLabel:'Pregnancy',icon:'🤰',title:'Preeclampsia & your heart risk',sub:'What a pregnancy complication reveals',read:'5 Min',body:'Preeclampsia — high blood pressure from the 20th week of pregnancy — affects 2–8% of all pregnancies. What begins as an obstetric emergency can leave long-term marks on the blood vessels: in large analyses the later risk for cardiovascular issues and high blood pressure is markedly elevated — often decades later. The reason is a lasting change in vessels and blood pressure that can persist after delivery. The good news: if you know about it, you can take targeted action early.',todo:['Watch your blood pressure closely in the first weeks after birth','Have lipids and fasting glucose measured after ~3 months','Always mention a past preeclampsia when talking to your doctor','Think about regular heart check-ups — sooner rather than later','Use movement, weight and salt intake deliberately to lower blood pressure']},
+  {cat:'schwangerschaft',catLabel:'Pregnancy',icon:'🤰',title:'Gestational diabetes & your heart',sub:'More than a temporary blood sugar reading',read:'4 Min',body:'Gestational diabetes (GDM) affects 3–15% of all pregnancies. It is long seen as a purely obstetric matter — yet it is one of the most telling signs of later elevated cardiovascular risk. The risk doesn\'t disappear with delivery: elevated blood sugar in pregnancy often goes along with unfavorable blood lipids and vascular changes that can persist afterward. GDM is therefore less a chance finding than an early warning sign — and a good reason for structured follow-up.',todo:['Have a glucose tolerance test 6–12 weeks after birth','Check fasting glucose and HbA1c annually','Breastfeeding supports a more stable sugar metabolism','150 min of endurance movement a week improves insulin sensitivity','Favor a Mediterranean, fiber-rich diet']},
 ];
-const CATS=[{k:'all',l:'Alle',ic:'▦'},{k:'grundlagen',l:'Grundlagen',ic:'🫀'},{k:'schwangerschaft',l:'Schwanger­schaft',ic:'🤰'},{k:'bewegung',l:'Bewegung',ic:'🏃‍♀️'},{k:'menopause',l:'Menopause',ic:'🌸'},{k:'schlaf',l:'Schlaf',ic:'🌙'},{k:'stress',l:'Stress',ic:'🧘‍♀️'},{k:'praevention',l:'Prävention',ic:'🛡️'}];
+const CATS=[{k:'all',l:'All',ic:'▦'},{k:'grundlagen',l:'Basics',ic:'🫀'},{k:'schwangerschaft',l:'Pregnancy',ic:'🤰'},{k:'bewegung',l:'Movement',ic:'🏃‍♀️'},{k:'menopause',l:'Menopause',ic:'🌸'},{k:'schlaf',l:'Sleep',ic:'🌙'},{k:'stress',l:'Stress',ic:'🧘‍♀️'},{k:'praevention',l:'Prevention',ic:'🛡️'}];
 let catFilter='all';
 const ICONS={pregnancy:"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2048%2048%22%3E%3Ccircle%20cx%3D%2221%22%20cy%3D%229.5%22%20r%3D%225.5%22%2F%3E%3Cpath%20d%3D%22M18.5%2016.5c-3.2%201-5.2%204-5.2%209.2%200%203.6%201%206%201%208.8l-1%207.4c0%201.8%203.1%201.8%203.2%200l.4-7.3c5.2%201.2%2010.4-2%2011.4-8.2%201-5.4-2.3-9.4-6.6-10.4%202-1.1%201-3.4-1.2-3.4-1%200-2%20.5-2.6%201z%22%2F%3E%3C%2Fsvg%3E",cardiology:"data:image/png;base64,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",heart:"data:image/png;base64,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",activity:"data:image/png;base64,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",cycle:"data:image/png;base64,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",moon:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD6ElEQVR4nO2YWYgcZRCA/6xEETUq3gdREUSSkCCzXTUzLI5d1ZOMFwg6avRBRYhG3ex21ay7IDoEBPFEQdEHrzclvgj65IPmIS/xJBCJt+iKwSgeeGuMUkl3z59hszubmc20MB/0w/AfU/X/f53ODRgwYEA7Act5WBk72/2fQGqsBJaHkPRDZP0XSP8orZbzXd4ZruoKZHkJWfeY4P5XYrnA5ZhFSDoJpLvbBd/7kTzv8grShlOQ9XVP4L+Q9Slk/Xaf8Pr1qsrYcS6PFCpyIrJuT4UHlnfsrQeRsHf6d7k8UogmjzWBWycvT9dqo0fYWHIDJvyfI7XRk1weAdIXvWfzuNlBNsb6+b4b0a0uj0Aoa70n8qov/MjI1PHZkyJ5zOWNcnniGCT5LhH+CxPYHx9mDVIFAtJbXd5AUvVOuN4+XuRGlI2HstbliUJh3WIk/dJ739nTSUGSaqZApJe6PIGecEhy44xzLlLM5oTxJS5PIOv9ifC/rqzqUTPNMbeZKRDJepcngPTdJDnbPNs8ZJlOAtuzLk8A62+JAvfNNs9ynyS4Tbtmc8jlAaiNLun0aSDpxS1P1Fjt8kA5bJzbMmC9dra59Xr9sDRHApI3XG4qK87ynmvmml8kvTydX4z0atdvCmvGT2sFsPiWTtbY6SfG/D1U9RzXV5rNodSIkfXBTpaUo4nTgfWrRIlP7LfrJ8j6didu1CeIxodbist0kWJw/QJJHkmLdPNKna4LQr0QSHclN/E3kD4c8NQJna6H2ugSIL0HWD9GkgcOWgEIlVp2oDfPZ621VoBlm1e9/Q4sLwSsN1gVVyisW+zPL1J8BpBcAazPIelPXu3xQ1d2YCl04h4/av/TuVhWbx6OJGNZvbx/4f+PGTuy7LQbnrE5kFR+3Ubj2Eunbz/YchQjmUKW9w8sqKaK/WKlafJ7TxCOL+9KAUvislyHdJdddTf7FaLJpRYnkOVuYH0USJ5Alo12OKVQygHLZV6faZPrBcjxld4JvVksxke6BaAQTS61J5XGkqDSOLVnmyPpM95Vb5qvPcxFqaonI8sHWTRnub6X+zs7dSDZ4nmlzdYn6sXeQLoMST/1DHejWwisoLfS0ntOn3WVfTabQ0B6B7D+3NayWTgqlduORpKXfc8BrK9Zd6LTPSx7BdKrkOQ970Z3AzXG3SFiEbJuaDs5M7xtwHpvEMmaUqhnpcZuvVJzh0HUuA5ZngSSb/ZbR7oDKA7doQYqd55pgcbz2/P8ZCewTljAc/3EYoO125H0rQO23Ft28yOSvmKxoNeerCdY1LVkDkO9yU53r2KRrLdYAmG8Kjc184ABAwYM+A+442il/YkowQAAAABJRU5ErkJggg==",stress:"data:image/png;base64,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",brain:"data:image/png;base64,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",nutrition:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEm0lEQVR4nO1ZWYgcVRR9RjSuuMUFF0QU8UMJ6I8OKuKHoEbcovkUjORDCDouZKbubSsBQfPhhxHBYSJxut7thvpwz2icqXt7shgcVETRD1EkP26YjMYxLqNpuVWvepom3V090z1TA3OgPvr1u6/eecu9594yZhnLyC+IUYjh82KEq1v1831/ha14t1uGYRL4zAr+SAx/WsY9Jg8gwQkSrJLAHxThHcfqYwXXWMFvkn4ND+MhkweEoX+iFXi5RqZSuKH+fxLYnE46IQObg0rhJmJ4whHZb/IEy+g7Mj+R+Ku0LRDv8YQA/G0F+8PwgePT/iQw5MhtMXlCtWqOswxvxJNjGLYVvMYyzOgTVLx76/sWdz15qhU4qH2Dce9akzeUJ+ASK/gXMf5DDJNuxV9o7JfuFAl+YvIKy1iavRNwcPvep0+v/78o/hWW4fd4Nxp2qucgGbyKGDcRA1uGr0lwWl0nMX6vq2oFXylF+GD4Yf/JlmFdjQjD8GwbvJrsEvxW9/93xPAOCRaKE3BZbwkIvnlMt9nElSqp2Ynie8Qwlc0W/rMCO8sRXN5VEpZhfXzWkxdNW4ERG+F95bGBK/Wyjo5uXBnuHjy3HEGfnnkNbC0mOkGMj6lrVhu11TF0LGLvfmIsxruckD9CXNjQFRLECHXnfKT0gX9hFrs4Pgh82xA3bsxi+9q4d5FlCByZo1bgqXmRsOzdrQPpVusqdmpPewbOiu8Cw+QO8c/s+P2C/fG7k8W4x8wFofgX6Dl3gW3ALBLInQjL+HNxl39e5wMIbnUkxlXkmUWC7/srYjGa7MrWjozDsU1nEOPh2L+Ld71ZZJQj6HPebKoxFrWEeiR3QfeZnIAY9ycLi2szG9UULCOYnIAYnnGB86VOjGJtlNVdLgRsBDe74zWZ2YgEDqiRCj+TE9gILnWLeyCzUZwUCVZVG5mcYOht/5Q02mc2ikWgYHWH+CeZnGB0dOPKNDFL29oqZsvwgxqVxgfPNzkBib8qTQfSNiv4q+q1pkaW4Ss1Ksrg1SYnKEa42nnSL9K2tukxMb7uXN06kxMEgmvdZX8rbXNz/LRt8cAKPGtyAsv4XKPuczt0uLmR4BpntNfkBFZwXxwSIujT3ypV0hShqVFc2WA8YgX/Dd/3zzY5uOiWYUbDgtbOtK0Uwa1ticTGSf5cDSJ8eKEm3HQugo+ojNd8Pm2zgu9mIhIwPOS8wkcmZ7ACWJ8+t+yswTCpFOqFKlxnFhmh+KfpcartxGzm2JqIQn208147s17GBXkYpkrs3ZmZiEbNtIQTCNzSqu8CkvBGxgbOqX9nWyJxZy3dJAZfthKRzQbtZTt1QmTo4w0nKAmnPLctWSKpzonjCuNRLYeapUqkVm10MjqI4DazVIkoSPDFVN80kmk2aFw+ZdidKyLV+AMObkvuC8wQFx6d66DzJb7daa2OMsZGMiTwfFxKrRu4UyLNJpy1f8lprZYyPguo4t1Fgr/Me5vnCOsifFe+OwbiX7wYRGyqtRgPdT0d7zWRsEFraYqhFdGuv2jBJIokWqsnJBRtvlJ145l23yi3tKycLGMZpif4H79ZEWLJCHllAAAAAElFTkSuQmCC"};
 /* ---- flat-vector article illustrations (one per article, Figma-editorial style) ---- */
@@ -882,7 +882,7 @@ const ILLUS=[
   /*3 Menopause*/ SV(`<rect width="320" height="200" fill="#f8dbe6"/><g transform="translate(132,108)" fill="#f3a9c2"><ellipse cx="0" cy="-32" rx="15" ry="29"/><ellipse cx="0" cy="-32" rx="15" ry="29" transform="rotate(60)"/><ellipse cx="0" cy="-32" rx="15" ry="29" transform="rotate(120)"/><ellipse cx="0" cy="-32" rx="15" ry="29" transform="rotate(180)"/><ellipse cx="0" cy="-32" rx="15" ry="29" transform="rotate(240)"/><ellipse cx="0" cy="-32" rx="15" ry="29" transform="rotate(300)"/></g><circle cx="132" cy="108" r="19" fill="#f0aa3c"/><g transform="translate(212,38) scale(.55)"><path d="${HP}" fill="#e0655a"/></g>`),
   /*4 Schlaf*/ SV(`<rect width="320" height="200" fill="#2d3e5f"/><circle cx="138" cy="106" r="52" fill="#f4d64f"/><circle cx="162" cy="92" r="47" fill="#2d3e5f"/><circle cx="232" cy="62" r="4.5" fill="#ffffff"/><circle cx="258" cy="98" r="5.5" fill="#ffffff"/><circle cx="240" cy="128" r="3.5" fill="#ffffff"/><text x="206" y="58" fill="#f4d64f" font-family="Plus Jakarta Sans,sans-serif" font-size="24" font-weight="800">z</text><text x="226" y="42" fill="#f4d64f" font-family="Plus Jakarta Sans,sans-serif" font-size="16" font-weight="800">z</text>`),
   /*5 Stress*/ SV(`<rect width="320" height="200" fill="#f4ecdb"/><g transform="translate(150,46)"><path d="${HP}" fill="#9ca3dc"/></g><path d="M118 96 q-18 22 0 44" fill="none" stroke="#e0655a" stroke-width="5" stroke-linecap="round"/><path d="M102 86 q-27 34 0 66" fill="none" stroke="#e0655a" stroke-width="5" stroke-linecap="round" opacity=".5"/><path d="M270 96 q18 22 0 44" fill="none" stroke="#e0655a" stroke-width="5" stroke-linecap="round"/><path d="M286 86 q27 34 0 66" fill="none" stroke="#e0655a" stroke-width="5" stroke-linecap="round" opacity=".5"/>`),
-  /*6 Prävention*/ SV(`<rect width="320" height="200" fill="#d7ebdd"/><path d="M160 42 l62 22 v42 q0 58 -62 86 q-62 -28 -62 -86 v-42Z" fill="#5aa46b"/><path d="M160 58 l46 17 v33 q0 45 -46 67 q-46 -22 -46 -67 v-33Z" fill="#6fb87f"/><path d="M133 112 l20 21 44 -50" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>`),
+  /*6 Prevention*/ SV(`<rect width="320" height="200" fill="#d7ebdd"/><path d="M160 42 l62 22 v42 q0 58 -62 86 q-62 -28 -62 -86 v-42Z" fill="#5aa46b"/><path d="M160 58 l46 17 v33 q0 45 -46 67 q-46 -22 -46 -67 v-33Z" fill="#6fb87f"/><path d="M133 112 l20 21 44 -50" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>`),
   /*7 10 Dinge*/ SV(`<rect width="320" height="200" fill="#f4ecdb"/><rect x="92" y="38" width="136" height="128" rx="14" fill="#ffffff" stroke="#2d3e5f" stroke-width="4"/><rect x="140" y="28" width="40" height="18" rx="6" fill="#e0655a"/><g><circle cx="118" cy="74" r="9" fill="#5aa46b"/><path d="M113 74 l4 4 7 -8" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="134" y="69" width="78" height="9" rx="4" fill="#dfe3ea"/></g><g><circle cx="118" cy="104" r="9" fill="#5aa46b"/><path d="M113 104 l4 4 7 -8" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="134" y="99" width="78" height="9" rx="4" fill="#dfe3ea"/></g><g><circle cx="118" cy="134" r="9" fill="#9ca3dc"/><rect x="134" y="129" width="60" height="9" rx="4" fill="#e7e9f2"/></g>`),
 ];
 /* category colour + icon coding (minimalist, like the first Figma prototype) */
@@ -922,8 +922,8 @@ function renderWissen(){
     return `<div class="chip ${on?'on':''}" onclick="setCat('${c.k}')"><div class="ci" style="background:${bg}">${inner}</div><span>${c.l}</span></div>`;}).join('');
   document.getElementById('wissen-recs').innerHTML=recFor(2).map(cardHTML).join('');
   const list=ARTICLES.map((a,i)=>i).filter(i=>catFilter==='all'||ARTICLES[i].cat===catFilter);
-  document.getElementById('wissen-all-label').textContent=catFilter==='all'?'Alle Themen':CATS.find(c=>c.k===catFilter).l;
-  document.getElementById('wissen-list').innerHTML=list.map(cardHTML).join('')||'<p class="small">Keine Artikel in dieser Kategorie.</p>';
+  document.getElementById('wissen-all-label').textContent=catFilter==='all'?'All topics':CATS.find(c=>c.k===catFilter).l;
+  document.getElementById('wissen-list').innerHTML=list.map(cardHTML).join('')||'<p class="small">No articles in this category.</p>';
 }
 function setCat(k){catFilter=k;renderWissen();}
 function openArticle(i){const a=ARTICLES[i];
@@ -932,45 +932,45 @@ function openArticle(i){const a=ARTICLES[i];
     <span class="pill" style="background:${s.bg};color:${s.c}">${a.catLabel} · ${a.read}</span>
     <h1 style="margin-top:10px">${a.title}</h1>
     <p>${a.body}</p>
-    <div class="card" style="background:var(--good-bg);border:none;margin-top:14px"><h3 style="color:var(--good-tx)">Was du tun kannst</h3>${a.todo.map(t=>`<div class="see" style="color:var(--good-tx)"><span>✓</span><span>${t}</span></div>`).join('')}</div>
-    <p class="small">Bildungsinhalt auf Basis von ESC-/AHA-Leitlinien und der Frauen.Herz.KI-Forschung. Ersetzt keine ärztliche Beratung, Untersuchung oder Diagnose.</p>
-    <div style="display:flex;gap:8px;align-items:center;justify-content:center;margin-top:10px"><span class="small">War das hilfreich?</span><button class="btn sm ghost" onclick="toast('Danke!')">👍</button><button class="btn sm ghost" onclick="toast('Danke fürs Feedback')">👎</button></div>`;
+    <div class="card" style="background:var(--good-bg);border:none;margin-top:14px"><h3 style="color:var(--good-tx)">What you can do</h3>${a.todo.map(t=>`<div class="see" style="color:var(--good-tx)"><span>✓</span><span>${t}</span></div>`).join('')}</div>
+    <p class="small">Educational content based on ESC/AHA guidelines and the Women.Heart.AI research. Does not replace medical advice, examination or diagnosis.</p>
+    <div style="display:flex;gap:8px;align-items:center;justify-content:center;margin-top:10px"><span class="small">Was this helpful?</span><button class="btn sm ghost" onclick="toast('Thank you!')">👍</button><button class="btn sm ghost" onclick="toast('Thanks for the feedback')">👎</button></div>`;
   go('s-article');
 }
 
 /* ---- profil ---- */
 function renderProfil(){
-  document.getElementById('prof-name').textContent=S.seeded?'Sabine, 62':(S.name?(S.name+(S.age?', '+S.age:'')):'Anonymes Profil');
+  document.getElementById('prof-name').textContent=S.seeded?'Sabine, 62':(S.name?(S.name+(S.age?', '+S.age:'')):'Anonymous profile');
   document.getElementById('prof-avatar').textContent=S.seeded?'S':(S.name?S.name[0].toUpperCase():'♥');
-  document.getElementById('prof-sub').textContent='Heart-Score '+(S.score||'–')+(S.anon&&!S.seeded?' · anonym':'');
+  document.getElementById('prof-sub').textContent='Heart score '+(S.score||'–')+(S.anon&&!S.seeded?' · anonymous':'');
 }
 function toggleGuide(){const g=document.getElementById('guide'),btn=document.getElementById('guide-btn');
   if(g.style.display==='none'){
     const a=S.answers||{},preg=(a.preg||[]).some(x=>[0,1,2,3,4].includes(x)),qs=[];
-    if(preg)qs.push('Sollte mein LDL-Cholesterin angesichts meiner Schwangerschafts-Vorgeschichte unter 100 mg/dl liegen?');
-    if(a.meno===4)qs.push('Passt meine Hormonersatztherapie zu meinem Herz-Kreislauf-Profil?');
-    if(a.meno===3)qs.push('Sollte ich wegen meiner frühen Menopause früher zur kardiologischen Vorsorge?');
-    if((a.diagnosen||[]).some(x=>[0,1,2].includes(x)))qs.push('Sind meine Blutdruck-, Cholesterin- und Zuckerwerte gut eingestellt?');
-    if(a.cancer===1||a.autoimmun===1)qs.push('Ist angesichts meiner Vorgeschichte eine kardiologische Kontrolle sinnvoll?');
-    qs.push('Sind regelmäßige Blutdruckkontrollen zu Hause für mich sinnvoll?');
-    qs.push('Welche Untersuchungen sind in meinem Alter und mit meinem Profil empfohlen?');
-    g.innerHTML=qs.slice(0,4).map(q=>`<div class="see"><span>💬</span><span>${q}</span></div>`).join('')+`<button class="btn sm lime" style="width:100%;margin-top:8px" onclick="window.open('sabine-summary.html','_blank')">Zusammenfassung als PDF öffnen</button>`;
-    g.style.display='block';btn.textContent='Leitfaden ausblenden';
-  } else {g.style.display='none';btn.textContent='Gesprächsleitfaden anzeigen';}
+    if(preg)qs.push('Given my pregnancy history, should my LDL cholesterol be below 100 mg/dl?');
+    if(a.meno===4)qs.push('Does my hormone therapy fit my cardiovascular profile?');
+    if(a.meno===3)qs.push('Because of my early menopause, should I start cardiac prevention earlier?');
+    if((a.diagnosen||[]).some(x=>[0,1,2].includes(x)))qs.push('Are my blood pressure, cholesterol and blood sugar well controlled?');
+    if(a.cancer===1||a.autoimmun===1)qs.push('Given my history, does a cardiology check make sense?');
+    qs.push('Would regular blood pressure checks at home make sense for me?');
+    qs.push('Which check-ups are recommended at my age and with my profile?');
+    g.innerHTML=qs.slice(0,4).map(q=>`<div class="see"><span>💬</span><span>${q}</span></div>`).join('')+`<button class="btn sm lime" style="width:100%;margin-top:8px" onclick="window.open('sabine-summary-en.html','_blank')">Open summary as PDF</button>`;
+    g.style.display='block';btn.textContent='Hide talking points';
+  } else {g.style.display='none';btn.textContent='Show talking points';}
 }
 
 /* ---- tracking metric picker ---- */
 const METRICS=[
-  {k:'hr',l:'Herz-\nfrequenz',unit:'bpm · heute',line:'M0 50 L60 46 L120 52 L180 44 L240 48 L300 42',area:'M0 50 L60 46 L120 52 L180 44 L240 48 L300 42 L300 90 L0 90Z',
-    meas:[['07:30 · Apple Watch','58 bpm','good','gut'],['13:10 · Apple Watch','72 bpm','good','gut'],['21:40 · Apple Watch','64 bpm','good','gut']],insight:'↘ Dein Ruhepuls liegt im guten Bereich (Ø 61 bpm).'},
-  {k:'bp',l:'Blut-\ndruck',unit:'mmHg · heute',line:'M0 55 L60 50 L120 46 L180 52 L240 44 L300 48',area:'M0 55 L60 50 L120 46 L180 52 L240 44 L300 48 L300 90 L0 90Z',
-    meas:[['08:14 · Omron','122/78','good','gut'],['12:31 · Apple Watch','119/76','good','gut'],['18:05 · Omron','128/82','warn','erhöht']],insight:'↘ Dein Blutdruck ist in den letzten 30 Tagen um 6 mmHg gesunken.'},
-  {k:'act',l:'Aktivität',unit:'Schritte · heute',line:'M0 70 L60 60 L120 55 L180 40 L240 35 L300 22',area:'M0 70 L60 60 L120 55 L180 40 L240 35 L300 22 L300 90 L0 90Z',
-    meas:[['Heute','7.240 Schritte','good','gut'],['Gestern','9.100 Schritte','good','gut'],['Ø Woche','6.800 Schritte','warn','ok']],insight:'↗ Du warst diese Woche an 4 Tagen aktiv – dranbleiben!'},
-  {k:'sleep',l:'Schlaf',unit:'Stunden · Woche',line:'M0 48 L60 40 L120 52 L180 38 L240 42 L300 36',area:'M0 48 L60 40 L120 52 L180 38 L240 42 L300 36 L300 90 L0 90Z',
-    meas:[['Mo','7 h 20 m','good','gut'],['Di','6 h 10 m','warn','kurz'],['Mi','7 h 40 m','good','gut']],insight:'→ Deine Schlafdauer ist stabil bei rund 7 Stunden.'},
-  {k:'cycle',l:'Zyklus',unit:'Phase · Monat',line:'M0 60 L60 44 L120 30 L180 40 L240 58 L300 62',area:'M0 60 L60 44 L120 30 L180 40 L240 58 L300 62 L300 90 L0 90Z',
-    meas:[['Aktuelle Phase','Lutealphase','good',''],['Letzte Periode','vor 18 Tagen','good',''],['Ø Zykluslänge','28 Tage','good','']],insight:'→ Dein Zyklus wirkt regelmäßig – wir beziehen ihn optional in den Score ein.'}];
+  {k:'hr',l:'Heart\nrate',unit:'bpm · today',line:'M0 50 L60 46 L120 52 L180 44 L240 48 L300 42',area:'M0 50 L60 46 L120 52 L180 44 L240 48 L300 42 L300 90 L0 90Z',
+    meas:[['07:30 · Apple Watch','58 bpm','good','good'],['13:10 · Apple Watch','72 bpm','good','good'],['21:40 · Apple Watch','64 bpm','good','good']],insight:'↘ Your resting heart rate is in a good range (Ø 61 bpm).'},
+  {k:'bp',l:'Blood\npressure',unit:'mmHg · today',line:'M0 55 L60 50 L120 46 L180 52 L240 44 L300 48',area:'M0 55 L60 50 L120 46 L180 52 L240 44 L300 48 L300 90 L0 90Z',
+    meas:[['08:14 · Omron','122/78','good','good'],['12:31 · Apple Watch','119/76','good','good'],['18:05 · Omron','128/82','warn','elevated']],insight:'↘ Your blood pressure has dropped 6 mmHg over the last 30 days.'},
+  {k:'act',l:'Activity',unit:'steps · today',line:'M0 70 L60 60 L120 55 L180 40 L240 35 L300 22',area:'M0 70 L60 60 L120 55 L180 40 L240 35 L300 22 L300 90 L0 90Z',
+    meas:[['Today','7,240 steps','good','good'],['Yesterday','9,100 steps','good','good'],['Ø week','6,800 steps','warn','ok']],insight:'↗ You were active on 4 days this week — keep it up!'},
+  {k:'sleep',l:'Sleep',unit:'hours · week',line:'M0 48 L60 40 L120 52 L180 38 L240 42 L300 36',area:'M0 48 L60 40 L120 52 L180 38 L240 42 L300 36 L300 90 L0 90Z',
+    meas:[['Mon','7 h 20 m','good','good'],['Tue','6 h 10 m','warn','short'],['Wed','7 h 40 m','good','good']],insight:'→ Your sleep duration is stable at around 7 hours.'},
+  {k:'cycle',l:'Cycle',unit:'phase · month',line:'M0 60 L60 44 L120 30 L180 40 L240 58 L300 62',area:'M0 60 L60 44 L120 30 L180 40 L240 58 L300 62 L300 90 L0 90Z',
+    meas:[['Current phase','Luteal phase','good',''],['Last period','18 days ago','good',''],['Ø cycle length','28 days','good','']],insight:'→ Your cycle looks regular — we include it in the score optionally.'}];
 let metric='bp';
 function renderTracking(){
   const MI={hr:'heart',bp:'cardiology',act:'activity',sleep:'moon',cycle:'cycle'};
@@ -987,14 +987,14 @@ function setMetric(k){metric=k;renderTracking();}
 
 /* ---- payer ROI (Krankenkasse vs. Arbeitgeber) ---- */
 const PAYER={
-  kasse:{price:25,unit:'Frauen',q:'Wie viele Frauen (40–69) erreicht ihr?',aLabel:'Teilnehmerin',ctx:'Kassen-Präventionsprogramm nach §20 SGB V',act:0.6,perHead:110,dLabel:'aktivierte Teilnehmerinnen',assume:'60 % Aktivierung · 110 € vermiedene Behandlungs-/Folgekosten je aktivierter Teilnehmerin/Jahr · 25 €/Teilnehmerin/Jahr'},
-  arbeitgeber:{price:10,unit:'Mitarbeiterinnen',q:'Wie viele Mitarbeiterinnen hat Ihr Unternehmen?',aLabel:'Mitarbeiterin',ctx:'betriebliches Gesundheitsmanagement (BGM)',act:0.6,days:0.2,dayCost:350,dLabel:'vermiedene Krankheitstage/J.',assume:'60 % Aktivierung · 0,2 vermiedene Krankheitstage je aktivierter Mitarbeiterin/Jahr · 350 €/Tag · 10 €/Mitarbeiterin/Jahr'},
+  kasse:{price:25,unit:'women',q:'How many women (40–69) do you reach?',aLabel:'participant',ctx:'statutory prevention program, §20 SGB V',act:0.6,perHead:110,dLabel:'activated participants',assume:'60% activation · €110 avoided treatment/follow-up cost per activated participant/year · €25/participant/year'},
+  arbeitgeber:{price:10,unit:'employees',q:'How many employees does your company have?',aLabel:'employee',ctx:'corporate health management',act:0.6,days:0.2,dayCost:350,dLabel:'sick days avoided/yr',assume:'60% activation · 0.2 sick days avoided per activated employee/year · €350/day · €10/employee/year'},
 };
 let roiN=120;
 function setPayer(p){S.payer=p;
   document.querySelectorAll('#payer-seg button').forEach((b,i)=>b.classList.toggle('on',(i===0)===(p==='kasse')));
   roiCalc(roiN);}
-function roiCalc(n){roiN=n;const p=PAYER[S.payer||'kasse'];const de=x=>x.toLocaleString('de-DE');
+function roiCalc(n){roiN=n;const p=PAYER[S.payer||'kasse'];const de=x=>x.toLocaleString('en-US');
   const act=Math.round(n*p.act);
   let dVal,save;
   if(p.days!==undefined){dVal=Math.round(act*p.days);save=dVal*p.dayCost;}
@@ -1005,16 +1005,16 @@ function roiCalc(n){roiN=n;const p=PAYER[S.payer||'kasse'];const de=x=>x.toLocal
   document.getElementById('roi-q').textContent=p.q;
   document.getElementById('roi-days').textContent=de(dVal);
   document.getElementById('roi-dlabel').textContent=p.dLabel;
-  document.getElementById('roi-cost').textContent=de(cost)+' €';
-  document.getElementById('roi-save').textContent=de(net)+' €';
-  document.getElementById('roi-x').textContent=(save/cost).toLocaleString('de-DE',{minimumFractionDigits:1,maximumFractionDigits:1})+'×';
-  document.getElementById('roi-assume').textContent=`Annahmen (Demo): ${p.assume} (${p.ctx}). Im Pilot messen wir eure echten Werte.`;}
+  document.getElementById('roi-cost').textContent='€'+de(cost);
+  document.getElementById('roi-save').textContent='€'+de(net);
+  document.getElementById('roi-x').textContent=(save/cost).toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1})+'×';
+  document.getElementById('roi-assume').textContent=`Assumptions (demo): ${p.assume} (${p.ctx}). In the pilot we measure your real figures.`;}
 
 /* ---- demo seed + reset ---- */
 function seedDemo(){S.answers={age:62,ethnie:0,groesse:168,gewicht:74,smoke:0,activity:1,meno:2,oophor:0,menarche:13,preg:[0],pcos:0,diagnosen:[4],autoimmun:0,cancer:0,depression:0,bp_sys:undefined,ldl:undefined,hba1c:undefined,symptoms:[4]};compute();S.seeded=true;S.name='Sabine';S.anon=false;S.consentApp=true;S.consentResearch=false;
-  S.focus=0;S.week=1;S.planTitle='Mehr Bewegung';S.tasks=TASKS[0].map(t=>({t,done:false}));S.tasks[0].done=true;
+  S.focus=0;S.week=1;S.planTitle='More movement';S.tasks=TASKS[0].map(t=>({t,done:false}));S.tasks[0].done=true;
   renderResult();renderHome();nav('home');}
-function resetDemo(){Object.assign(S,{answers:{},score:0,band:'',factors:[],focus:null,planTitle:'Mehr Bewegung',tasks:[],week:1,safety:false,simple:false,seeded:false,name:'',age:52,anon:undefined,consentApp:true,consentResearch:false});qi=0;catFilter='all';metric='bp';renderQ();go('s-welcome');}
+function resetDemo(){Object.assign(S,{answers:{},score:0,band:'',factors:[],focus:null,planTitle:'More movement',tasks:[],week:1,safety:false,simple:false,seeded:false,name:'',age:52,anon:undefined,consentApp:true,consentResearch:false});qi=0;catFilter='all';metric='bp';renderQ();go('s-welcome');}
 
 /* init */
 renderQ();renderFocus();buildNav('home');renderTracking();roiCalc(120);
